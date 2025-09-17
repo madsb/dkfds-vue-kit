@@ -31,17 +31,17 @@ const { theme, themes } = useTheme()
 }
 
 .theme-label {
-  font-size: 0.875rem;
+  font-size: 1.4rem; /* 14px with 10px base */
   font-weight: 500;
   color: #333;
 }
 
 .theme-select {
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.8rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   background: white;
-  font-size: 0.875rem;
+  font-size: 1.4rem; /* 14px with 10px base */
   cursor: pointer;
   min-width: 120px;
 }

@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { FdsButton } from '@madsb/dkfds-vue3'
 
-// Story metadata
+// Demo state
 const clickCount = ref(0)
 const handleClick = () => {
   clickCount.value++
@@ -10,170 +10,120 @@ const handleClick = () => {
 </script>
 
 <template>
-  <Story 
-    title="Input/Button" 
-    :layout="{ type: 'grid', width: '100%' }"
-    icon="carbon:button-centered"
-  >
-    <Variant title="Theme Comparison" icon="carbon:color-palette">
+  <Story title="Input/Button" :layout="{ type: 'grid', width: '100%' }" icon="carbon:button-centered">
+    <!-- Showcase all button variants in one view -->
+    <Variant title="Showcase" icon="carbon:grid">
       <div class="story-content">
-        <ThemeSwitcher class="mb-6" />
-        <div class="button-row">
-          <FdsButton variant="primary">Primary Button</FdsButton>
-          <FdsButton variant="secondary">Secondary Button</FdsButton>
-          <FdsButton variant="tertiary">Tertiary Button</FdsButton>
+        <div class="variant-grid">
+          <div class="variant-section">
+            <h3 class="section-title">Primary</h3>
+            <FdsButton variant="primary">Primary Button</FdsButton>
+          </div>
+          <div class="variant-section">
+            <h3 class="section-title">Secondary</h3>
+            <FdsButton variant="secondary">Secondary Button</FdsButton>
+          </div>
+          <div class="variant-section">
+            <h3 class="section-title">Tertiary</h3>
+            <FdsButton variant="tertiary">Tertiary Button</FdsButton>
+          </div>
+          <div class="variant-section">
+            <h3 class="section-title">Warning</h3>
+            <FdsButton variant="warning">Warning Button</FdsButton>
+          </div>
         </div>
-        <p class="mt-4 theme-info">
-          Switch between Default, Virk.dk, and Borger.dk themes to see the different styling
+        <p class="story-hint">
+          The button component follows DKFDS v11 design specifications. Try switching themes using
+          the global theme switcher to see how buttons adapt to different contexts.
         </p>
       </div>
     </Variant>
 
-    <Variant title="Default" icon="carbon:dot-mark">
-      <div class="story-content">
-        <FdsButton @click="handleClick">
-          Default Button
-        </FdsButton>
-        <p class="mt-4">Click count: {{ clickCount }}</p>
-      </div>
-    </Variant>
-
-    <Variant title="Variants" icon="carbon:color-palette">
-      <div class="story-content space-y-4">
-        <div>
-          <FdsButton variant="primary">Primary Button</FdsButton>
-        </div>
-        <div>
-          <FdsButton variant="secondary">Secondary Button</FdsButton>
-        </div>
-        <div>
-          <FdsButton variant="tertiary">Tertiary Button</FdsButton>
-        </div>
-        <div>
-          <FdsButton variant="warning">Warning Button</FdsButton>
-        </div>
-      </div>
-    </Variant>
-
+    <!-- Icon variations -->
     <Variant title="With Icons" icon="carbon:add-alt">
-      <div class="story-content space-y-4">
-        <div>
-          <FdsButton icon="save">
-            Save Document
-          </FdsButton>
-        </div>
-        <div>
-          <FdsButton icon="download" variant="secondary">
-            Download File
-          </FdsButton>
-        </div>
-        <div>
-          <FdsButton icon="arrow-forward" icon-right variant="primary">
-            Continue
-          </FdsButton>
-        </div>
-        <div>
-          <FdsButton icon="arrow-back" variant="tertiary">
-            Go Back
-          </FdsButton>
-        </div>
-      </div>
-    </Variant>
-
-    <Variant title="Icon Only" icon="carbon:icon-scale">
-      <div class="story-content space-x-4">
-        <FdsButton 
-          variant="primary" 
-          icon="save" 
-          icon-only 
-          aria-label="Save"
-        />
-        <FdsButton 
-          variant="secondary" 
-          icon="download" 
-          icon-only 
-          aria-label="Download"
-        />
-        <FdsButton 
-          variant="tertiary" 
-          icon="refresh" 
-          icon-only 
-          aria-label="Refresh"
-        />
-        <FdsButton 
-          variant="warning" 
-          icon="delete" 
-          icon-only 
-          aria-label="Delete"
-        />
-      </div>
-    </Variant>
-
-    <Variant title="Disabled States" icon="carbon:stop-sign">
-      <div class="story-content space-y-4">
-        <div>
-          <FdsButton variant="primary" disabled>
-            Disabled Primary
-          </FdsButton>
-        </div>
-        <div>
-          <FdsButton variant="secondary" disabled>
-            Disabled Secondary
-          </FdsButton>
-        </div>
-        <div>
-          <FdsButton variant="tertiary" disabled>
-            Disabled Tertiary
-          </FdsButton>
-        </div>
-        <div>
-          <FdsButton variant="warning" disabled>
-            Disabled Warning
-          </FdsButton>
-        </div>
-      </div>
-    </Variant>
-
-    <Variant title="Full Width Mobile" icon="carbon:mobile">
       <div class="story-content">
-        <p class="mb-4">Resize the viewport to mobile size to see the effect:</p>
-        <FdsButton variant="primary" full-width-mobile>
-          Submit Form
-        </FdsButton>
+        <div class="button-group">
+          <FdsButton icon="save" variant="primary">Save Document</FdsButton>
+          <FdsButton icon="download" variant="secondary">Download File</FdsButton>
+          <FdsButton icon="arrow-forward" icon-right variant="primary">Continue</FdsButton>
+          <FdsButton icon="arrow-back" variant="tertiary">Go Back</FdsButton>
+        </div>
+
+        <div class="divider" />
+
+        <h3 class="section-subtitle">Icon Only Buttons</h3>
+        <div class="button-group horizontal">
+          <FdsButton variant="primary" icon="save" icon-only aria-label="Save" />
+          <FdsButton variant="secondary" icon="download" icon-only aria-label="Download" />
+          <FdsButton variant="tertiary" icon="refresh" icon-only aria-label="Refresh" />
+          <FdsButton variant="warning" icon="delete" icon-only aria-label="Delete" />
+        </div>
+        <p class="story-hint">Icon-only buttons must include an aria-label for accessibility.</p>
       </div>
     </Variant>
 
-    <Variant title="Button Groups" icon="carbon:group-objects">
-      <div class="story-content space-y-6">
-        <div class="button-row">
-          <FdsButton variant="primary">Save</FdsButton>
-          <FdsButton variant="secondary">Cancel</FdsButton>
+    <!-- States demonstration -->
+    <Variant title="States" icon="carbon:status-change">
+      <div class="story-content">
+        <div class="states-grid">
+          <div class="state-column">
+            <h3 class="section-subtitle">Normal</h3>
+            <FdsButton variant="primary" @click="handleClick">Primary</FdsButton>
+            <FdsButton variant="secondary">Secondary</FdsButton>
+            <FdsButton variant="tertiary">Tertiary</FdsButton>
+            <FdsButton variant="warning">Warning</FdsButton>
+          </div>
+          <div class="state-column">
+            <h3 class="section-subtitle">Disabled</h3>
+            <FdsButton variant="primary" disabled>Primary</FdsButton>
+            <FdsButton variant="secondary" disabled>Secondary</FdsButton>
+            <FdsButton variant="tertiary" disabled>Tertiary</FdsButton>
+            <FdsButton variant="warning" disabled>Warning</FdsButton>
+          </div>
         </div>
-        
-        <div class="button-row">
-          <FdsButton variant="secondary" icon="arrow-back">Previous</FdsButton>
-          <FdsButton variant="primary" icon="arrow-forward" icon-right>Next</FdsButton>
+        <p class="story-hint">Click count: {{ clickCount }} - Disabled buttons prevent interaction.</p>
+      </div>
+    </Variant>
+
+    <!-- Responsive behavior -->
+    <Variant title="Responsive" icon="carbon:devices">
+      <div class="story-content">
+        <div class="responsive-demo">
+          <FdsButton variant="primary" full-width-mobile>Submit Form</FdsButton>
+          <FdsButton variant="secondary" full-width-mobile>Cancel</FdsButton>
         </div>
-        
-        <div class="button-row">
+        <p class="story-hint">Resize the viewport to mobile size (< 768px) to see buttons expand to full width.</p>
+
+        <div class="divider" />
+
+        <h3 class="section-subtitle">Button Group Layout</h3>
+        <div class="button-group">
           <FdsButton variant="tertiary">Draft</FdsButton>
           <FdsButton variant="secondary">Preview</FdsButton>
           <FdsButton variant="primary">Publish</FdsButton>
         </div>
+        <p class="story-hint">Button groups automatically adjust spacing and layout on mobile devices.</p>
       </div>
     </Variant>
 
-    <Variant title="Playground" icon="carbon:game-console" :init-state="() => ({
-      text: 'Click Me',
-      variant: 'primary',
-      icon: '',
-      iconRight: false,
-      iconOnly: false,
-      fullWidthMobile: false,
-      disabled: false,
-    })">
+    <!-- Interactive playground -->
+    <Variant
+      title="Playground"
+      icon="carbon:game-console"
+      :init-state="
+        () => ({
+          text: 'Click Me',
+          variant: 'primary',
+          icon: '',
+          iconRight: false,
+          iconOnly: false,
+          fullWidthMobile: false,
+          disabled: false,
+        })
+      "
+    >
       <template #default="{ state }">
-        <div class="story-content">
+        <div class="story-content playground">
           <FdsButton
             :variant="state.variant"
             :icon="state.icon"
@@ -182,15 +132,17 @@ const handleClick = () => {
             :full-width-mobile="state.fullWidthMobile"
             :disabled="state.disabled"
             :aria-label="state.iconOnly ? state.text : undefined"
+            @click="handleClick"
           >
             {{ !state.iconOnly ? state.text : '' }}
           </FdsButton>
+          <p class="story-hint">Click count: {{ clickCount }}</p>
         </div>
       </template>
 
       <template #controls="{ state }">
         <HstText v-model="state.text" title="Button Text" />
-        
+
         <HstSelect
           v-model="state.variant"
           title="Variant"
@@ -201,87 +153,138 @@ const handleClick = () => {
             { value: 'warning', label: 'Warning' },
           ]"
         />
-        
+
         <HstText v-model="state.icon" title="Icon Name" />
-        
+
         <HstCheckbox
           v-model="state.iconRight"
           title="Icon on Right"
           :disabled="!state.icon || state.iconOnly"
         />
-        
-        <HstCheckbox
-          v-model="state.iconOnly"
-          title="Icon Only"
-          :disabled="!state.icon"
-        />
-        
-        <HstCheckbox
-          v-model="state.fullWidthMobile"
-          title="Full Width on Mobile"
-        />
-        
-        <HstCheckbox
-          v-model="state.disabled"
-          title="Disabled"
-        />
+
+        <HstCheckbox v-model="state.iconOnly" title="Icon Only" :disabled="!state.icon" />
+
+        <HstCheckbox v-model="state.fullWidthMobile" title="Full Width on Mobile" />
+
+        <HstCheckbox v-model="state.disabled" title="Disabled" />
       </template>
     </Variant>
   </Story>
 </template>
 
 <style scoped>
+/* Base styles with 10px font-size root */
 .story-content {
-  padding: 2rem;
+  padding: 2.4rem;
+  font-size: 1.6rem; /* 16px with 10px base */
+  line-height: 1.5;
 }
 
-.space-y-4 > * + * {
-  margin-top: 1rem;
+/* Typography */
+.section-title {
+  font-size: 1.6rem; /* 16px */
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #1a1a1a;
 }
 
-.space-x-4 > * + * {
-  margin-left: 1rem;
+.section-subtitle {
+  font-size: 1.4rem; /* 14px */
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #333;
 }
 
-.space-y-6 > * + * {
-  margin-top: 1.5rem;
-}
-
-.button-row {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.theme-info {
-  font-size: 0.875rem;
+.story-hint {
+  font-size: 1.4rem; /* 14px - readable minimum */
   color: #666;
-  font-style: italic;
+  margin-top: 1.6rem;
+  line-height: 1.6;
 }
 
-/* Ensure proper button spacing in the story */
+/* Layout structures */
+.variant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.variant-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.button-group.horizontal {
+  gap: 0.8rem;
+}
+
+.states-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 3.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.state-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.responsive-demo {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.divider {
+  margin: 2.4rem 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.playground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+/* Ensure proper button spacing */
 .story-content :deep(.button) {
   margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .story-content {
+    padding: 1.6rem;
+  }
+
+  .variant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .states-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 
 <docs lang="md">
 # FdsButton
 
-The button component is used to trigger actions in forms, dialogs, and more. It follows the DKFDS v11 design specifications.
+The button component is used to trigger actions in forms, dialogs, and more. It follows the DKFDS v11 design specifications and adapts to different theme contexts (Default, VirkDK, BorgerDK).
 
 ## Usage
 
@@ -303,19 +306,19 @@ const handleClick = () => {
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'primary' \| 'secondary' \| 'tertiary' \| 'warning'` | `'primary'` | Visual style of the button |
-| `icon` | `string` | - | Icon name from DKFDS icon set |
-| `iconRight` | `boolean` | `false` | Position icon on the right side |
-| `iconOnly` | `boolean` | `false` | Style as icon-only button (requires aria-label) |
-| `fullWidthMobile` | `boolean` | `false` | Make button full width on mobile devices |
-| `disabled` | `boolean` | `false` | Disable the button |
+| Prop              | Type                                                  | Default     | Description                                     |
+| ----------------- | ----------------------------------------------------- | ----------- | ----------------------------------------------- |
+| `variant`         | `'primary' \| 'secondary' \| 'tertiary' \| 'warning'` | `'primary'` | Visual style of the button                      |
+| `icon`            | `string`                                              | -           | Icon name from DKFDS icon set                   |
+| `iconRight`       | `boolean`                                             | `false`     | Position icon on the right side                 |
+| `iconOnly`        | `boolean`                                             | `false`     | Style as icon-only button (requires aria-label) |
+| `fullWidthMobile` | `boolean`                                             | `false`     | Make button full width on mobile devices        |
+| `disabled`        | `boolean`                                             | `false`     | Disable the button                              |
 
 ## Events
 
-| Event | Description |
-|-------|-------------|
+| Event   | Description                        |
+| ------- | ---------------------------------- |
 | `click` | Emitted when the button is clicked |
 
 ## Accessibility
@@ -323,19 +326,21 @@ const handleClick = () => {
 - Always provide descriptive text for the button action
 - For icon-only buttons, always include an `aria-label` attribute
 - Ensure sufficient color contrast for all button variants
-- Keyboard navigation is fully supported
+- Keyboard navigation is fully supported (Tab, Enter, Space)
 
 ## Design Guidelines
 
-- **Primary buttons** should be used for the main action on a page
+- **Primary buttons** should be used for main actions (only one per screen)
 - **Secondary buttons** are for secondary actions
-- **Tertiary buttons** are for less important actions
+- **Tertiary buttons** are for less prominent actions
 - **Warning buttons** should be used for destructive actions
-- Only use one primary button per screen/section
 - Group related actions together
+- Consider mobile responsiveness with `fullWidthMobile` prop
 
-## Related Components
+## Themes
 
-- [FdsModal](/components/feedback/modal) - Often triggered by buttons
-- [FdsFormgroup](/components/forms/formgroup) - Buttons are commonly used in forms
+The button component automatically adapts to the selected theme:
+- **Default**: Standard DKFDS styling
+- **VirkDK**: Business-oriented styling for Virk.dk
+- **BorgerDK**: Citizen-oriented styling for Borger.dk
 </docs>

@@ -39,3 +39,21 @@
   /* This class will wrap our actual component demos */
   font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
+/* Global theme switcher positioning */
+.global-theme-controls {
+  /* Styles are inline in histoire.setup.ts for better control */
+  /* This ensures it stays above all story content */
+}
+
+/* Ensure Histoire wrapper doesn't interfere with layout */
+.histoire-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.story-container {
+  width: 100%;
+  height: 100%;
+}
