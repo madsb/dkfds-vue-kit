@@ -55,6 +55,9 @@
     "docs:dev": "pnpm -C docs-site run dev",
     "docs:build": "pnpm -C docs-site run build",
     "docs:preview": "pnpm -C docs-site run preview",
+    "story:dev": "pnpm -C histoire-site run dev",
+    "story:build": "pnpm -C histoire-site run build",
+    "story:preview": "pnpm -C histoire-site run preview",
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {

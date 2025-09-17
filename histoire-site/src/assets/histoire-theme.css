@@ -1,0 +1,41 @@
+/* Histoire UI Theme Overrides - Prevent conflicts with DKFDS */
+
+/* Reset Histoire's default styles that might conflict */
+.histoire-app {
+  /* Use system fonts for Histoire UI to avoid DKFDS font interference */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+/* Ensure Histoire controls don't inherit DKFDS styles */
+.histoire-controls,
+.histoire-toolbar,
+.histoire-sidebar {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+/* Override any DKFDS button styles in Histoire UI */
+.histoire-app button:not(.button) {
+  all: revert;
+}
+
+/* Ensure story iframe has proper isolation */
+.__histoire-sandbox {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+/* Story container styling */
+.histoire-story {
+  padding: 2rem;
+  background: white;
+  min-height: 100vh;
+}
+
+/* Ensure DKFDS styles only apply within story content */
+.story-content {
+  /* This class will wrap our actual component demos */
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
