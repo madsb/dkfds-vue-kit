@@ -1,0 +1,505 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { FdsPre } from '@madsb/dkfds-vue3'
+
+// Demo state for playground
+const sampleJson = ref({
+  user: {
+    id: 12345,
+    name: 'Anders Hansen',
+    email: 'anders.hansen@example.dk',
+    roles: ['user', 'editor'],
+    active: true,
+    lastLogin: '2024-01-15T10:30:00Z'
+  },
+  preferences: {
+    language: 'da',
+    theme: 'light',
+    notifications: {
+      email: true,
+      push: false
+    }
+  }
+})
+</script>
+
+<template>
+  <Story title="Data Display/Pre" :layout="{ type: 'grid', width: '100%' }" icon="carbon:code">
+    <!-- Showcase all pre variations -->
+    <Variant title="Showcase" icon="carbon:grid">
+      <div class="story-content">
+        <div class="variant-grid">
+          <div class="variant-section">
+            <h3 class="section-title">Code Block</h3>
+            <FdsPre
+              header="JavaScript Example"
+              code="const greeting = 'Hello, World!';
+console.log(greeting);
+
+function calculate(a, b) {
+  return a + b;
+}"
+            />
+          </div>
+          <div class="variant-section">
+            <h3 class="section-title">JSON Data</h3>
+            <FdsPre
+              header="API Response"
+              :json="{ status: 'success', data: { id: 1, name: 'Test' }, timestamp: '2024-01-15' }"
+            />
+          </div>
+          <div class="variant-section">
+            <h3 class="section-title">Configuration</h3>
+            <FdsPre header="YAML Config">
+server:
+  host: localhost
+  port: 3000
+database:
+  type: postgresql
+  url: postgres://localhost/db
+logging:
+  level: info
+  format: json
+            </FdsPre>
+          </div>
+        </div>
+        <p class="story-hint">
+          The Pre component follows DKFDS v11 specifications for displaying code blocks and preformatted text.
+          Try switching themes using the global theme switcher to see how it adapts to different contexts.
+        </p>
+      </div>
+    </Variant>
+
+    <!-- Programming languages demonstration -->
+    <Variant title="Code Languages" icon="carbon:application">
+      <div class="story-content">
+        <div class="code-examples">
+          <div class="code-example">
+            <h3 class="section-subtitle">JavaScript</h3>
+            <FdsPre
+              header="Function Example"
+              code="// Async function with error handling
+async function fetchUserData(userId) {
+  try {
+    const response = await fetch(`/api/users/${userId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch user');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error:', error);
+    return null;
+  }
+}"
+            />
+          </div>
+
+          <div class="code-example">
+            <h3 class="section-subtitle">Python</h3>
+            <FdsPre
+              header="Class Definition"
+              code="class UserManager:
+    def __init__(self, database):
+        self.db = database
+        
+    def create_user(self, name, email):
+        user_data = {
+            'name': name,
+            'email': email,
+            'created_at': datetime.now()
+        }
+        return self.db.insert('users', user_data)
+        
+    def get_user(self, user_id):
+        return self.db.find('users', {'id': user_id})"
+            />
+          </div>
+
+          <div class="code-example">
+            <h3 class="section-subtitle">HTML</h3>
+            <FdsPre
+              header="Form Structure"
+              code="<!DOCTYPE html>
+<html lang='da'>
+<head>
+    <meta charset='UTF-8'>
+    <title>DKFDS Form</title>
+</head>
+<body>
+    <form class='form-container'>
+        <div class='form-group'>
+            <label for='name'>Navn</label>
+            <input type='text' id='name' required>
+        </div>
+        <button type='submit'>Send</button>
+    </form>
+</body>
+</html>"
+            />
+          </div>
+        </div>
+        <p class="story-hint">
+          Pre components handle various programming languages with consistent monospace formatting
+          and proper line spacing for readability.
+        </p>
+      </div>
+    </Variant>
+
+    <!-- JSON formatting demonstration -->
+    <Variant title="JSON Formatting" icon="carbon:data-structured">
+      <div class="story-content">
+        <div class="json-examples">
+          <div class="json-example">
+            <h3 class="section-subtitle">Simple Object</h3>
+            <FdsPre
+              header="User Profile"
+              :json="{
+                id: 123,
+                name: 'Maria Larsen',
+                email: 'maria@example.dk',
+                verified: true
+              }"
+            />
+          </div>
+
+          <div class="json-example">
+            <h3 class="section-subtitle">Complex Structure</h3>
+            <FdsPre
+              header="Application Settings"
+              :json="sampleJson"
+            />
+          </div>
+
+          <div class="json-example">
+            <h3 class="section-subtitle">Array Data</h3>
+            <FdsPre
+              header="Menu Items"
+              :json="{
+                navigation: [
+                  { id: 1, title: 'Hjem', url: '/', active: true },
+                  { id: 2, title: 'Om os', url: '/about', active: false },
+                  { id: 3, title: 'Kontakt', url: '/contact', active: false },
+                  { id: 4, title: 'Services', url: '/services', active: false,
+                    children: [
+                      { id: 41, title: 'Web Development', url: '/services/web' },
+                      { id: 42, title: 'Consulting', url: '/services/consulting' }
+                    ]
+                  }
+                ]
+              }"
+            />
+          </div>
+        </div>
+        <p class="story-hint">
+          JSON objects are automatically formatted with proper indentation for enhanced readability.
+          Large JSON objects over 65,535 characters will show a warning message.
+        </p>
+      </div>
+    </Variant>
+
+    <!-- Content variations -->
+    <Variant title="Content Types" icon="carbon:document">
+      <div class="story-content">
+        <div class="content-examples">
+          <div class="content-example">
+            <h3 class="section-subtitle">Log Output</h3>
+            <FdsPre header="Application Logs">
+[2024-01-15 10:30:15] INFO: Application started
+[2024-01-15 10:30:16] DEBUG: Database connection established
+[2024-01-15 10:30:17] INFO: Server listening on port 3000
+[2024-01-15 10:32:45] WARN: High memory usage detected
+[2024-01-15 10:33:12] ERROR: Failed to connect to external API
+[2024-01-15 10:33:13] INFO: Retrying connection in 5 seconds
+[2024-01-15 10:33:18] INFO: Connection restored
+            </FdsPre>
+          </div>
+
+          <div class="content-example">
+            <h3 class="section-subtitle">Command Line</h3>
+            <FdsPre header="Terminal Commands">
+$ npm install @madsb/dkfds-vue3
+$ npm run dev
+
+> dkfds-demo@1.0.0 dev
+> vite
+
+  VITE v4.5.0  ready in 250 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+            </FdsPre>
+          </div>
+
+          <div class="content-example">
+            <h3 class="section-subtitle">Data Format</h3>
+            <FdsPre header="CSV Data">
+id,name,email,department,active
+1,"Anders Hansen",anders@example.dk,IT,true
+2,"Maria Larsen",maria@example.dk,HR,true
+3,"Lars Nielsen",lars@example.dk,Finance,false
+4,"Sofie Andersen",sofie@example.dk,Marketing,true
+5,"Mikkel Jensen",mikkel@example.dk,IT,true
+            </FdsPre>
+          </div>
+        </div>
+        <p class="story-hint">
+          Pre components preserve exact formatting including whitespace, making them ideal for
+          logs, command output, and structured data formats.
+        </p>
+      </div>
+    </Variant>
+
+    <!-- Interactive playground -->
+    <Variant
+      title="Playground"
+      icon="carbon:game-console"
+      :init-state="
+        () => ({
+          contentType: 'code',
+          header: 'Code Example',
+          codeValue: 'const message = \"Hello, Denmark!\";\nconsole.log(message);',
+          jsonValue: '{ \"name\": \"Test User\", \"active\": true }',
+          slotContent: 'Plain text content\nwith line breaks\nand spacing'
+        })
+      "
+    >
+      <template #default="{ state }">
+        <div class="story-content playground">
+          <FdsPre
+            v-if="state.contentType === 'code'"
+            :header="state.header"
+            :code="state.codeValue"
+          />
+          <FdsPre
+            v-else-if="state.contentType === 'json'"
+            :header="state.header"
+            :json="JSON.parse(state.jsonValue)"
+          />
+          <FdsPre v-else :header="state.header">
+            {{ state.slotContent }}
+          </FdsPre>
+        </div>
+      </template>
+
+      <template #controls="{ state }">
+        <HstSelect
+          v-model="state.contentType"
+          title="Content Type"
+          :options="[
+            { value: 'code', label: 'Code String' },
+            { value: 'json', label: 'JSON Object' },
+            { value: 'slot', label: 'Slot Content' }
+          ]"
+        />
+        
+        <HstText v-model="state.header" title="Header Text" />
+        
+        <HstTextarea
+          v-if="state.contentType === 'code'"
+          v-model="state.codeValue"
+          title="Code Content"
+          :rows="6"
+        />
+        
+        <HstTextarea
+          v-if="state.contentType === 'json'"
+          v-model="state.jsonValue"
+          title="JSON String"
+          :rows="4"
+        />
+        
+        <HstTextarea
+          v-if="state.contentType === 'slot'"
+          v-model="state.slotContent"
+          title="Slot Content"
+          :rows="4"
+        />
+      </template>
+    </Variant>
+  </Story>
+</template>
+
+<style scoped>
+/* Base styles with 10px font-size root */
+.story-content {
+  padding: 2.4rem;
+  font-size: 1.6rem; /* 16px with 10px base */
+  line-height: 1.5;
+}
+
+/* Typography */
+.section-title {
+  font-size: 1.6rem; /* 16px */
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #1a1a1a;
+}
+
+.section-subtitle {
+  font-size: 1.4rem; /* 14px */
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+
+.story-hint {
+  font-size: 1.4rem; /* 14px - readable minimum */
+  color: #666;
+  margin-top: 1.6rem;
+  line-height: 1.6;
+}
+
+/* Layout structures */
+.variant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.variant-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.code-examples,
+.json-examples,
+.content-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.code-example,
+.json-example,
+.content-example {
+  width: 100%;
+}
+
+.playground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  width: 100%;
+}
+
+.playground :deep(.fds-pre) {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Ensure pre blocks don't overflow the viewport */
+.story-content :deep(.fds-pre .form-input) {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .story-content {
+    padding: 1.6rem;
+  }
+
+  .variant-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .playground :deep(.fds-pre) {
+    max-width: 100%;
+  }
+}
+</style>
+
+<docs lang="md">
+# FdsPre
+
+The Pre component displays preformatted text and code blocks following DKFDS v11 specifications. It supports syntax highlighting, automatic JSON formatting, and provides scrollable containers for long content. Perfect for technical documentation, code examples, and structured data display.
+
+## Usage
+
+```vue
+<template>
+  <!-- Code string -->
+  <FdsPre
+    header="JavaScript Example"
+    code="const hello = 'world';"
+  />
+  
+  <!-- JSON object -->
+  <FdsPre
+    header="API Response"
+    :json="{ status: 'success', data: userInfo }"
+  />
+  
+  <!-- Slot content -->
+  <FdsPre header="Configuration">
+    server:
+      host: localhost
+      port: 3000
+  </FdsPre>
+</template>
+
+<script setup>
+import { FdsPre } from '@madsb/dkfds-vue3'
+
+const userInfo = { id: 1, name: 'Anders' }
+</script>
+```
+
+## Props
+
+| Prop     | Type             | Default | Description                                           |
+| -------- | ---------------- | ------- | ----------------------------------------------------- |
+| `json`   | `object \| null` | -       | JavaScript object to display as formatted JSON       |
+| `code`   | `string \| null` | -       | Raw code string to display with monospace formatting |
+| `header` | `string`         | -       | Optional header text displayed above the code block  |
+
+## Content Priority
+
+When multiple content sources are provided:
+1. `json` prop takes precedence over `code` prop
+2. `code` prop takes precedence over slot content
+3. Slot content is used when neither `json` nor `code` are provided
+
+## Features
+
+- **Automatic JSON Formatting**: Objects are stringified with proper 2-space indentation
+- **Monospace Font**: Uses system monospace fonts for consistent code display
+- **Scrollable Content**: Long content scrolls horizontally to prevent layout issues
+- **Large Content Warning**: Shows warning for JSON content exceeding 65,535 characters
+- **Accessibility**: Proper semantic markup with fieldset and legend structure
+
+## Accessibility
+
+- Uses semantic `<fieldset>` and `<legend>` elements for proper structure
+- Monospace font ensures consistent character spacing for code readability
+- Scrollable container maintains keyboard navigation within code blocks
+- Screen readers properly announce the header context before code content
+
+## Design Guidelines
+
+- **Use for Code**: Display programming code, configuration files, and structured text
+- **Use for Data**: Show JSON responses, CSV data, and formatted output
+- **Use for Logs**: Display application logs and command line output
+- **Provide Context**: Always include descriptive headers for code blocks
+- **Consider Length**: Long content automatically scrolls but may need pagination
+- **Maintain Formatting**: Preserves exact whitespace and indentation
+
+## Content Types
+
+- **Programming Languages**: JavaScript, Python, HTML, CSS, etc.
+- **Data Formats**: JSON, XML, CSV, YAML
+- **System Output**: Log files, command line output, error messages
+- **Configuration**: Environment files, server configurations
+
+## Themes
+
+The Pre component automatically adapts to the selected theme:
+- **Default**: Standard DKFDS styling with light background
+- **VirkDK**: Business-oriented styling for Virk.dk
+- **BorgerDK**: Citizen-oriented styling for Borger.dk
+</docs>

@@ -11,7 +11,7 @@
       <!-- Icon or Number -->
       <span v-if="hasError" class="step-icon">
         <svg class="icon-svg" :aria-label="errorIconLabel" focusable="false">
-          <use href="#report-problem"></use>
+          <use href="#warning"></use>
         </svg>
       </span>
       <span v-else-if="isCompleted && !isCurrent" class="step-icon">

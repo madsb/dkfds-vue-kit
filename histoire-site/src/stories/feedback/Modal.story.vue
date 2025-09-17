@@ -1,0 +1,462 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { FdsModal, FdsButton } from '@madsb/dkfds-vue3'
+
+// Demo state for interactions
+const basicModalRef = ref(null)
+const largeContentModalRef = ref(null)
+const customModalRef = ref(null)
+const confirmModalRef = ref(null)
+const actionCount = ref(0)
+
+const handleAccept = () => {
+  actionCount.value++
+}
+
+const handleCancel = () => {
+  actionCount.value++
+}
+
+const handleCustomAction = (action: string) => {
+  actionCount.value++
+  console.log(`Custom action: ${action}`)
+}
+
+const openModal = (modalRef: any) => {
+  if (modalRef.value) {
+    modalRef.value.showModal()
+  }
+}
+</script>
+
+<template>
+  <Story title="Feedback/Modal" :layout="{ type: 'grid', width: '100%' }" icon="carbon:popup">
+    <!-- Showcase all modal types -->
+    <Variant title="Showcase" icon="carbon:grid">
+      <div class="story-content">
+        <div class="variant-grid">
+          <div class="variant-section">
+            <h3 class="section-title">Basic Modal</h3>
+            <FdsButton variant="primary" @click="openModal(basicModalRef)">Open Basic Modal</FdsButton>
+            <FdsModal
+              ref="basicModalRef"
+              header="Basic Modal"
+              accept-text="Confirm"
+              cancel-text="Cancel"
+              @accept="handleAccept"
+              @cancel="handleCancel"
+            >
+              This is a basic modal with default actions.
+            </FdsModal>
+          </div>
+          
+          <div class="variant-section">
+            <h3 class="section-title">With Scrollable Content</h3>
+            <FdsButton variant="secondary" @click="openModal(largeContentModalRef)">Open Scrollable Modal</FdsButton>
+            <FdsModal
+              ref="largeContentModalRef"
+              header="Terms and Conditions"
+              accept-text="I Accept"
+              cancel-text="Decline"
+              @accept="handleAccept"
+              @cancel="handleCancel"
+            >
+              <div class="modal-scroll-content">
+                <p>This modal contains a lot of content that demonstrates scrolling behavior within the modal body.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+              </div>
+            </FdsModal>
+          </div>
+          
+          <div class="variant-section">
+            <h3 class="section-title">Custom Actions</h3>
+            <FdsButton variant="tertiary" @click="openModal(customModalRef)">Open Custom Modal</FdsButton>
+            <FdsModal ref="customModalRef" header="Save Document">
+              <p>Would you like to save your changes before closing?</p>
+              <template #footer>
+                <FdsButton variant="primary" @click="handleCustomAction('save-close'); customModalRef.hideModal()">Save & Close</FdsButton>
+                <FdsButton variant="secondary" @click="handleCustomAction('save'); customModalRef.hideModal()">Save Only</FdsButton>
+                <FdsButton variant="tertiary" @click="handleCustomAction('discard'); customModalRef.hideModal()">Discard</FdsButton>
+              </template>
+            </FdsModal>
+          </div>
+          
+          <div class="variant-section">
+            <h3 class="section-title">Non-Closeable</h3>
+            <FdsButton variant="warning" @click="openModal(confirmModalRef)">Critical Action</FdsButton>
+            <FdsModal
+              ref="confirmModalRef"
+              header="Confirm Deletion"
+              :closeable="false"
+              accept-text="Delete"
+              cancel-text="Keep"
+              @accept="handleAccept"
+              @cancel="handleCancel"
+            >
+              <p><strong>Warning:</strong> This action cannot be undone. Are you sure you want to delete this item?</p>
+            </FdsModal>
+          </div>
+        </div>
+        
+        <p class="story-hint">
+          The modal component follows DKFDS v11 design specifications with proper focus management and keyboard navigation. 
+          Try switching themes using the global theme switcher to see how modals adapt to different contexts.
+        </p>
+      </div>
+    </Variant>
+
+    <!-- Focus Management & Accessibility -->
+    <Variant title="Accessibility Features" icon="carbon:accessibility">
+      <div class="story-content">
+        <div class="accessibility-demo">
+          <h3 class="section-subtitle">Focus Management</h3>
+          <p>Modals automatically manage focus and support keyboard navigation:</p>
+          <ul>
+            <li><strong>ESC Key:</strong> Closes closeable modals</li>
+            <li><strong>Tab Navigation:</strong> Cycles through focusable elements within modal</li>
+            <li><strong>Focus Trap:</strong> Prevents tabbing outside modal boundaries</li>
+            <li><strong>Return Focus:</strong> Returns focus to triggering element when closed</li>
+          </ul>
+          
+          <FdsButton variant="primary" @click="openModal(basicModalRef)">Test Focus Management</FdsButton>
+        </div>
+        
+        <div class="divider" />
+        
+        <div class="accessibility-demo">
+          <h3 class="section-subtitle">ARIA Attributes</h3>
+          <p>The modal includes proper ARIA labeling:</p>
+          <ul>
+            <li><code>aria-modal="true"</code> - Identifies the element as a modal</li>
+            <li><code>aria-labelledby</code> - References the modal title for screen readers</li>
+            <li><code>role="dialog"</code> - Provided by native HTML dialog element</li>
+          </ul>
+        </div>
+        
+        <p class="story-hint">
+          Try opening a modal and using keyboard navigation (Tab, Shift+Tab, ESC) to test accessibility features.
+        </p>
+      </div>
+    </Variant>
+
+    <!-- Different Modal Configurations -->
+    <Variant title="Modal Configurations" icon="carbon:settings">
+      <div class="story-content">
+        <div class="config-grid">
+          <div class="config-section">
+            <h3 class="section-subtitle">With Custom Header</h3>
+            <FdsButton variant="secondary" @click="openModal(customModalRef)">Custom Header</FdsButton>
+          </div>
+          
+          <div class="config-section">
+            <h3 class="section-subtitle">Action Confirmation</h3>
+            <FdsButton variant="warning" @click="openModal(confirmModalRef)">Destructive Action</FdsButton>
+          </div>
+          
+          <div class="config-section">
+            <h3 class="section-subtitle">Information Display</h3>
+            <FdsButton variant="tertiary" @click="openModal(largeContentModalRef)">Show Details</FdsButton>
+          </div>
+        </div>
+        
+        <div class="divider" />
+        
+        <div class="stats-display">
+          <p class="section-subtitle">Interaction Count: {{ actionCount }}</p>
+          <p>Track user interactions with modal actions to understand usage patterns.</p>
+        </div>
+        
+        <p class="story-hint">
+          Different modal configurations serve various purposes: confirmations, information display, 
+          multi-step workflows, and critical actions that require user attention.
+        </p>
+      </div>
+    </Variant>
+
+    <!-- Interactive Playground -->
+    <Variant
+      title="Playground"
+      icon="carbon:game-console"
+      :init-state="
+        () => ({
+          header: 'Modal Title',
+          closeable: true,
+          acceptText: 'Confirm',
+          cancelText: 'Cancel',
+          content: 'This is the modal content that you can customize.',
+          showFooter: true,
+        })
+      "
+    >
+      <template #default="{ state }">
+        <div class="story-content playground">
+          <FdsButton variant="primary" @click="openModal(basicModalRef)">Open Modal</FdsButton>
+
+          <p class="story-hint">Actions triggered: {{ actionCount }}</p>
+        </div>
+      </template>
+
+      <template #controls="{ state }">
+        <HstText v-model="state.header" title="Modal Header" />
+
+        <HstTextarea v-model="state.content" title="Modal Content" />
+
+        <HstCheckbox v-model="state.closeable" title="Closeable (ESC key and X button)" />
+
+        <HstText v-model="state.acceptText" title="Accept Button Text" />
+
+        <HstText v-model="state.cancelText" title="Cancel Button Text" />
+
+        <HstCheckbox v-model="state.showFooter" title="Show Footer Actions" />
+      </template>
+    </Variant>
+  </Story>
+</template>
+
+<style scoped>
+/* Base styles with 10px font-size root */
+.story-content {
+  padding: 2.4rem;
+  font-size: 1.6rem; /* 16px with 10px base */
+  line-height: 1.5;
+}
+
+/* Typography */
+.section-title {
+  font-size: 1.6rem; /* 16px */
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #1a1a1a;
+}
+
+.section-subtitle {
+  font-size: 1.4rem; /* 14px */
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+
+.story-hint {
+  font-size: 1.4rem; /* 14px - readable minimum */
+  color: #666;
+  margin-top: 1.6rem;
+  line-height: 1.6;
+}
+
+/* Layout structures */
+.variant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.variant-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.config-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.accessibility-demo {
+  margin-bottom: 2.4rem;
+}
+
+.accessibility-demo ul {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin: 1.2rem 0;
+  padding-left: 2.4rem;
+}
+
+.accessibility-demo li {
+  margin-bottom: 0.8rem;
+}
+
+.accessibility-demo code {
+  background-color: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
+  font-family: monospace;
+  font-size: 1.3rem;
+}
+
+.stats-display {
+  background-color: #f8f9fa;
+  padding: 1.6rem;
+  border-radius: 0.4rem;
+  border: 1px solid #e9ecef;
+}
+
+.modal-scroll-content {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.modal-scroll-content p {
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.divider {
+  margin: 2.4rem 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.playground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 1.6rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .story-content {
+    padding: 1.6rem;
+  }
+
+  .variant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .config-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+
+<docs lang="md">
+# FdsModal
+
+The modal component creates accessible dialog overlays for displaying important information, collecting user input, or confirming actions. Built with the native HTML dialog element and following DKFDS v11 specifications.
+
+## Usage
+
+```vue
+<template>
+  <FdsButton @click="openModal">Open Modal</FdsButton>
+  
+  <FdsModal
+    ref="modalRef"
+    header="Confirm Action"
+    accept-text="Confirm"
+    cancel-text="Cancel"
+    @accept="handleConfirm"
+    @cancel="handleCancel"
+  >
+    Are you sure you want to proceed with this action?
+  </FdsModal>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { FdsModal, FdsButton } from '@madsb/dkfds-vue3'
+
+const modalRef = ref(null)
+
+const openModal = () => {
+  modalRef.value.showModal()
+}
+
+const handleConfirm = () => {
+  console.log('User confirmed')
+}
+
+const handleCancel = () => {
+  console.log('User cancelled')
+}
+</script>
+```
+
+## Props
+
+| Prop         | Type      | Default     | Description                                      |
+| ------------ | --------- | ----------- | ------------------------------------------------ |
+| `header`     | `string`  | -           | Modal header text displayed as title            |
+| `id`         | `string`  | -           | Unique identifier (auto-generated if not set)   |
+| `closeable`  | `boolean` | `true`      | Allow closing with ESC key and X button         |
+| `acceptText` | `string`  | `'Godkend'` | Text for the primary action button              |
+| `cancelText` | `string`  | `'Annuller'`| Text for the cancel button                      |
+
+## Events
+
+| Event    | Description                              |
+| -------- | ---------------------------------------- |
+| `accept` | Emitted when accept button is clicked    |
+| `cancel` | Emitted when cancel button is clicked    |
+| `close`  | Emitted when modal is closed by any means|
+
+## Slots
+
+| Slot     | Description                              |
+| -------- | ---------------------------------------- |
+| `default`| Main modal content                       |
+| `header` | Custom header content                    |
+| `footer` | Custom footer actions                    |
+
+## Methods
+
+| Method      | Description                              |
+| ----------- | ---------------------------------------- |
+| `showModal` | Opens the modal dialog                   |
+| `hideModal` | Closes the modal dialog                  |
+
+## Accessibility
+
+- **Focus Management**: Automatically traps focus within modal and returns to trigger element when closed
+- **Keyboard Navigation**: Supports ESC to close (if closeable), Tab/Shift+Tab for navigation
+- **ARIA Labels**: Includes proper `aria-modal`, `aria-labelledby`, and `role` attributes
+- **Screen Reader Support**: Modal title is properly associated with dialog content
+- **Native Dialog**: Uses HTML dialog element for native browser accessibility support
+
+## Design Guidelines
+
+- Use modals sparingly - they interrupt user workflow
+- **Confirmation Dialogs**: For destructive or irreversible actions
+- **Information Display**: When content requires focused attention
+- **Form Workflows**: For multi-step processes that need isolation
+- Keep modal content concise and focused on single task
+- Provide clear action buttons with descriptive text
+- Consider mobile viewport constraints
+
+## Best Practices
+
+- Always provide a way to dismiss the modal (closeable or cancel button)
+- Use descriptive button text instead of generic "OK"/"Cancel"
+- For critical actions, consider making modal non-closeable
+- Test keyboard navigation and screen reader compatibility
+- Ensure modal content is readable at mobile sizes
+- Avoid nesting modals within other modals
+
+## Themes
+
+The modal component automatically adapts to the selected theme:
+- **Default**: Standard DKFDS styling with neutral background
+- **VirkDK**: Business-oriented styling for Virk.dk
+- **BorgerDK**: Citizen-oriented styling for Borger.dk
+</docs>
