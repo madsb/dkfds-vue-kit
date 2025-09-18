@@ -47,19 +47,7 @@ export const setupVue3 = defineSetupVue3(async ({ app, addWrapper }: { app: App;
     render() {
       return h('div', { class: 'histoire-wrapper' }, [
         h(FdsIconCollection),
-        h('div', {
-          class: 'global-theme-controls',
-          style: {
-            position: 'fixed',
-            top: '10px',
-            right: '10px',
-            zIndex: 100,
-            background: 'white',
-            padding: '0.8rem 1.2rem',
-            borderRadius: '6px',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-          }
-        }, [
+        h('div', { class: 'global-theme-controls' }, [
           h(ThemeSwitcher)
         ]),
         h('div', { class: 'story-container' }, this.$slots.default?.())

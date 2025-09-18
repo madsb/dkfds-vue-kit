@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, unref } from 'vue'
+import type { Ref } from 'vue'
 import { FdsModal, FdsButton } from '@madsb/dkfds-vue3'
 
 // Demo state for interactions
@@ -22,10 +23,10 @@ const handleCustomAction = (action: string) => {
   console.log(`Custom action: ${action}`)
 }
 
-const openModal = (modalRef: any) => {
-  if (modalRef.value) {
-    modalRef.value.showModal()
-  }
+type ModalInstance = InstanceType<typeof FdsModal> | null
+
+const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
+  unref(modal)?.showModal()
 }
 </script>
 

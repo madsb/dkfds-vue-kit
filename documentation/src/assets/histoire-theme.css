@@ -29,8 +29,16 @@
 
 /* Global theme switcher positioning */
 .global-theme-controls {
-  /* Styles are inline in histoire.setup.ts for better control */
-  /* This ensures it stays above all story content */
+  position: fixed;
+  right: 1.6rem;
+  bottom: 1.6rem;
+  z-index: 120;
+  display: flex;
+  pointer-events: none;
+}
+
+.global-theme-controls > * {
+  pointer-events: auto;
 }
 
 /* Ensure Histoire wrapper doesn't interfere with layout */
