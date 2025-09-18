@@ -35,10 +35,10 @@ const tabContent = {
   <Story title="Navigation/Faneblade" :layout="{ type: 'grid', width: '100%' }" icon="carbon:tabs">
     <!-- Showcase all faneblade components in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Navigation Tabs</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Navigation Tabs</h3>
             <fds-faneblade-nav aria-label="User profile sections">
               <fds-faneblade-nav-item
                 href="/profile"
@@ -62,10 +62,10 @@ const tabContent = {
                 @click="handleNavClick"
               />
             </fds-faneblade-nav>
-            <p class="nav-status">Active: {{ activeNavSection }}</p>
+            <p>Active: {{ activeNavSection }}</p>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Content Tabs</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Content Tabs</h3>
             <fds-faneblade>
               <template #tabs>
                 <fds-faneblade-tab
@@ -93,7 +93,7 @@ const tabContent = {
             </fds-faneblade>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The faneblade components follow DKFDS v11 design specifications with full keyboard navigation support.
           Try switching themes using the global theme switcher to see how tabs adapt to different contexts.
         </p>
@@ -102,8 +102,8 @@ const tabContent = {
 
     <!-- Navigation tabs demonstration -->
     <Variant title="Navigation Tabs" icon="carbon:menu">
-      <div class="story-content">
-        <h3 class="section-title">Page Navigation</h3>
+      <div class="container py-6">
+        <h3 class="h5 mb-2">Page Navigation</h3>
         <fds-faneblade-nav aria-label="Case management sections">
           <fds-faneblade-nav-item
             href="/case/overview"
@@ -134,12 +134,12 @@ const tabContent = {
           />
         </fds-faneblade-nav>
         
-        <div class="demo-content">
-          <h4 class="section-subtitle">Current Section: {{ activeNavSection }}</h4>
+        <div>
+          <h4 class="h6 mb-2">Current Section: {{ activeNavSection }}</h4>
           <p>Navigation tabs are ideal for linking to different pages or major sections of an application.</p>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Navigation tabs use semantic anchor links with proper ARIA attributes.
           Click events are prevented here for demo purposes.
         </p>
@@ -148,8 +148,8 @@ const tabContent = {
 
     <!-- Content tabs with panels -->
     <Variant title="Content Tabs" icon="carbon:data-view">
-      <div class="story-content">
-        <h3 class="section-title">Tabbed Content Interface</h3>
+      <div class="container py-6">
+        <h3 class="h5 mb-2">Tabbed Content Interface</h3>
         <fds-faneblade>
           <template #tabs>
             <fds-faneblade-tab
@@ -188,10 +188,10 @@ const tabContent = {
               :id="tabId"
               :active="activeTab === tabId"
             >
-              <div class="panel-content">
-                <h4 class="section-subtitle">{{ tabId.charAt(0).toUpperCase() + tabId.slice(1) }}</h4>
+              <div>
+                <h4 class="h6 mb-2">{{ tabId.charAt(0).toUpperCase() + tabId.slice(1) }}</h4>
                 <p>{{ content }}</p>
-                <div class="panel-actions">
+                <div>
                   <button class="button button--secondary">Edit</button>
                   <button class="button button--tertiary">Export</button>
                 </div>
@@ -200,7 +200,7 @@ const tabContent = {
           </template>
         </fds-faneblade>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Content tabs use proper ARIA tabpanel/tab relationships. Panels are hidden when inactive
           and support keyboard navigation with Tab and arrow keys.
         </p>
@@ -209,12 +209,12 @@ const tabContent = {
 
     <!-- Accessibility and keyboard navigation -->
     <Variant title="Keyboard Navigation" icon="carbon:keyboard">
-      <div class="story-content">
-        <div class="accessibility-demo">
-          <h3 class="section-title">Accessibility Features</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h5 mb-2">Accessibility Features</h3>
           
-          <div class="demo-section">
-            <h4 class="section-subtitle">Tab Navigation</h4>
+          <div>
+            <h4 class="h6 mb-2">Tab Navigation</h4>
             <fds-faneblade>
               <template #tabs>
                 <fds-faneblade-tab
@@ -250,8 +250,8 @@ const tabContent = {
             </fds-faneblade>
           </div>
           
-          <div class="keyboard-help">
-            <h4 class="section-subtitle">Keyboard Instructions</h4>
+          <div>
+            <h4 class="h6 mb-2">Keyboard Instructions</h4>
             <ul>
               <li><strong>Tab:</strong> Move between tab groups and into panel content</li>
               <li><strong>Arrow Keys:</strong> Navigate between tabs within a group</li>
@@ -261,7 +261,7 @@ const tabContent = {
           </div>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           All faneblade components support full keyboard navigation and screen reader accessibility.
           Try using Tab and arrow keys to navigate the tabs above.
         </p>
@@ -282,9 +282,9 @@ const tabContent = {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <div v-if="state.tabType === 'navigation'">
-            <h4 class="section-subtitle">Navigation Tabs</h4>
+            <h4 class="h6 mb-2">Navigation Tabs</h4>
             <fds-faneblade-nav :aria-label="state.navLabel">
               <fds-faneblade-nav-item
                 href="/demo1"
@@ -308,11 +308,11 @@ const tabContent = {
                 @click="(e) => { e.preventDefault(); state.activeDemo = 'demo3' }"
               />
             </fds-faneblade-nav>
-            <p class="demo-result">Active navigation: {{ state.activeDemo }}</p>
+            <p>Active navigation: {{ state.activeDemo }}</p>
           </div>
           
           <div v-else>
-            <h4 class="section-subtitle">Content Tabs</h4>
+            <h4 class="h6 mb-2">Content Tabs</h4>
             <fds-faneblade>
               <template #tabs>
                 <fds-faneblade-tab
@@ -381,141 +381,6 @@ const tabContent = {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.demo-content {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background: #f8f9fa;
-  border-radius: 0.4rem;
-}
-
-.demo-section {
-  margin-bottom: 2.4rem;
-}
-
-.panel-content {
-  padding: 1.6rem 0;
-}
-
-.panel-actions {
-  margin-top: 1.6rem;
-  display: flex;
-  gap: 1.2rem;
-}
-
-.nav-status {
-  margin-top: 1.2rem;
-  padding: 0.8rem;
-  background: #e9ecef;
-  border-radius: 0.4rem;
-  font-size: 1.4rem;
-  color: #495057;
-}
-
-.demo-result {
-  margin-top: 1.6rem;
-  padding: 1.2rem;
-  background: #e3f2fd;
-  border-radius: 0.4rem;
-  font-size: 1.4rem;
-  color: #1565c0;
-}
-
-.accessibility-demo {
-  max-width: 600px;
-}
-
-.keyboard-help {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background: #f8f9fa;
-  border-radius: 0.4rem;
-  border-left: 0.4rem solid #007bff;
-}
-
-.keyboard-help ul {
-  margin: 0;
-  padding-left: 2.4rem;
-  font-size: 1.4rem;
-  line-height: 1.6;
-}
-
-.keyboard-help li {
-  margin-bottom: 0.8rem;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-height: 300px;
-  width: 100%;
-}
-
-/* Ensure proper component spacing */
-.story-content :deep(.tab-container) {
-  margin-bottom: 1.6rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .panel-actions {
-    flex-direction: column;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsFaneblade

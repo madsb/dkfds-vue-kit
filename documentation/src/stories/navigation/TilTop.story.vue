@@ -32,48 +32,48 @@ const scrollToTop = () => {
   >
     <!-- Showcase all variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Default</h3>
-            <div class="demo-container">
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Default</h3>
+            <div>
               <FdsTilTop />
-              <p class="demo-note">Standard back to top button</p>
+              <p>Standard back to top button</p>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Custom Text</h3>
-            <div class="demo-container">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Text</h3>
+            <div>
               <FdsTilTop 
                 visible-text="Tilbage til top"
                 screen-reader-text="Spring til toppen af siden"
               />
-              <p class="demo-note">Custom Danish text</p>
+              <p>Custom Danish text</p>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Slot Content</h3>
-            <div class="demo-container">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Slot Content</h3>
+            <div>
               <FdsTilTop screen-reader-text="Gå til toppen">
                 Op
               </FdsTilTop>
-              <p class="demo-note">Using slot for custom content</p>
+              <p>Using slot for custom content</p>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Custom Threshold</h3>
-            <div class="demo-container">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Threshold</h3>
+            <div>
               <FdsTilTop :threshold="400" visible-text="Top" />
-              <p class="demo-note">Lower threshold (400px)</p>
+              <p>Lower threshold (400px)</p>
             </div>
           </div>
         </div>
-        <div class="scroll-demo">
-          <button @click="simulateScroll" class="demo-button">
+        <div>
+          <button @click="simulateScroll">
             Scroll Down to Show Buttons
           </button>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The back to top component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how the component adapts to different contexts.
           Scroll down to see the buttons appear when the threshold is reached.
@@ -83,34 +83,34 @@ const scrollToTop = () => {
 
     <!-- Visibility and Scroll Behavior -->
     <Variant title="Visibility & Scroll" icon="carbon:view">
-      <div class="story-content">
-        <div class="scroll-behavior-demo">
-          <h3 class="section-subtitle">Scroll Threshold Demonstration</h3>
-          <div class="threshold-examples">
-            <div class="threshold-item">
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Scroll Threshold Demonstration</h3>
+          <div>
+            <div>
               <p><strong>Default (2 screen heights):</strong></p>
               <FdsTilTop visible-text="Standard" />
             </div>
-            <div class="threshold-item">
+            <div>
               <p><strong>Low threshold (300px):</strong></p>
               <FdsTilTop :threshold="300" visible-text="Low" />
             </div>
-            <div class="threshold-item">
+            <div>
               <p><strong>High threshold (1200px):</strong></p>
               <FdsTilTop :threshold="1200" visible-text="High" />
             </div>
           </div>
           
-          <div class="scroll-spacer">
+          <div>
             <p>Scroll down to see different threshold behaviors...</p>
-            <div class="spacer-content">
+            <div>
               <p>Keep scrolling...</p>
               <p>The buttons will appear at different scroll positions</p>
               <p>based on their threshold settings.</p>
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component appears when the user scrolls past the threshold. Default threshold
           is 2 viewport heights, but can be customized. Buttons use smooth scrolling behavior.
         </p>
@@ -119,33 +119,33 @@ const scrollToTop = () => {
 
     <!-- Responsive Behavior -->
     <Variant title="Responsive Design" icon="carbon:devices">
-      <div class="story-content">
-        <div class="responsive-demo">
-          <h3 class="section-subtitle">Desktop vs Mobile Display</h3>
-          <div class="responsive-examples">
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Desktop vs Mobile Display</h3>
+          <div>
             <div class="desktop-view">
-              <h4 class="demo-label">Desktop (≥768px)</h4>
-              <div class="device-mockup desktop">
+              <h4>Desktop (≥768px)</h4>
+              <div>
                 <FdsTilTop visible-text="Til toppen" />
-                <p class="device-note">Shows icon + text</p>
+                <p>Shows icon + text</p>
               </div>
             </div>
             <div class="mobile-view">
-              <h4 class="demo-label">Mobile (<768px)</h4>
-              <div class="device-mockup mobile">
+              <h4>Mobile (<768px)</h4>
+              <div class="mobile">
                 <FdsTilTop visible-text="Til toppen" />
-                <p class="device-note">Shows icon only</p>
+                <p>Shows icon only</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="divider" />
-        <div class="positioning-demo">
-          <h3 class="section-subtitle">Fixed Positioning</h3>
+        <hr class="my-6" />
+        <div>
+          <h3 class="h6 mb-2">Fixed Positioning</h3>
           <p>The button is positioned fixed in the bottom-right corner and doesn't interfere with page content.</p>
           <FdsTilTop :threshold="100" visible-text="Demo Button" />
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Resize the browser window to see responsive behavior. On mobile devices, only the icon
           is visible to save space. The button maintains proper touch targets and accessibility.
         </p>
@@ -154,31 +154,31 @@ const scrollToTop = () => {
 
     <!-- Accessibility Features -->
     <Variant title="Accessibility" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-demo">
-          <h3 class="section-subtitle">Screen Reader Support</h3>
-          <div class="a11y-examples">
-            <div class="a11y-item">
-              <h4 class="demo-label">Default Screen Reader Text</h4>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Screen Reader Support</h3>
+          <div>
+            <div>
+              <h4>Default Screen Reader Text</h4>
               <FdsTilTop />
-              <p class="a11y-note">Announces: "Til toppen af siden"</p>
+              <p>Announces: "Til toppen af siden"</p>
             </div>
-            <div class="a11y-item">
-              <h4 class="demo-label">Custom Screen Reader Text</h4>
+            <div>
+              <h4>Custom Screen Reader Text</h4>
               <FdsTilTop 
                 screen-reader-text="Spring tilbage til toppen af dokumentet"
                 visible-text="Top"
               />
-              <p class="a11y-note">Announces: "Spring tilbage til toppen af dokumentet"</p>
+              <p>Announces: "Spring tilbage til toppen af dokumentet"</p>
             </div>
           </div>
           
-          <div class="divider" />
+          <hr class="my-6" />
           
-          <h3 class="section-subtitle">Keyboard Navigation</h3>
-          <div class="keyboard-demo">
+          <h3 class="h6 mb-2">Keyboard Navigation</h3>
+          <div>
             <FdsTilTop :threshold="50" screen-reader-text="Test keyboard navigation" />
-            <div class="keyboard-instructions">
+            <div>
               <p><strong>Keyboard Support:</strong></p>
               <ul>
                 <li><kbd>Tab</kbd> - Focus the button when visible</li>
@@ -188,7 +188,7 @@ const scrollToTop = () => {
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component provides excellent accessibility with proper ARIA labeling, keyboard navigation,
           and screen reader support. The icon is marked as decorative to avoid redundant announcements.
         </p>
@@ -208,8 +208,8 @@ const scrollToTop = () => {
       })"
     >
       <template #default="{ state }">
-        <div class="story-content playground">
-          <div class="playground-demo">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
+          <div>
             <FdsTilTop
               v-if="!state.useSlot"
               :visible-text="state.visibleText"
@@ -224,13 +224,13 @@ const scrollToTop = () => {
               {{ state.slotContent }}
             </FdsTilTop>
             
-            <div class="playground-info">
+            <div>
               <p>Current threshold: {{ state.threshold }}px</p>
               <p>Scroll down to see the button appear</p>
-              <button @click="simulateScroll" class="demo-button">
+              <button @click="simulateScroll">
                 Scroll to Test Threshold
               </button>
-              <button @click="scrollToTop" class="demo-button">
+              <button @click="scrollToTop">
                 Scroll to Top
               </button>
             </div>
@@ -249,289 +249,6 @@ const scrollToTop = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.demo-label {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 500;
-  margin-bottom: 0.8rem;
-  color: #555;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.demo-container {
-  position: relative;
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px dashed #ccc;
-  border-radius: 4px;
-  padding: 1.6rem;
-  background: #fafafa;
-}
-
-.demo-note {
-  font-size: 1.4rem;
-  color: #666;
-  margin-top: 0.8rem;
-  text-align: center;
-}
-
-.scroll-demo {
-  text-align: center;
-  margin: 2.4rem 0;
-}
-
-.demo-button {
-  background: #0059b3;
-  color: white;
-  border: none;
-  padding: 1.2rem 2.4rem;
-  border-radius: 4px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  margin: 0.8rem;
-}
-
-.demo-button:hover {
-  background: #004494;
-}
-
-/* Scroll behavior demo */
-.scroll-behavior-demo {
-  margin-bottom: 2.4rem;
-}
-
-.threshold-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  margin-bottom: 2.4rem;
-}
-
-.threshold-item {
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background: #f9f9f9;
-}
-
-.scroll-spacer {
-  min-height: 150vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-  padding: 4.8rem 2.4rem;
-  border-radius: 8px;
-}
-
-.spacer-content {
-  margin-top: 2.4rem;
-}
-
-.spacer-content p {
-  margin-bottom: 1.6rem;
-  font-size: 1.4rem;
-  color: #666;
-}
-
-/* Responsive demo */
-.responsive-examples {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.device-mockup {
-  padding: 1.6rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.desktop {
-  background: #f5f5f5;
-  min-width: 200px;
-}
-
-.mobile {
-  background: #f0f0f0;
-  max-width: 120px;
-  margin: 0 auto;
-}
-
-.device-note {
-  font-size: 1.4rem;
-  color: #666;
-  margin-top: 1.2rem;
-  text-align: center;
-}
-
-.positioning-demo {
-  padding: 2.4rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background: #fafafa;
-}
-
-/* Accessibility demo */
-.a11y-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.a11y-item {
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background: #f9f9f9;
-}
-
-.a11y-note {
-  font-size: 1.4rem;
-  color: #0059b3;
-  font-style: italic;
-  margin-top: 0.8rem;
-}
-
-.keyboard-demo {
-  padding: 2.4rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background: #f5f5f5;
-}
-
-.keyboard-instructions {
-  margin-top: 1.6rem;
-}
-
-.keyboard-instructions ul {
-  list-style: none;
-  padding: 0;
-  margin: 1.2rem 0;
-}
-
-.keyboard-instructions li {
-  margin-bottom: 0.8rem;
-  font-size: 1.4rem;
-}
-
-kbd {
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 0.2rem 0.4rem;
-  font-size: 1.2rem;
-  font-family: monospace;
-}
-
-/* Playground */
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-}
-
-.playground-demo {
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-}
-
-.playground-info {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background: #f9f9f9;
-}
-
-.playground-info p {
-  font-size: 1.4rem;
-  color: #666;
-  margin-bottom: 0.8rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .responsive-examples {
-    grid-template-columns: 1fr;
-  }
-
-  .mobile {
-    max-width: 100px;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsTilTop

@@ -17,26 +17,26 @@ const handleHide = () => {
   <Story title="Feedback/Tooltip" :layout="{ type: 'grid', width: '100%' }" icon="carbon:information">
     <!-- Showcase all tooltip variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Click Trigger</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Click Trigger</h3>
             <FdsTooltip
               content="This tooltip is triggered by clicking. It's ideal for mobile devices and touch interfaces."
               trigger="click"
               position="above"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Hover Trigger</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Hover Trigger</h3>
             <FdsTooltip
               content="This tooltip appears on hover. It provides quick contextual information for desktop users."
               trigger="hover"
               position="above"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Custom Icon</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Icon</h3>
             <FdsTooltip
               content="This tooltip uses a custom info icon instead of the default help icon."
               trigger="click"
@@ -44,8 +44,8 @@ const handleHide = () => {
               position="below"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Below Position</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Below Position</h3>
             <FdsTooltip
               content="This tooltip appears below the trigger button when there's sufficient space."
               trigger="hover"
@@ -53,7 +53,7 @@ const handleHide = () => {
             />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The tooltip component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how tooltips adapt to different contexts.
         </p>
@@ -62,43 +62,43 @@ const handleHide = () => {
 
     <!-- Trigger methods demonstration -->
     <Variant title="Trigger Methods" icon="carbon:touch-interaction">
-      <div class="story-content">
-        <div class="trigger-demo">
-          <div class="trigger-group">
-            <h3 class="section-subtitle">Click Trigger (Recommended)</h3>
-            <div class="tooltip-examples">
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Click Trigger (Recommended)</h3>
+            <div>
               <FdsTooltip
                 content="Click triggers are more accessible and work better on touch devices. They stay open until dismissed."
                 trigger="click"
                 position="above"
               />
-              <span class="demo-label">Help with click trigger</span>
+              <span>Help with click trigger</span>
             </div>
-            <p class="demo-description">
+            <p>
               Click triggers provide better accessibility and mobile experience. The tooltip remains visible until
               explicitly dismissed.
             </p>
           </div>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <div class="trigger-group">
-            <h3 class="section-subtitle">Hover Trigger</h3>
-            <div class="tooltip-examples">
+          <div>
+            <h3 class="h6 mb-2">Hover Trigger</h3>
+            <div>
               <FdsTooltip
                 content="Hover triggers show on mouse hover and keyboard focus. They hide when focus is lost."
                 trigger="hover"
                 position="above"
               />
-              <span class="demo-label">Help with hover trigger</span>
+              <span>Help with hover trigger</span>
             </div>
-            <p class="demo-description">
+            <p>
               Hover triggers respond to mouse hover and keyboard focus. They provide immediate feedback
               but may be less accessible on touch devices.
             </p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Use click triggers for better accessibility and mobile support. Hover triggers work well for
           desktop-only applications.
         </p>
@@ -107,11 +107,11 @@ const handleHide = () => {
 
     <!-- Positioning demonstration -->
     <Variant title="Positioning" icon="carbon:direction-curve">
-      <div class="story-content">
-        <div class="positioning-demo">
-          <div class="position-row">
-            <h3 class="section-subtitle">Above Position (Default)</h3>
-            <div class="position-examples">
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Above Position (Default)</h3>
+            <div>
               <FdsTooltip
                 content="This tooltip appears above the trigger. This is the default position and works well in most layouts."
                 trigger="click"
@@ -126,11 +126,11 @@ const handleHide = () => {
             </div>
           </div>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <div class="position-row">
-            <h3 class="section-subtitle">Below Position</h3>
-            <div class="position-examples">
+          <div>
+            <h3 class="h6 mb-2">Below Position</h3>
+            <div>
               <FdsTooltip
                 content="This tooltip appears below the trigger. Use when there's limited space above or for visual balance."
                 trigger="click"
@@ -145,7 +145,7 @@ const handleHide = () => {
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The tooltip automatically adjusts position based on available screen space. The position prop
           serves as a preference rather than a strict requirement.
         </p>
@@ -154,61 +154,61 @@ const handleHide = () => {
 
     <!-- Accessibility features -->
     <Variant title="Accessibility" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-demo">
-          <div class="accessibility-section">
-            <h3 class="section-subtitle">Keyboard Navigation</h3>
-            <div class="keyboard-examples">
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Keyboard Navigation</h3>
+            <div>
               <FdsTooltip
                 content="Press Tab to focus this tooltip trigger, then Enter or Space to activate it."
                 trigger="click"
                 aria-label="Show keyboard help"
               />
-              <span class="demo-label">Keyboard accessible tooltip</span>
+              <span>Keyboard accessible tooltip</span>
             </div>
-            <p class="demo-description">
+            <p>
               Tooltip triggers are fully keyboard accessible. Use Tab to navigate, Enter/Space to activate click triggers.
               Hover triggers activate on focus.
             </p>
           </div>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <div class="accessibility-section">
-            <h3 class="section-subtitle">Custom ARIA Labels</h3>
-            <div class="aria-examples">
+          <div>
+            <h3 class="h6 mb-2">Custom ARIA Labels</h3>
+            <div>
               <FdsTooltip
                 content="This tooltip provides additional context about the form field requirements."
                 trigger="click"
                 aria-label="Show field requirements"
                 icon="info"
               />
-              <span class="demo-label">Field with custom ARIA label</span>
+              <span>Field with custom ARIA label</span>
             </div>
-            <p class="demo-description">
+            <p>
               Use custom aria-label props to provide meaningful descriptions for screen readers.
               The default label is "Vis hjælpetekst" (Show help text).
             </p>
           </div>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <div class="accessibility-section">
-            <h3 class="section-subtitle">Disabled State</h3>
-            <div class="disabled-examples">
+          <div>
+            <h3 class="h6 mb-2">Disabled State</h3>
+            <div>
               <FdsTooltip
                 content="This tooltip is disabled and cannot be activated."
                 trigger="click"
                 :disabled="true"
               />
-              <span class="demo-label">Disabled tooltip</span>
+              <span>Disabled tooltip</span>
             </div>
-            <p class="demo-description">
+            <p>
               Disabled tooltips provide visual feedback that help is not available in the current context.
             </p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           All tooltips support keyboard navigation and screen readers. Press Escape to close any open tooltip.
         </p>
       </div>
@@ -232,7 +232,7 @@ const handleHide = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsTooltip
             :content="state.content"
             :trigger="state.trigger"
@@ -245,8 +245,8 @@ const handleHide = () => {
             @show="handleShow"
             @hide="handleHide"
           />
-          <div class="event-counter">
-            <p class="story-hint">
+          <div>
+            <p class="mt-4 mb-0">
               Show events: {{ showCount }} | Hide events: {{ hideCount }}
             </p>
           </div>
@@ -301,169 +301,6 @@ const handleHide = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-.demo-description {
-  font-size: 1.4rem; /* 14px */
-  color: #555;
-  margin-top: 0.8rem;
-  line-height: 1.5;
-}
-
-.demo-label {
-  font-size: 1.4rem; /* 14px */
-  color: #333;
-  margin-left: 0.8rem;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.2rem;
-}
-
-.trigger-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.trigger-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.tooltip-examples {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.positioning-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.position-row {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.position-examples {
-  display: flex;
-  align-items: center;
-  gap: 2.4rem;
-}
-
-.accessibility-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.accessibility-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.keyboard-examples,
-.aria-examples,
-.disabled-examples {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  gap: 2.4rem;
-}
-
-.event-counter {
-  text-align: center;
-}
-
-/* Tooltip-specific styles */
-.story-content :deep(.tooltip-wrapper) {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .position-examples {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
-  }
-
-  .tooltip-examples,
-  .keyboard-examples,
-  .aria-examples,
-  .disabled-examples {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsTooltip

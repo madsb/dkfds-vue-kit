@@ -35,10 +35,10 @@ const resetForm = () => {
   <Story title="Forms/Formgroup" :layout="{ type: 'grid', width: '100%' }" icon="carbon:form">
     <!-- Showcase all formgroup variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Structure</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Structure</h3>
             <FdsFormgroup>
               <template #default="{ formid, ariaDescribedby }">
                 <FdsLabel :forId="formid">Full Name</FdsLabel>
@@ -48,8 +48,8 @@ const resetForm = () => {
             </FdsFormgroup>
           </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">Required Field</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Required Field</h3>
             <FdsFormgroup>
               <template #default="{ formid, ariaDescribedby }">
                 <FdsLabel :forId="formid" :required="true">Email Address</FdsLabel>
@@ -64,8 +64,8 @@ const resetForm = () => {
             </FdsFormgroup>
           </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">With Error</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Error</h3>
             <FdsFormgroup :is-valid="false">
               <template #default="{ formid, ariaDescribedby }">
                 <FdsLabel :forId="formid" :required="true">Password</FdsLabel>
@@ -81,8 +81,8 @@ const resetForm = () => {
             </FdsFormgroup>
           </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">Optional Field</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Optional Field</h3>
             <FdsFormgroup>
               <template #default="{ formid, ariaDescribedby }">
                 <FdsLabel :forId="formid">Phone Number</FdsLabel>
@@ -97,7 +97,7 @@ const resetForm = () => {
             </FdsFormgroup>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The formgroup component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how form structure adapts to different contexts.
         </p>
@@ -106,11 +106,11 @@ const resetForm = () => {
 
     <!-- Validation states demonstration -->
     <Variant title="Validation States" icon="carbon:status-change">
-      <div class="story-content">
-        <div class="validation-demo">
-          <h3 class="section-subtitle">Form Validation Demo</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Form Validation Demo</h3>
           
-          <div class="form-fields">
+          <div>
             <FdsFormgroup :is-valid="emailValid || !formSubmitted">
               <template #default="{ formid, ariaDescribedby }">
                 <FdsLabel :forId="formid" :required="true">Email Address</FdsLabel>
@@ -151,16 +151,16 @@ const resetForm = () => {
             <FdsButton variant="secondary" @click="resetForm">Reset Form</FdsButton>
           </div>
 
-          <div v-if="formSubmitted" class="validation-status">
-            <p v-if="emailValid && passwordValid" class="success-message">
+          <div v-if="formSubmitted">
+            <p v-if="emailValid && passwordValid">
               ✅ Form is valid and ready for submission
             </p>
-            <p v-else class="error-message">
+            <p v-else>
               ❌ Please fix the errors above
             </p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Try entering invalid data and clicking "Validate Form" to see error states.
           Valid email needs @ symbol, password needs 6+ characters.
         </p>
@@ -169,11 +169,11 @@ const resetForm = () => {
 
     <!-- Component integration patterns -->
     <Variant title="Component Integration" icon="carbon:integration">
-      <div class="story-content">
-        <div class="integration-examples">
-          <h3 class="section-subtitle">Different Input Types</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Different Input Types</h3>
           
-          <div class="form-examples">
+          <div>
             <FdsFormgroup>
               <template #default="{ formid, ariaDescribedby }">
                 <FdsLabel :forId="formid">Search Query</FdsLabel>
@@ -216,7 +216,7 @@ const resetForm = () => {
             </FdsFormgroup>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Formgroup provides consistent structure and accessibility regardless of input type.
           All form controls inherit proper ARIA relationships automatically.
         </p>
@@ -225,9 +225,9 @@ const resetForm = () => {
 
     <!-- Accessibility demonstration -->
     <Variant title="Accessibility Features" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-demo">
-          <h3 class="section-subtitle">Screen Reader Support</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Screen Reader Support</h3>
           
           <FdsFormgroup id="accessible-example" :is-valid="false">
             <template #default="{ formid, ariaDescribedby }">
@@ -245,9 +245,9 @@ const resetForm = () => {
             </template>
           </FdsFormgroup>
 
-          <div class="accessibility-info">
-            <h4 class="info-title">Accessibility Features:</h4>
-            <ul class="accessibility-list">
+          <div>
+            <h4>Accessibility Features:</h4>
+            <ul>
               <li>✅ Form controls are properly associated with labels</li>
               <li>✅ Hint text is linked via aria-describedby</li>
               <li>✅ Error messages are announced to screen readers</li>
@@ -257,7 +257,7 @@ const resetForm = () => {
             </ul>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           All accessibility attributes are managed automatically. Use browser dev tools to inspect
           the ARIA relationships and see how form structure supports assistive technologies.
         </p>
@@ -283,7 +283,7 @@ const resetForm = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsFormgroup :is-valid="state.isValid">
             <template #default="{ formid, ariaDescribedby }">
               <FdsLabel :forId="formid" :required="state.required">
@@ -341,168 +341,6 @@ const resetForm = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  align-items: center;
-  margin-top: 2.4rem;
-}
-
-/* Validation demo specific */
-.validation-demo {
-  max-width: 500px;
-}
-
-.form-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.validation-status {
-  margin-top: 1.6rem;
-  padding: 1.2rem;
-  border-radius: 4px;
-  font-size: 1.4rem;
-}
-
-.success-message {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-  margin: 0;
-}
-
-.error-message {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-  margin: 0;
-}
-
-/* Integration examples */
-.integration-examples {
-  max-width: 600px;
-}
-
-.form-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-/* Accessibility demo */
-.accessibility-demo {
-  max-width: 600px;
-}
-
-.accessibility-info {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-  border: 1px solid #e9ecef;
-}
-
-.info-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.accessibility-list {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  margin: 0;
-  padding-left: 1.6rem;
-}
-
-.accessibility-list li {
-  margin-bottom: 0.8rem;
-}
-
-/* Playground */
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  min-height: 200px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* Form spacing */
-.story-content :deep(.form-group) {
-  margin-bottom: 0;
-}
-
-.story-content :deep(.form-group + .form-group) {
-  margin-top: 2.4rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .variant-section {
-    gap: 1.2rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsFormgroup

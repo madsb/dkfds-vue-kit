@@ -13,10 +13,10 @@ const handleCardClick = () => {
   <Story title="Data Display/Card" :layout="{ type: 'grid', width: '100%' }" icon="carbon:data-view">
     <!-- Showcase all card variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Card</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Card</h3>
             <FdsCard
               header="Card Title"
               subheader="Category"
@@ -24,8 +24,8 @@ const handleCardClick = () => {
               This is a basic card with header, subheader, and content.
             </FdsCard>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Navigation Card</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Navigation Card</h3>
             <FdsCard
               header="Article Title"
               subheader="News"
@@ -34,8 +34,8 @@ const handleCardClick = () => {
               Click this card to navigate to an article.
             </FdsCard>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Card with Image</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Card with Image</h3>
             <FdsCard
               header="Visual Content"
               subheader="Media"
@@ -48,8 +48,8 @@ const handleCardClick = () => {
               Card with visual content and image slot.
             </FdsCard>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Card with Actions</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Card with Actions</h3>
             <FdsCard
               header="Interactive Card"
               subheader="Actions"
@@ -62,7 +62,7 @@ const handleCardClick = () => {
             </FdsCard>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The card component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how cards adapt to different contexts.
         </p>
@@ -71,8 +71,8 @@ const handleCardClick = () => {
 
     <!-- Card group layouts -->
     <Variant title="Card Groups" icon="carbon:grid">
-      <div class="story-content">
-        <h3 class="section-subtitle">Default Layout</h3>
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Default Layout</h3>
         <FdsCardGroup>
           <FdsCard header="Service 1" subheader="Category" to="#service-1">
             Description of the first service with clickable navigation.
@@ -85,9 +85,9 @@ const handleCardClick = () => {
           </FdsCard>
         </FdsCardGroup>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Deck Layout (Equal Heights)</h3>
+        <h3 class="h6 mb-2">Deck Layout (Equal Heights)</h3>
         <FdsCardGroup type="deck">
           <FdsCard header="Short Content" subheader="Brief">
             Brief description.
@@ -100,9 +100,9 @@ const handleCardClick = () => {
           </FdsCard>
         </FdsCardGroup>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Columns Layout (Masonry)</h3>
+        <h3 class="h6 mb-2">Columns Layout (Masonry)</h3>
         <FdsCardGroup type="columns">
           <FdsCard header="News Article" subheader="Today">
             Latest news content with natural height.
@@ -118,7 +118,7 @@ const handleCardClick = () => {
           </FdsCard>
         </FdsCardGroup>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Card groups provide responsive layouts. Resize the viewport to see how cards adapt.
           Click count: {{ clickCount }}
         </p>
@@ -127,9 +127,9 @@ const handleCardClick = () => {
 
     <!-- External and navigation cards -->
     <Variant title="Navigation & Links" icon="carbon:arrow-forward">
-      <div class="story-content">
-        <div class="navigation-demo">
-          <h3 class="section-subtitle">Internal Navigation</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Internal Navigation</h3>
           <FdsCardGroup>
             <FdsCard
               header="Dashboard"
@@ -148,9 +148,9 @@ const handleCardClick = () => {
             </FdsCard>
           </FdsCardGroup>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">External Links</h3>
+          <h3 class="h6 mb-2">External Links</h3>
           <FdsCardGroup>
             <FdsCard
               header="DKFDS Documentation"
@@ -169,9 +169,9 @@ const handleCardClick = () => {
             </FdsCard>
           </FdsCardGroup>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">Long Variant</h3>
+          <h3 class="h6 mb-2">Long Variant</h3>
           <FdsCard
             variant="long"
             header="Detailed Information Card"
@@ -190,7 +190,7 @@ const handleCardClick = () => {
             </template>
           </FdsCard>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Navigation cards automatically detect internal vs external links and show appropriate icons.
         </p>
       </div>
@@ -198,9 +198,9 @@ const handleCardClick = () => {
 
     <!-- Card states and variations -->
     <Variant title="Content Variations" icon="carbon:document">
-      <div class="story-content">
-        <div class="content-variations">
-          <h3 class="section-subtitle">Different Content Types</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Different Content Types</h3>
           <FdsCardGroup type="deck">
             <FdsCard header="Image Card">
               <template #image>
@@ -228,9 +228,9 @@ const handleCardClick = () => {
             </FdsCard>
           </FdsCardGroup>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">Header Hierarchy</h3>
+          <h3 class="h6 mb-2">Header Hierarchy</h3>
           <FdsCardGroup>
             <FdsCard header="H2 Header" header-tag="h2" subheader="Default">
               Default semantic heading level (h2) for main content sections.
@@ -243,7 +243,7 @@ const handleCardClick = () => {
             </FdsCard>
           </FdsCardGroup>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Choose appropriate heading levels for semantic document structure and accessibility.
         </p>
       </div>
@@ -269,7 +269,7 @@ const handleCardClick = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsCard
             :header="state.header"
             :subheader="state.subheader"
@@ -289,7 +289,7 @@ const handleCardClick = () => {
               <FdsButton variant="primary" @click="handleCardClick">Action</FdsButton>
             </template>
           </FdsCard>
-          <p class="story-hint">Click count: {{ clickCount }}</p>
+          <p class="mt-4 mb-0">Click count: {{ clickCount }}</p>
         </div>
       </template>
 
@@ -329,97 +329,6 @@ const handleCardClick = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.navigation-demo {
-  max-width: 100%;
-}
-
-.content-variations {
-  max-width: 100%;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-.playground :deep(.card) {
-  max-width: 400px;
-  width: 100%;
-}
-
-/* Card group spacing */
-.story-content :deep(.card-group) {
-  margin-bottom: 1.6rem;
-}
-
-/* Ensure proper card spacing in variants */
-.story-content :deep(.card) {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsCard & FdsCardGroup

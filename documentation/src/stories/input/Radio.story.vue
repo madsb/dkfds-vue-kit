@@ -19,18 +19,18 @@ const handleRadioChange = () => {
   <Story title="Input/Radio" :layout="{ type: 'grid', width: '100%' }" icon="carbon:radio-button">
     <!-- Showcase all radio group variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Radio Group</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Radio Group</h3>
             <FdsRadioGroup v-model="paymentMethod" label="Payment Method">
               <FdsRadioItem value="card">Credit Card</FdsRadioItem>
               <FdsRadioItem value="bank">Bank Transfer</FdsRadioItem>
               <FdsRadioItem value="cash">Cash</FdsRadioItem>
             </FdsRadioGroup>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Help Text</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Help Text</h3>
             <FdsRadioGroup
               v-model="contactMethod"
               label="Contact Method"
@@ -41,8 +41,8 @@ const handleRadioChange = () => {
               <FdsRadioItem value="mail">Postal Mail</FdsRadioItem>
             </FdsRadioGroup>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Disabled Options</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Disabled Options</h3>
             <FdsRadioGroup v-model="newsletterFrequency" label="Newsletter Frequency">
               <FdsRadioItem value="daily">Daily</FdsRadioItem>
               <FdsRadioItem value="weekly">Weekly</FdsRadioItem>
@@ -51,7 +51,7 @@ const handleRadioChange = () => {
             </FdsRadioGroup>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Radio groups follow DKFDS v11 design specifications for single-choice selection.
           Try switching themes using the global theme switcher to see how radio buttons adapt to different contexts.
         </p>
@@ -60,13 +60,13 @@ const handleRadioChange = () => {
 
     <!-- Conditional content demonstration -->
     <Variant title="With Conditional Content" icon="carbon:chevron-down">
-      <div class="story-content">
+      <div class="container py-6">
         <FdsRadioGroup v-model="serviceType" label="What type of service do you need?">
           <FdsRadioItem value="standard">Standard Service</FdsRadioItem>
           <FdsRadioItem value="priority">Priority Service</FdsRadioItem>
           <FdsRadioItem value="phone-support">Phone Support
             <template #content>
-              <div class="conditional-content">
+              <div>
                 <label for="phone-input" class="form-label">Phone Number</label>
                 <input
                   id="phone-input"
@@ -80,12 +80,12 @@ const handleRadioChange = () => {
           </FdsRadioItem>
           <FdsRadioItem value="other">Other
             <template #content>
-              <div class="conditional-content">
+              <div>
                 <label for="other-input" class="form-label">Please specify</label>
                 <textarea
                   id="other-input"
                   v-model="otherService"
-                  class="form-textarea"
+                 
                   rows="3"
                   placeholder="Describe the service you need"
                 ></textarea>
@@ -93,7 +93,7 @@ const handleRadioChange = () => {
             </template>
           </FdsRadioItem>
         </FdsRadioGroup>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Radio items can reveal additional content when selected. This is useful for gathering
           conditional information based on the user's choice.
         </p>
@@ -102,18 +102,18 @@ const handleRadioChange = () => {
 
     <!-- States demonstration -->
     <Variant title="States" icon="carbon:status-change">
-      <div class="story-content">
-        <div class="states-grid">
-          <div class="state-column">
-            <h3 class="section-subtitle">Normal State</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Normal State</h3>
             <FdsRadioGroup v-model="paymentMethod" label="Payment Options">
               <FdsRadioItem value="card">Credit Card</FdsRadioItem>
               <FdsRadioItem value="debit">Debit Card</FdsRadioItem>
               <FdsRadioItem value="paypal">PayPal</FdsRadioItem>
             </FdsRadioGroup>
           </div>
-          <div class="state-column">
-            <h3 class="section-subtitle">With Disabled Options</h3>
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">With Disabled Options</h3>
             <FdsRadioGroup v-model="contactMethod" label="Notification Method">
               <FdsRadioItem value="email">Email</FdsRadioItem>
               <FdsRadioItem value="sms" disabled>SMS (Unavailable)</FdsRadioItem>
@@ -122,7 +122,7 @@ const handleRadioChange = () => {
             </FdsRadioGroup>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Radio buttons support various states including normal, selected, and disabled.
           Disabled options prevent selection and show appropriate visual feedback.
         </p>
@@ -131,7 +131,7 @@ const handleRadioChange = () => {
 
     <!-- Accessibility demonstration -->
     <Variant title="Accessibility Features" icon="carbon:accessibility">
-      <div class="story-content">
+      <div class="container py-6">
         <FdsRadioGroup
           v-model="serviceType"
           label="Service Priority Level"
@@ -143,15 +143,15 @@ const handleRadioChange = () => {
           <FdsRadioItem value="urgent">Urgent (Same day)</FdsRadioItem>
         </FdsRadioGroup>
 
-        <div class="accessibility-info">
-          <h3 class="section-subtitle">Keyboard Navigation</h3>
-          <ul class="accessibility-list">
+        <div>
+          <h3 class="h6 mb-2">Keyboard Navigation</h3>
+          <ul>
             <li><kbd>Tab</kbd> - Navigate to radio group</li>
             <li><kbd>↑/↓</kbd> or <kbd>←/→</kbd> - Navigate between options</li>
             <li><kbd>Space</kbd> - Select focused option</li>
           </ul>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Radio groups are fully accessible with ARIA labels, keyboard navigation,
           and screen reader support. The fieldset and legend provide proper grouping semantics.
         </p>
@@ -178,7 +178,7 @@ const handleRadioChange = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsRadioGroup
             v-model="state.selectedValue"
             :label="state.label"
@@ -195,7 +195,7 @@ const handleRadioChange = () => {
               {{ state.option3Text }}
             </FdsRadioItem>
           </FdsRadioGroup>
-          <p class="story-hint">Selected value: {{ state.selectedValue }}</p>
+          <p class="mt-4 mb-0">Selected value: {{ state.selectedValue }}</p>
         </div>
       </template>
 
@@ -204,7 +204,7 @@ const handleRadioChange = () => {
         <HstText v-model="state.helpText" title="Help Text" />
         <HstCheckbox v-model="state.showHelpText" title="Show Help Text" />
         
-        <div class="control-divider"></div>
+        <div></div>
         
         <HstSelect
           v-model="state.selectedValue"
@@ -216,7 +216,7 @@ const handleRadioChange = () => {
           ]"
         />
         
-        <div class="control-divider"></div>
+        <div></div>
         
         <HstText v-model="state.option1Text" title="Option 1 Text" />
         <HstCheckbox v-model="state.option1Disabled" title="Option 1 Disabled" />
@@ -231,160 +231,6 @@ const handleRadioChange = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.states-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.state-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.conditional-content {
-  margin-top: 1.6rem;
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-}
-
-.conditional-content .form-label {
-  display: block;
-  margin-bottom: 0.8rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.conditional-content .form-input,
-.conditional-content .form-textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1.4rem;
-  line-height: 1.5;
-}
-
-.conditional-content .form-textarea {
-  resize: vertical;
-  min-height: 8rem;
-}
-
-.accessibility-info {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #f0f8ff;
-  border-radius: 4px;
-  border-left: 4px solid #0066cc;
-}
-
-.accessibility-list {
-  margin: 1.2rem 0 0 2.4rem;
-  font-size: 1.4rem;
-  line-height: 1.6;
-}
-
-.accessibility-list li {
-  margin-bottom: 0.8rem;
-}
-
-.accessibility-list kbd {
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 0.2rem 0.4rem;
-  font-family: monospace;
-  font-size: 1.2rem;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-.control-divider {
-  height: 1px;
-  background-color: #e0e0e0;
-  margin: 1.6rem 0;
-}
-
-/* Ensure proper spacing for radio groups */
-.story-content :deep(.form-group-radio) {
-  margin-bottom: 1.2rem;
-}
-
-.story-content :deep(fieldset) {
-  margin-bottom: 2.4rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .states-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .conditional-content {
-    padding: 1.2rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsRadioGroup & FdsRadioItem

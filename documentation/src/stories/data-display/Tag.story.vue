@@ -40,37 +40,37 @@ const removeTag = (tagId: string) => {
   <Story title="Data Display/Tag" :layout="{ type: 'grid', width: '100%' }" icon="carbon:tag">
     <!-- Showcase all tag variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Standard Tags</h3>
-            <div class="tag-group">
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Standard Tags</h3>
+            <div>
               <FdsTag>Bornholm</FdsTag>
               <FdsTag>Sjælland</FdsTag>
               <FdsTag>Fyn</FdsTag>
               <FdsTag>Jylland</FdsTag>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Icons</h3>
-            <div class="tag-group">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Icons</h3>
+            <div>
               <FdsTag icon="star">Favorite</FdsTag>
               <FdsTag icon="bookmark">Bookmark</FdsTag>
               <FdsTag icon="check">Selected</FdsTag>
               <FdsTag icon="highlight-off">Removable</FdsTag>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Interactive Tags</h3>
-            <div class="tag-group">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Interactive Tags</h3>
+            <div>
               <FdsTag @click="handleTagClick">Clickable</FdsTag>
               <FdsTag @click="handleTagClick">Interactive</FdsTag>
               <FdsTag @click="handleTagClick">Actionable</FdsTag>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Descriptive Tags</h3>
-            <div class="tag-group">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Descriptive Tags</h3>
+            <div>
               <FdsTag>JavaScript</FdsTag>
               <FdsTag>Vue 3</FdsTag>
               <FdsTag>TypeScript</FdsTag>
@@ -78,7 +78,7 @@ const removeTag = (tagId: string) => {
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The tag component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how tags adapt to different contexts.
         </p>
@@ -87,9 +87,9 @@ const removeTag = (tagId: string) => {
 
     <!-- Filtering/Selection demonstration -->
     <Variant title="Filter Tags" icon="carbon:filter">
-      <div class="story-content">
-        <h3 class="section-subtitle">Select Categories</h3>
-        <div class="tag-group">
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Select Categories</h3>
+        <div>
           <FdsTag 
             v-for="category in ['Technology', 'Design', 'Development', 'Accessibility', 'DKFDS']"
             :key="category"
@@ -100,15 +100,15 @@ const removeTag = (tagId: string) => {
           </FdsTag>
         </div>
         
-        <div class="filter-results">
-          <h4 class="section-subtitle">Selected Filters</h4>
-          <div v-if="selectedTags.length > 0" class="selected-tags">
-            <span v-for="tag in selectedTags" :key="tag" class="selected-tag">{{ tag }}</span>
+        <div>
+          <h4 class="h6 mb-2">Selected Filters</h4>
+          <div v-if="selectedTags.length > 0">
+            <span v-for="tag in selectedTags" :key="tag">{{ tag }}</span>
           </div>
-          <p v-else class="no-selection">No filters selected</p>
+          <p v-else>No filters selected</p>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click tags to toggle selection. This pattern is commonly used for filtering content
           or selecting categories in forms and search interfaces.
         </p>
@@ -117,9 +117,9 @@ const removeTag = (tagId: string) => {
 
     <!-- Removable tags demonstration -->
     <Variant title="Removable Tags" icon="carbon:close">
-      <div class="story-content">
-        <h3 class="section-subtitle">Manage Your Tags</h3>
-        <div class="tag-group">
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Manage Your Tags</h3>
+        <div>
           <FdsTag 
             v-for="tag in removableTags.filter(t => t.active)"
             :key="tag.id"
@@ -130,17 +130,17 @@ const removeTag = (tagId: string) => {
           </FdsTag>
         </div>
 
-        <div v-if="removableTags.filter(t => t.active).length === 0" class="empty-state">
+        <div v-if="removableTags.filter(t => t.active).length === 0">
           <p>All tags have been removed.</p>
           <button 
-            class="reset-button"
+           
             @click="removableTags.forEach(t => { t.active = true })"
           >
             Reset Tags
           </button>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Tags with close icons allow users to remove items from lists, clear filters,
           or dismiss categories. Click the × icon to remove a tag.
         </p>
@@ -149,13 +149,13 @@ const removeTag = (tagId: string) => {
 
     <!-- Use cases and patterns -->
     <Variant title="Common Patterns" icon="carbon:catalog">
-      <div class="story-content">
-        <div class="pattern-section">
-          <h3 class="section-subtitle">Content Metadata</h3>
-          <div class="content-card">
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Content Metadata</h3>
+          <div>
             <h4>Article Title</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-            <div class="tag-group metadata">
+            <div>
               <FdsTag>Politik</FdsTag>
               <FdsTag>Økonomi</FdsTag>
               <FdsTag>Samfund</FdsTag>
@@ -163,13 +163,13 @@ const removeTag = (tagId: string) => {
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="pattern-section">
-          <h3 class="section-subtitle">User Skills/Interests</h3>
-          <div class="profile-section">
+        <div>
+          <h3 class="h6 mb-2">User Skills/Interests</h3>
+          <div>
             <p><strong>Skills:</strong></p>
-            <div class="tag-group">
+            <div>
               <FdsTag icon="check">Vue.js</FdsTag>
               <FdsTag icon="check">TypeScript</FdsTag>
               <FdsTag icon="check">Accessibility</FdsTag>
@@ -178,27 +178,27 @@ const removeTag = (tagId: string) => {
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="pattern-section">
-          <h3 class="section-subtitle">Status Indicators</h3>
-          <div class="status-section">
-            <div class="status-row">
+        <div>
+          <h3 class="h6 mb-2">Status Indicators</h3>
+          <div>
+            <div>
               <span>Application Status:</span>
               <FdsTag>Under review</FdsTag>
             </div>
-            <div class="status-row">
+            <div>
               <span>Priority Level:</span>
               <FdsTag icon="warning">High</FdsTag>
             </div>
-            <div class="status-row">
+            <div>
               <span>Department:</span>
               <FdsTag>IT Department</FdsTag>
             </div>
           </div>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Tags work best as supplementary information. Use them to provide context,
           enable filtering, or indicate status without overwhelming the primary content.
         </p>
@@ -219,7 +219,7 @@ const removeTag = (tagId: string) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsTag
             :icon="state.icon || undefined"
             :id="state.id || undefined"
@@ -227,7 +227,7 @@ const removeTag = (tagId: string) => {
           >
             {{ state.text }}
           </FdsTag>
-          <p v-if="state.showClickCount" class="story-hint">Click count: {{ clickCount }}</p>
+          <p v-if="state.showClickCount" class="mt-4 mb-0">Click count: {{ clickCount }}</p>
         </div>
       </template>
 
@@ -244,213 +244,6 @@ const removeTag = (tagId: string) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.tag-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  align-items: center;
-}
-
-.tag-group.metadata {
-  margin-top: 1.2rem;
-}
-
-/* Tag states and interactions */
-:deep(.tag-selected) {
-  background-color: #0059b3;
-  color: white;
-}
-
-:deep(.tag-selected:hover) {
-  background-color: #004494;
-}
-
-/* Filter results */
-.filter-results {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-radius: 0.4rem;
-}
-
-.selected-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-.selected-tag {
-  background-color: #e3f2fd;
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.4rem;
-  font-size: 1.4rem;
-  color: #1565c0;
-  border: 1px solid #bbdefb;
-}
-
-.no-selection {
-  color: #666;
-  font-style: italic;
-  margin: 0;
-}
-
-/* Content examples */
-.content-card {
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.4rem;
-  background-color: #fff;
-}
-
-.content-card h4 {
-  margin: 0 0 0.8rem 0;
-  font-size: 1.6rem;
-  color: #1a1a1a;
-}
-
-.content-card p {
-  margin: 0;
-  color: #666;
-  line-height: 1.6;
-}
-
-.profile-section {
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-radius: 0.4rem;
-}
-
-.profile-section p {
-  margin: 0 0 1.2rem 0;
-  font-weight: 600;
-}
-
-.status-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.status-row {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-
-.status-row span {
-  font-weight: 600;
-  min-width: 12rem;
-}
-
-/* Pattern sections */
-.pattern-section {
-  margin-bottom: 2.4rem;
-}
-
-.pattern-section:last-child {
-  margin-bottom: 0;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-/* Empty state */
-.empty-state {
-  text-align: center;
-  padding: 2.4rem;
-  color: #666;
-}
-
-.reset-button {
-  margin-top: 1.2rem;
-  padding: 0.8rem 1.6rem;
-  background-color: #0059b3;
-  color: white;
-  border: none;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  font-size: 1.4rem;
-}
-
-.reset-button:hover {
-  background-color: #004494;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .status-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-  }
-
-  .status-row span {
-    min-width: auto;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsTag

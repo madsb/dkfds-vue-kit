@@ -95,26 +95,26 @@ const getPlaygroundItems = (state: PlaygroundState) => {
   >
     <!-- Showcase all breadcrumb variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Short Path</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Short Path</h3>
             <FdsBreadcrumb :items="shortPath" />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Basic Path</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Path</h3>
             <FdsBreadcrumb :items="basicItems" />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Medium Path</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Medium Path</h3>
             <FdsBreadcrumb :items="mediumPath" />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Container</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Container</h3>
             <FdsBreadcrumb :items="basicItems" :container="true" />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Breadcrumb navigation follows DKFDS v11 design specifications with chevron separators and proper semantic structure. The last item is automatically marked as the current page and rendered without a link. Try switching themes using the global theme switcher to see how breadcrumbs adapt to different contexts.
         </p>
       </div>
@@ -122,31 +122,31 @@ const getPlaygroundItems = (state: PlaygroundState) => {
 
     <!-- Different path lengths and structures -->
     <Variant title="Path Lengths" icon="carbon:tree-view">
-      <div class="story-content">
-        <div class="path-examples">
-          <div class="path-example">
-            <h3 class="section-subtitle">Short (2 levels)</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Short (2 levels)</h3>
             <FdsBreadcrumb :items="shortPath" @item-click="handleBreadcrumbClick" />
           </div>
           
-          <div class="path-example">
-            <h3 class="section-subtitle">Medium (5 levels)</h3>
+          <div>
+            <h3 class="h6 mb-2">Medium (5 levels)</h3>
             <FdsBreadcrumb :items="mediumPath" @item-click="handleBreadcrumbClick" />
           </div>
           
-          <div class="path-example">
-            <h3 class="section-subtitle">Long (7 levels)</h3>
+          <div>
+            <h3 class="h6 mb-2">Long (7 levels)</h3>
             <FdsBreadcrumb :items="longPath" @item-click="handleBreadcrumbClick" />
           </div>
         </div>
         
-        <div v-if="clickCount > 0" class="interaction-feedback">
-          <p class="story-hint">
+        <div v-if="clickCount > 0">
+          <p class="mt-4 mb-0">
             Clicks: {{ clickCount }} | Last clicked: {{ lastClickedItem }}
           </p>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Breadcrumbs automatically handle different path lengths. Long paths wrap naturally on mobile devices while maintaining proper semantic structure and accessibility.
         </p>
       </div>
@@ -154,34 +154,34 @@ const getPlaygroundItems = (state: PlaygroundState) => {
 
     <!-- Router integration and link types -->
     <Variant title="Link Types" icon="carbon:link">
-      <div class="story-content">
-        <div class="link-examples">
-          <div class="link-example">
-            <h3 class="section-subtitle">Native Links (href)</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Native Links (href)</h3>
             <FdsBreadcrumb :items="basicItems" @item-click="handleBreadcrumbClick" />
-            <p class="example-note">Standard anchor tags with href attributes</p>
+            <p>Standard anchor tags with href attributes</p>
           </div>
           
-          <div class="link-example">
-            <h3 class="section-subtitle">Vue Router Links (to)</h3>
+          <div>
+            <h3 class="h6 mb-2">Vue Router Links (to)</h3>
             <FdsBreadcrumb :items="routerItems" @item-click="handleBreadcrumbClick" />
-            <p class="example-note">Uses router-link when 'to' property is present</p>
+            <p>Uses router-link when 'to' property is present</p>
           </div>
           
-          <div class="link-example">
-            <h3 class="section-subtitle">Mixed External/Internal</h3>
+          <div>
+            <h3 class="h6 mb-2">Mixed External/Internal</h3>
             <FdsBreadcrumb :items="externalItems" @item-click="handleBreadcrumbClick" />
-            <p class="example-note">External links open in new tab with proper rel attributes</p>
+            <p>External links open in new tab with proper rel attributes</p>
           </div>
           
-          <div class="link-example">
-            <h3 class="section-subtitle">Force Native Links</h3>
+          <div>
+            <h3 class="h6 mb-2">Force Native Links</h3>
             <FdsBreadcrumb :items="routerItems" :use-native-links="true" @item-click="handleBreadcrumbClick" />
-            <p class="example-note">Uses anchor tags even when Vue Router is available</p>
+            <p>Uses anchor tags even when Vue Router is available</p>
           </div>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component automatically detects Vue Router and uses router-link when appropriate. External links are properly marked and opened in new tabs.
         </p>
       </div>
@@ -189,33 +189,33 @@ const getPlaygroundItems = (state: PlaygroundState) => {
 
     <!-- Accessibility features -->
     <Variant title="Accessibility" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-examples">
-          <div class="accessibility-example">
-            <h3 class="section-subtitle">Default Danish Label</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Default Danish Label</h3>
             <FdsBreadcrumb :items="basicItems" />
-            <p class="example-note">aria-label="Brødkrumme" (default)</p>
+            <p>aria-label="Brødkrumme" (default)</p>
           </div>
           
-          <div class="accessibility-example">
-            <h3 class="section-subtitle">Custom ARIA Label</h3>
+          <div>
+            <h3 class="h6 mb-2">Custom ARIA Label</h3>
             <FdsBreadcrumb :items="basicItems" aria-label="Navigationssti" />
-            <p class="example-note">Custom aria-label for different contexts</p>
+            <p>Custom aria-label for different contexts</p>
           </div>
           
-          <div class="accessibility-example">
-            <h3 class="section-subtitle">English Context</h3>
+          <div>
+            <h3 class="h6 mb-2">English Context</h3>
             <FdsBreadcrumb 
               :items="[{ text: 'Home', href: '/' }, { text: 'Services', href: '/services' }, { text: 'Current Page' }]"
               aria-label="Breadcrumb navigation"
             />
-            <p class="example-note">Proper English labeling for international use</p>
+            <p>Proper English labeling for international use</p>
           </div>
         </div>
         
-        <div class="accessibility-info">
-          <h3 class="section-subtitle">Accessibility Features</h3>
-          <ul class="feature-list">
+        <div>
+          <h3 class="h6 mb-2">Accessibility Features</h3>
+          <ul>
             <li>Semantic <code>&lt;nav&gt;</code> landmark with descriptive aria-label</li>
             <li>Ordered list <code>&lt;ol&gt;</code> structure for proper hierarchy</li>
             <li>Current page marked with <code>aria-current="page"</code></li>
@@ -225,7 +225,7 @@ const getPlaygroundItems = (state: PlaygroundState) => {
           </ul>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Test with keyboard navigation: Use Tab to navigate between breadcrumb links, Enter to activate. Screen readers will announce the navigation structure and current page properly.
         </p>
       </div>
@@ -246,7 +246,7 @@ const getPlaygroundItems = (state: PlaygroundState) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsBreadcrumb
             :items="getPlaygroundItems(state)"
             :aria-label="state.ariaLabel"
@@ -255,8 +255,8 @@ const getPlaygroundItems = (state: PlaygroundState) => {
             @item-click="handleBreadcrumbClick"
           />
           
-          <div v-if="clickCount > 0" class="playground-feedback">
-            <p class="story-hint">
+          <div v-if="clickCount > 0">
+            <p class="mt-4 mb-0">
               Interactions: {{ clickCount }} | Last: {{ lastClickedItem }}
             </p>
           </div>
@@ -287,153 +287,6 @@ const getPlaygroundItems = (state: PlaygroundState) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-.example-note {
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-  margin-top: 0.8rem;
-  font-style: italic;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.path-examples,
-.link-examples,
-.accessibility-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.path-example,
-.link-example,
-.accessibility-example {
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background-color: #fafafa;
-}
-
-.interaction-feedback {
-  margin: 1.6rem 0;
-  padding: 1.2rem;
-  background-color: #f0f7ff;
-  border: 1px solid #b3d9ff;
-  border-radius: 4px;
-}
-
-.accessibility-info {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-}
-
-.feature-list {
-  margin: 1.2rem 0 0 1.6rem;
-  font-size: 1.4rem;
-  line-height: 1.6;
-}
-
-.feature-list li {
-  margin-bottom: 0.8rem;
-}
-
-.feature-list code {
-  background-color: #f0f0f0;
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
-  font-family: 'Courier New', monospace;
-  font-size: 1.3rem;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  gap: 1.6rem;
-}
-
-.playground-feedback {
-  padding: 1.2rem;
-  background-color: #f0f7ff;
-  border: 1px solid #b3d9ff;
-  border-radius: 4px;
-  text-align: center;
-}
-
-/* Ensure proper breadcrumb spacing */
-.story-content :deep(.breadcrumbs) {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .path-examples,
-  .link-examples,
-  .accessibility-examples {
-    gap: 1.6rem;
-  }
-  
-  .path-example,
-  .link-example,
-  .accessibility-example {
-    padding: 1.2rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsBreadcrumb

@@ -27,10 +27,10 @@ const toggleSettings = () => {
   <Story title="Navigation/Menu" :layout="{ type: 'grid', width: '100%' }" icon="carbon:menu">
     <!-- Showcase all menu variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Sidebar Menu</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Sidebar Menu</h3>
             <FdsMenu variant="sidemenu" aria-label="Main navigation">
               <FdsMenuItem href="/dashboard" :current="true">
                 Dashboard
@@ -44,8 +44,8 @@ const toggleSettings = () => {
             </FdsMenu>
           </div>
           
-          <div class="variant-section">
-            <h3 class="section-title">With Hints</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Hints</h3>
             <FdsMenu variant="sidemenu" aria-label="Application navigation">
               <FdsMenuItem 
                 href="/analytics" 
@@ -63,8 +63,8 @@ const toggleSettings = () => {
             </FdsMenu>
           </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">Numbered Steps</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Numbered Steps</h3>
             <FdsMenu aria-label="Application process">
               <FdsMenuItem :index="1" href="/step1" :current="true">
                 Personal Information
@@ -78,7 +78,7 @@ const toggleSettings = () => {
             </FdsMenu>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The menu components follow DKFDS v11 navigation specifications. Try switching themes using
           the global theme switcher to see how menus adapt to different contexts. Sidebar menus 
           provide semantic navigation landmarks with proper ARIA support.
@@ -88,8 +88,8 @@ const toggleSettings = () => {
 
     <!-- Submenu structures -->
     <Variant title="With Submenus" icon="carbon:tree-view">
-      <div class="story-content">
-        <h3 class="section-title">Nested Navigation Structure</h3>
+      <div class="container py-6">
+        <h3 class="h5 mb-2">Nested Navigation Structure</h3>
         <FdsMenu variant="sidemenu" aria-label="Application navigation">
           <FdsMenuItem href="/dashboard" :current="currentPage === 'dashboard'" id="dashboard" @navigate="handleNavigation">
             Dashboard
@@ -137,7 +137,7 @@ const toggleSettings = () => {
           </FdsMenuItem>
         </FdsMenu>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click "Settings" to toggle the submenu visibility. Submenus use the variant="submenu" 
           and are placed within the submenu slot of parent menu items. Current page: {{ currentPage }}
         </p>
@@ -146,8 +146,8 @@ const toggleSettings = () => {
 
     <!-- Numbered navigation for processes -->
     <Variant title="Process Steps" icon="carbon:process">
-      <div class="story-content">
-        <h3 class="section-title">Step-by-Step Navigation</h3>
+      <div class="container py-6">
+        <h3 class="h5 mb-2">Step-by-Step Navigation</h3>
         <FdsMenu aria-label="Application process steps">
           <FdsMenuItem 
             :index="1" 
@@ -183,9 +183,9 @@ const toggleSettings = () => {
           </FdsMenuItem>
         </FdsMenu>
         
-        <div class="divider" />
+        <hr class="my-6" />
         
-        <h3 class="section-subtitle">Step Navigation</h3>
+        <h3 class="h6 mb-2">Step Navigation</h3>
         <div class="button-group">
           <button 
             type="button" 
@@ -205,7 +205,7 @@ const toggleSettings = () => {
           </button>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Current step: {{ currentStep }}. Numbered menu items automatically display step numbers 
           and can include hint text for additional context. Use the buttons to simulate step progression.
         </p>
@@ -214,10 +214,10 @@ const toggleSettings = () => {
 
     <!-- Menu states and interactions -->
     <Variant title="States & Accessibility" icon="carbon:touch-interaction">
-      <div class="story-content">
-        <div class="states-grid">
-          <div class="state-column">
-            <h3 class="section-subtitle">Current Page States</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Current Page States</h3>
             <FdsMenu variant="sidemenu" aria-label="State demonstration">
               <FdsMenuItem href="/page1" :current="true">
                 Current Page (Active)
@@ -231,8 +231,8 @@ const toggleSettings = () => {
             </FdsMenu>
           </div>
           
-          <div class="state-column">
-            <h3 class="section-subtitle">Expanded States</h3>
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Expanded States</h3>
             <FdsMenu variant="sidemenu" aria-label="Expansion demonstration">
               <FdsMenuItem 
                 href="/parent1" 
@@ -258,17 +258,17 @@ const toggleSettings = () => {
           </div>
         </div>
         
-        <div class="divider" />
+        <hr class="my-6" />
         
-        <h3 class="section-subtitle">Accessibility Features</h3>
-        <ul class="accessibility-list">
+        <h3 class="h6 mb-2">Accessibility Features</h3>
+        <ul>
           <li><strong>Keyboard Navigation:</strong> Tab through menu items, Enter/Space to activate</li>
           <li><strong>ARIA Labels:</strong> Sidebar menus include navigation landmarks</li>
           <li><strong>Current Page:</strong> Uses aria-current="page" for screen readers</li>
           <li><strong>Semantic Structure:</strong> Proper nav/ul/li hierarchy for assistive technology</li>
         </ul>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Menu items support keyboard navigation and include proper ARIA attributes. 
           Click the expandable item to toggle submenu visibility. Screen readers will 
           announce navigation landmarks and current page status.
@@ -297,7 +297,7 @@ const toggleSettings = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsMenu 
             :variant="state.variant" 
             :aria-label="state.variant === 'sidemenu' ? state.ariaLabel : undefined"
@@ -363,154 +363,6 @@ const toggleSettings = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.states-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.state-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  align-items: center;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Accessibility list styling */
-.accessibility-list {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  margin: 1.6rem 0;
-  padding-left: 2rem;
-}
-
-.accessibility-list li {
-  margin-bottom: 0.8rem;
-}
-
-/* Menu styling adjustments */
-.story-content :deep(.sidemenu) {
-  max-width: 300px;
-}
-
-/* Button styling for demo */
-.button {
-  padding: 1rem 1.6rem;
-  border: 1px solid transparent;
-  border-radius: 0;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button-primary {
-  background-color: #0069d9;
-  color: white;
-  border-color: #0069d9;
-}
-
-.button-primary:hover:not(:disabled) {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-
-.button-secondary {
-  background-color: transparent;
-  color: #0069d9;
-  border-color: #0069d9;
-}
-
-.button-secondary:hover:not(:disabled) {
-  background-color: #f8f9fa;
-}
-
-.button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid,
-  .states-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .story-content :deep(.sidemenu) {
-    max-width: 100%;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsMenu & FdsMenuItem

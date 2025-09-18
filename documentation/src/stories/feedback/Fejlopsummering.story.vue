@@ -69,30 +69,30 @@ const getPlaygroundErrors = (type: string, count: number) => {
   <Story title="Feedback/Fejlopsummering" :layout="{ type: 'grid', width: '100%' }" icon="carbon:warning">
     <!-- Showcase all error summary variations -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Single Error</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Single Error</h3>
             <FdsFejlopsummering :errors="singleError" />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Multiple Errors</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Multiple Errors</h3>
             <FdsFejlopsummering :errors="errors" />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Custom Header</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Header</h3>
             <FdsFejlopsummering 
               :errors="errors" 
               header="Ret følgende fejl"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">No Errors</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">No Errors</h3>
             <FdsFejlopsummering :errors="[]" />
-            <p class="variant-note">Hidden when no errors</p>
+            <p>Hidden when no errors</p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The error summary component follows DKFDS v11 design specifications and provides accessible navigation to form errors. 
           Try switching themes using the global theme switcher to see how the component adapts to different contexts.
         </p>
@@ -101,14 +101,14 @@ const getPlaygroundErrors = (type: string, count: number) => {
 
     <!-- Form integration with error navigation -->
     <Variant title="Form Integration" icon="carbon:form">
-      <div class="story-content">
+      <div class="container py-6">
         <FdsFejlopsummering 
           :errors="validationErrors"
           header="Der er {{ validationErrors.length }} fejl i formularen"
           @error-clicked="handleErrorClick"
         />
         
-        <div class="form-demo">
+        <div>
           <FdsFormgroup id="username-field">
             <FdsLabel for="username-input">Brugernavn *</FdsLabel>
             <FdsInput 
@@ -143,7 +143,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
           </FdsFormgroup>
 
           <FdsFormgroup id="terms-field">
-            <label class="checkbox-label">
+            <label>
               <input type="checkbox" id="terms-checkbox" aria-describedby="terms-error">
               Jeg accepterer vilkårene og betingelserne *
             </label>
@@ -151,7 +151,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
           </FdsFormgroup>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click on error links in the summary to navigate directly to the problematic form fields. 
           The component uses smooth scrolling and proper focus management for optimal user experience.
         </p>
@@ -160,17 +160,17 @@ const getPlaygroundErrors = (type: string, count: number) => {
 
     <!-- Accessibility features demonstration -->
     <Variant title="Accessibility Features" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-demo">
-          <h3 class="section-subtitle">ARIA Live Region</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">ARIA Live Region</h3>
           <FdsFejlopsummering 
             :errors="errors"
             header="Fejl opdaget i formularen"
           />
           
-          <div class="aria-info">
-            <h4 class="info-title">Accessibility Features:</h4>
-            <ul class="feature-list">
+          <div>
+            <h4>Accessibility Features:</h4>
+            <ul>
               <li><strong>Navigation Landmark:</strong> Uses &lt;nav&gt; with aria-labelledby</li>
               <li><strong>Alert Role:</strong> Error container has role="alert" for screen readers</li>
               <li><strong>Focus Management:</strong> Error links focus target form fields</li>
@@ -179,23 +179,23 @@ const getPlaygroundErrors = (type: string, count: number) => {
             </ul>
           </div>
 
-          <div class="keyboard-demo">
-            <h4 class="info-title">Keyboard Navigation:</h4>
-            <div class="keyboard-instructions">
-              <div class="key-combo">
+          <div>
+            <h4>Keyboard Navigation:</h4>
+            <div>
+              <div>
                 <kbd>Tab</kbd> - Navigate between error links
               </div>
-              <div class="key-combo">
+              <div>
                 <kbd>Enter</kbd> / <kbd>Space</kbd> - Activate error link to focus field
               </div>
-              <div class="key-combo">
+              <div>
                 <kbd>Shift + Tab</kbd> - Navigate backwards
               </div>
             </div>
           </div>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component meets WCAG 2.1 AA accessibility standards with proper ARIA attributes, 
           keyboard navigation, and screen reader support.
         </p>
@@ -204,33 +204,33 @@ const getPlaygroundErrors = (type: string, count: number) => {
 
     <!-- Custom header slot demonstration -->
     <Variant title="Custom Headers" icon="carbon:text-highlight">
-      <div class="story-content">
-        <div class="custom-header-demo">
-          <div class="header-example">
-            <h3 class="section-subtitle">With Custom Slot</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">With Custom Slot</h3>
             <FdsFejlopsummering :errors="errors">
               <template #header>
-                <span class="custom-header">
+                <span>
                   ⚠️ <strong>{{ errors.length }}</strong> fejl fundet - ret dem nedenfor
                 </span>
               </template>
             </FdsFejlopsummering>
           </div>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <div class="header-example">
-            <h3 class="section-subtitle">Dynamic Count</h3>
+          <div>
+            <h3 class="h6 mb-2">Dynamic Count</h3>
             <FdsFejlopsummering 
               :errors="validationErrors"
               :header="`Formular validation: ${validationErrors.length} fejl`"
             />
           </div>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <div class="header-example">
-            <h3 class="section-subtitle">Contextual Message</h3>
+          <div>
+            <h3 class="h6 mb-2">Contextual Message</h3>
             <FdsFejlopsummering 
               :errors="singleError"
               header="Login mislykket - ret følgende fejl"
@@ -238,7 +238,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
           </div>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Use custom headers to provide context-specific error messages that help users understand 
           what went wrong and what they need to do to fix it.
         </p>
@@ -258,7 +258,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
       })"
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsFejlopsummering 
             :header="state.customHeader ? state.header : undefined"
             :errors="getPlaygroundErrors(state.errorType, state.errorCount)"
@@ -301,205 +301,6 @@ const getPlaygroundErrors = (type: string, count: number) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.variant-note {
-  font-size: 1.4rem;
-  color: #888;
-  font-style: italic;
-  margin-top: 0.8rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Form demo styles */
-.form-demo {
-  max-width: 500px;
-  margin-top: 2.4rem;
-}
-
-.form-demo .fds-formgroup {
-  margin-bottom: 2.4rem;
-}
-
-.form-error {
-  font-size: 1.4rem;
-  color: #cc0000;
-  margin-top: 0.8rem;
-}
-
-.checkbox-label {
-  font-size: 1.4rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
-  cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-  margin: 0;
-  flex-shrink: 0;
-}
-
-/* Accessibility demo styles */
-.accessibility-demo {
-  max-width: 600px;
-}
-
-.aria-info {
-  background: #f8f9fa;
-  padding: 1.6rem;
-  border-radius: 4px;
-  margin: 1.6rem 0;
-}
-
-.info-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.feature-list {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  margin: 0;
-  padding-left: 1.6rem;
-}
-
-.feature-list li {
-  margin-bottom: 0.8rem;
-}
-
-.keyboard-demo {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  padding: 1.6rem;
-  border-radius: 4px;
-  margin-top: 1.6rem;
-}
-
-.keyboard-instructions {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.key-combo {
-  display: flex;
-  align-items: center;
-  font-size: 1.4rem;
-  gap: 1.2rem;
-}
-
-kbd {
-  background: #f1f1f1;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 0.4rem 0.8rem;
-  font-family: monospace;
-  font-size: 1.2rem;
-  min-width: 2.4rem;
-  text-align: center;
-  display: inline-block;
-}
-
-/* Custom header demo styles */
-.custom-header-demo {
-  max-width: 600px;
-}
-
-.header-example {
-  margin-bottom: 1.6rem;
-}
-
-.custom-header {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 1.6rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-demo,
-  .accessibility-demo,
-  .custom-header-demo {
-    max-width: 100%;
-  }
-
-  .keyboard-instructions {
-    gap: 0.8rem;
-  }
-
-  .key-combo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsFejlopsummering

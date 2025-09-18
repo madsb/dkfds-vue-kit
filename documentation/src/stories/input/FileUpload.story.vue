@@ -34,10 +34,10 @@ const clearStatus = () => {
   <Story title="Input/FileUpload" :layout="{ type: 'grid', width: '100%' }" icon="carbon:document-attachment">
     <!-- Showcase all file upload variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Single File</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Single File</h3>
             <FdsFileUpload
               label="Upload Document"
               :accept="['.pdf', '.doc', '.docx']"
@@ -46,8 +46,8 @@ const clearStatus = () => {
               @error="handleFileError"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Multiple Images</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Multiple Images</h3>
             <FdsFileUpload
               label="Upload Images"
               :accept="['image/png', 'image/jpeg', 'image/jpg']"
@@ -58,8 +58,8 @@ const clearStatus = () => {
               @error="handleFileError"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Required Upload</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Required Upload</h3>
             <FdsFileUpload
               label="Required Files"
               :required="true"
@@ -69,8 +69,8 @@ const clearStatus = () => {
               @error="handleFileError"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Disabled State</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Disabled State</h3>
             <FdsFileUpload
               label="Upload Disabled"
               :disabled="true"
@@ -78,7 +78,7 @@ const clearStatus = () => {
             />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The file upload component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how file uploads adapt to different contexts.
         </p>
@@ -87,9 +87,9 @@ const clearStatus = () => {
 
     <!-- File validation and size limits -->
     <Variant title="Validation & Limits" icon="carbon:rule">
-      <div class="story-content">
-        <div class="validation-demo">
-          <h3 class="section-subtitle">Size Validation (Max 1MB)</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Size Validation (Max 1MB)</h3>
           <FdsFileUpload
             label="Small Files Only"
             :max-file-size="1048576"
@@ -98,9 +98,9 @@ const clearStatus = () => {
             @error="handleFileError"
           />
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">Type Restrictions</h3>
+          <h3 class="h6 mb-2">Type Restrictions</h3>
           <FdsFileUpload
             label="Images Only"
             :accept="['image/*']"
@@ -110,9 +110,9 @@ const clearStatus = () => {
             @error="handleFileError"
           />
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">File Count Limit</h3>
+          <h3 class="h6 mb-2">File Count Limit</h3>
           <FdsFileUpload
             label="Maximum 2 Files"
             :multiple="true"
@@ -123,12 +123,12 @@ const clearStatus = () => {
           />
         </div>
 
-        <div v-if="uploadStatus" class="status-display">
-          <p class="upload-status">{{ uploadStatus }}</p>
-          <button type="button" class="clear-status-btn" @click="clearStatus">Clear Status</button>
+        <div v-if="uploadStatus">
+          <p>{{ uploadStatus }}</p>
+          <button type="button" @click="clearStatus">Clear Status</button>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Try uploading files that exceed the size limit, wrong file types, or too many files to see validation errors.
         </p>
       </div>
@@ -136,9 +136,9 @@ const clearStatus = () => {
 
     <!-- File list management -->
     <Variant title="File List Management" icon="carbon:list">
-      <div class="story-content">
-        <div class="file-list-demo">
-          <h3 class="section-subtitle">With File Removal</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">With File Removal</h3>
           <FdsFileUpload
             label="Manage Files"
             :multiple="true"
@@ -152,9 +152,9 @@ const clearStatus = () => {
             @remove-file="handleFileRemove"
           />
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">Hidden File List</h3>
+          <h3 class="h6 mb-2">Hidden File List</h3>
           <FdsFileUpload
             label="No File List"
             :multiple="true"
@@ -164,9 +164,9 @@ const clearStatus = () => {
             @error="handleFileError"
           />
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">Non-removable Files</h3>
+          <h3 class="h6 mb-2">Non-removable Files</h3>
           <FdsFileUpload
             label="Fixed File List"
             :multiple="true"
@@ -177,17 +177,17 @@ const clearStatus = () => {
           />
         </div>
 
-        <div v-if="uploadedFiles.length > 0" class="uploaded-summary">
-          <h3 class="section-subtitle">Upload Summary</h3>
-          <p class="file-count">Total files uploaded: {{ uploadedFiles.length }}</p>
-          <ul class="uploaded-files-list">
-            <li v-for="(file, index) in uploadedFiles" :key="index" class="uploaded-file">
+        <div v-if="uploadedFiles.length > 0">
+          <h3 class="h6 mb-2">Upload Summary</h3>
+          <p>Total files uploaded: {{ uploadedFiles.length }}</p>
+          <ul>
+            <li v-for="(file, index) in uploadedFiles" :key="index">
               {{ file.filename }} ({{ file.size }} bytes)
             </li>
           </ul>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           File list shows selected files with names, sizes, and optional remove buttons. Customize the display and behavior.
         </p>
       </div>
@@ -195,9 +195,9 @@ const clearStatus = () => {
 
     <!-- Error states and accessibility -->
     <Variant title="Error States" icon="carbon:warning">
-      <div class="story-content">
-        <div class="error-demo">
-          <h3 class="section-subtitle">With Error Message</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">With Error Message</h3>
           <FdsFileUpload
             label="Upload with Error"
             error="Files are required for this application"
@@ -206,9 +206,9 @@ const clearStatus = () => {
             @error="handleFileError"
           />
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">Assertive Error Announcements</h3>
+          <h3 class="h6 mb-2">Assertive Error Announcements</h3>
           <FdsFileUpload
             label="Critical Upload"
             :required="true"
@@ -219,17 +219,17 @@ const clearStatus = () => {
           />
         </div>
 
-        <div v-if="errorMessages.length > 0" class="error-log">
-          <h3 class="section-subtitle">Error Log</h3>
-          <ul class="error-list">
-            <li v-for="(error, index) in errorMessages" :key="index" class="error-item">
+        <div v-if="errorMessages.length > 0">
+          <h3 class="h6 mb-2">Error Log</h3>
+          <ul>
+            <li v-for="(error, index) in errorMessages" :key="index">
               {{ error }}
             </li>
           </ul>
-          <button type="button" class="clear-errors-btn" @click="errorMessages = []">Clear Errors</button>
+          <button type="button" @click="errorMessages = []">Clear Errors</button>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Error states provide clear feedback with ARIA announcements. Try uploading invalid files to trigger errors.
         </p>
       </div>
@@ -258,7 +258,7 @@ const clearStatus = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsFileUpload
             :label="state.label"
             :hint="state.hint"
@@ -278,8 +278,8 @@ const clearStatus = () => {
             @remove-file="handleFileRemove"
           />
 
-          <div v-if="uploadStatus" class="playground-status">
-            <p class="status-message">{{ uploadStatus }}</p>
+          <div v-if="uploadStatus">
+            <p>{{ uploadStatus }}</p>
           </div>
         </div>
       </template>
@@ -327,175 +327,6 @@ const clearStatus = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.validation-demo,
-.file-list-demo,
-.error-demo {
-  max-width: 600px;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-/* Status and feedback displays */
-.status-display {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #f5f5f5;
-  border-radius: 4px;
-  border-left: 4px solid #0077c8;
-}
-
-.upload-status {
-  font-size: 1.4rem;
-  margin: 0 0 1.2rem 0;
-  color: #333;
-}
-
-.clear-status-btn,
-.clear-errors-btn {
-  font-size: 1.4rem;
-  padding: 0.8rem 1.6rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.clear-status-btn:hover,
-.clear-errors-btn:hover {
-  background-color: #f9f9f9;
-}
-
-.uploaded-summary {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #f0f8ff;
-  border-radius: 4px;
-  border: 1px solid #e0e0e0;
-}
-
-.file-count {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0 0 1.2rem 0;
-  color: #0077c8;
-}
-
-.uploaded-files-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.uploaded-file {
-  font-size: 1.4rem;
-  padding: 0.4rem 0;
-  color: #333;
-}
-
-.error-log {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #ffeaea;
-  border-radius: 4px;
-  border-left: 4px solid #d32f2f;
-}
-
-.error-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.2rem 0;
-}
-
-.error-item {
-  font-size: 1.4rem;
-  padding: 0.4rem 0;
-  color: #d32f2f;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 200px;
-}
-
-.playground-status {
-  margin-top: 1.6rem;
-  padding: 1.2rem;
-  background-color: #f0f8ff;
-  border-radius: 4px;
-  width: 100%;
-}
-
-.status-message {
-  font-size: 1.4rem;
-  margin: 0;
-  color: #0077c8;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .validation-demo,
-  .file-list-demo,
-  .error-demo {
-    max-width: 100%;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsFileUpload

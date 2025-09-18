@@ -18,11 +18,11 @@ const handleNavClick = (href: string, event: MouseEvent) => {
   <Story title="Navigation/NavLink" :layout="{ type: 'grid', width: '100%' }" icon="carbon:link">
     <!-- Showcase all nav link variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Links</h3>
-            <div class="nav-links">
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Links</h3>
+            <div>
               <FdsNavLink href="/home" :current="currentRoute === '/home'" @click="(e) => handleNavClick('/home', e)">
                 Home
               </FdsNavLink>
@@ -35,9 +35,9 @@ const handleNavClick = (href: string, event: MouseEvent) => {
             </div>
           </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">With Icons</h3>
-            <div class="nav-links">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Icons</h3>
+            <div>
               <FdsNavLink href="/dashboard" icon="dashboard" :current="currentRoute === '/dashboard'" @click="(e) => handleNavClick('/dashboard', e)">
                 Dashboard
               </FdsNavLink>
@@ -50,9 +50,9 @@ const handleNavClick = (href: string, event: MouseEvent) => {
             </div>
           </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">With Hints</h3>
-            <div class="nav-links">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Hints</h3>
+            <div>
               <FdsNavLink href="/reports" hint="View analytics and reports" :current="currentRoute === '/reports'" @click="(e) => handleNavClick('/reports', e)">
                 Reports
               </FdsNavLink>
@@ -62,9 +62,9 @@ const handleNavClick = (href: string, event: MouseEvent) => {
             </div>
           </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">Disabled State</h3>
-            <div class="nav-links">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Disabled State</h3>
+            <div>
               <FdsNavLink href="/admin" :disabled="true">
                 Admin Panel
               </FdsNavLink>
@@ -74,7 +74,7 @@ const handleNavClick = (href: string, event: MouseEvent) => {
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The nav link component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how navigation links adapt to different contexts.
           Current route: {{ currentRoute }} • Clicks: {{ clickCount }}
@@ -84,10 +84,10 @@ const handleNavClick = (href: string, event: MouseEvent) => {
 
     <!-- States demonstration -->
     <Variant title="States" icon="carbon:status-change">
-      <div class="story-content">
-        <div class="states-grid">
-          <div class="state-column">
-            <h3 class="section-subtitle">Normal</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Normal</h3>
             <FdsNavLink href="/normal" @click="(e) => handleNavClick('/normal', e)">
               Normal Link
             </FdsNavLink>
@@ -98,8 +98,8 @@ const handleNavClick = (href: string, event: MouseEvent) => {
               With Hint
             </FdsNavLink>
           </div>
-          <div class="state-column">
-            <h3 class="section-subtitle">Current</h3>
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Current</h3>
             <FdsNavLink href="/current" :current="true">
               Current Page
             </FdsNavLink>
@@ -110,8 +110,8 @@ const handleNavClick = (href: string, event: MouseEvent) => {
               Current with Hint
             </FdsNavLink>
           </div>
-          <div class="state-column">
-            <h3 class="section-subtitle">Disabled</h3>
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Disabled</h3>
             <FdsNavLink href="/disabled" :disabled="true">
               Disabled Link
             </FdsNavLink>
@@ -123,7 +123,7 @@ const handleNavClick = (href: string, event: MouseEvent) => {
             </FdsNavLink>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Navigation links automatically handle accessibility attributes including aria-current for current page
           and aria-disabled for disabled states. Click count: {{ clickCount }}
         </p>
@@ -132,10 +132,10 @@ const handleNavClick = (href: string, event: MouseEvent) => {
 
     <!-- Navigation patterns -->
     <Variant title="Navigation Patterns" icon="carbon:navigation">
-      <div class="story-content">
-        <h3 class="section-subtitle">Sidebar Navigation</h3>
-        <div class="sidebar-demo">
-          <nav aria-label="Main navigation" class="nav-sidebar">
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Sidebar Navigation</h3>
+        <div>
+          <nav aria-label="Main navigation">
             <FdsNavLink href="/dashboard" icon="dashboard" :current="currentRoute === '/dashboard'" @click="(e) => handleNavClick('/dashboard', e)">
               Dashboard
             </FdsNavLink>
@@ -154,10 +154,10 @@ const handleNavClick = (href: string, event: MouseEvent) => {
           </nav>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">External Links</h3>
-        <div class="nav-links">
+        <h3 class="h6 mb-2">External Links</h3>
+        <div>
           <FdsNavLink href="https://designsystem.dk" target="_blank" icon="launch">
             DKFDS Documentation
           </FdsNavLink>
@@ -166,7 +166,7 @@ const handleNavClick = (href: string, event: MouseEvent) => {
           </FdsNavLink>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Navigation links can be used in sidebars, menus, or as standalone elements. They automatically
           prevent default navigation when href is '#' and emit click events for SPA routing.
         </p>
@@ -189,7 +189,7 @@ const handleNavClick = (href: string, event: MouseEvent) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <nav aria-label="Example navigation">
             <FdsNavLink
               :href="state.href"
@@ -202,7 +202,7 @@ const handleNavClick = (href: string, event: MouseEvent) => {
               {{ state.text }}
             </FdsNavLink>
           </nav>
-          <p class="story-hint">Click count: {{ clickCount }}</p>
+          <p class="mt-4 mb-0">Click count: {{ clickCount }}</p>
         </div>
       </template>
 
@@ -218,124 +218,6 @@ const handleNavClick = (href: string, event: MouseEvent) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  align-items: flex-start;
-}
-
-.states-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.state-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.sidebar-demo {
-  max-width: 300px;
-  margin-bottom: 2.4rem;
-}
-
-.nav-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding: 1.6rem;
-  background: #f8f9fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.4rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Navigation link spacing */
-.story-content :deep(.nav-link) {
-  margin: 0;
-  display: block;
-  width: 100%;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .states-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar-demo {
-    max-width: 100%;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsNavLink

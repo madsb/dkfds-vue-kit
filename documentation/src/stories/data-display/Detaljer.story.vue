@@ -13,16 +13,16 @@ const handleToggle = () => {
   <Story title="Data Display/Detaljer" :layout="{ type: 'grid', width: '100%' }" icon="carbon:chevron-down">
     <!-- Showcase all detaljer variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Default</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Default</h3>
             <FdsDetaljer>
               <p>This is hidden content that can be revealed by clicking the summary.</p>
             </FdsDetaljer>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Custom Header</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Header</h3>
             <FdsDetaljer header="Frequently Asked Questions">
               <p>Here are common questions about our service:</p>
               <ul>
@@ -31,18 +31,18 @@ const handleToggle = () => {
               </ul>
             </FdsDetaljer>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Rich Header</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Rich Header</h3>
             <FdsDetaljer>
               <template #header>
                 <strong>Advanced Settings</strong>
-                <span class="text-muted"> (Optional)</span>
+                <span> (Optional)</span>
               </template>
               <p>Configuration options for advanced users.</p>
             </FdsDetaljer>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Form Content</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Form Content</h3>
             <FdsDetaljer header="Additional Information">
               <FdsFormgroup>
                 <FdsLabel for="extra-info">Extra Details</FdsLabel>
@@ -52,7 +52,7 @@ const handleToggle = () => {
             </FdsDetaljer>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The detaljer component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how the component adapts to different contexts.
         </p>
@@ -61,8 +61,8 @@ const handleToggle = () => {
 
     <!-- Content types demonstration -->
     <Variant title="Content Types" icon="carbon:document">
-      <div class="story-content">
-        <div class="content-demo">
+      <div class="container py-6">
+        <div>
           <FdsDetaljer header="Text Content">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -89,7 +89,7 @@ const handleToggle = () => {
             <p><em>Contact us for more information about pricing and availability.</em></p>
           </FdsDetaljer>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Detaljer can contain any type of content: paragraphs, lists, forms, or mixed content types.
         </p>
       </div>
@@ -97,9 +97,9 @@ const handleToggle = () => {
 
     <!-- Multiple sections pattern -->
     <Variant title="FAQ Pattern" icon="carbon:help">
-      <div class="story-content">
-        <h3 class="section-subtitle">Frequently Asked Questions</h3>
-        <div class="faq-sections">
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Frequently Asked Questions</h3>
+        <div>
           <FdsDetaljer header="How do I create an account?">
             <p>To create an account, click the "Sign Up" button and fill out the registration form with your email address and chosen password.</p>
             <p>You will receive a confirmation email within a few minutes. Click the link in the email to activate your account.</p>
@@ -130,7 +130,7 @@ const handleToggle = () => {
             <p>We are GDPR compliant and regularly undergo security audits to ensure your information remains protected.</p>
           </FdsDetaljer>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           This pattern is common for FAQ sections where users can expand only the questions they're interested in.
           Click to expand sections and press Enter or Space on focused summary elements.
         </p>
@@ -139,8 +139,8 @@ const handleToggle = () => {
 
     <!-- Accessibility demonstration -->
     <Variant title="Accessibility Features" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-demo">
+      <div class="container py-6">
+        <div>
           <FdsDetaljer header="Keyboard Navigation Test" @toggle="handleToggle">
             <p>This section demonstrates keyboard accessibility:</p>
             <ul>
@@ -165,7 +165,7 @@ const handleToggle = () => {
             <p>No additional ARIA attributes are needed as the semantic HTML provides all necessary information.</p>
           </FdsDetaljer>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Toggle count: {{ expandCount }}. Use Tab to navigate and Enter/Space to expand. The native details element provides excellent accessibility support.
         </p>
       </div>
@@ -185,7 +185,7 @@ const handleToggle = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsDetaljer
             :header="!state.useSlot ? state.header : undefined"
             @toggle="handleToggle"
@@ -193,13 +193,13 @@ const handleToggle = () => {
             <template v-if="state.useSlot" #header>
               <span v-if="state.richHeader">
                 <strong>{{ state.header }}</strong>
-                <span class="text-muted"> (expandable)</span>
+                <span> (expandable)</span>
               </span>
               <span v-else>{{ state.header }}</span>
             </template>
             {{ state.content }}
           </FdsDetaljer>
-          <p class="story-hint">Toggle count: {{ expandCount }}</p>
+          <p class="mt-4 mb-0">Toggle count: {{ expandCount }}</p>
         </div>
       </template>
 
@@ -220,130 +220,6 @@ const handleToggle = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.content-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.faq-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  margin-bottom: 2.4rem;
-}
-
-.accessibility-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Text styling for rich content */
-.text-muted {
-  color: #666;
-  font-weight: normal;
-}
-
-/* Ensure proper spacing in details content */
-.story-content :deep(.details-text) {
-  margin-top: 1.6rem;
-}
-
-.story-content :deep(.details-text h4) {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  margin-top: 0;
-  color: #333;
-}
-
-.story-content :deep(.details-text ul) {
-  margin: 1.2rem 0;
-  padding-left: 2.4rem;
-}
-
-.story-content :deep(.details-text li) {
-  margin-bottom: 0.8rem;
-}
-
-.story-content :deep(.details-text p) {
-  margin: 1.2rem 0;
-}
-
-.story-content :deep(.details-text p:first-child) {
-  margin-top: 0;
-}
-
-.story-content :deep(.details-text p:last-child) {
-  margin-bottom: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsDetaljer
@@ -428,7 +304,7 @@ import { FdsDetaljer } from '@madsb/dkfds-vue3'
 <FdsDetaljer>
   <template #header>
     <strong>Important Notice</strong>
-    <span class="text-muted">(Please read)</span>
+    <span>(Please read)</span>
   </template>
   Important information content...
 </FdsDetaljer>

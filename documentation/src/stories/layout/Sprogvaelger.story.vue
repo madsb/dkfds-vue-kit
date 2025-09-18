@@ -22,18 +22,18 @@ const handleLangCode = (lang: string) => {
   <Story title="Layout/Sprogvaelger" :layout="{ type: 'grid', width: '100%' }" icon="carbon:language">
     <!-- Showcase all language selector variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Nordic Languages</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Nordic Languages</h3>
             <FdsSprogvaelger
               v-model="demoLanguages"
               @language-change="handleLanguageChange"
               @lang="handleLangCode"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">European Languages</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">European Languages</h3>
             <FdsSprogvaelger
               :model-value="[
                 { title: 'Français', active: false, lang: 'fr', ariaLabel: 'Choisir la langue: Français' },
@@ -43,8 +43,8 @@ const handleLangCode = (lang: string) => {
               ]"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Custom URLs</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Custom URLs</h3>
             <FdsSprogvaelger
               :model-value="[
                 { title: 'Dansk', active: true, lang: 'da', ariaLabel: 'Valgt sprog: Dansk', href: '/da' },
@@ -55,7 +55,7 @@ const handleLangCode = (lang: string) => {
             />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The language selector follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how the component adapts to different contexts.
           Active languages are displayed first with a check mark icon.
@@ -65,8 +65,8 @@ const handleLangCode = (lang: string) => {
 
     <!-- Language switching behavior -->
     <Variant title="Interactive Switching" icon="carbon:touch-interaction">
-      <div class="story-content">
-        <div class="demo-container">
+      <div class="container py-6">
+        <div>
           <FdsSprogvaelger
             v-model="demoLanguages"
             :auto-set-lang="true"
@@ -74,14 +74,14 @@ const handleLangCode = (lang: string) => {
             @lang="handleLangCode"
           />
           
-          <div class="current-state">
-            <h3 class="section-subtitle">Current Active Language</h3>
-            <div class="language-display">
+          <div>
+            <h3 class="h6 mb-2">Current Active Language</h3>
+            <div>
               {{ demoLanguages.find(l => l.active)?.title }} ({{ demoLanguages.find(l => l.active)?.lang }})
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click any language to switch. This example has `autoSetLang` enabled, which updates the document's
           language attribute. Check the browser console to see emitted events.
         </p>
@@ -90,9 +90,9 @@ const handleLangCode = (lang: string) => {
 
     <!-- Accessibility features -->
     <Variant title="Accessibility" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-demo">
-          <h3 class="section-subtitle">ARIA Labels and Screen Reader Support</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">ARIA Labels and Screen Reader Support</h3>
           <FdsSprogvaelger
             :model-value="[
               { title: 'Dansk', active: true, lang: 'da', ariaLabel: 'Valgt sprog: Dansk' },
@@ -101,9 +101,9 @@ const handleLangCode = (lang: string) => {
             ]"
           />
           
-          <div class="accessibility-info">
-            <h4 class="info-title">Accessibility Features:</h4>
-            <ul class="feature-list">
+          <div>
+            <h4>Accessibility Features:</h4>
+            <ul>
               <li>List has `aria-label="Vælg sprog fra listen"`</li>
               <li>Each link has descriptive `aria-label` with selection status</li>
               <li>Active language indicated with check mark icon (decorative)</li>
@@ -113,7 +113,7 @@ const handleLangCode = (lang: string) => {
             </ul>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component includes comprehensive accessibility features for screen readers.
           Test with keyboard navigation (Tab to focus, Enter/Space to activate).
         </p>
@@ -122,9 +122,9 @@ const handleLangCode = (lang: string) => {
 
     <!-- Custom event handling -->
     <Variant title="Event Handling" icon="carbon:events">
-      <div class="story-content">
-        <div class="event-demo">
-          <h3 class="section-subtitle">Custom Language Switching</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Custom Language Switching</h3>
           <FdsSprogvaelger
             :model-value="[
               { title: 'Dansk', active: false, lang: 'da', ariaLabel: 'Vælg sprog: Dansk' },
@@ -136,14 +136,14 @@ const handleLangCode = (lang: string) => {
             @lang="(code) => console.log('Language code changed:', code)"
           />
           
-          <div class="code-example">
-            <h4 class="info-title">Event Usage:</h4>
-            <pre class="code-block">@language-change="handleLanguageChange"
+          <div>
+            <h4>Event Usage:</h4>
+            <pre>@language-change="handleLanguageChange"
 @lang="handleLangCode"
 @update:modelValue="updateLanguages"</pre>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           This example uses `preventDefault: true` to handle language switching with custom logic.
           Check the browser console to see the emitted events when clicking languages.
         </p>
@@ -167,7 +167,7 @@ const handleLangCode = (lang: string) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsSprogvaelger
             :model-value="state.languages"
             :auto-set-lang="state.autoSetLang"
@@ -177,8 +177,8 @@ const handleLangCode = (lang: string) => {
             @lang="(code) => console.log('Lang code:', code)"
           />
           
-          <div class="playground-status">
-            <p class="status-text">
+          <div>
+            <p>
               Active: {{ state.languages.find(l => l.active)?.title }}
             </p>
           </div>
@@ -189,9 +189,9 @@ const handleLangCode = (lang: string) => {
         <HstCheckbox v-model="state.autoSetLang" title="Auto Set Document Lang" />
         <HstCheckbox v-model="state.preventDefault" title="Prevent Default Navigation" />
         
-        <div class="languages-editor">
+        <div>
           <h4>Languages</h4>
-          <div v-for="(lang, index) in state.languages" :key="index" class="lang-editor">
+          <div v-for="(lang, index) in state.languages" :key="index">
             <HstText v-model="lang.title" :title="`Language ${index + 1} Title`" />
             <HstText v-model="lang.lang" :title="`Language ${index + 1} Code`" />
             <HstCheckbox v-model="lang.active" :title="`Active Language ${index + 1}`" @update:model-value="(active) => {
@@ -208,170 +208,6 @@ const handleLangCode = (lang: string) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px minimum */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-.info-title {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  color: #333;
-}
-
-.status-text {
-  font-size: 1.4rem; /* 14px */
-  color: #333;
-  margin: 1.2rem 0;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.demo-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  max-width: 600px;
-}
-
-.current-state {
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
-}
-
-.language-display {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #0056b3;
-  margin-top: 0.8rem;
-}
-
-.accessibility-demo {
-  max-width: 800px;
-}
-
-.accessibility-info {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-left: 4px solid #0056b3;
-}
-
-.feature-list {
-  margin: 0;
-  padding-left: 2.4rem;
-  font-size: 1.4rem;
-  line-height: 1.6;
-}
-
-.feature-list li {
-  margin-bottom: 0.8rem;
-}
-
-.event-demo {
-  max-width: 700px;
-}
-
-.code-example {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
-}
-
-.code-block {
-  font-family: 'Courier New', monospace;
-  font-size: 1.4rem;
-  color: #333;
-  margin: 0;
-  white-space: pre-wrap;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-.playground-status {
-  margin-top: 2.4rem;
-  text-align: center;
-}
-
-.languages-editor {
-  margin-top: 1.6rem;
-}
-
-.lang-editor {
-  margin-bottom: 1.2rem;
-  padding: 1.2rem;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .demo-container {
-    gap: 1.6rem;
-  }
-
-  .accessibility-info,
-  .code-example {
-    padding: 1.2rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsSprogvaelger

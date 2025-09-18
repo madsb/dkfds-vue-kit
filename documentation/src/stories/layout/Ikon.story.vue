@@ -31,17 +31,17 @@ const iconCategories = {
   <Story title="Layout/Ikon" :layout="{ type: 'grid', width: '100%' }" icon="carbon:image">
     <!-- Showcase all common DKFDS icons -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="icon-showcase">
-          <h3 class="section-title">Common DKFDS Icons</h3>
-          <div class="icon-grid">
-            <div v-for="icon in commonIcons" :key="icon" class="icon-demo">
+      <div class="container py-6">
+        <div>
+          <h3 class="h5 mb-2">Common DKFDS Icons</h3>
+          <div>
+            <div v-for="icon in commonIcons" :key="icon">
               <FdsIkon :icon="icon" :decorative="true" />
-              <span class="icon-name">{{ icon }}</span>
+              <span>{{ icon }}</span>
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The icon component follows DKFDS v11 design specifications with Material Design icons. Try switching themes using
           the global theme switcher to see how icons adapt to different contexts.
         </p>
@@ -50,10 +50,10 @@ const iconCategories = {
 
     <!-- Accessibility demonstration -->
     <Variant title="Accessibility" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-examples">
-          <h3 class="section-subtitle">Decorative Icons (Hidden from Screen Readers)</h3>
-          <div class="example-group">
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Decorative Icons (Hidden from Screen Readers)</h3>
+          <div>
             <p>
               <FdsIkon icon="check" :decorative="true" :inline="true" />
               Task completed successfully
@@ -64,10 +64,10 @@ const iconCategories = {
             </p>
           </div>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">Meaningful Icons (Screen Reader Accessible)</h3>
-          <div class="example-group">
+          <h3 class="h6 mb-2">Meaningful Icons (Screen Reader Accessible)</h3>
+          <div>
             <p>
               <FdsIkon 
                 icon="error" 
@@ -88,7 +88,7 @@ const iconCategories = {
             </p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Decorative icons use aria-hidden="true" and are hidden from screen readers. 
           Meaningful icons require aria-label and role="img" for accessibility.
         </p>
@@ -97,34 +97,34 @@ const iconCategories = {
 
     <!-- Size and inline behavior -->
     <Variant title="Size & Inline Usage" icon="carbon:text-scale">
-      <div class="story-content">
-        <div class="size-examples">
-          <h3 class="section-subtitle">Block Icons (Default)</h3>
-          <div class="block-icons">
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Block Icons (Default)</h3>
+          <div>
             <FdsIkon icon="home" :decorative="true" />
             <FdsIkon icon="account" :decorative="true" />
             <FdsIkon icon="settings" :decorative="true" />
           </div>
 
-          <div class="divider" />
+          <hr class="my-6" />
 
-          <h3 class="section-subtitle">Inline Icons (Text Height)</h3>
-          <div class="inline-examples">
-            <p class="text-small">
+          <h3 class="h6 mb-2">Inline Icons (Text Height)</h3>
+          <div>
+            <p>
               <FdsIkon icon="check" :decorative="true" :inline="true" />
               Small text with inline icon
             </p>
-            <p class="text-normal">
+            <p>
               <FdsIkon icon="star" :decorative="true" :inline="true" />
               Normal text with inline icon
             </p>
-            <p class="text-large">
+            <p>
               <FdsIkon icon="bookmark" :decorative="true" :inline="true" />
               Large text with inline icon
             </p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Inline icons automatically scale with the surrounding text size. 
           Block icons maintain consistent size regardless of text context.
         </p>
@@ -133,19 +133,19 @@ const iconCategories = {
 
     <!-- Categorized icons -->
     <Variant title="Icon Categories" icon="carbon:category">
-      <div class="story-content">
-        <div class="categories">
-          <div v-for="(icons, category) in iconCategories" :key="category" class="category-section">
-            <h3 class="section-subtitle">{{ category.charAt(0).toUpperCase() + category.slice(1) }}</h3>
-            <div class="category-grid">
-              <div v-for="icon in icons" :key="icon" class="icon-demo small">
+      <div class="container py-6">
+        <div>
+          <div v-for="(icons, category) in iconCategories" :key="category">
+            <h3 class="h6 mb-2">{{ category.charAt(0).toUpperCase() + category.slice(1) }}</h3>
+            <div>
+              <div v-for="icon in icons" :key="icon" class="small">
                 <FdsIkon :icon="icon" :decorative="true" />
-                <span class="icon-name">{{ icon }}</span>
+                <span>{{ icon }}</span>
               </div>
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Icons are organized by usage category. All icons use Material Design symbols from the DKFDS icon set.
         </p>
       </div>
@@ -163,9 +163,9 @@ const iconCategories = {
       })"
     >
       <template #default="{ state }">
-        <div class="story-content playground">
-          <div class="preview-area">
-            <div class="icon-preview">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
+          <div>
+            <div>
               <FdsIkon
                 :icon="state.icon"
                 :inline="state.inline"
@@ -173,8 +173,8 @@ const iconCategories = {
                 :aria-label="!state.decorative ? state.ariaLabel : undefined"
               />
             </div>
-            <div class="usage-context">
-              <p class="context-text">
+            <div>
+              <p>
                 <FdsIkon
                   :icon="state.icon"
                   :inline="true"
@@ -215,227 +215,6 @@ const iconCategories = {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Icon showcase */
-.icon-showcase {
-  margin-bottom: 2.4rem;
-}
-
-.icon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 1.6rem;
-  margin-bottom: 2.4rem;
-}
-
-.icon-demo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.2rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.icon-demo.small {
-  padding: 0.8rem;
-}
-
-.icon-name {
-  font-size: 1.2rem;
-  color: #666;
-  margin-top: 0.8rem;
-  word-break: break-word;
-}
-
-/* Accessibility examples */
-.accessibility-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.example-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.example-group p {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin: 0;
-  padding: 1.2rem;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-}
-
-/* Size examples */
-.size-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.block-icons {
-  display: flex;
-  gap: 1.6rem;
-  align-items: center;
-}
-
-.inline-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.text-small {
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0;
-}
-
-.text-normal {
-  font-size: 1.6rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin: 0;
-}
-
-.text-large {
-  font-size: 2.0rem;
-  display: flex;
-  align-items: center;
-  gap: 1.0rem;
-  margin: 0;
-}
-
-/* Categories */
-.categories {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.category-section {
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 1.2rem;
-}
-
-/* Playground */
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-}
-
-.preview-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.4rem;
-  width: 100%;
-  max-width: 600px;
-}
-
-.icon-preview {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2.4rem;
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.usage-context {
-  width: 100%;
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-}
-
-.context-text {
-  font-size: 1.6rem;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-/* Common elements */
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .icon-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 1.2rem;
-  }
-
-  .block-icons {
-    justify-content: center;
-  }
-
-  .category-grid {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  }
-
-  .preview-area {
-    gap: 1.6rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsIkon

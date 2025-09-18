@@ -46,10 +46,10 @@ const handleExternalPageChange = (page: number) => {
   <Story title="Navigation/Paginering" :layout="{ type: 'grid', width: '100%' }" icon="carbon:page-number">
     <!-- Showcase all pagination variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Small Dataset (25 items)</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Small Dataset (25 items)</h3>
             <FdsPaginering
               :list="smallItems"
               :page-size="5"
@@ -58,8 +58,8 @@ const handleExternalPageChange = (page: number) => {
               @page-change="handlePageChange"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Medium Dataset (100 items)</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Medium Dataset (100 items)</h3>
             <FdsPaginering
               :list="mediumItems"
               :page-size="10"
@@ -68,8 +68,8 @@ const handleExternalPageChange = (page: number) => {
               @page-change="handlePageChange"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">External Pagination (247 items)</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">External Pagination (247 items)</h3>
             <FdsPaginering
               :total-items="247"
               :skip="0"
@@ -79,8 +79,8 @@ const handleExternalPageChange = (page: number) => {
               @page-change="handleExternalPageChange"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Without First/Last Buttons</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Without First/Last Buttons</h3>
             <FdsPaginering
               :list="mediumItems"
               :page-size="15"
@@ -91,7 +91,7 @@ const handleExternalPageChange = (page: number) => {
             />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Pagination follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how pagination adapts to different contexts.
         </p>
@@ -100,9 +100,9 @@ const handleExternalPageChange = (page: number) => {
 
     <!-- Different page counts and ellipsis behavior -->
     <Variant title="Page Count Variations" icon="carbon:page-break">
-      <div class="story-content">
-        <div class="pagination-demo">
-          <h3 class="section-subtitle">Few Pages (No Ellipsis)</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Few Pages (No Ellipsis)</h3>
           <FdsPaginering
             :list="generateItems(30)"
             :page-size="10"
@@ -112,10 +112,10 @@ const handleExternalPageChange = (page: number) => {
           />
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="pagination-demo">
-          <h3 class="section-subtitle">Many Pages (With Ellipsis)</h3>
+        <div>
+          <h3 class="h6 mb-2">Many Pages (With Ellipsis)</h3>
           <FdsPaginering
             :list="largeItems"
             :page-size="25"
@@ -125,10 +125,10 @@ const handleExternalPageChange = (page: number) => {
           />
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="pagination-demo">
-          <h3 class="section-subtitle">Compact View (Max 5 Elements)</h3>
+        <div>
+          <h3 class="h6 mb-2">Compact View (Max 5 Elements)</h3>
           <FdsPaginering
             :list="largeItems"
             :page-size="50"
@@ -138,7 +138,7 @@ const handleExternalPageChange = (page: number) => {
           />
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Ellipsis (...) appear automatically when there are more pages than maxElements allows.
           The component intelligently shows pages around the current page.
         </p>
@@ -147,11 +147,11 @@ const handleExternalPageChange = (page: number) => {
 
     <!-- External vs Internal pagination modes -->
     <Variant title="Pagination Modes" icon="carbon:data-connected">
-      <div class="story-content">
-        <div class="mode-comparison">
-          <div class="mode-section">
-            <h3 class="section-subtitle">Internal Pagination Mode</h3>
-            <p class="mode-description">
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Internal Pagination Mode</h3>
+            <p>
               Use when you have all data available. Component handles slicing internally.
             </p>
             <FdsPaginering
@@ -160,14 +160,14 @@ const handleExternalPageChange = (page: number) => {
               @filtered-page="handlePageData"
               @page-change="handlePageChange"
             />
-            <div class="current-data">
+            <div>
               <strong>Current page items:</strong> {{ currentPageData.length }} items loaded
             </div>
           </div>
 
-          <div class="mode-section">
-            <h3 class="section-subtitle">External Pagination Mode</h3>
-            <p class="mode-description">
+          <div>
+            <h3 class="h6 mb-2">External Pagination Mode</h3>
+            <p>
               Use with APIs. You handle data loading based on skip/page-change events.
             </p>
             <FdsPaginering
@@ -177,13 +177,13 @@ const handleExternalPageChange = (page: number) => {
               @skip="handleSkipChange"
               @page-change="handleExternalPageChange"
             />
-            <div class="current-data">
+            <div>
               <strong>Current state:</strong> Page {{ externalCurrentPage }}, Skip {{ externalSkip }}
             </div>
           </div>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Internal mode: Use "list" prop. External mode: Use "totalItems" and "skip" props.
           Both modes emit page-change events for tracking.
         </p>
@@ -192,10 +192,10 @@ const handleExternalPageChange = (page: number) => {
 
     <!-- Boundary states and accessibility -->
     <Variant title="States & Accessibility" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="states-grid">
-          <div class="state-section">
-            <h3 class="section-subtitle">First Page (Previous Disabled)</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div>
+            <h3 class="h6 mb-2">First Page (Previous Disabled)</h3>
             <FdsPaginering
               :total-items="100"
               :skip="0"
@@ -204,11 +204,11 @@ const handleExternalPageChange = (page: number) => {
               @skip="handleSkipChange"
               @page-change="handlePageChange"
             />
-            <p class="state-note">Previous and First buttons are hidden when on first page.</p>
+            <p>Previous and First buttons are hidden when on first page.</p>
           </div>
 
-          <div class="state-section">
-            <h3 class="section-subtitle">Middle Page (All Controls Active)</h3>
+          <div>
+            <h3 class="h6 mb-2">Middle Page (All Controls Active)</h3>
             <FdsPaginering
               :total-items="200"
               :skip="50"
@@ -217,24 +217,24 @@ const handleExternalPageChange = (page: number) => {
               @skip="handleSkipChange"
               @page-change="handlePageChange"
             />
-            <p class="state-note">All navigation controls are available.</p>
+            <p>All navigation controls are available.</p>
           </div>
 
-          <div class="state-section">
-            <h3 class="section-subtitle">Single Page (No Pagination)</h3>
+          <div>
+            <h3 class="h6 mb-2">Single Page (No Pagination)</h3>
             <FdsPaginering
               :list="generateItems(5)"
               :page-size="10"
               @filtered-page="handlePageData"
               @page-change="handlePageChange"
             />
-            <p class="state-note">Pagination is hidden when all items fit on one page.</p>
+            <p>Pagination is hidden when all items fit on one page.</p>
           </div>
         </div>
 
-        <div class="accessibility-info">
-          <h3 class="section-subtitle">Accessibility Features</h3>
-          <ul class="accessibility-list">
+        <div>
+          <h3 class="h6 mb-2">Accessibility Features</h3>
+          <ul>
             <li>ARIA labeling with "side X af Y" (page X of Y)</li>
             <li>Current page marked with aria-current="page"</li>
             <li>Screen reader announcements with aria-live</li>
@@ -243,7 +243,7 @@ const handleExternalPageChange = (page: number) => {
           </ul>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Try navigating with keyboard (Tab, Enter) and notice the ARIA labels.
           The mobile display shows "Side X af Y" for better mobile UX.
         </p>
@@ -266,8 +266,8 @@ const handleExternalPageChange = (page: number) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
-          <div class="playground-demo">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
+          <div>
             <FdsPaginering
               v-if="state.mode === 'internal'"
               :list="generateItems(state.totalItems)"
@@ -289,7 +289,7 @@ const handleExternalPageChange = (page: number) => {
             />
           </div>
           
-          <div class="playground-info">
+          <div>
             <p><strong>Total Items:</strong> {{ state.totalItems }}</p>
             <p><strong>Page Size:</strong> {{ state.pageSize }}</p>
             <p><strong>Total Pages:</strong> {{ Math.ceil(state.totalItems / state.pageSize) }}</p>
@@ -350,184 +350,6 @@ const handleExternalPageChange = (page: number) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.2rem;
-}
-
-.pagination-demo {
-  margin-bottom: 2.4rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.mode-comparison {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.mode-section {
-  border: 1px solid #e0e0e0;
-  border-radius: 0.8rem;
-  padding: 2.4rem;
-  background-color: #fafafa;
-}
-
-.mode-description {
-  font-size: 1.4rem;
-  color: #666;
-  margin-bottom: 1.6rem;
-  line-height: 1.5;
-}
-
-.current-data {
-  margin-top: 1.6rem;
-  padding: 1.2rem;
-  background-color: #f0f0f0;
-  border-radius: 0.4rem;
-  font-size: 1.4rem;
-  color: #333;
-}
-
-.states-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 3.2rem;
-}
-
-.state-section {
-  padding: 2.4rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.8rem;
-  background-color: #fafafa;
-}
-
-.state-note {
-  font-size: 1.4rem;
-  color: #666;
-  margin-top: 1.2rem;
-  font-style: italic;
-}
-
-.accessibility-info {
-  padding: 2.4rem;
-  background-color: #f8f9fa;
-  border-radius: 0.8rem;
-  border-left: 0.4rem solid #0078d4;
-  margin-bottom: 2.4rem;
-}
-
-.accessibility-list {
-  font-size: 1.4rem;
-  color: #333;
-  line-height: 1.6;
-  margin: 0;
-  padding-left: 2rem;
-}
-
-.accessibility-list li {
-  margin-bottom: 0.8rem;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  gap: 2.4rem;
-}
-
-.playground-demo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.6rem;
-}
-
-.playground-info {
-  padding: 1.6rem;
-  background-color: #f0f0f0;
-  border-radius: 0.8rem;
-  text-align: center;
-  font-size: 1.4rem;
-}
-
-.playground-info p {
-  margin: 0.4rem 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .mode-comparison {
-    grid-template-columns: 1fr;
-  }
-
-  .states-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .variant-section,
-  .mode-section,
-  .state-section {
-    min-width: auto;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsPaginering

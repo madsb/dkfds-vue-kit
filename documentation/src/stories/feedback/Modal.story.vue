@@ -33,10 +33,10 @@ const openModal = (modalRef: any) => {
   <Story title="Feedback/Modal" :layout="{ type: 'grid', width: '100%' }" icon="carbon:popup">
     <!-- Showcase all modal types -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Modal</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Modal</h3>
             <FdsButton variant="primary" @click="openModal(basicModalRef)">Open Basic Modal</FdsButton>
             <FdsModal
               ref="basicModalRef"
@@ -50,8 +50,8 @@ const openModal = (modalRef: any) => {
             </FdsModal>
           </div>
           
-          <div class="variant-section">
-            <h3 class="section-title">With Scrollable Content</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Scrollable Content</h3>
             <FdsButton variant="secondary" @click="openModal(largeContentModalRef)">Open Scrollable Modal</FdsButton>
             <FdsModal
               ref="largeContentModalRef"
@@ -61,7 +61,7 @@ const openModal = (modalRef: any) => {
               @accept="handleAccept"
               @cancel="handleCancel"
             >
-              <div class="modal-scroll-content">
+              <div>
                 <p>This modal contains a lot of content that demonstrates scrolling behavior within the modal body.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -74,8 +74,8 @@ const openModal = (modalRef: any) => {
             </FdsModal>
           </div>
           
-          <div class="variant-section">
-            <h3 class="section-title">Custom Actions</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Actions</h3>
             <FdsButton variant="tertiary" @click="openModal(customModalRef)">Open Custom Modal</FdsButton>
             <FdsModal ref="customModalRef" header="Save Document">
               <p>Would you like to save your changes before closing?</p>
@@ -87,8 +87,8 @@ const openModal = (modalRef: any) => {
             </FdsModal>
           </div>
           
-          <div class="variant-section">
-            <h3 class="section-title">Non-Closeable</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Non-Closeable</h3>
             <FdsButton variant="warning" @click="openModal(confirmModalRef)">Critical Action</FdsButton>
             <FdsModal
               ref="confirmModalRef"
@@ -104,7 +104,7 @@ const openModal = (modalRef: any) => {
           </div>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The modal component follows DKFDS v11 design specifications with proper focus management and keyboard navigation. 
           Try switching themes using the global theme switcher to see how modals adapt to different contexts.
         </p>
@@ -113,9 +113,9 @@ const openModal = (modalRef: any) => {
 
     <!-- Focus Management & Accessibility -->
     <Variant title="Accessibility Features" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-demo">
-          <h3 class="section-subtitle">Focus Management</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Focus Management</h3>
           <p>Modals automatically manage focus and support keyboard navigation:</p>
           <ul>
             <li><strong>ESC Key:</strong> Closes closeable modals</li>
@@ -127,10 +127,10 @@ const openModal = (modalRef: any) => {
           <FdsButton variant="primary" @click="openModal(basicModalRef)">Test Focus Management</FdsButton>
         </div>
         
-        <div class="divider" />
+        <hr class="my-6" />
         
-        <div class="accessibility-demo">
-          <h3 class="section-subtitle">ARIA Attributes</h3>
+        <div>
+          <h3 class="h6 mb-2">ARIA Attributes</h3>
           <p>The modal includes proper ARIA labeling:</p>
           <ul>
             <li><code>aria-modal="true"</code> - Identifies the element as a modal</li>
@@ -139,7 +139,7 @@ const openModal = (modalRef: any) => {
           </ul>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Try opening a modal and using keyboard navigation (Tab, Shift+Tab, ESC) to test accessibility features.
         </p>
       </div>
@@ -147,32 +147,32 @@ const openModal = (modalRef: any) => {
 
     <!-- Different Modal Configurations -->
     <Variant title="Modal Configurations" icon="carbon:settings">
-      <div class="story-content">
-        <div class="config-grid">
-          <div class="config-section">
-            <h3 class="section-subtitle">With Custom Header</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">With Custom Header</h3>
             <FdsButton variant="secondary" @click="openModal(customModalRef)">Custom Header</FdsButton>
           </div>
           
-          <div class="config-section">
-            <h3 class="section-subtitle">Action Confirmation</h3>
+          <div>
+            <h3 class="h6 mb-2">Action Confirmation</h3>
             <FdsButton variant="warning" @click="openModal(confirmModalRef)">Destructive Action</FdsButton>
           </div>
           
-          <div class="config-section">
-            <h3 class="section-subtitle">Information Display</h3>
+          <div>
+            <h3 class="h6 mb-2">Information Display</h3>
             <FdsButton variant="tertiary" @click="openModal(largeContentModalRef)">Show Details</FdsButton>
           </div>
         </div>
         
-        <div class="divider" />
+        <hr class="my-6" />
         
-        <div class="stats-display">
-          <p class="section-subtitle">Interaction Count: {{ actionCount }}</p>
+        <div>
+          <p class="h6 mb-2">Interaction Count: {{ actionCount }}</p>
           <p>Track user interactions with modal actions to understand usage patterns.</p>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Different modal configurations serve various purposes: confirmations, information display, 
           multi-step workflows, and critical actions that require user attention.
         </p>
@@ -195,10 +195,10 @@ const openModal = (modalRef: any) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsButton variant="primary" @click="openModal(basicModalRef)">Open Modal</FdsButton>
 
-          <p class="story-hint">Actions triggered: {{ actionCount }}</p>
+          <p class="mt-4 mb-0">Actions triggered: {{ actionCount }}</p>
         </div>
       </template>
 
@@ -219,135 +219,6 @@ const openModal = (modalRef: any) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.2rem;
-}
-
-.config-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.config-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.2rem;
-}
-
-.accessibility-demo {
-  margin-bottom: 2.4rem;
-}
-
-.accessibility-demo ul {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  margin: 1.2rem 0;
-  padding-left: 2.4rem;
-}
-
-.accessibility-demo li {
-  margin-bottom: 0.8rem;
-}
-
-.accessibility-demo code {
-  background-color: #f5f5f5;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.2rem;
-  font-family: monospace;
-  font-size: 1.3rem;
-}
-
-.stats-display {
-  background-color: #f8f9fa;
-  padding: 1.6rem;
-  border-radius: 0.4rem;
-  border: 1px solid #e9ecef;
-}
-
-.modal-scroll-content {
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.modal-scroll-content p {
-  margin-bottom: 1.2rem;
-  font-size: 1.4rem;
-  line-height: 1.6;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  gap: 1.6rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .config-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 
 <docs lang="md">

@@ -15,10 +15,10 @@ const demoGroupExpanded = ref(false)
   >
     <!-- Showcase all accordion variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Accordion</h3>
+      <div class="container py-6">
+        <div class="row mb-5">
+          <div class="col-12">
+            <h3 class="h5 mb-4 mt-0">Basic Accordion</h3>
             <FdsAccordion header="Basic Information">
               <p>
                 This is the basic accordion content. It can contain any type of content including
@@ -26,9 +26,11 @@ const demoGroupExpanded = ref(false)
               </p>
             </FdsAccordion>
           </div>
+        </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">With Status Icons</h3>
+        <div class="row mb-5">
+          <div class="col-12">
+            <h3 class="h5 mb-4">With Status Icons</h3>
             <FdsAccordion header="Success Section" variant="success" variant-text="Completed">
               <p>This accordion has a success status indicator with custom text.</p>
             </FdsAccordion>
@@ -39,9 +41,11 @@ const demoGroupExpanded = ref(false)
               <p>This accordion displays an error status with default text.</p>
             </FdsAccordion>
           </div>
+        </div>
 
-          <div class="variant-section">
-            <h3 class="section-title">Accordion Group</h3>
+        <div class="row mb-5">
+          <div class="col-12">
+            <h3 class="h5 mb-4">Accordion Group</h3>
             <FdsAccordionGroup>
               <FdsAccordion header="Section 1">
                 <p>Content for the first section in the accordion group.</p>
@@ -55,7 +59,8 @@ const demoGroupExpanded = ref(false)
             </FdsAccordionGroup>
           </div>
         </div>
-        <p class="story-hint">
+
+        <p class="mt-4 mb-0">
           The Accordion component follows DKFDS v11 design specifications. Try switching themes
           using the global theme switcher to see how accordions adapt to different contexts.
         </p>
@@ -64,9 +69,9 @@ const demoGroupExpanded = ref(false)
 
     <!-- Group features and bulk controls -->
     <Variant title="Group Controls" icon="carbon:list">
-      <div class="story-content">
-        <div class="group-demo">
-          <h3 class="section-subtitle">With Bulk Controls</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h5 mb-4">With Bulk Controls</h3>
           <FdsAccordionGroup
             v-model="demoGroupExpanded"
             expanded-text="Fold alle sammen"
@@ -84,10 +89,10 @@ const demoGroupExpanded = ref(false)
           </FdsAccordionGroup>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="group-demo">
-          <h3 class="section-subtitle">Without Bulk Button</h3>
+        <div>
+          <h3 class="h5 mb-4">Without Bulk Button</h3>
           <FdsAccordionGroup :show-bulk-button="false">
             <FdsAccordion header="Privacy Policy">
               <p>Details about how we collect and use your personal data.</p>
@@ -98,7 +103,7 @@ const demoGroupExpanded = ref(false)
           </FdsAccordionGroup>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Accordion groups provide coordinated behavior. The bulk control button allows users to
           expand or collapse all sections at once.
         </p>
@@ -107,29 +112,23 @@ const demoGroupExpanded = ref(false)
 
     <!-- Controlled state -->
     <Variant title="Controlled State" icon="carbon:touch-interaction">
-      <div class="story-content">
-        <div class="controlled-demo">
-          <div class="controls">
-            <button class="fds-button fds-button--primary" @click="demoExpanded = !demoExpanded">
+      <div class="container py-6">
+        <div>
+          <div class="mb-4 d-flex align-items-center justify-content-between">
+            <button class="fds-button--primary mr-4" @click="demoExpanded = !demoExpanded">
               {{ demoExpanded ? 'Collapse' : 'Expand' }} Accordion
             </button>
-            <span class="state-indicator"
-              >State: {{ demoExpanded ? 'Expanded' : 'Collapsed' }}</span
-            >
+            <span>State: {{ demoExpanded ? 'Expanded' : 'Collapsed' }}</span>
           </div>
 
-          <FdsAccordion
-            v-model="demoExpanded"
-            header="Controlled Accordion"
-          >
+          <FdsAccordion v-model="demoExpanded" header="Controlled Accordion">
             <p>
               This accordion's expanded state is controlled by external buttons and v-model binding.
             </p>
           </FdsAccordion>
-
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Use v-model for two-way binding and listen to fds.accordion.open/close events for custom
           behavior. Keyboard navigation is supported with Tab, Enter, and Space keys.
         </p>
@@ -138,13 +137,13 @@ const demoGroupExpanded = ref(false)
 
     <!-- Custom content examples -->
     <Variant title="Custom Content" icon="carbon:document">
-      <div class="story-content">
-        <div class="custom-content-demo">
+      <div class="container py-6">
+        <div>
           <FdsAccordion>
             <template #header>
               <span>Custom Header with <strong>Rich Formatting</strong> and <em>Emphasis</em></span>
             </template>
-            <div class="rich-content">
+            <div>
               <h4>Rich Content Example</h4>
               <p>Accordions can contain any type of content:</p>
               <ul>
@@ -153,12 +152,12 @@ const demoGroupExpanded = ref(false)
                 <li>Images and media</li>
                 <li>Other components</li>
               </ul>
-              <div class="content-grid">
-                <div class="content-card">
+              <div>
+                <div>
                   <h5>Card 1</h5>
                   <p>Nested content example</p>
                 </div>
-                <div class="content-card">
+                <div>
                   <h5>Card 2</h5>
                   <p>Multiple columns work well</p>
                 </div>
@@ -167,7 +166,7 @@ const demoGroupExpanded = ref(false)
           </FdsAccordion>
 
           <FdsAccordion header="Form Example" variant="warning" variant-text="Required">
-            <form class="example-form">
+            <form>
               <div class="form-group">
                 <label for="demo-name" class="form-label">Name:</label>
                 <input
@@ -186,14 +185,12 @@ const demoGroupExpanded = ref(false)
                   placeholder="Enter your email"
                 />
               </div>
-              <button type="button" class="fds-button fds-button--secondary">
-                Save Information
-              </button>
+              <button type="button" class="fds-button--secondary">Save Information</button>
             </form>
           </FdsAccordion>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Accordions support rich content including forms, media, and custom HTML. Use the header
           slot for custom header formatting.
         </p>
@@ -221,8 +218,8 @@ const demoGroupExpanded = ref(false)
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
-          <div v-if="!state.showGroup" class="playground-accordion">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
+          <div v-if="!state.showGroup">
             <FdsAccordion
               v-model="state.expanded"
               :header="state.header"
@@ -234,7 +231,7 @@ const demoGroupExpanded = ref(false)
             </FdsAccordion>
           </div>
 
-          <div v-else class="playground-group">
+          <div v-else>
             <FdsAccordionGroup
               :show-bulk-button="state.showBulkButton"
               :expanded-text="state.expandedText"
@@ -252,8 +249,8 @@ const demoGroupExpanded = ref(false)
             </FdsAccordionGroup>
           </div>
 
-          <div class="playground-status">
-            <span class="status-label">Expanded: {{ state.expanded ? 'Yes' : 'No' }}</span>
+          <div>
+            <span>Expanded: {{ state.expanded ? 'Yes' : 'No' }}</span>
           </div>
         </div>
       </template>
@@ -313,231 +310,6 @@ const demoGroupExpanded = ref(false)
     </Variant>
   </Story>
 </template>
-
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.variant-section > :deep(.accordion),
-.variant-section > :deep(.accordion-group) {
-  margin-top: 0;
-}
-
-.group-demo {
-  margin-bottom: 2.4rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-/* Controlled demo styles */
-.controlled-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  flex-wrap: wrap;
-}
-
-.state-indicator {
-  font-size: 1.4rem;
-  color: #666;
-  padding: 0.8rem 1.2rem;
-  background: #f5f5f5;
-  border-radius: 0.4rem;
-}
-
-/* Custom content demo styles */
-.custom-content-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.rich-content h4 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin: 0 0 1.2rem 0;
-  color: #1a1a1a;
-}
-
-.rich-content h5 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0 0 0.8rem 0;
-  color: #333;
-}
-
-.rich-content p {
-  margin: 0 0 1.2rem 0;
-}
-
-.rich-content ul {
-  margin: 0 0 1.6rem 0;
-  padding-left: 2rem;
-}
-
-.rich-content li {
-  margin-bottom: 0.4rem;
-}
-
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.6rem;
-  margin-top: 1.6rem;
-}
-
-.content-card {
-  padding: 1.6rem;
-  background: #f8f8f8;
-  border-radius: 0.8rem;
-  border: 1px solid #e0e0e0;
-}
-
-.content-card h5 {
-  margin-top: 0;
-}
-
-.content-card p {
-  margin-bottom: 0;
-}
-
-/* Form example styles */
-.example-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  max-width: 400px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.form-label {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.form-input {
-  padding: 1.2rem;
-  border: 1px solid #ccc;
-  border-radius: 0.4rem;
-  font-size: 1.4rem;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: #0077c1;
-  box-shadow: 0 0 0 3px rgba(0, 119, 193, 0.1);
-}
-
-/* Playground styles */
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  gap: 2.4rem;
-}
-
-.playground-accordion,
-.playground-group {
-  width: 100%;
-  max-width: 600px;
-}
-
-.playground-status {
-  display: flex;
-  justify-content: center;
-  gap: 1.6rem;
-}
-
-.status-label {
-  font-size: 1.4rem;
-  color: #666;
-  padding: 0.8rem 1.2rem;
-  background: #f5f5f5;
-  border-radius: 0.4rem;
-}
-
-/* Button overrides for demo */
-.story-content :deep(.fds-button) {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsAccordion

@@ -138,31 +138,31 @@ const getPrePlaygroundState = () => ({
   <Story title="Data Display/Pre" :layout="{ type: 'grid', width: '100%' }" icon="carbon:code">
     <!-- Showcase all pre variations -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Code Block</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Code Block</h3>
             <FdsPre
               header="JavaScript Example"
               :code="jsIntroSnippet"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">JSON Data</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">JSON Data</h3>
             <FdsPre
               header="API Response"
               :json="{ status: 'success', data: { id: 1, name: 'Test' }, timestamp: '2024-01-15' }"
             />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Configuration</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Configuration</h3>
             <FdsPre
               header="YAML Config"
               :code="yamlConfigSnippet"
             />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The Pre component follows DKFDS v11 specifications for displaying code blocks and preformatted text.
           Try switching themes using the global theme switcher to see how it adapts to different contexts.
         </p>
@@ -171,33 +171,33 @@ const getPrePlaygroundState = () => ({
 
     <!-- Programming languages demonstration -->
     <Variant title="Code Languages" icon="carbon:application">
-      <div class="story-content">
-        <div class="code-examples">
-          <div class="code-example">
-            <h3 class="section-subtitle">JavaScript</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">JavaScript</h3>
             <FdsPre
               header="Function Example"
               :code="jsAsyncSnippet"
             />
           </div>
 
-          <div class="code-example">
-            <h3 class="section-subtitle">Python</h3>
+          <div>
+            <h3 class="h6 mb-2">Python</h3>
             <FdsPre
               header="Class Definition"
               :code="pythonClassSnippet"
             />
           </div>
 
-          <div class="code-example">
-            <h3 class="section-subtitle">HTML</h3>
+          <div>
+            <h3 class="h6 mb-2">HTML</h3>
             <FdsPre
               header="Form Structure"
               :code="htmlFormSnippet"
             />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Pre components handle various programming languages with consistent monospace formatting
           and proper line spacing for readability.
         </p>
@@ -206,10 +206,10 @@ const getPrePlaygroundState = () => ({
 
     <!-- JSON formatting demonstration -->
     <Variant title="JSON Formatting" icon="carbon:data-structured">
-      <div class="story-content">
-        <div class="json-examples">
-          <div class="json-example">
-            <h3 class="section-subtitle">Simple Object</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Simple Object</h3>
             <FdsPre
               header="User Profile"
               :json="{
@@ -221,16 +221,16 @@ const getPrePlaygroundState = () => ({
             />
           </div>
 
-          <div class="json-example">
-            <h3 class="section-subtitle">Complex Structure</h3>
+          <div>
+            <h3 class="h6 mb-2">Complex Structure</h3>
             <FdsPre
               header="Application Settings"
               :json="sampleJson"
             />
           </div>
 
-          <div class="json-example">
-            <h3 class="section-subtitle">Array Data</h3>
+          <div>
+            <h3 class="h6 mb-2">Array Data</h3>
             <FdsPre
               header="Menu Items"
               :json="{
@@ -249,7 +249,7 @@ const getPrePlaygroundState = () => ({
             />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           JSON objects are automatically formatted with proper indentation for enhanced readability.
           Large JSON objects over 65,535 characters will show a warning message.
         </p>
@@ -258,33 +258,33 @@ const getPrePlaygroundState = () => ({
 
     <!-- Content variations -->
     <Variant title="Content Types" icon="carbon:document">
-      <div class="story-content">
-        <div class="content-examples">
-          <div class="content-example">
-            <h3 class="section-subtitle">Log Output</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Log Output</h3>
             <FdsPre
               header="Application Logs"
               :code="logOutput"
             />
           </div>
 
-          <div class="content-example">
-            <h3 class="section-subtitle">Command Line</h3>
+          <div>
+            <h3 class="h6 mb-2">Command Line</h3>
             <FdsPre
               header="Terminal Commands"
               :code="terminalCommands"
             />
           </div>
 
-          <div class="content-example">
-            <h3 class="section-subtitle">Data Format</h3>
+          <div>
+            <h3 class="h6 mb-2">Data Format</h3>
             <FdsPre
               header="CSV Data"
               :code="csvDataset"
             />
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Pre components preserve exact formatting including whitespace, making them ideal for
           logs, command output, and structured data formats.
         </p>
@@ -298,7 +298,7 @@ const getPrePlaygroundState = () => ({
       :init-state="getPrePlaygroundState"
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsPre
             v-if="state.contentType === 'code'"
             :header="state.header"
@@ -353,99 +353,6 @@ const getPrePlaygroundState = () => ({
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.code-examples,
-.json-examples,
-.content-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.code-example,
-.json-example,
-.content-example {
-  width: 100%;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  width: 100%;
-}
-
-.playground :deep(.fds-pre) {
-  max-width: 800px;
-  width: 100%;
-}
-
-/* Ensure pre blocks don't overflow the viewport */
-.story-content :deep(.fds-pre .form-input) {
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .playground :deep(.fds-pre) {
-    max-width: 100%;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsPre

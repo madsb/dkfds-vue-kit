@@ -34,25 +34,25 @@ const handleCustomAction = (action: string) => {
   <Story title="Layout/Cookiemeddelelse" :layout="{ type: 'grid', width: '100%' }" icon="carbon:cookie">
     <!-- Showcase all cookie notice variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Default</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Default</h3>
             <FdsCookiemeddelelse />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Custom Header</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Header</h3>
             <FdsCookiemeddelelse header="Cookie Preferences" />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">English Content</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">English Content</h3>
             <FdsCookiemeddelelse header="Cookie Notice">
               <p>We use cookies to improve your experience and analyze site usage. All collected data is anonymized.</p>
               <a href="#">Read our privacy policy</a>
             </FdsCookiemeddelelse>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Custom Actions</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Actions</h3>
             <FdsCookiemeddelelse>
               <template #actions>
                 <div class="button-group">
@@ -64,7 +64,7 @@ const handleCustomAction = (action: string) => {
             </FdsCookiemeddelelse>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The cookie notice component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how the component adapts to different contexts.
         </p>
@@ -73,18 +73,18 @@ const handleCustomAction = (action: string) => {
 
     <!-- Interactive demonstration with events -->
     <Variant title="Interactive Demo" icon="carbon:touch-interaction">
-      <div class="story-content">
-        <div v-if="isVisible" class="demo-container">
+      <div class="container py-6">
+        <div v-if="isVisible">
           <FdsCookiemeddelelse
             @accept="handleAccept"
             @cancel="handleCancel"
           />
         </div>
-        <div v-else class="demo-feedback">
+        <div v-else>
           <p>Cookie notice dismissed. It will reappear in 2 seconds for demo purposes.</p>
         </div>
         
-        <div class="demo-stats">
+        <div>
           <p><strong>Statistics:</strong></p>
           <ul>
             <li>Accepted: {{ acceptedCount }} times</li>
@@ -92,7 +92,7 @@ const handleCustomAction = (action: string) => {
           </ul>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click the accept or reject buttons to see the event handling in action. The cookie notice will
           reappear after 2 seconds for demonstration purposes.
         </p>
@@ -101,14 +101,14 @@ const handleCustomAction = (action: string) => {
 
     <!-- Accessibility and GDPR compliance -->
     <Variant title="Accessibility & GDPR" icon="carbon:accessibility">
-      <div class="story-content">
-        <div class="accessibility-demo">
-          <h3 class="section-subtitle">ARIA Attributes</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">ARIA Attributes</h3>
           <FdsCookiemeddelelse header="Accessible Cookie Notice" />
           
-          <div class="divider" />
+          <hr class="my-6" />
           
-          <h3 class="section-subtitle">GDPR Compliant Options</h3>
+          <h3 class="h6 mb-2">GDPR Compliant Options</h3>
           <FdsCookiemeddelelse header="Data Collection Consent">
             <p>We process personal data to provide our services and improve user experience. 
                Your consent helps us:</p>
@@ -120,7 +120,7 @@ const handleCustomAction = (action: string) => {
             <p><a href="#privacy">Read our full privacy policy</a> for detailed information.</p>
             
             <template #actions>
-              <div class="gdpr-actions">
+              <div>
                 <FdsButton variant="primary" @click="handleCustomAction('accept-all')">
                   Accept All Cookies
                 </FdsButton>
@@ -135,7 +135,7 @@ const handleCustomAction = (action: string) => {
           </FdsCookiemeddelelse>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component includes proper ARIA attributes for screen readers: role="complementary",
           aria-labelledby, and aria-describedby. Navigate with Tab and use Enter or Space to activate buttons.
         </p>
@@ -144,35 +144,35 @@ const handleCustomAction = (action: string) => {
 
     <!-- Positioning and layout demonstration -->
     <Variant title="Positioning & Layout" icon="carbon:layout">
-      <div class="story-content">
-        <div class="positioning-demo">
-          <h3 class="section-subtitle">Fixed Bottom Position</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Fixed Bottom Position</h3>
           <p>Cookie notices are typically positioned at the bottom of the viewport:</p>
           
-          <div class="mockup-container">
-            <div class="mockup-viewport">
-              <div class="mockup-header">Website Header</div>
-              <div class="mockup-content">
+          <div>
+            <div>
+              <div>Website Header</div>
+              <div>
                 <p>Main website content...</p>
                 <p>More content...</p>
               </div>
-              <div class="mockup-cookie-notice">
+              <div>
                 <FdsCookiemeddelelse />
               </div>
             </div>
           </div>
           
-          <div class="divider" />
+          <hr class="my-6" />
           
-          <h3 class="section-subtitle">Responsive Behavior</h3>
+          <h3 class="h6 mb-2">Responsive Behavior</h3>
           <p>On mobile devices, the cookie notice adapts to smaller screens:</p>
           
-          <div class="mobile-demo">
+          <div>
             <FdsCookiemeddelelse header="Mobile Cookie Notice" />
           </div>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Cookie notices should be positioned to not obstruct important content while remaining clearly visible.
           The component automatically adapts button layouts on mobile devices.
         </p>
@@ -195,7 +195,7 @@ const handleCustomAction = (action: string) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsCookiemeddelelse
             :header="state.header"
             @accept="handleAccept"
@@ -221,7 +221,7 @@ const handleCustomAction = (action: string) => {
             </template>
           </FdsCookiemeddelelse>
           
-          <div class="playground-stats">
+          <div>
             <p>Events fired - Accepted: {{ acceptedCount }}, Rejected: {{ rejectedCount }}</p>
           </div>
         </div>
@@ -257,199 +257,6 @@ const handleCustomAction = (action: string) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  align-items: center;
-}
-
-.gdpr-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-/* Demo-specific styles */
-.demo-container {
-  border: 2px dashed #e0e0e0;
-  border-radius: 8px;
-  padding: 1.6rem;
-  margin-bottom: 2.4rem;
-}
-
-.demo-feedback {
-  background: #f5f5f5;
-  padding: 1.6rem;
-  border-radius: 8px;
-  margin-bottom: 2.4rem;
-  text-align: center;
-}
-
-.demo-stats {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 1.6rem;
-  margin-bottom: 1.6rem;
-}
-
-.demo-stats ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.8rem 0 0;
-}
-
-.demo-stats li {
-  padding: 0.4rem 0;
-  font-size: 1.4rem;
-}
-
-/* Positioning demo styles */
-.mockup-container {
-  margin: 2.4rem 0;
-}
-
-.mockup-viewport {
-  position: relative;
-  border: 2px solid #333;
-  border-radius: 8px;
-  height: 300px;
-  background: #f9f9f9;
-  overflow: hidden;
-}
-
-.mockup-header {
-  background: #333;
-  color: white;
-  padding: 1.2rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.mockup-content {
-  padding: 1.6rem;
-  font-size: 1.4rem;
-}
-
-.mockup-cookie-notice {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.mobile-demo {
-  max-width: 375px;
-  margin: 1.6rem auto;
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* Accessibility demo styles */
-.accessibility-demo {
-  max-width: 600px;
-}
-
-.accessibility-demo ul {
-  margin: 1.2rem 0;
-  padding-left: 2.4rem;
-}
-
-.accessibility-demo li {
-  font-size: 1.4rem;
-  margin-bottom: 0.8rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  min-height: 200px;
-}
-
-.playground-stats {
-  background: #f5f5f5;
-  padding: 1.2rem;
-  border-radius: 6px;
-  font-size: 1.4rem;
-  text-align: center;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gdpr-actions {
-    gap: 0.8rem;
-  }
-
-  .button-group {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .mockup-viewport {
-    height: 250px;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsCookiemeddelelse

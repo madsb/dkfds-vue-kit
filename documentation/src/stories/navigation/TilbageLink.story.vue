@@ -24,26 +24,26 @@ const handleCustomNavigation = (event: MouseEvent) => {
   <Story title="Navigation/TilbageLink" :layout="{ type: 'grid', width: '100%' }" icon="carbon:arrow-left">
     <!-- Showcase all tilbage link variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Default (Tilbage)</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Default (Tilbage)</h3>
             <FdsTilbageLink @click="handleClick" />
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Custom Text</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Custom Text</h3>
             <FdsTilbageLink @click="handleClick">Tilbage til oversigt</FdsTilbageLink>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Href</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Href</h3>
             <FdsTilbageLink href="/previous-page" @click="handleClick">Tilbage til forrige trin</FdsTilbageLink>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Long Text</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Long Text</h3>
             <FdsTilbageLink @click="handleClick">Tilbage til ansøgningsoversigten</FdsTilbageLink>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The tilbage link follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how the tilbage link adapts to different contexts.
         </p>
@@ -52,24 +52,24 @@ const handleCustomNavigation = (event: MouseEvent) => {
 
     <!-- Navigation patterns -->
     <Variant title="Navigation Patterns" icon="carbon:direction-left-01">
-      <div class="story-content">
-        <h3 class="section-subtitle">Browser History Navigation</h3>
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Browser History Navigation</h3>
         <FdsTilbageLink @click="handleRouterExample">Tilbage</FdsTilbageLink>
-        <p class="pattern-description">Use with router.go(-1) or history.back() for browser navigation</p>
+        <p>Use with router.go(-1) or history.back() for browser navigation</p>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Custom Navigation Logic</h3>
+        <h3 class="h6 mb-2">Custom Navigation Logic</h3>
         <FdsTilbageLink @click="handleCustomNavigation">Tilbage til start</FdsTilbageLink>
-        <p class="pattern-description">Implement custom logic in the click handler</p>
+        <p>Implement custom logic in the click handler</p>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Direct URL Navigation</h3>
+        <h3 class="h6 mb-2">Direct URL Navigation</h3>
         <FdsTilbageLink href="/dashboard">Tilbage til dashboard</FdsTilbageLink>
-        <p class="pattern-description">Use href prop for direct URL navigation</p>
+        <p>Use href prop for direct URL navigation</p>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click count: {{ clickCount }}. Position tilbage links at the top left of the page, 
           immediately under the header. Do not use with breadcrumbs as they serve similar purposes.
         </p>
@@ -78,28 +78,28 @@ const handleCustomNavigation = (event: MouseEvent) => {
 
     <!-- Usage contexts -->
     <Variant title="Usage Contexts" icon="carbon:flow">
-      <div class="story-content">
-        <div class="context-examples">
-          <div class="context-example">
-            <h3 class="section-subtitle">Multi-step Process</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Multi-step Process</h3>
             <FdsTilbageLink @click="handleClick">Tilbage til trin 2</FdsTilbageLink>
-            <p class="context-description">Navigate backwards in forms or wizards</p>
+            <p>Navigate backwards in forms or wizards</p>
           </div>
 
-          <div class="context-example">
-            <h3 class="section-subtitle">Detail to List View</h3>
+          <div>
+            <h3 class="h6 mb-2">Detail to List View</h3>
             <FdsTilbageLink @click="handleClick">Tilbage til søgeresultater</FdsTilbageLink>
-            <p class="context-description">Return from detail view to listing page</p>
+            <p>Return from detail view to listing page</p>
           </div>
 
-          <div class="context-example">
-            <h3 class="section-subtitle">Error Recovery</h3>
+          <div>
+            <h3 class="h6 mb-2">Error Recovery</h3>
             <FdsTilbageLink @click="handleClick">Tilbage til sikker side</FdsTilbageLink>
-            <p class="context-description">Provide safe navigation from error states</p>
+            <p>Provide safe navigation from error states</p>
           </div>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Tilbage links are most effective in task-oriented workflows and hierarchical navigation.
           They provide a consistent way for users to backtrack through connected page sequences.
         </p>
@@ -119,14 +119,14 @@ const handleCustomNavigation = (event: MouseEvent) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsTilbageLink
             :href="state.useHref ? state.href : 'javascript:void(0);'"
             @click="handleClick"
           >
             {{ state.text }}
           </FdsTilbageLink>
-          <p class="story-hint">Click count: {{ clickCount }}</p>
+          <p class="mt-4 mb-0">Click count: {{ clickCount }}</p>
         </div>
       </template>
 
@@ -145,95 +145,6 @@ const handleCustomNavigation = (event: MouseEvent) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-.pattern-description,
-.context-description {
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-  margin-top: 0.8rem;
-  margin-bottom: 1.6rem;
-  font-style: italic;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.context-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
-.context-example {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsTilbageLink

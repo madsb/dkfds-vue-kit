@@ -44,10 +44,10 @@ const cities = {
   <Story title="Input/Dropdown" :layout="{ type: 'grid', width: '100%' }" icon="carbon:chevron-down">
     <!-- Showcase all dropdown variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Dropdown</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Dropdown</h3>
             <FdsDropdown v-model="singleValue">
               <option value="">Choose an option</option>
               <option value="option1">Option 1</option>
@@ -55,8 +55,8 @@ const cities = {
               <option value="option3">Option 3</option>
             </FdsDropdown>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Placeholder</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Placeholder</h3>
             <FdsDropdown v-model="multipleValue">
               <option value="" disabled>Select a country</option>
               <option v-for="country in countries" :key="country.value" :value="country.value">
@@ -64,8 +64,8 @@ const cities = {
               </option>
             </FdsDropdown>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">In Form Group</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">In Form Group</h3>
             <FdsFormgroup :isValid="isValidated">
               <template #default="{ formid, ariaDescribedby }">
                 <FdsLabel :forId="formid" :required="true">Country</FdsLabel>
@@ -84,8 +84,8 @@ const cities = {
               </template>
             </FdsFormgroup>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Option Groups</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Option Groups</h3>
             <FdsDropdown v-model="groupedValue">
               <option value="">Select a city</option>
               <optgroup label="Nordic Cities">
@@ -101,7 +101,7 @@ const cities = {
             </FdsDropdown>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The dropdown component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how dropdowns adapt to different contexts.
         </p>
@@ -110,8 +110,8 @@ const cities = {
 
     <!-- Form integration demonstration -->
     <Variant title="Form Integration" icon="carbon:form">
-      <div class="story-content">
-        <div class="form-demo">
+      <div class="container py-6">
+        <div>
           <FdsFormgroup :isValid="true">
             <template #default="{ formid, ariaDescribedby }">
               <FdsLabel :forId="formid">Preferred Language</FdsLabel>
@@ -142,7 +142,7 @@ const cities = {
             </template>
           </FdsFormgroup>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Dropdowns integrate seamlessly with DKFDS form structure components (formgroup, label, hint, error messages).
           Required fields show validation messages when empty.
         </p>
@@ -151,26 +151,26 @@ const cities = {
 
     <!-- States demonstration -->
     <Variant title="States" icon="carbon:status-change">
-      <div class="story-content">
-        <div class="states-grid">
-          <div class="state-column">
-            <h3 class="section-subtitle">Normal</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Normal</h3>
             <FdsDropdown v-model="singleValue">
               <option value="">Select option</option>
               <option value="normal1">Normal Option 1</option>
               <option value="normal2">Normal Option 2</option>
             </FdsDropdown>
           </div>
-          <div class="state-column">
-            <h3 class="section-subtitle">Disabled</h3>
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Disabled</h3>
             <FdsDropdown v-model="multipleValue" disabled>
               <option value="">Cannot select</option>
               <option value="disabled1">Disabled Option 1</option>
               <option value="disabled2">Disabled Option 2</option>
             </FdsDropdown>
           </div>
-          <div class="state-column">
-            <h3 class="section-subtitle">Error State</h3>
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Error State</h3>
             <FdsFormgroup :isValid="false">
               <template #default="{ formid }">
                 <FdsDropdown :id="formid" v-model="validatedValue">
@@ -181,8 +181,8 @@ const cities = {
               </template>
             </FdsFormgroup>
           </div>
-          <div class="state-column">
-            <h3 class="section-subtitle">With Selected Value</h3>
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">With Selected Value</h3>
             <FdsDropdown v-model="groupedValue">
               <option value="">Select option</option>
               <option value="selected" selected>Pre-selected Option</option>
@@ -190,7 +190,7 @@ const cities = {
             </FdsDropdown>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Dropdowns support various states including normal, disabled, error, and pre-selected values.
           Error states are automatically styled when used within form groups.
         </p>
@@ -199,21 +199,21 @@ const cities = {
 
     <!-- Advanced features -->
     <Variant title="Advanced Features" icon="carbon:settings">
-      <div class="story-content">
-        <div class="advanced-grid">
-          <div class="feature-section">
-            <h3 class="section-subtitle">Dynamic Options</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Dynamic Options</h3>
             <FdsDropdown v-model="singleValue" @change="(e) => handleChange(singleValue, 'dynamic')">
               <option value="">Select country</option>
               <option v-for="country in countries" :key="country.value" :value="country.value">
                 {{ country.label }}
               </option>
             </FdsDropdown>
-            <p class="feature-hint">Options generated from JavaScript array</p>
+            <p>Options generated from JavaScript array</p>
           </div>
 
-          <div class="feature-section">
-            <h3 class="section-subtitle">Grouped Options</h3>
+          <div>
+            <h3 class="h6 mb-2">Grouped Options</h3>
             <FdsDropdown v-model="multipleValue">
               <option value="">Choose location</option>
               <optgroup label="Primary Cities">
@@ -227,11 +227,11 @@ const cities = {
                 <option value="ran">Randers</option>
               </optgroup>
             </FdsDropdown>
-            <p class="feature-hint">Uses optgroup for logical organization</p>
+            <p>Uses optgroup for logical organization</p>
           </div>
 
-          <div class="feature-section">
-            <h3 class="section-subtitle">Custom Validation</h3>
+          <div>
+            <h3 class="h6 mb-2">Custom Validation</h3>
             <FdsFormgroup :isValid="validatedValue !== '' && validatedValue !== 'invalid'">
               <template #default="{ formid }">
                 <FdsLabel :forId="formid">Business Type</FdsLabel>
@@ -253,10 +253,10 @@ const cities = {
                 </FdsFejlmeddelelse>
               </template>
             </FdsFormgroup>
-            <p class="feature-hint">Custom validation logic with specific error messages</p>
+            <p>Custom validation logic with specific error messages</p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Advanced features include dynamic option generation, option grouping, and custom validation logic.
           All features maintain accessibility and DKFDS styling standards.
         </p>
@@ -283,7 +283,7 @@ const cities = {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsFormgroup :isValid="!state.hasError">
             <template #default="{ formid, ariaDescribedby }">
               <FdsLabel v-if="state.showLabel" :forId="formid" :required="state.required">
@@ -308,7 +308,7 @@ const cities = {
               <FdsFejlmeddelelse v-if="state.hasError">{{ state.errorMessage }}</FdsFejlmeddelelse>
             </template>
           </FdsFormgroup>
-          <p class="story-hint">Selected value: {{ groupedValue || '(none)' }}</p>
+          <p class="mt-4 mb-0">Selected value: {{ groupedValue || '(none)' }}</p>
         </div>
       </template>
 
@@ -328,123 +328,6 @@ const cities = {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-.feature-hint {
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-  margin-top: 0.8rem;
-  font-style: italic;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.form-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  max-width: 500px;
-}
-
-.states-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.state-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.advanced-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.feature-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Ensure proper dropdown styling */
-.story-content :deep(.form-select) {
-  width: 100%;
-  min-width: 200px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .states-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .advanced-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsDropdown

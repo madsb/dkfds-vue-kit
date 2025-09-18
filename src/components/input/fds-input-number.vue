@@ -54,7 +54,7 @@ import { formId } from '../../composables'
  *   prefix="kr."
  *   :step="0.01"
  *   :min="0"
- *   widthClass="input--width-m"
+ *   widthClass="input-width-m"
  * />
  * ```
  *
@@ -127,7 +127,7 @@ export interface FdsInputNumberProps {
   step?: number | string
   /**
    * CSS class for input width sizing.
-   * @values 'input--width-xs', 'input--width-s', 'input--width-m', 'input--width-l', 'input--width-xl'
+   * @values 'input-width-xs', 'input-width-s', 'input-width-m', 'input-width-l', 'input-width-xl'
    * @default ''
    */
   widthClass?: string

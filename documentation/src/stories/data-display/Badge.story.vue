@@ -13,30 +13,30 @@ const handleNotificationClick = () => {
   <Story title="Data Display/Badge" :layout="{ type: 'grid', width: '100%' }" icon="carbon:status">
     <!-- Showcase all badge variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Default</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Default</h3>
             <FdsBadge>New</FdsBadge>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Success</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Success</h3>
             <FdsBadge variant="success">Approved</FdsBadge>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Info</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Info</h3>
             <FdsBadge variant="info">Under Review</FdsBadge>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Warning</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Warning</h3>
             <FdsBadge variant="warning">Pending</FdsBadge>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Error</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Error</h3>
             <FdsBadge variant="error">Rejected</FdsBadge>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The badge component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how badges adapt to different contexts.
         </p>
@@ -45,26 +45,26 @@ const handleNotificationClick = () => {
 
     <!-- Status indicators in context -->
     <Variant title="Status Indicators" icon="carbon:status-change">
-      <div class="story-content">
-        <div class="status-examples">
-          <div class="status-item">
-            <h4 class="status-title">Application Status</h4>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h4>Application Status</h4>
             <p>Your application is <FdsBadge variant="success">Approved</FdsBadge></p>
           </div>
-          <div class="status-item">
-            <h4 class="status-title">Document Review</h4>
+          <div>
+            <h4>Document Review</h4>
             <p>Status: <FdsBadge variant="info">Under Review</FdsBadge></p>
           </div>
-          <div class="status-item">
-            <h4 class="status-title">Payment Status</h4>
+          <div>
+            <h4>Payment Status</h4>
             <p>Payment is <FdsBadge variant="warning">Pending</FdsBadge></p>
           </div>
-          <div class="status-item">
-            <h4 class="status-title">Verification Failed</h4>
+          <div>
+            <h4>Verification Failed</h4>
             <p>Document <FdsBadge variant="error">Rejected</FdsBadge></p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Badges provide visual feedback for process states and document status.
         </p>
       </div>
@@ -72,41 +72,41 @@ const handleNotificationClick = () => {
 
     <!-- Semantic emphasis and content labels -->
     <Variant title="Content Labels" icon="carbon:label">
-      <div class="story-content">
-        <div class="content-examples">
-          <div class="article-card">
-            <h4 class="article-title">
+      <div class="container py-6">
+        <div>
+          <div>
+            <h4>
               Important Service Update
               <FdsBadge tag="strong" variant="warning">Urgent</FdsBadge>
             </h4>
             <p>New regulations effective immediately.</p>
           </div>
           
-          <div class="article-card">
-            <h4 class="article-title">
+          <div>
+            <h4>
               Digital Tax Services
               <FdsBadge variant="info">New</FdsBadge>
             </h4>
             <p>Submit your tax return online.</p>
           </div>
 
-          <div class="article-card">
-            <h4 class="article-title">
+          <div>
+            <h4>
               Service Maintenance Complete
               <FdsBadge variant="success">Resolved</FdsBadge>
             </h4>
             <p>All services are now operational.</p>
           </div>
 
-          <div class="notification-example">
-            <button @click="handleNotificationClick" class="notification-button">
+          <div>
+            <button @click="handleNotificationClick">
               Notifications
               <FdsBadge variant="error">{{ notificationCount }}</FdsBadge>
             </button>
-            <p class="notification-hint">Click to dismiss notifications ({{ notificationCount }} remaining)</p>
+            <p>Click to dismiss notifications ({{ notificationCount }} remaining)</p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Use the tag prop with "strong" for emphasized badges, and numeric badges for counts or quantities.
         </p>
       </div>
@@ -125,7 +125,7 @@ const handleNotificationClick = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsBadge
             :variant="state.variant"
             :tag="state.tag"
@@ -163,173 +163,6 @@ const handleNotificationClick = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.2rem;
-}
-
-/* Status examples */
-.status-examples {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.status-item {
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.4rem;
-  background: #fafafa;
-}
-
-.status-title {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  color: #333;
-}
-
-.status-item p {
-  margin: 0;
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-}
-
-/* Content examples */
-.content-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.article-card {
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.4rem;
-  background: #fff;
-}
-
-.article-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
-.article-card p {
-  margin: 0;
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-}
-
-/* Notification example */
-.notification-example {
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.4rem;
-  background: #f9f9f9;
-}
-
-.notification-button {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  padding: 1.2rem 1.6rem;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  font-size: 1.4rem; /* 14px */
-  font-weight: 500;
-  color: #333;
-  transition: background-color 0.2s;
-}
-
-.notification-button:hover {
-  background: #f5f5f5;
-}
-
-.notification-hint {
-  margin: 1.2rem 0 0 0;
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-  font-style: italic;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .status-examples {
-    grid-template-columns: 1fr;
-  }
-
-  .article-title {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsBadge

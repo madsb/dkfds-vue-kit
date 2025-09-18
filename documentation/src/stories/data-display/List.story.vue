@@ -13,34 +13,34 @@ const handleItemClick = (item: string) => {
   <Story title="DataDisplay/List" :layout="{ type: 'grid', width: '100%' }" icon="carbon:list">
     <!-- Showcase all list variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Unordered</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Unordered</h3>
             <FdsList>
               <FdsListItem>First item</FdsListItem>
               <FdsListItem>Second item</FdsListItem>
               <FdsListItem>Third item</FdsListItem>
             </FdsList>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Ordered List</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Ordered List</h3>
             <FdsList :ordered="true">
               <FdsListItem>Step one</FdsListItem>
               <FdsListItem>Step two</FdsListItem>
               <FdsListItem>Step three</FdsListItem>
             </FdsList>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Bordered</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Bordered</h3>
             <FdsList variant="bordered">
               <FdsListItem>Bordered item</FdsListItem>
               <FdsListItem>Another item</FdsListItem>
               <FdsListItem>Third item</FdsListItem>
             </FdsList>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">No Bullet</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">No Bullet</h3>
             <FdsList variant="nobullet">
               <FdsListItem>Clean item</FdsListItem>
               <FdsListItem>Another item</FdsListItem>
@@ -48,7 +48,7 @@ const handleItemClick = (item: string) => {
             </FdsList>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The list component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how lists adapt to different contexts.
         </p>
@@ -57,10 +57,10 @@ const handleItemClick = (item: string) => {
 
     <!-- List types and nesting -->
     <Variant title="List Types & Nesting" icon="carbon:list-numbered">
-      <div class="story-content">
-        <div class="list-types-grid">
-          <div class="list-example">
-            <h3 class="section-subtitle">Nested Unordered Lists</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Nested Unordered Lists</h3>
             <FdsList>
               <FdsListItem>Main topic one</FdsListItem>
               <FdsListItem>
@@ -81,8 +81,8 @@ const handleItemClick = (item: string) => {
             </FdsList>
           </div>
           
-          <div class="list-example">
-            <h3 class="section-subtitle">Nested Ordered Lists</h3>
+          <div>
+            <h3 class="h6 mb-2">Nested Ordered Lists</h3>
             <FdsList :ordered="true">
               <FdsListItem>Complete the form</FdsListItem>
               <FdsListItem>
@@ -98,9 +98,9 @@ const handleItemClick = (item: string) => {
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Mixed List Types</h3>
+        <h3 class="h6 mb-2">Mixed List Types</h3>
         <FdsList>
           <FdsListItem>Available services:</FdsListItem>
           <FdsListItem>
@@ -114,15 +114,15 @@ const handleItemClick = (item: string) => {
           <FdsListItem>Contact options</FdsListItem>
         </FdsList>
         
-        <p class="story-hint">Lists can be nested and mixed to create complex content hierarchies.</p>
+        <p class="mt-4 mb-0">Lists can be nested and mixed to create complex content hierarchies.</p>
       </div>
     </Variant>
 
     <!-- Interactive list with states -->
     <Variant title="List Items with States" icon="carbon:status-change">
-      <div class="story-content">
-        <div class="states-demo">
-          <h3 class="section-subtitle">Navigation List with States</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Navigation List with States</h3>
           <FdsList variant="nobullet">
             <FdsListItem>
               <a href="#home">Home</a>
@@ -142,10 +142,10 @@ const handleItemClick = (item: string) => {
           </FdsList>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="states-demo">
-          <h3 class="section-subtitle">Interactive List Items</h3>
+        <div>
+          <h3 class="h6 mb-2">Interactive List Items</h3>
           <FdsList variant="bordered">
             <FdsListItem 
               :flex="true" 
@@ -178,17 +178,17 @@ const handleItemClick = (item: string) => {
               <span v-if="selectedItem === 'notifications'">✓</span>
             </FdsListItem>
           </FdsList>
-          <p class="story-hint">Selected: {{ selectedItem || 'None' }}</p>
+          <p class="mt-4 mb-0">Selected: {{ selectedItem || 'None' }}</p>
         </div>
       </div>
     </Variant>
 
     <!-- Layout and styling variants -->
     <Variant title="Layout & Styling" icon="carbon:layout">
-      <div class="story-content">
-        <div class="layout-examples">
-          <div class="layout-example">
-            <h3 class="section-subtitle">Flex Layout with Content</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Flex Layout with Content</h3>
             <FdsList variant="bordered">
               <FdsListItem :flex="true" :justify-between="true">
                 <div>
@@ -213,17 +213,17 @@ const handleItemClick = (item: string) => {
             </FdsList>
           </div>
 
-          <div class="layout-example">
-            <h3 class="section-subtitle">Unstyled for Custom Design</h3>
+          <div>
+            <h3 class="h6 mb-2">Unstyled for Custom Design</h3>
             <FdsList variant="unstyled" :no-top-margin="true">
               <FdsListItem role="none">
-                <div class="custom-card">
+                <div>
                   <h4 style="margin: 0 0 0.8rem 0; font-size: 1.6rem;">Custom Card 1</h4>
                   <p style="margin: 0; color: #666; font-size: 1.4rem;">Custom styled content without default list styling.</p>
                 </div>
               </FdsListItem>
               <FdsListItem role="none">
-                <div class="custom-card">
+                <div>
                   <h4 style="margin: 0 0 0.8rem 0; font-size: 1.6rem;">Custom Card 2</h4>
                   <p style="margin: 0; color: #666; font-size: 1.4rem;">Another card with custom styling.</p>
                 </div>
@@ -232,9 +232,9 @@ const handleItemClick = (item: string) => {
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Overflow Menu Style</h3>
+        <h3 class="h6 mb-2">Overflow Menu Style</h3>
         <FdsList variant="overflow" style="max-width: 200px; border: 1px solid #ddd;">
           <FdsListItem style="padding: 0.8rem 1.2rem; cursor: pointer;" @click="handleItemClick('edit')">
             <span>Edit</span>
@@ -247,7 +247,7 @@ const handleItemClick = (item: string) => {
           </FdsListItem>
         </FdsList>
 
-        <p class="story-hint">Lists support various layouts and styling options for different use cases.</p>
+        <p class="mt-4 mb-0">Lists support various layouts and styling options for different use cases.</p>
       </div>
     </Variant>
 
@@ -269,7 +269,7 @@ const handleItemClick = (item: string) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsList
             :variant="state.variant"
             :ordered="state.ordered"
@@ -339,131 +339,6 @@ const handleItemClick = (item: string) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.list-types-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.list-example {
-  display: flex;
-  flex-direction: column;
-}
-
-.states-demo {
-  margin-bottom: 2.4rem;
-}
-
-.layout-examples {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.layout-example {
-  display: flex;
-  flex-direction: column;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Custom card styling for unstyled list example */
-.custom-card {
-  background: #f8f9fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.4rem;
-  padding: 1.6rem;
-  margin-bottom: 1.2rem;
-}
-
-/* Interactive list item styling */
-.story-content :deep(li.active) {
-  background-color: #e3f2fd;
-  font-weight: 600;
-}
-
-/* Ensure proper list styling */
-.story-content :deep(ul),
-.story-content :deep(ol) {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .list-types-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .layout-examples {
-    gap: 1.6rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsList & FdsListItem

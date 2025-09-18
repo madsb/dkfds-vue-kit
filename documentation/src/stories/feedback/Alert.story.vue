@@ -24,34 +24,34 @@ const isAlertVisible = (alertId: string) => {
   <Story title="Feedback/Alert" :layout="{ type: 'grid', width: '100%' }" icon="carbon:warning">
     <!-- Showcase all alert variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Info</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Info</h3>
             <FdsAlert variant="info" show-icon>
               Information about the current process or status.
             </FdsAlert>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Success</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Success</h3>
             <FdsAlert variant="success" show-icon>
               Operation completed successfully.
             </FdsAlert>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Warning</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Warning</h3>
             <FdsAlert variant="warning" show-icon>
               Please review this information carefully.
             </FdsAlert>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Error</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Error</h3>
             <FdsAlert variant="error" show-icon>
               An error occurred that requires your attention.
             </FdsAlert>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The alert component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how alerts adapt to different contexts.
         </p>
@@ -60,8 +60,8 @@ const isAlertVisible = (alertId: string) => {
 
     <!-- Alert types with headers and different configurations -->
     <Variant title="Alert Types" icon="carbon:notification">
-      <div class="story-content">
-        <div class="alert-stack">
+      <div class="container py-6">
+        <div>
           <FdsAlert variant="info" header="Information" show-icon>
             Your application has been received and is being processed. You will receive updates via email.
           </FdsAlert>
@@ -80,7 +80,7 @@ const isAlertVisible = (alertId: string) => {
             <br>• Phone number format is invalid
           </FdsAlert>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Alerts with headers provide clear context and hierarchy. Error and warning alerts
           automatically use role="alert" for screen readers.
         </p>
@@ -89,8 +89,8 @@ const isAlertVisible = (alertId: string) => {
 
     <!-- Closeable alerts demonstration -->
     <Variant title="Closeable Alerts" icon="carbon:close">
-      <div class="story-content">
-        <div class="alert-stack">
+      <div class="container py-6">
+        <div>
           <FdsAlert 
             v-if="isAlertVisible('closeable-info')" 
             variant="info" 
@@ -135,7 +135,7 @@ const isAlertVisible = (alertId: string) => {
           </button>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Closeable alerts allow users to dismiss notifications. Click "Reset Alerts" to restore dismissed alerts.
           The close button includes both icon and text for accessibility.
         </p>
@@ -144,16 +144,16 @@ const isAlertVisible = (alertId: string) => {
 
     <!-- Content layouts and customization -->
     <Variant title="Content Layouts" icon="carbon:text-creation">
-      <div class="story-content">
-        <div class="alert-stack">
-          <h3 class="section-subtitle">Without Icons</h3>
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Without Icons</h3>
           <FdsAlert variant="info">
             Clean alert without icon for minimal design needs.
           </FdsAlert>
           
-          <div class="divider" />
+          <hr class="my-6" />
           
-          <h3 class="section-subtitle">Rich Content</h3>
+          <h3 class="h6 mb-2">Rich Content</h3>
           <FdsAlert variant="warning" header="Document Requirements" show-icon>
             <template #default>
               Please ensure your document meets these requirements:
@@ -166,20 +166,20 @@ const isAlertVisible = (alertId: string) => {
             </template>
           </FdsAlert>
           
-          <div class="divider" />
+          <hr class="my-6" />
           
-          <h3 class="section-subtitle">Custom Header Slot</h3>
+          <h3 class="h6 mb-2">Custom Header Slot</h3>
           <FdsAlert variant="success" show-icon>
             <template #header>
-              <h2 class="custom-header">
-                <span class="header-icon">✓</span>
+              <h2>
+                <span>✓</span>
                 Application Approved
               </h2>
             </template>
             Your application has been approved and processed. The next steps have been sent to your registered email address.
           </FdsAlert>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Alerts support rich content including HTML formatting, custom headers via slots,
           and can be used with or without icons depending on design needs.
         </p>
@@ -202,7 +202,7 @@ const isAlertVisible = (alertId: string) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsAlert
             :key="`playground-${resetCount}`"
             :variant="state.variant"
@@ -212,7 +212,7 @@ const isAlertVisible = (alertId: string) => {
           >
             {{ state.content }}
           </FdsAlert>
-          <p class="story-hint">
+          <p class="mt-4 mb-0">
             Configure the alert properties using the controls to explore different combinations.
           </p>
         </div>
@@ -248,138 +248,6 @@ const isAlertVisible = (alertId: string) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.alert-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  margin-bottom: 2.4rem;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  align-items: center;
-  margin-bottom: 1.6rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Custom header styling for demonstration */
-.custom-header {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.header-icon {
-  color: #2e7d32;
-  font-weight: bold;
-}
-
-/* Basic button styling for reset button */
-.button {
-  padding: 0.8rem 1.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-  color: #333;
-  cursor: pointer;
-  font-size: 1.4rem;
-  transition: all 0.2s ease;
-}
-
-.button:hover:not(:disabled) {
-  background: #f5f5f5;
-  border-color: #999;
-}
-
-.button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.button-secondary {
-  background: #f8f9fa;
-  border-color: #6c757d;
-  color: #6c757d;
-}
-
-.button-secondary:hover:not(:disabled) {
-  background: #e9ecef;
-  border-color: #5a6268;
-  color: #5a6268;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsAlert

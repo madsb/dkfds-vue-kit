@@ -78,10 +78,10 @@ const handleClearAll = () => {
   <Story title="Feedback/Toast" :layout="{ type: 'grid', width: '100%' }" icon="carbon:notification">
     <!-- Showcase all toast types in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Info</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Info</h3>
             <FdsToastContainer>
               <FdsToast
                 type="info"
@@ -92,8 +92,8 @@ const handleClearAll = () => {
               />
             </FdsToastContainer>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Success</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Success</h3>
             <FdsToastContainer>
               <FdsToast
                 type="success"
@@ -104,8 +104,8 @@ const handleClearAll = () => {
               />
             </FdsToastContainer>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Warning</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Warning</h3>
             <FdsToastContainer>
               <FdsToast
                 type="warning"
@@ -116,8 +116,8 @@ const handleClearAll = () => {
               />
             </FdsToastContainer>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Error</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Error</h3>
             <FdsToastContainer>
               <FdsToast
                 type="error"
@@ -129,7 +129,7 @@ const handleClearAll = () => {
             </FdsToastContainer>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The toast component follows DKFDS v11 design specifications for contextual feedback.
           Try switching themes using the global theme switcher to see how toasts adapt to different contexts.
         </p>
@@ -138,13 +138,13 @@ const handleClearAll = () => {
 
     <!-- Interactive demo with closable toasts -->
     <Variant title="Interactive Toasts" icon="carbon:touch-interaction">
-      <div class="story-content">
+      <div class="container py-6">
         <div class="button-group">
           <button @click="handleShowInfo">Show Info Toast</button>
           <button @click="handleShowSuccess">Show Success Toast</button>
           <button @click="handleShowWarning">Show Warning Toast</button>
           <button @click="handleShowError">Show Error Toast</button>
-          <button @click="handleClearAll" class="clear-button">Clear All</button>
+          <button @click="handleClearAll">Clear All</button>
         </div>
 
         <FdsToastContainer>
@@ -182,7 +182,7 @@ const handleClearAll = () => {
           />
         </FdsToastContainer>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click the buttons to show different toast types. Each toast can be manually closed using the close button.
         </p>
       </div>
@@ -190,12 +190,12 @@ const handleClearAll = () => {
 
     <!-- Auto-dismiss and useToast composable demo -->
     <Variant title="Auto-dismiss & useToast" icon="carbon:timer">
-      <div class="story-content">
+      <div class="container py-6">
         <div class="button-group">
           <button @click="handleShowAuto">Auto-dismiss Toast (3s)</button>
           <button @click="handleShowProgrammatic">Programmatic Toast</button>
           <button @click="handleShowMultiple">Sequential Toasts</button>
-          <button @click="handleClearAll" class="clear-button">Clear All</button>
+          <button @click="handleClearAll">Clear All</button>
         </div>
 
         <FdsToastContainer>
@@ -210,10 +210,10 @@ const handleClearAll = () => {
           />
         </FdsToastContainer>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">useToast Composable Examples</h3>
-        <div class="code-example">
+        <h3 class="h6 mb-2">useToast Composable Examples</h3>
+        <div>
           <pre><code>const { showSuccess, showError } = useToast()
 
 // Show programmatic toast
@@ -223,7 +223,7 @@ showSuccess('Operation completed!', {
 })</code></pre>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The useToast composable provides programmatic control for creating toast notifications anywhere in your application.
           Auto-dismiss toasts automatically close after the specified timeout.
         </p>
@@ -232,13 +232,13 @@ showSuccess('Operation completed!', {
 
     <!-- Stacking and positioning demo -->
     <Variant title="Stacking & Positioning" icon="carbon:layers">
-      <div class="story-content">
+      <div class="container py-6">
         <div class="button-group">
           <button @click="handleShowStacked">Add Stacked Toast</button>
-          <button @click="handleClearAll" class="clear-button">Clear All</button>
+          <button @click="handleClearAll">Clear All</button>
         </div>
 
-        <p class="stack-info">Stacked toasts: {{ stackedToastCount }}</p>
+        <p>Stacked toasts: {{ stackedToastCount }}</p>
 
         <FdsToastContainer>
           <FdsToast
@@ -252,17 +252,17 @@ showSuccess('Operation completed!', {
           />
         </FdsToastContainer>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Positioning Guidelines</h3>
-        <ul class="guidelines-list">
+        <h3 class="h6 mb-2">Positioning Guidelines</h3>
+        <ul>
           <li>Toasts appear in a container with proper ARIA live regions</li>
           <li>Multiple toasts stack vertically within the container</li>
           <li>Container is positioned at the top of the main content area</li>
           <li>Each toast maintains its own interactive state</li>
         </ul>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Multiple toasts stack vertically and maintain their individual state. The toast container manages
           the proper ARIA announcements for screen readers.
         </p>
@@ -285,8 +285,8 @@ showSuccess('Operation completed!', {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
-          <div class="playground-controls">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
+          <div>
             <button @click="state.visible = true" :disabled="state.visible">
               Show Toast
             </button>
@@ -339,168 +339,6 @@ showSuccess('Operation completed!', {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  align-items: center;
-  margin-bottom: 2.4rem;
-}
-
-.button-group button {
-  padding: 0.8rem 1.6rem;
-  border: 1px solid #ccc;
-  background: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1.4rem;
-  transition: all 0.2s ease;
-}
-
-.button-group button:hover {
-  background: #f5f5f5;
-}
-
-.button-group button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.clear-button {
-  background: #dc3545 !important;
-  color: white !important;
-  border-color: #dc3545 !important;
-}
-
-.clear-button:hover {
-  background: #c82333 !important;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-}
-
-.playground-controls {
-  display: flex;
-  gap: 1.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.stack-info {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1.6rem;
-  color: #333;
-}
-
-.code-example {
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 4px;
-  padding: 1.6rem;
-  margin: 1.6rem 0;
-}
-
-.code-example pre {
-  margin: 0;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 1.3rem;
-  line-height: 1.4;
-  color: #333;
-}
-
-.guidelines-list {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  color: #333;
-  padding-left: 2rem;
-}
-
-.guidelines-list li {
-  margin-bottom: 0.8rem;
-}
-
-/* Toast container positioning for demo */
-.story-content :deep(.toast-container) {
-  position: relative;
-  margin-top: 1.6rem;
-  max-width: 500px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .button-group {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .playground-controls {
-    flex-direction: column;
-    width: 100%;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsToast

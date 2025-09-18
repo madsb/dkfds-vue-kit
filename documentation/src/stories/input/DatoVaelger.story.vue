@@ -51,25 +51,25 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
   <Story title="Input/DatoVaelger" :layout="{ type: 'grid', width: '100%' }" icon="carbon:calendar">
     <!-- Showcase all date picker variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Date Picker</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Date Picker</h3>
             <FdsDatoVaelger v-model="selectedDate" />
-            <p class="variant-note">Selected: {{ selectedDate || 'None' }}</p>
+            <p>Selected: {{ selectedDate || 'None' }}</p>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Empty State</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Empty State</h3>
             <FdsDatoVaelger v-model="birthDate" />
-            <p class="variant-note">Selected: {{ birthDate || 'None' }}</p>
+            <p>Selected: {{ birthDate || 'None' }}</p>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Custom ID</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Custom ID</h3>
             <FdsDatoVaelger id="custom-date" v-model="appointmentDate" />
-            <p class="variant-note">Selected: {{ appointmentDate || 'None' }}</p>
+            <p>Selected: {{ appointmentDate || 'None' }}</p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The dato vælger follows DKFDS v11 design specifications and uses native HTML5 date input.
           Try switching themes using the global theme switcher to see how the component adapts to different contexts.
         </p>
@@ -78,7 +78,7 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
 
     <!-- Form integration with labels and validation -->
     <Variant title="Form Integration" icon="carbon:form">
-      <div class="story-content">
+      <div class="container py-6">
         <FdsFormgroup :is-valid="isEventDateValid">
           <template #default="{ formid, ariaDescribedby }">
             <FdsLabel :for-id="formid" :required="true">Event Date</FdsLabel>
@@ -95,7 +95,7 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
           </template>
         </FdsFormgroup>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
         <FdsFormgroup :is-valid="isAppointmentValid">
           <template #default="{ formid, ariaDescribedby }">
@@ -113,7 +113,7 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
           </template>
         </FdsFormgroup>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The date picker integrates seamlessly with DKFDS form components including labels, hints, and error messages.
           Try entering invalid dates (like 2024-02-30) to see validation in action.
         </p>
@@ -122,51 +122,51 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
 
     <!-- Date validation examples -->
     <Variant title="Date Validation" icon="carbon:checkmark">
-      <div class="story-content">
-        <div class="validation-examples">
-          <div class="validation-group">
-            <h3 class="section-subtitle">Valid Dates</h3>
-            <div class="date-examples">
-              <div class="date-example">
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h6 mb-2">Valid Dates</h3>
+            <div>
+              <div>
                 <label>Leap Year February 29:</label>
                 <FdsDatoVaelger v-model="selectedDate" id="leap-date" />
-                <span class="example-text">Try: 2024-02-29</span>
+                <span>Try: 2024-02-29</span>
               </div>
-              <div class="date-example">
+              <div>
                 <label>December 31:</label>
                 <FdsDatoVaelger v-model="selectedDate" id="dec-date" />
-                <span class="example-text">Try: 2024-12-31</span>
+                <span>Try: 2024-12-31</span>
               </div>
-              <div class="date-example">
+              <div>
                 <label>November 30:</label>
                 <FdsDatoVaelger v-model="selectedDate" id="nov-date" />
-                <span class="example-text">Try: 2024-11-30</span>
+                <span>Try: 2024-11-30</span>
               </div>
             </div>
           </div>
 
-          <div class="validation-group">
-            <h3 class="section-subtitle">Invalid Dates</h3>
-            <div class="date-examples">
-              <div class="date-example">
+          <div>
+            <h3 class="h6 mb-2">Invalid Dates</h3>
+            <div>
+              <div>
                 <label>Invalid February 30:</label>
                 <FdsDatoVaelger v-model="selectedDate" id="invalid-feb" />
-                <span class="example-text">Try: 2024-02-30</span>
+                <span>Try: 2024-02-30</span>
               </div>
-              <div class="date-example">
+              <div>
                 <label>Invalid November 31:</label>
                 <FdsDatoVaelger v-model="selectedDate" id="invalid-nov" />
-                <span class="example-text">Try: 2024-11-31</span>
+                <span>Try: 2024-11-31</span>
               </div>
-              <div class="date-example">
+              <div>
                 <label>Non-leap Year February 29:</label>
                 <FdsDatoVaelger v-model="selectedDate" id="invalid-leap" />
-                <span class="example-text">Try: 2023-02-29</span>
+                <span>Try: 2023-02-29</span>
               </div>
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component validates dates automatically and emits 'valid' events.
           Browser behavior may prevent some invalid dates from being entered directly.
         </p>
@@ -190,8 +190,8 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
-          <div v-if="state.showLabel" class="playground-form">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
+          <div v-if="state.showLabel">
             <FdsFormgroup>
               <template #default="{ formid }">
                 <FdsLabel 
@@ -214,7 +214,7 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
               </template>
             </FdsFormgroup>
           </div>
-          <div v-else class="playground-standalone">
+          <div v-else>
             <FdsDatoVaelger
               :id="state.id"
               v-model="state.modelValue"
@@ -222,7 +222,7 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
               @dirty="handlePlaygroundDirty"
             />
           </div>
-          <div class="playground-output">
+          <div>
             <p><strong>Selected Value:</strong> {{ state.modelValue || 'None' }}</p>
             <p><strong>Is Valid:</strong> {{ playgroundValid ? 'Yes' : 'No' }}</p>
             <p><strong>Is Dirty:</strong> {{ playgroundDirty ? 'Yes' : 'No' }}</p>
@@ -261,161 +261,6 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-.variant-note {
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-  margin-top: 0.8rem;
-  font-style: italic;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.validation-examples {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.validation-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.date-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
-.date-example {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.date-example label {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 500;
-  color: #333;
-}
-
-.example-text {
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-  font-family: monospace;
-  background: #f5f5f5;
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.4rem;
-  align-self: flex-start;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  gap: 2.4rem;
-}
-
-.playground-form,
-.playground-standalone {
-  width: 100%;
-  max-width: 400px;
-}
-
-.playground-output {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  padding: 1.6rem;
-  background: #f8f9fa;
-  border-radius: 0.8rem;
-  width: 100%;
-  max-width: 400px;
-}
-
-.playground-output p {
-  font-size: 1.4rem; /* 14px */
-  margin: 0;
-}
-
-/* Ensure proper form spacing */
-.story-content :deep(.form-group) {
-  margin-bottom: 2.4rem;
-}
-
-.story-content :deep(.form-input) {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .validation-examples {
-    grid-template-columns: 1fr;
-  }
-
-  .date-example {
-    gap: 0.4rem;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsDatoVaelger

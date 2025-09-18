@@ -13,26 +13,26 @@ const handleClick = () => {
   <Story title="Input/Button" :layout="{ type: 'grid', width: '100%' }" icon="carbon:button-centered">
     <!-- Showcase all button variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Primary</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Primary</h3>
             <FdsButton variant="primary">Primary Button</FdsButton>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Secondary</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Secondary</h3>
             <FdsButton variant="secondary">Secondary Button</FdsButton>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Tertiary</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Tertiary</h3>
             <FdsButton variant="tertiary">Tertiary Button</FdsButton>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Warning</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Warning</h3>
             <FdsButton variant="warning">Warning Button</FdsButton>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The button component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how buttons adapt to different contexts.
         </p>
@@ -41,7 +41,7 @@ const handleClick = () => {
 
     <!-- Icon variations -->
     <Variant title="With Icons" icon="carbon:add-alt">
-      <div class="story-content">
+      <div class="container py-6">
         <div class="button-group">
           <FdsButton icon="save" variant="primary">Save Document</FdsButton>
           <FdsButton icon="download" variant="secondary">Download File</FdsButton>
@@ -49,60 +49,64 @@ const handleClick = () => {
           <FdsButton icon="arrow-back" variant="tertiary">Go Back</FdsButton>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Icon Only Buttons</h3>
-        <div class="button-group horizontal">
+        <h3 class="h6 mb-2">Icon Only Buttons</h3>
+        <div class="button-group">
           <FdsButton variant="primary" icon="save" icon-only aria-label="Save" />
           <FdsButton variant="secondary" icon="download" icon-only aria-label="Download" />
           <FdsButton variant="tertiary" icon="refresh" icon-only aria-label="Refresh" />
           <FdsButton variant="warning" icon="delete" icon-only aria-label="Delete" />
         </div>
-        <p class="story-hint">Icon-only buttons must include an aria-label for accessibility.</p>
+        <p class="mt-4 mb-0">Icon-only buttons must include an aria-label for accessibility.</p>
       </div>
     </Variant>
 
     <!-- States demonstration -->
     <Variant title="States" icon="carbon:status-change">
-      <div class="story-content">
-        <div class="states-grid">
-          <div class="state-column">
-            <h3 class="section-subtitle">Normal</h3>
-            <FdsButton variant="primary" @click="handleClick">Primary</FdsButton>
-            <FdsButton variant="secondary">Secondary</FdsButton>
-            <FdsButton variant="tertiary">Tertiary</FdsButton>
-            <FdsButton variant="warning">Warning</FdsButton>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-lg-6 mb-5">
+            <h3 class="h6 mb-2">Normal</h3>
+            <div class="d-flex flex-column">
+              <FdsButton class="mb-3" variant="primary" @click="handleClick">Primary</FdsButton>
+              <FdsButton class="mb-3" variant="secondary">Secondary</FdsButton>
+              <FdsButton class="mb-3" variant="tertiary">Tertiary</FdsButton>
+              <FdsButton variant="warning">Warning</FdsButton>
+            </div>
           </div>
-          <div class="state-column">
-            <h3 class="section-subtitle">Disabled</h3>
-            <FdsButton variant="primary" disabled>Primary</FdsButton>
-            <FdsButton variant="secondary" disabled>Secondary</FdsButton>
-            <FdsButton variant="tertiary" disabled>Tertiary</FdsButton>
-            <FdsButton variant="warning" disabled>Warning</FdsButton>
+          <div class="col-12 col-lg-6 mb-5">
+            <h3 class="h6 mb-2">Disabled</h3>
+            <div class="d-flex flex-column">
+              <FdsButton class="mb-3" variant="primary" disabled>Primary</FdsButton>
+              <FdsButton class="mb-3" variant="secondary" disabled>Secondary</FdsButton>
+              <FdsButton class="mb-3" variant="tertiary" disabled>Tertiary</FdsButton>
+              <FdsButton variant="warning" disabled>Warning</FdsButton>
+            </div>
           </div>
         </div>
-        <p class="story-hint">Click count: {{ clickCount }} - Disabled buttons prevent interaction.</p>
+        <p class="mt-4 mb-0">Click count: {{ clickCount }} - Disabled buttons prevent interaction.</p>
       </div>
     </Variant>
 
     <!-- Responsive behavior -->
     <Variant title="Responsive" icon="carbon:devices">
-      <div class="story-content">
-        <div class="responsive-demo">
-          <FdsButton variant="primary" full-width-mobile>Submit Form</FdsButton>
+      <div class="container py-6">
+        <div class="d-flex flex-column align-items-start">
+          <FdsButton class="mb-3" variant="primary" full-width-mobile>Submit Form</FdsButton>
           <FdsButton variant="secondary" full-width-mobile>Cancel</FdsButton>
         </div>
-        <p class="story-hint">Resize the viewport to mobile size (< 768px) to see buttons expand to full width.</p>
+        <p class="mt-4 mb-0">Resize the viewport to mobile size (< 768px) to see buttons expand to full width.</p>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Button Group Layout</h3>
+        <h3 class="h6 mb-2">Button Group Layout</h3>
         <div class="button-group">
           <FdsButton variant="tertiary">Draft</FdsButton>
           <FdsButton variant="secondary">Preview</FdsButton>
           <FdsButton variant="primary">Publish</FdsButton>
         </div>
-        <p class="story-hint">Button groups automatically adjust spacing and layout on mobile devices.</p>
+        <p class="mt-4 mb-0">Button groups automatically adjust spacing and layout on mobile devices.</p>
       </div>
     </Variant>
 
@@ -123,7 +127,7 @@ const handleClick = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsButton
             :variant="state.variant"
             :icon="state.icon"
@@ -136,7 +140,7 @@ const handleClick = () => {
           >
             {{ !state.iconOnly ? state.text : '' }}
           </FdsButton>
-          <p class="story-hint">Click count: {{ clickCount }}</p>
+          <p class="mt-4 mb-0">Click count: {{ clickCount }}</p>
         </div>
       </template>
 
@@ -171,115 +175,6 @@ const handleClick = () => {
     </Variant>
   </Story>
 </template>
-
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  align-items: center;
-}
-
-.button-group.horizontal {
-  gap: 0.8rem;
-}
-
-.states-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.state-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.responsive-demo {
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Ensure proper button spacing */
-.story-content :deep(.button) {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .states-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsButton

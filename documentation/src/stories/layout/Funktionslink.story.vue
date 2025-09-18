@@ -13,25 +13,25 @@ const handleClick = () => {
   <Story title="Layout/Funktionslink" :layout="{ type: 'grid', width: '100%' }" icon="carbon:link">
     <!-- Showcase all function link variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Links</h3>
-            <div class="link-group">
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Links</h3>
+            <div>
               <FdsFunktionslink href="/page1">Simple Link</FdsFunktionslink>
               <FdsFunktionslink href="/page2" title="Navigate to page 2">Link with Title</FdsFunktionslink>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Icons</h3>
-            <div class="link-group">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Icons</h3>
+            <div>
               <FdsFunktionslink href="/help" icon="help">Get Help</FdsFunktionslink>
               <FdsFunktionslink href="/download" icon="download">Download File</FdsFunktionslink>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">External Links</h3>
-            <div class="link-group">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">External Links</h3>
+            <div>
               <FdsFunktionslink
                 href="https://designsystem.dk"
                 target="_blank"
@@ -43,15 +43,15 @@ const handleClick = () => {
               </FdsFunktionslink>
             </div>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Buttons</h3>
-            <div class="link-group">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Buttons</h3>
+            <div>
               <FdsFunktionslink type="button" @click="handleClick">Click Action</FdsFunktionslink>
               <FdsFunktionslink type="button" icon="edit">Edit Item</FdsFunktionslink>
             </div>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The function link component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how links adapt to different contexts.
         </p>
@@ -60,20 +60,20 @@ const handleClick = () => {
 
     <!-- Icons and positioning -->
     <Variant title="Icons & Positioning" icon="carbon:add-alt">
-      <div class="story-content">
-        <div class="icon-demo">
-          <h3 class="section-subtitle">Icon Positions</h3>
-          <div class="link-group">
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Icon Positions</h3>
+          <div>
             <FdsFunktionslink href="/previous" icon="arrow-back">Previous</FdsFunktionslink>
             <FdsFunktionslink href="/next" icon="arrow-forward" icon-right>Next</FdsFunktionslink>
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="icon-demo">
-          <h3 class="section-subtitle">Common Icon Types</h3>
-          <div class="link-group">
+        <div>
+          <h3 class="h6 mb-2">Common Icon Types</h3>
+          <div>
             <FdsFunktionslink href="/settings" icon="settings">Settings</FdsFunktionslink>
             <FdsFunktionslink href="/profile" icon="account">My Profile</FdsFunktionslink>
             <FdsFunktionslink href="/support" icon="help-circle">Support</FdsFunktionslink>
@@ -81,11 +81,11 @@ const handleClick = () => {
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="icon-demo">
-          <h3 class="section-subtitle">Action Icons</h3>
-          <div class="link-group">
+        <div>
+          <h3 class="h6 mb-2">Action Icons</h3>
+          <div>
             <FdsFunktionslink type="button" icon="save" @click="handleClick">Save Changes</FdsFunktionslink>
             <FdsFunktionslink type="button" icon="delete" @click="handleClick">Delete Item</FdsFunktionslink>
             <FdsFunktionslink href="/print" icon="printer">Print Page</FdsFunktionslink>
@@ -93,7 +93,7 @@ const handleClick = () => {
           </div>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Icons help users quickly understand the purpose of function links. Position icons before text for actions
           and after text for navigation or external links.
         </p>
@@ -102,18 +102,18 @@ const handleClick = () => {
 
     <!-- States and accessibility -->
     <Variant title="States & Accessibility" icon="carbon:accessibility-alt">
-      <div class="story-content">
-        <div class="states-demo">
-          <div class="state-column">
-            <h3 class="section-subtitle">Normal State</h3>
-            <div class="link-group">
+      <div class="container py-6">
+        <div>
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Normal State</h3>
+            <div>
               <FdsFunktionslink href="/normal" @click="handleClick">Normal Link</FdsFunktionslink>
               <FdsFunktionslink type="button" icon="check" @click="handleClick">Normal Button</FdsFunktionslink>
             </div>
           </div>
-          <div class="state-column">
-            <h3 class="section-subtitle">Disabled State</h3>
-            <div class="link-group">
+          <div class="col-12 col-lg-4 mb-5">
+            <h3 class="h6 mb-2">Disabled State</h3>
+            <div>
               <FdsFunktionslink type="button" disabled>Disabled Button</FdsFunktionslink>
               <FdsFunktionslink
                 type="button"
@@ -127,11 +127,11 @@ const handleClick = () => {
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="accessibility-demo">
-          <h3 class="section-subtitle">Accessibility Examples</h3>
-          <div class="link-group">
+        <div>
+          <h3 class="h6 mb-2">Accessibility Examples</h3>
+          <div>
             <FdsFunktionslink
               href="https://external-site.com"
               target="_blank"
@@ -160,7 +160,7 @@ const handleClick = () => {
           </div>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click count: {{ clickCount }} - Use title attributes to provide additional context. 
           Always include rel="noopener noreferrer" for external links with target="_blank".
         </p>
@@ -169,10 +169,10 @@ const handleClick = () => {
 
     <!-- Usage patterns -->
     <Variant title="Usage Patterns" icon="carbon:app-connectivity">
-      <div class="story-content">
-        <div class="patterns-demo">
-          <h3 class="section-subtitle">Navigation Pattern</h3>
-          <nav class="nav-pattern">
+      <div class="container py-6">
+        <div>
+          <h3 class="h6 mb-2">Navigation Pattern</h3>
+          <nav>
             <FdsFunktionslink href="/dashboard" icon="home">Dashboard</FdsFunktionslink>
             <FdsFunktionslink href="/profile" icon="account">My Profile</FdsFunktionslink>
             <FdsFunktionslink href="/settings" icon="settings">Settings</FdsFunktionslink>
@@ -180,22 +180,22 @@ const handleClick = () => {
           </nav>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="patterns-demo">
-          <h3 class="section-subtitle">Action Pattern</h3>
-          <div class="action-pattern">
+        <div>
+          <h3 class="h6 mb-2">Action Pattern</h3>
+          <div>
             <FdsFunktionslink type="button" icon="add" @click="handleClick">Add New</FdsFunktionslink>
             <FdsFunktionslink type="button" icon="edit" @click="handleClick">Edit Selected</FdsFunktionslink>
             <FdsFunktionslink type="button" icon="delete" @click="handleClick">Delete</FdsFunktionslink>
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <div class="patterns-demo">
-          <h3 class="section-subtitle">Mixed Context</h3>
-          <div class="mixed-pattern">
+        <div>
+          <h3 class="h6 mb-2">Mixed Context</h3>
+          <div>
             <FdsFunktionslink href="/guide" icon="book">User Guide</FdsFunktionslink>
             <FdsFunktionslink
               href="https://support.example.com"
@@ -210,7 +210,7 @@ const handleClick = () => {
           </div>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Function links adapt automatically between anchor and button elements based on whether
           an href is provided. This ensures semantic correctness and proper accessibility.
         </p>
@@ -236,7 +236,7 @@ const handleClick = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsFunktionslink
             :type="state.type !== 'auto' ? state.type : undefined"
             :href="state.type === 'button' ? undefined : state.href || undefined"
@@ -250,7 +250,7 @@ const handleClick = () => {
           >
             {{ state.text }}
           </FdsFunktionslink>
-          <p class="story-hint">
+          <p class="mt-4 mb-0">
             Click count: {{ clickCount }}
             <br>
             Element type: {{ state.type === 'auto' ? (state.type === 'button' ? 'button' : 'anchor') : state.type }}
@@ -309,129 +309,6 @@ const handleClick = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.link-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  align-items: flex-start;
-}
-
-.states-demo {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3.2rem;
-  margin-bottom: 2.4rem;
-}
-
-.state-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.icon-demo,
-.accessibility-demo,
-.patterns-demo {
-  margin-bottom: 2.4rem;
-}
-
-.nav-pattern {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  align-items: flex-start;
-}
-
-.action-pattern,
-.mixed-pattern {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.6rem;
-  align-items: center;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Ensure proper link spacing */
-.story-content :deep(.function-link) {
-  margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .states-demo {
-    grid-template-columns: 1fr;
-  }
-
-  .action-pattern,
-  .mixed-pattern {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsFunktionslink

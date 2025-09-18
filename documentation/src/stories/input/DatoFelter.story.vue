@@ -28,32 +28,32 @@ const resetValidation = () => {
   <Story title="Input/DatoFelter" :layout="{ type: 'grid', width: '100%' }" icon="carbon:calendar">
     <!-- Showcase all variations in one view -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Date Fields</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Date Fields</h3>
             <FdsDatoFelter v-model="basicDate" />
-            <p class="demo-value">Value: {{ basicDate || 'empty' }}</p>
+            <p>Value: {{ basicDate || 'empty' }}</p>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">With Validation</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Validation</h3>
             <FdsDatoFelter
               v-model="validationDate"
               @valid="handleValidation"
               @dirty="handleDirty"
             />
-            <p class="demo-value">
+            <p>
               Valid: {{ isValid ? 'Yes' : 'No' }} | 
               Dirty: {{ isDirty ? 'Yes' : 'No' }}
             </p>
           </div>
-          <div class="variant-section">
-            <h3 class="section-title">Pre-filled Date</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Pre-filled Date</h3>
             <FdsDatoFelter v-model="disabledDate" />
-            <p class="demo-value">Value: {{ disabledDate }}</p>
+            <p>Value: {{ disabledDate }}</p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The DatoFelter component follows DKFDS v11 design specifications for Danish date input.
           Try switching themes using the global theme switcher to see how the component adapts.
         </p>
@@ -62,42 +62,42 @@ const resetValidation = () => {
 
     <!-- Date format and validation -->
     <Variant title="Validation & Format" icon="carbon:checkmark">
-      <div class="story-content">
-        <h3 class="section-subtitle">Danish Date Format (DD/MM/YYYY)</h3>
-        <div class="validation-demo">
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Danish Date Format (DD/MM/YYYY)</h3>
+        <div>
           <FdsDatoFelter
             v-model="validationDate"
             @valid="handleValidation"
             @dirty="handleDirty"
           />
-          <div class="validation-status">
-            <span class="status-indicator" :class="{ valid: isValid, invalid: isDirty && !isValid }">
+          <div>
+            <span :class="{ valid: isValid, invalid: isDirty && !isValid }">
               {{ isValid ? '✓ Valid date' : isDirty ? '✗ Invalid date' : '○ Not validated' }}
             </span>
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Example Valid Dates</h3>
-        <div class="examples-grid">
-          <div class="example-item">
+        <h3 class="h6 mb-2">Example Valid Dates</h3>
+        <div>
+          <div>
             <strong>15/03/2024</strong>
             <span>Standard date format</span>
           </div>
-          <div class="example-item">
+          <div>
             <strong>01/01/2000</strong>
             <span>New millennium</span>
           </div>
-          <div class="example-item">
+          <div>
             <strong>29/02/2024</strong>
             <span>Leap year validation</span>
           </div>
         </div>
 
-        <button type="button" class="reset-button" @click="resetValidation">Reset Validation</button>
+        <button type="button" @click="resetValidation">Reset Validation</button>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component validates dates in real-time and prevents invalid dates like February 30th.
           Auto-advance to next field occurs after entering 2 digits in day/month fields.
         </p>
@@ -106,41 +106,41 @@ const resetValidation = () => {
 
     <!-- User interaction patterns -->
     <Variant title="Interaction Features" icon="carbon:touch-interaction">
-      <div class="story-content">
-        <h3 class="section-subtitle">Auto-Tab Progression</h3>
-        <p class="interaction-description">
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Auto-Tab Progression</h3>
+        <p>
           Type in the day field - after 2 digits, focus automatically moves to month field, 
           then to year field for seamless data entry.
         </p>
         <FdsDatoFelter v-model="basicDate" />
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Focus Selection</h3>
-        <p class="interaction-description">
+        <h3 class="h6 mb-2">Focus Selection</h3>
+        <p>
           Click any field to focus and automatically select existing content for easy editing.
         </p>
         <FdsDatoFelter v-model="disabledDate" />
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Keyboard Navigation</h3>
-        <div class="keyboard-tips">
-          <div class="tip-item">
+        <h3 class="h6 mb-2">Keyboard Navigation</h3>
+        <div>
+          <div>
             <strong>Tab:</strong> Move between fields
           </div>
-          <div class="tip-item">
+          <div>
             <strong>Numbers only:</strong> Automatic validation
           </div>
-          <div class="tip-item">
+          <div>
             <strong>Auto-advance:</strong> After 2 digits (day/month)
           </div>
-          <div class="tip-item">
+          <div>
             <strong>Select all:</strong> On focus for easy editing
           </div>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component uses tel input type for better mobile keyboard support and includes
           pattern validation to ensure only numbers are entered.
         </p>
@@ -149,42 +149,42 @@ const resetValidation = () => {
 
     <!-- Accessibility features -->
     <Variant title="Accessibility" icon="carbon:accessibility">
-      <div class="story-content">
-        <h3 class="section-subtitle">Screen Reader Support</h3>
-        <div class="accessibility-demo">
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Screen Reader Support</h3>
+        <div>
           <FdsDatoFelter v-model="basicDate" />
-          <div class="accessibility-features">
-            <div class="feature-item">
+          <div>
+            <div>
               <strong>Labels:</strong> Each field has descriptive Danish labels (Dag, Måned, År)
             </div>
-            <div class="feature-item">
+            <div>
               <strong>Titles:</strong> Tooltip guidance for each input field
             </div>
-            <div class="feature-item">
+            <div>
               <strong>Pattern:</strong> Input validation patterns for screen readers
             </div>
-            <div class="feature-item">
+            <div>
               <strong>ARIA:</strong> Semantic markup for date input group
             </div>
           </div>
         </div>
 
-        <div class="divider" />
+        <hr class="my-6" />
 
-        <h3 class="section-subtitle">Input Constraints</h3>
-        <div class="constraints-grid">
-          <div class="constraint-item">
+        <h3 class="h6 mb-2">Input Constraints</h3>
+        <div>
+          <div>
             <strong>Day:</strong> 1-31 (max 2 digits)
           </div>
-          <div class="constraint-item">
+          <div>
             <strong>Month:</strong> 1-12 (max 2 digits)
           </div>
-          <div class="constraint-item">
+          <div>
             <strong>Year:</strong> 1900-3000 (max 4 digits)
           </div>
         </div>
 
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component follows WCAG 2.1 AA guidelines with proper labeling, keyboard navigation,
           and clear validation feedback for assistive technologies.
         </p>
@@ -204,22 +204,22 @@ const resetValidation = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
-          <div class="playground-demo">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
+          <div>
             <FdsDatoFelter
               v-model="state.dateValue"
               @valid="state.showValidation ? handleValidation : undefined"
               @dirty="state.showEvents ? handleDirty : undefined"
             />
             
-            <div class="playground-output">
-              <div class="output-item">
+            <div>
+              <div>
                 <strong>Model Value:</strong> {{ state.dateValue || 'empty' }}
               </div>
-              <div v-if="state.showValidation" class="output-item">
+              <div v-if="state.showValidation">
                 <strong>Valid:</strong> {{ isValid ? 'Yes' : 'No' }}
               </div>
-              <div v-if="state.showEvents" class="output-item">
+              <div v-if="state.showEvents">
                 <strong>Dirty:</strong> {{ isDirty ? 'Yes' : 'No' }}
               </div>
             </div>
@@ -238,252 +238,6 @@ const resetValidation = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.demo-value {
-  font-size: 1.4rem;
-  color: #666;
-  margin-top: 0.8rem;
-  font-family: monospace;
-}
-
-.validation-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  max-width: 300px;
-}
-
-.validation-status {
-  font-size: 1.4rem;
-}
-
-.status-indicator {
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  background-color: #f5f5f5;
-  color: #666;
-}
-
-.status-indicator.valid {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.status-indicator.invalid {
-  background-color: #f8d7da;
-  color: #721c24;
-}
-
-.examples-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.6rem;
-  margin-bottom: 2.4rem;
-}
-
-.example-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  font-size: 1.4rem;
-}
-
-.example-item strong {
-  font-family: monospace;
-  color: #0052cc;
-}
-
-.example-item span {
-  color: #666;
-  font-size: 1.3rem;
-}
-
-.reset-button {
-  padding: 0.8rem 1.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f9fa;
-  color: #333;
-  cursor: pointer;
-  font-size: 1.4rem;
-}
-
-.reset-button:hover {
-  background-color: #e9ecef;
-}
-
-.interaction-description {
-  font-size: 1.4rem;
-  color: #555;
-  margin-bottom: 1.6rem;
-  line-height: 1.5;
-}
-
-.keyboard-tips {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;
-  margin-bottom: 1.6rem;
-}
-
-.tip-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  font-size: 1.4rem;
-}
-
-.tip-item strong {
-  color: #0052cc;
-}
-
-.accessibility-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
-.accessibility-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;
-}
-
-.feature-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  font-size: 1.4rem;
-}
-
-.feature-item strong {
-  color: #0052cc;
-}
-
-.constraints-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.6rem;
-  margin-bottom: 2.4rem;
-}
-
-.constraint-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  font-size: 1.4rem;
-  padding: 1.2rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background-color: #f8f9fa;
-}
-
-.constraint-item strong {
-  color: #0052cc;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-.playground-demo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.4rem;
-  width: 100%;
-  max-width: 400px;
-}
-
-.playground-output {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-  width: 100%;
-}
-
-.output-item {
-  font-size: 1.4rem;
-  font-family: monospace;
-}
-
-.output-item strong {
-  color: #0052cc;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .examples-grid,
-  .keyboard-tips,
-  .accessibility-features,
-  .constraints-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsDatoFelter

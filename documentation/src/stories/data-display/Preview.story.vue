@@ -73,10 +73,10 @@ const getPreviewPlaygroundState = () => ({
   >
     <!-- Showcase all preview components working together -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Component Documentation</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Component Documentation</h3>
             <FdsPreview header="Button Component" href="#" link-text="View Documentation">
               <FdsPreviewItem>
                 <p>Buttons trigger actions and navigation. They come in different variants for different purposes.</p>
@@ -91,8 +91,8 @@ const getPreviewPlaygroundState = () => ({
             </FdsPreview>
           </div>
           
-          <div class="variant-section">
-            <h3 class="section-title">JSON Data Display</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">JSON Data Display</h3>
             <FdsPreview header="API Response Example">
               <FdsPreviewItem>
                 <p>Preview JSON data with automatic formatting and syntax highlighting.</p>
@@ -103,7 +103,7 @@ const getPreviewPlaygroundState = () => ({
             </FdsPreview>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The Preview components follow DKFDS v11 design specifications for documentation and code display. 
           Try switching themes using the global theme switcher to see how they adapt to different contexts.
         </p>
@@ -112,10 +112,10 @@ const getPreviewPlaygroundState = () => ({
 
     <!-- Documentation patterns -->
     <Variant title="Documentation Patterns" icon="carbon:document">
-      <div class="story-content">
+      <div class="container py-6">
         <FdsPreview header="Form Components" href="#forms" link-text="Form Documentation">
           <FdsPreviewItem>
-            <h4 class="section-subtitle">Form Structure</h4>
+            <h4 class="h6 mb-2">Form Structure</h4>
             <p>Forms should use proper semantic structure with labels, inputs, and grouping.</p>
             <ul>
               <li>Always pair inputs with labels</li>
@@ -146,7 +146,7 @@ const getPreviewPlaygroundState = () => ({
           </FdsPreviewCode>
         </FdsPreview>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Documentation patterns combine descriptions, live examples, and code samples for comprehensive guides.
         </p>
       </div>
@@ -154,10 +154,10 @@ const getPreviewPlaygroundState = () => ({
 
     <!-- Code display modes -->
     <Variant title="Code Display Modes" icon="carbon:code">
-      <div class="story-content">
-        <div class="code-modes-grid">
-          <div class="mode-section">
-            <h3 class="section-title">Raw Code</h3>
+      <div class="container py-6">
+        <div>
+          <div>
+            <h3 class="h5 mb-2">Raw Code</h3>
             <FdsPreview header="HTML Code">
               <FdsPreviewCode>
                 <FdsPre :code="htmlAlertSnippet" />
@@ -165,8 +165,8 @@ const getPreviewPlaygroundState = () => ({
             </FdsPreview>
           </div>
           
-          <div class="mode-section">
-            <h3 class="section-title">JSON Data</h3>
+          <div>
+            <h3 class="h5 mb-2">JSON Data</h3>
             <FdsPreview header="Configuration">
               <FdsPreviewCode header="config.json">
                 <FdsPre :json="{ server: { port: 3000, host: 'localhost' }, database: { type: 'postgresql', url: 'postgres://localhost/mydb' } }" />
@@ -174,8 +174,8 @@ const getPreviewPlaygroundState = () => ({
             </FdsPreview>
           </div>
           
-          <div class="mode-section">
-            <h3 class="section-title">Slot Content</h3>
+          <div>
+            <h3 class="h5 mb-2">Slot Content</h3>
             <FdsPreview header="YAML Config">
               <FdsPreviewCode>
                 <FdsPre>
@@ -191,7 +191,7 @@ database:
           </div>
         </div>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Code display supports multiple formats: raw strings, formatted JSON objects, and slot content.
         </p>
       </div>
@@ -199,33 +199,33 @@ database:
 
     <!-- Layout variations -->
     <Variant title="Layout Variations" icon="carbon:layout">
-      <div class="story-content">
-        <h3 class="section-title">Minimal Preview</h3>
+      <div class="container py-6">
+        <h3 class="h5 mb-2">Minimal Preview</h3>
         <FdsPreview header="Simple Example">
           <FdsPreviewExample>
             <FdsButton>Click Me</FdsButton>
           </FdsPreviewExample>
         </FdsPreview>
         
-        <div class="divider" />
+        <hr class="my-6" />
         
-        <h3 class="section-title">Preview with Description Only</h3>
+        <h3 class="h5 mb-2">Preview with Description Only</h3>
         <FdsPreview header="Usage Guidelines">
           <FdsPreviewItem>
             <p>This component is used for triggering actions in the user interface. It should be placed where users expect to find interactive elements.</p>
           </FdsPreviewItem>
         </FdsPreview>
         
-        <div class="divider" />
+        <hr class="my-6" />
         
-        <h3 class="section-title">Code Only Preview</h3>
+        <h3 class="h5 mb-2">Code Only Preview</h3>
         <FdsPreview header="Implementation">
           <FdsPreviewCode header="TypeScript">
             <FdsPre :code="tsInterfaceSnippet" />
           </FdsPreviewCode>
         </FdsPreview>
         
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Preview components are flexible - use any combination of description, example, and code sections.
         </p>
       </div>
@@ -238,7 +238,7 @@ database:
       :init-state="getPreviewPlaygroundState"
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsPreview 
             :header="state.header" 
             :href="state.href || undefined"
@@ -282,101 +282,6 @@ database:
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.code-modes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.mode-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  min-height: 200px;
-}
-
-/* Preview component spacing */
-.story-content :deep(.component-preview) {
-  margin-bottom: 2.4rem;
-}
-
-.story-content :deep(.component-preview:last-child) {
-  margin-bottom: 0;
-}
-
-/* Form spacing in examples */
-.story-content :deep(.mt-3) {
-  margin-top: 1.2rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .code-modes-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsPreview

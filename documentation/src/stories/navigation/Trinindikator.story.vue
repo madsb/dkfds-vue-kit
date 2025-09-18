@@ -50,10 +50,10 @@ const handleModalClose = () => {
   <Story title="Navigation/Trinindikator" :layout="{ type: 'grid', width: '100%' }" icon="carbon:flow">
     <!-- Showcase all trinindikator variants -->
     <Variant title="Showcase" icon="carbon:grid">
-      <div class="story-content">
-        <div class="variant-grid">
-          <div class="variant-section">
-            <h3 class="section-title">Basic Steps</h3>
+      <div class="container py-6">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">Basic Steps</h3>
             <FdsTrinindikatorGroup
               :current-step="2"
               :total-steps="4"
@@ -70,8 +70,8 @@ const handleModalClose = () => {
             </FdsTrinindikatorGroup>
           </div>
           
-          <div class="variant-section">
-            <h3 class="section-title">With Step Information</h3>
+          <div class="col-12 col-md-6 col-xl-3 mb-5">
+            <h3 class="h5 mb-2">With Step Information</h3>
             <FdsTrinindikatorGroup
               :current-step="3"
               :total-steps="5"
@@ -90,7 +90,7 @@ const handleModalClose = () => {
             </FdsTrinindikatorGroup>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The trinindikator component follows DKFDS v11 design specifications. Try switching themes using
           the global theme switcher to see how step indicators adapt to different contexts.
         </p>
@@ -99,8 +99,8 @@ const handleModalClose = () => {
 
     <!-- Different step states -->
     <Variant title="Step States" icon="carbon:status-change">
-      <div class="story-content">
-        <h3 class="section-subtitle">Error State Example</h3>
+      <div class="container py-6">
+        <h3 class="h6 mb-2">Error State Example</h3>
         <FdsTrinindikatorGroup
           :current-step="2"
           :total-steps="4"
@@ -119,12 +119,12 @@ const handleModalClose = () => {
           />
         </FdsTrinindikatorGroup>
         
-        <div class="divider" />
+        <hr class="my-6" />
         
-        <h3 class="section-subtitle">Progress States</h3>
-        <div class="states-demo">
-          <div class="state-example">
-            <h4 class="state-title">Step 1: Beginning</h4>
+        <h3 class="h6 mb-2">Progress States</h3>
+        <div>
+          <div>
+            <h4>Step 1: Beginning</h4>
             <FdsTrinindikatorGroup
               :current-step="1"
               :total-steps="4"
@@ -141,8 +141,8 @@ const handleModalClose = () => {
             </FdsTrinindikatorGroup>
           </div>
           
-          <div class="state-example">
-            <h4 class="state-title">Step 4: Completion</h4>
+          <div>
+            <h4>Step 4: Completion</h4>
             <FdsTrinindikatorGroup
               :current-step="4"
               :total-steps="4"
@@ -159,7 +159,7 @@ const handleModalClose = () => {
             </FdsTrinindikatorGroup>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Steps can show different states: current (highlighted), completed (checkmark), 
           error (warning icon), and disabled (grayed out).
         </p>
@@ -168,7 +168,7 @@ const handleModalClose = () => {
 
     <!-- Interactive step navigation -->
     <Variant title="Interactive Navigation" icon="carbon:touch-interaction">
-      <div class="story-content">
+      <div class="container py-6">
         <FdsTrinindikatorGroup
           :current-step="interactiveCurrentStep"
           :total-steps="5"
@@ -192,7 +192,7 @@ const handleModalClose = () => {
           />
         </FdsTrinindikatorGroup>
         
-        <div class="controls">
+        <div>
           <button 
             class="button button-secondary"
             @click="interactiveCurrentStep = Math.max(1, interactiveCurrentStep - 1)"
@@ -211,7 +211,7 @@ const handleModalClose = () => {
             Næste
           </button>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           Click on completed steps to navigate. Use the buttons to progress through the steps.
           On mobile, tap "Trin X af Y" to see the full step modal.
         </p>
@@ -220,8 +220,8 @@ const handleModalClose = () => {
 
     <!-- Responsive behavior -->
     <Variant title="Responsive Behavior" icon="carbon:devices">
-      <div class="story-content">
-        <p class="mobile-instruction">
+      <div class="container py-6">
+        <p>
           <strong>Desktop:</strong> Full step indicator visible<br>
           <strong>Mobile:</strong> Compact button that opens modal when tapped
         </p>
@@ -243,16 +243,16 @@ const handleModalClose = () => {
           />
         </FdsTrinindikatorGroup>
         
-        <div class="responsive-demo">
+        <div>
           <p>Simulate mobile view by resizing your browser window to less than 768px wide.</p>
-          <div class="mobile-preview">
+          <div>
             <button class="step-indicator-button" style="position: relative; z-index: 1;">
               <span>Trin <strong>{{ currentStep }}</strong> af {{ basicSteps.length }}</span>
             </button>
-            <p class="demo-note">↑ This is how it appears on mobile screens</p>
+            <p>↑ This is how it appears on mobile screens</p>
           </div>
         </div>
-        <p class="story-hint">
+        <p class="mt-4 mb-0">
           The component automatically adapts to screen size. On mobile devices, 
           the full step list is hidden and accessible via a modal dialog for better usability.
         </p>
@@ -287,7 +287,7 @@ const handleModalClose = () => {
       "
     >
       <template #default="{ state }">
-        <div class="story-content playground">
+        <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsTrinindikatorGroup
             :current-step="state.currentStep"
             :total-steps="state.totalSteps"
@@ -379,140 +379,6 @@ const handleModalClose = () => {
   </Story>
 </template>
 
-<style scoped>
-/* Base styles with 10px font-size root */
-.story-content {
-  padding: 2.4rem;
-  font-size: 1.6rem; /* 16px with 10px base */
-  line-height: 1.5;
-}
-
-/* Typography */
-.section-title {
-  font-size: 1.6rem; /* 16px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #1a1a1a;
-}
-
-.section-subtitle {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  color: #333;
-}
-
-.state-title {
-  font-size: 1.4rem; /* 14px */
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  color: #555;
-}
-
-.story-hint {
-  font-size: 1.4rem; /* 14px - readable minimum */
-  color: #666;
-  margin-top: 1.6rem;
-  line-height: 1.6;
-}
-
-.mobile-instruction {
-  font-size: 1.4rem; /* 14px */
-  color: #333;
-  margin-bottom: 1.6rem;
-  padding: 1.2rem;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-  border-left: 4px solid #007bff;
-}
-
-.demo-note {
-  font-size: 1.4rem; /* 14px */
-  color: #666;
-  margin-top: 0.8rem;
-  font-style: italic;
-}
-
-/* Layout structures */
-.variant-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.variant-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.states-demo {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.state-example {
-  padding: 1.6rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  background-color: #fafafa;
-}
-
-.controls {
-  display: flex;
-  gap: 1.2rem;
-  margin-top: 2.4rem;
-  align-items: center;
-}
-
-.responsive-demo {
-  margin-top: 2.4rem;
-  padding: 1.6rem;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-}
-
-.mobile-preview {
-  margin-top: 1.6rem;
-  text-align: center;
-}
-
-.divider {
-  margin: 2.4rem 0;
-  border-top: 1px solid #e0e0e0;
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-content {
-    padding: 1.6rem;
-  }
-
-  .variant-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .states-demo {
-    grid-template-columns: 1fr;
-  }
-  
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-</style>
 
 <docs lang="md">
 # FdsTrinindikatorGroup & FdsTrinindikatorStep
