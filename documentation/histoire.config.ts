@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const projectRoot = fileURLToPath(new URL('..', import.meta.url))
 const nodeModulesRoot = fileURLToPath(new URL('../node_modules', import.meta.url))
+const histoireBase = process.env.HISTOIRE_BASE ?? '/'
 
 export default defineConfig({
   plugins: [HstVue()],
@@ -45,6 +46,7 @@ export default defineConfig({
   ],
 
   vite: {
+    base: histoireBase,
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),

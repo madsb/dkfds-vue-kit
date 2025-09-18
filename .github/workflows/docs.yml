@@ -1,4 +1,4 @@
-name: Deploy VitePress Documentation
+name: Deploy Histoire Site
 
 on:
   push:
@@ -43,13 +43,15 @@ jobs:
       - name: Build library
         run: pnpm run build
 
-      - name: Build documentation
+      - name: Build Histoire site
+        env:
+          HISTOIRE_BASE: ${{ format('/{0}/', github.event.repository.name) }}
         run: pnpm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs-site/docs/.vitepress/dist
+          path: documentation/.histoire/dist
 
   deploy:
     environment:
