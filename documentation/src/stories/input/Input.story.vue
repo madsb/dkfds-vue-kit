@@ -126,10 +126,10 @@ const handleInput = (value: string, field: string) => {
 
           <div class="feature-section">
             <h3 class="section-subtitle">Width Classes</h3>
-            <FdsInput placeholder="Extra Small" width-class="form-input-width-xs" />
-            <FdsInput placeholder="Small" width-class="form-input-width-s" />
-            <FdsInput placeholder="Medium" width-class="form-input-width-m" />
-            <FdsInput placeholder="Large" width-class="form-input-width-l" />
+            <FdsInput placeholder="Extra Small" width-class="input-width-xs" />
+            <FdsInput placeholder="Small" width-class="input-width-s" />
+            <FdsInput placeholder="Medium" width-class="input-width-m" />
+            <FdsInput placeholder="Large" width-class="input-width-l" />
           </div>
         </div>
         <p class="story-hint">
@@ -147,19 +147,19 @@ const handleInput = (value: string, field: string) => {
           <div class="width-examples">
             <div class="width-example">
               <label class="width-label">Extra Small (XS)</label>
-              <FdsInput placeholder="Width XS" width-class="form-input-width-xs" />
+              <FdsInput placeholder="Width XS" width-class="input-width-xs" />
             </div>
             <div class="width-example">
               <label class="width-label">Small (S)</label>
-              <FdsInput placeholder="Width S" width-class="form-input-width-s" />
+              <FdsInput placeholder="Width S" width-class="input-width-s" />
             </div>
             <div class="width-example">
               <label class="width-label">Medium (M)</label>
-              <FdsInput placeholder="Width M" width-class="form-input-width-m" />
+              <FdsInput placeholder="Width M" width-class="input-width-m" />
             </div>
             <div class="width-example">
               <label class="width-label">Large (L)</label>
-              <FdsInput placeholder="Width L" width-class="form-input-width-l" />
+              <FdsInput placeholder="Width L" width-class="input-width-l" />
             </div>
             <div class="width-example">
               <label class="width-label">Default (Full Width)</label>
@@ -247,10 +247,10 @@ const handleInput = (value: string, field: string) => {
           title="Width Class"
           :options="[
             { value: '', label: 'Default (Full)' },
-            { value: 'form-input-width-xs', label: 'Extra Small' },
-            { value: 'form-input-width-s', label: 'Small' },
-            { value: 'form-input-width-m', label: 'Medium' },
-            { value: 'form-input-width-l', label: 'Large' },
+            { value: 'input-width-xs', label: 'Extra Small' },
+            { value: 'input-width-s', label: 'Small' },
+            { value: 'input-width-m', label: 'Medium' },
+            { value: 'input-width-l', label: 'Large' },
           ]"
         />
 
@@ -308,6 +308,7 @@ const handleInput = (value: string, field: string) => {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 1.2rem;
 }
 
 .states-grid {
@@ -375,12 +376,12 @@ const handleInput = (value: string, field: string) => {
 }
 
 /* Input spacing */
-.story-content :deep(.form-input) {
-  margin: 0;
-}
-
-.story-content :deep(.form-input-wrapper) {
-  margin: 0;
+.story-content :deep(.form-input),
+.story-content :deep(.form-input-wrapper),
+.story-content :deep(.form-input-prefix),
+.story-content :deep(.form-input-suffix) {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Responsive adjustments */
@@ -462,10 +463,10 @@ The component supports all standard HTML input types:
 
 Control input width using DKFDS width utility classes:
 
-- `form-input-width-xs`: Extra small width
-- `form-input-width-s`: Small width
-- `form-input-width-m`: Medium width
-- `form-input-width-l`: Large width
+- `input-width-xs`: Extra small width
+- `input-width-s`: Small width
+- `input-width-m`: Medium width
+- `input-width-l`: Large width
 - Default: Full container width
 
 ## Character Limits

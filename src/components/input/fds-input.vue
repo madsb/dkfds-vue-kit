@@ -63,7 +63,7 @@ import { formId } from '../../composables'
  *     id="email"
  *     v-model="formData.email"
  *     type="email"
- *     width-class="form-input-width-m"
+ *     width-class="input-width-m"
  *   />
  * </FdsFormgroup>
  * ```
@@ -119,7 +119,7 @@ export interface FdsInputProps {
   /**
    * Width class for controlling input field size
    * Uses DKFDS width utility classes
-   * @values 'form-input-width-xs', 'form-input-width-s', 'form-input-width-m', 'form-input-width-l', 'form-input-width-xl'
+   * @values 'input-width-xs', 'input-width-s', 'input-width-m', 'input-width-l', 'input-width-xl'
    * @default ''
    */
   widthClass?: string
