@@ -27,7 +27,6 @@ const scrollToTop = () => {
 <template>
   <Story
     title="Navigation/TilTop"
-    :layout="{ type: 'grid', width: '100%' }"
     icon="carbon:arrow-up"
   >
     <!-- Showcase all variants in one view -->
@@ -100,7 +99,7 @@ const scrollToTop = () => {
               <FdsTilTop :threshold="1200" visible-text="High" />
             </div>
           </div>
-          
+
           <div>
             <p>Scroll down to see different threshold behaviors...</p>
             <div>
@@ -172,9 +171,9 @@ const scrollToTop = () => {
               <p>Announces: "Spring tilbage til toppen af dokumentet"</p>
             </div>
           </div>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Keyboard Navigation</h3>
           <div>
             <FdsTilTop :threshold="50" screen-reader-text="Test keyboard navigation" />
@@ -223,7 +222,7 @@ const scrollToTop = () => {
             >
               {{ state.slotContent }}
             </FdsTilTop>
-            
+
             <div>
               <p>Current threshold: {{ state.threshold }}px</p>
               <p>Scroll down to see the button appear</p>
@@ -248,7 +247,6 @@ const scrollToTop = () => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsTilTop

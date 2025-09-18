@@ -1,24 +1,20 @@
 import { ref, computed, watch, onMounted } from 'vue'
+import { resolveThemeUrl } from '../utils/themeAssets'
+import type { DKFDSTheme } from '../utils/themeAssets'
 
-export type DKFDSTheme = 'default' | 'virkdk' | 'borgerdk'
+export type { DKFDSTheme } from '../utils/themeAssets'
 
 const THEME_STORAGE_KEY = 'dkfds-theme'
 const currentTheme = ref<DKFDSTheme>('default')
-
-// CSS file paths for each theme (served from public directory)
-const themePaths = {
-  'default': '/css/dkfds.css',
-  'virkdk': '/css/dkfds-virkdk.css',
-  'borgerdk': '/css/dkfds-borgerdk.css'
-} as const
 
 export function useTheme() {
   const theme = computed({
     get: () => currentTheme.value,
     set: (value: DKFDSTheme) => {
       currentTheme.value = value
-      localStorage.setItem(THEME_STORAGE_KEY, value)
-      applyTheme(value)
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(THEME_STORAGE_KEY, value)
+      }
     }
   })
 
@@ -28,42 +24,45 @@ export function useTheme() {
     { value: 'borgerdk', label: 'Borger.dk' }
   ]
 
-  function applyTheme(themeName: DKFDSTheme) {
-    // Remove existing theme stylesheets
+  async function applyTheme(themeName: DKFDSTheme) {
+    if (typeof document === 'undefined') {
+      return
+    }
+
+    const href = await resolveThemeUrl(themeName)
+
     const existingThemeLinks = document.querySelectorAll('link[data-theme="dkfds"]')
     existingThemeLinks.forEach(link => link.remove())
 
-    // Add new theme stylesheet
     const link = document.createElement('link')
     link.rel = 'stylesheet'
-    link.href = themePaths[themeName]
+    link.href = href
     link.setAttribute('data-theme', 'dkfds')
     document.head.appendChild(link)
 
-    // Also update body class for theme-specific styling if needed
     document.body.classList.remove('theme-default', 'theme-virkdk', 'theme-borgerdk')
     document.body.classList.add(`theme-${themeName}`)
   }
 
-  function initializeTheme() {
-    // Load theme from localStorage or use default
+  async function initializeTheme() {
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as DKFDSTheme | null
     if (savedTheme && themes.some(t => t.value === savedTheme)) {
       currentTheme.value = savedTheme
-      applyTheme(savedTheme)
     } else {
-      applyTheme('default')
+      currentTheme.value = 'default'
+      localStorage.setItem(THEME_STORAGE_KEY, 'default')
     }
   }
 
   onMounted(() => {
-    initializeTheme()
+    void initializeTheme()
   })
 
-  // Watch for theme changes
-  watch(currentTheme, (newTheme) => {
-    applyTheme(newTheme)
-  })
+  if (typeof window !== 'undefined') {
+    watch(currentTheme, (newTheme) => {
+      void applyTheme(newTheme)
+    }, { immediate: true })
+  }
 
   return {
     theme,

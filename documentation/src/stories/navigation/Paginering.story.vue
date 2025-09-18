@@ -43,7 +43,7 @@ const handleExternalPageChange = (page: number) => {
 </script>
 
 <template>
-  <Story title="Navigation/Paginering" :layout="{ type: 'grid', width: '100%' }" icon="carbon:page-number">
+  <Story title="Navigation/Paginering" icon="carbon:page-number">
     <!-- Showcase all pagination variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -288,7 +288,7 @@ const handleExternalPageChange = (page: number) => {
               @page-change="handlePageChange"
             />
           </div>
-          
+
           <div>
             <p><strong>Total Items:</strong> {{ state.totalItems }}</p>
             <p><strong>Page Size:</strong> {{ state.pageSize }}</p>
@@ -349,7 +349,6 @@ const handleExternalPageChange = (page: number) => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsPaginering

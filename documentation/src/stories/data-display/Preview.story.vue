@@ -68,7 +68,6 @@ const getPreviewPlaygroundState = () => ({
 <template>
   <Story
     title="Data Display/Preview"
-    :layout="{ type: 'grid', width: '100%' }"
     icon="carbon:data-view"
   >
     <!-- Showcase all preview components working together -->

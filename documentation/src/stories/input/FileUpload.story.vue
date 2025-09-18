@@ -31,7 +31,7 @@ const clearStatus = () => {
 </script>
 
 <template>
-  <Story title="Input/FileUpload" :layout="{ type: 'grid', width: '100%' }" icon="carbon:document-attachment">
+  <Story title="Input/FileUpload" icon="carbon:document-attachment">
     <!-- Showcase all file upload variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -326,7 +326,6 @@ const clearStatus = () => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsFileUpload

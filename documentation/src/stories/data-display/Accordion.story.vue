@@ -10,7 +10,6 @@ const demoGroupExpanded = ref(false)
 <template>
   <Story
     title="Data Display/Accordion"
-    :layout="{ type: 'grid', width: '100%' }"
     icon="carbon:data-view"
   >
     <!-- Showcase all accordion variants in one view -->

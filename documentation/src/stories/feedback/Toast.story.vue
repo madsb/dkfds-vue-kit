@@ -75,7 +75,7 @@ const handleClearAll = () => {
 </script>
 
 <template>
-  <Story title="Feedback/Toast" :layout="{ type: 'grid', width: '100%' }" icon="carbon:notification">
+  <Story title="Feedback/Toast" icon="carbon:notification">
     <!-- Showcase all toast types in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -338,7 +338,6 @@ showSuccess('Operation completed!', {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsToast

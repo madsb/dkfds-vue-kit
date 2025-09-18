@@ -11,17 +11,17 @@ const simulateLoading = async () => {
   simulationCount.value++
   isLoading.value = true
   loadingText.value = 'Initializing...'
-  
+
   await new Promise(resolve => setTimeout(resolve, 1000))
   loadingText.value = 'Processing data...'
-  
+
   await new Promise(resolve => setTimeout(resolve, 1500))
   loadingText.value = 'Finalizing...'
-  
+
   await new Promise(resolve => setTimeout(resolve, 800))
   isLoading.value = false
   loadingText.value = 'Complete!'
-  
+
   setTimeout(() => {
     loadingText.value = 'Loading content...'
   }, 2000)
@@ -29,7 +29,7 @@ const simulateLoading = async () => {
 </script>
 
 <template>
-  <Story title="Feedback/Spinner" :layout="{ type: 'grid', width: '100%' }" icon="carbon:circle-dash">
+  <Story title="Feedback/Spinner" icon="carbon:circle-dash">
     <!-- Showcase all spinner variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -77,9 +77,9 @@ const simulateLoading = async () => {
               <FdsSpinner size="large" sr-only-text="Loading large content" />
             </div>
           </div>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Inline Usage</h3>
           <div>
             <p>
@@ -92,9 +92,9 @@ const simulateLoading = async () => {
               <FdsSpinner size="small" sr-only-text="Saving" />
             </div>
           </div>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Centered Layout</h3>
           <div>
             <FdsSpinner size="large" :centered="true" aria-live="polite">
@@ -128,9 +128,9 @@ const simulateLoading = async () => {
               <p>Visible status text with live region announcements</p>
             </div>
           </div>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Dynamic Status Updates</h3>
           <div>
             <FdsSpinner 
@@ -147,7 +147,7 @@ const simulateLoading = async () => {
             </div>
             <button 
               type="button" 
-             
+
               @click="simulateLoading"
               :disabled="isLoading"
             >
@@ -173,18 +173,18 @@ const simulateLoading = async () => {
               Loading on light background...
             </FdsSpinner>
           </div>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Dark Background</h3>
           <div>
             <FdsSpinner size="large" variant="light">
               Loading on dark background...
             </FdsSpinner>
           </div>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Modal Overlay</h3>
           <div>
             <div class="modal-content">
@@ -194,9 +194,9 @@ const simulateLoading = async () => {
               </FdsSpinner>
             </div>
           </div>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Card Loading</h3>
           <div>
             <div>
@@ -272,13 +272,13 @@ const simulateLoading = async () => {
         />
 
         <HstCheckbox v-model="state.hasStatusText" title="Show Status Text" />
-        
+
         <HstText 
           v-model="state.statusText" 
           title="Status Text" 
           :disabled="!state.hasStatusText"
         />
-        
+
         <HstText 
           v-model="state.srOnlyText" 
           title="Screen Reader Text" 
@@ -302,7 +302,6 @@ const simulateLoading = async () => {
   </Story>
 </template>
 
-
 <docs lang="md">
 # FdsSpinner
 
@@ -314,12 +313,12 @@ The spinner component provides visual feedback for loading states with accessibi
 <template>
   <!-- Basic spinner with screen reader text -->
   <FdsSpinner sr-only-text="Loading content..." />
-  
+
   <!-- Spinner with visible status text -->
   <FdsSpinner aria-live="polite">
     Loading your data...
   </FdsSpinner>
-  
+
   <!-- Small spinner for inline use -->
   <FdsSpinner size="small" sr-only-text="Processing..." />
 </template>

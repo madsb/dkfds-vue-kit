@@ -17,7 +17,7 @@ const handleDirty = (isDirty: boolean) => {
 </script>
 
 <template>
-  <Story title="Input/Textarea" :layout="{ type: 'grid', width: '100%' }" icon="carbon:text-input">
+  <Story title="Input/Textarea" icon="carbon:text-input">
     <!-- Showcase all textarea variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -161,7 +161,7 @@ const handleDirty = (isDirty: boolean) => {
                 <FdsTextarea 
                   model-value="This is a valid textarea input with proper content."
                   :rows="3" 
-                 
+
                 />
                 <div>Content looks good!</div>
               </div>
@@ -171,7 +171,7 @@ const handleDirty = (isDirty: boolean) => {
                   model-value=""
                   :rows="3" 
                   placeholder="This field is required"
-                 
+
                 />
                 <div>This field is required</div>
               </div>
@@ -227,15 +227,15 @@ const handleDirty = (isDirty: boolean) => {
 
       <template #controls="{ state }">
         <HstTextarea v-model="state.value" title="Text Content" :rows="3" />
-        
+
         <HstNumber v-model="state.rows" title="Rows (minimum)" :min="1" :max="20" />
-        
+
         <HstNumber v-model="state.maxRows" title="Max Rows" :min="1" :max="30" />
-        
+
         <HstNumber v-model="state.rowlength" title="Row Length (chars)" :min="20" :max="200" />
-        
+
         <HstNumber v-model="state.maxlength" title="Max Length (0 = no limit)" :min="0" :max="2000" />
-        
+
         <HstSelect
           v-model="state.widthClass"
           title="Width Class"
@@ -248,17 +248,16 @@ const handleDirty = (isDirty: boolean) => {
             { value: 'input--width-xl', label: 'Extra Large' },
           ]"
         />
-        
+
         <HstText v-model="state.placeholder" title="Placeholder" />
-        
+
         <HstCheckbox v-model="state.disabled" title="Disabled" />
-        
+
         <HstCheckbox v-model="state.readonly" title="Readonly" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsTextarea

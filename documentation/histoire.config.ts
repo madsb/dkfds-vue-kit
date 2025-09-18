@@ -7,46 +7,15 @@ const nodeModulesRoot = fileURLToPath(new URL('../node_modules', import.meta.url
 
 export default defineConfig({
   plugins: [HstVue()],
-  
+
   setupFile: './histoire.setup.ts',
-  
-  storyMatch: [
-    'src/stories/**/*.story.vue',
-  ],
-  
-  tree: {
-    groups: [
-      {
-        id: 'forms',
-        title: 'Forms',
-      },
-      {
-        id: 'input', 
-        title: 'Input',
-      },
-      {
-        id: 'navigation',
-        title: 'Navigation',
-      },
-      {
-        id: 'feedback',
-        title: 'Feedback',
-      },
-      {
-        id: 'data-display',
-        title: 'Data Display',
-      },
-      {
-        id: 'layout',
-        title: 'Layout',
-      },
-    ],
-  },
-  
+
+  storyMatch: ['src/stories/**/*.story.vue'],
+
   theme: {
     title: 'DKFDS Vue 3 Components',
   },
-  
+
   defaultStoryProps: {
     layout: {
       type: 'single',
@@ -55,7 +24,7 @@ export default defineConfig({
     responsiveDisabled: false,
     autoPropsDisabled: false,
   },
-  
+
   backgroundPresets: [
     {
       label: 'White',
@@ -66,7 +35,7 @@ export default defineConfig({
       color: '#f5f5f5',
     },
     {
-      label: 'Gray 200', 
+      label: 'Gray 200',
       color: '#e0e0e0',
     },
     {
@@ -74,7 +43,7 @@ export default defineConfig({
       color: '#f5f5f7',
     },
   ],
-  
+
   vite: {
     resolve: {
       alias: {

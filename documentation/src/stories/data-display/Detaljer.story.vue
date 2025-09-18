@@ -10,7 +10,7 @@ const handleToggle = () => {
 </script>
 
 <template>
-  <Story title="Data Display/Detaljer" :layout="{ type: 'grid', width: '100%' }" icon="carbon:chevron-down">
+  <Story title="Data Display/Detaljer" icon="carbon:chevron-down">
     <!-- Showcase all detaljer variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -205,11 +205,11 @@ const handleToggle = () => {
 
       <template #controls="{ state }">
         <HstText v-model="state.header" title="Header Text" />
-        
+
         <HstText v-model="state.content" title="Content" />
-        
+
         <HstCheckbox v-model="state.useSlot" title="Use Header Slot" />
-        
+
         <HstCheckbox 
           v-model="state.richHeader" 
           title="Rich Header Content"
@@ -219,7 +219,6 @@ const handleToggle = () => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsDetaljer

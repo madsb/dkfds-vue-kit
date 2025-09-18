@@ -16,7 +16,7 @@ const handleRadioChange = () => {
 </script>
 
 <template>
-  <Story title="Input/Radio" :layout="{ type: 'grid', width: '100%' }" icon="carbon:radio-button">
+  <Story title="Input/Radio" icon="carbon:radio-button">
     <!-- Showcase all radio group variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -85,7 +85,7 @@ const handleRadioChange = () => {
                 <textarea
                   id="other-input"
                   v-model="otherService"
-                 
+
                   rows="3"
                   placeholder="Describe the service you need"
                 ></textarea>
@@ -203,9 +203,9 @@ const handleRadioChange = () => {
         <HstText v-model="state.label" title="Group Label" />
         <HstText v-model="state.helpText" title="Help Text" />
         <HstCheckbox v-model="state.showHelpText" title="Show Help Text" />
-        
+
         <div></div>
-        
+
         <HstSelect
           v-model="state.selectedValue"
           title="Selected Value"
@@ -215,22 +215,21 @@ const handleRadioChange = () => {
             { value: 'option3', label: 'Option 3' },
           ]"
         />
-        
+
         <div></div>
-        
+
         <HstText v-model="state.option1Text" title="Option 1 Text" />
         <HstCheckbox v-model="state.option1Disabled" title="Option 1 Disabled" />
-        
+
         <HstText v-model="state.option2Text" title="Option 2 Text" />
         <HstCheckbox v-model="state.option2Disabled" title="Option 2 Disabled" />
-        
+
         <HstText v-model="state.option3Text" title="Option 3 Text" />
         <HstCheckbox v-model="state.option3Disabled" title="Option 3 Disabled" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsRadioGroup & FdsRadioItem

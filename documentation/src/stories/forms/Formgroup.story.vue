@@ -32,7 +32,7 @@ const resetForm = () => {
 </script>
 
 <template>
-  <Story title="Forms/Formgroup" :layout="{ type: 'grid', width: '100%' }" icon="carbon:form">
+  <Story title="Forms/Formgroup" icon="carbon:form">
     <!-- Showcase all formgroup variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -109,7 +109,7 @@ const resetForm = () => {
       <div class="container py-6">
         <div>
           <h3 class="h6 mb-2">Form Validation Demo</h3>
-          
+
           <div>
             <FdsFormgroup :is-valid="emailValid || !formSubmitted">
               <template #default="{ formid, ariaDescribedby }">
@@ -172,7 +172,7 @@ const resetForm = () => {
       <div class="container py-6">
         <div>
           <h3 class="h6 mb-2">Different Input Types</h3>
-          
+
           <div>
             <FdsFormgroup>
               <template #default="{ formid, ariaDescribedby }">
@@ -228,7 +228,7 @@ const resetForm = () => {
       <div class="container py-6">
         <div>
           <h3 class="h6 mb-2">Screen Reader Support</h3>
-          
+
           <FdsFormgroup id="accessible-example" :is-valid="false">
             <template #default="{ formid, ariaDescribedby }">
               <FdsLabel :forId="formid" :required="true">Username</FdsLabel>
@@ -308,9 +308,9 @@ const resetForm = () => {
 
       <template #controls="{ state }">
         <HstText v-model="state.labelText" title="Label Text" />
-        
+
         <HstText v-model="state.hintText" title="Hint Text" />
-        
+
         <HstSelect
           v-model="state.inputType"
           title="Input Type"
@@ -324,23 +324,22 @@ const resetForm = () => {
             { value: 'search', label: 'Search' }
           ]"
         />
-        
+
         <HstText v-model="state.inputValue" title="Input Value" />
-        
+
         <HstText v-model="state.placeholder" title="Placeholder" />
-        
+
         <HstCheckbox v-model="state.required" title="Required Field" />
-        
+
         <HstCheckbox v-model="state.isValid" title="Is Valid" />
-        
+
         <HstCheckbox v-model="state.showError" title="Show Error" />
-        
+
         <HstText v-model="state.errorMessage" title="Error Message" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsFormgroup

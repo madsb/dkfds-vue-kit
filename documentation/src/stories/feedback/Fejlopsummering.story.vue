@@ -66,7 +66,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
 </script>
 
 <template>
-  <Story title="Feedback/Fejlopsummering" :layout="{ type: 'grid', width: '100%' }" icon="carbon:warning">
+  <Story title="Feedback/Fejlopsummering" icon="carbon:warning">
     <!-- Showcase all error summary variations -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -107,7 +107,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
           header="Der er {{ validationErrors.length }} fejl i formularen"
           @error-clicked="handleErrorClick"
         />
-        
+
         <div>
           <FdsFormgroup id="username-field">
             <FdsLabel for="username-input">Brugernavn *</FdsLabel>
@@ -167,7 +167,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
             :errors="errors"
             header="Fejl opdaget i formularen"
           />
-          
+
           <div>
             <h4>Accessibility Features:</h4>
             <ul>
@@ -194,7 +194,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
             </div>
           </div>
         </div>
-        
+
         <p class="mt-4 mb-0">
           The component meets WCAG 2.1 AA accessibility standards with proper ARIA attributes, 
           keyboard navigation, and screen reader support.
@@ -237,7 +237,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
             />
           </div>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Use custom headers to provide context-specific error messages that help users understand 
           what went wrong and what they need to do to fix it.
@@ -274,9 +274,9 @@ const getPlaygroundErrors = (type: string, count: number) => {
 
       <template #controls="{ state }">
         <HstText v-model="state.header" title="Header Text" />
-        
+
         <HstCheckbox v-model="state.customHeader" title="Use Custom Header" />
-        
+
         <HstSelect
           v-model="state.errorType"
           title="Error Type"
@@ -294,13 +294,12 @@ const getPlaygroundErrors = (type: string, count: number) => {
           :max="5" 
           :step="1"
         />
-        
+
         <HstCheckbox v-model="state.autoCollect" title="Auto Collect Errors" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsFejlopsummering

@@ -41,7 +41,7 @@ const cities = {
 </script>
 
 <template>
-  <Story title="Input/Dropdown" :layout="{ type: 'grid', width: '100%' }" icon="carbon:chevron-down">
+  <Story title="Input/Dropdown" icon="carbon:chevron-down">
     <!-- Showcase all dropdown variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -327,7 +327,6 @@ const cities = {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsDropdown

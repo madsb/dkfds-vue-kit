@@ -15,7 +15,7 @@ const handleNavClick = (href: string, event: MouseEvent) => {
 </script>
 
 <template>
-  <Story title="Navigation/NavLink" :layout="{ type: 'grid', width: '100%' }" icon="carbon:link">
+  <Story title="Navigation/NavLink" icon="carbon:link">
     <!-- Showcase all nav link variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -217,7 +217,6 @@ const handleNavClick = (href: string, event: MouseEvent) => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsNavLink

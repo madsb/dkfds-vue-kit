@@ -18,7 +18,7 @@ const menuItems = ref([
 </script>
 
 <template>
-  <Story title="Navigation/OverflowMenu" :layout="{ type: 'grid', width: '100%' }" icon="carbon:menu">
+  <Story title="Navigation/OverflowMenu" icon="carbon:menu">
     <!-- Showcase all overflow menu variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -141,7 +141,7 @@ const menuItems = ref([
           <li><a href="#download" download>Download PDF</a></li>
           <li><button type="button" disabled>Arkiver (ikke tilgængelig)</button></li>
         </FdsOverflowMenu>
-        
+
         <p class="mt-4 mb-0">
           Actions performed: {{ actionCount }}. Menus can contain both links and buttons, with different positioning options.
         </p>
@@ -262,7 +262,6 @@ const menuItems = ref([
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsOverflowMenu

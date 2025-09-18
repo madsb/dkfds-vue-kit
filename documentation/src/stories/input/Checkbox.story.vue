@@ -20,7 +20,7 @@ const handleValidationChange = () => {
 </script>
 
 <template>
-  <Story title="Input/Checkbox" :layout="{ type: 'grid', width: '100%' }" icon="carbon:checkbox">
+  <Story title="Input/Checkbox" icon="carbon:checkbox">
     <!-- Showcase all checkbox variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -176,7 +176,7 @@ const handleValidationChange = () => {
                 </div>
               </template>
             </FdsCheckbox>
-            
+
             <div v-else class="d-flex flex-column">
               <FdsCheckbox
                 :model-value="state.arrayValues"
@@ -204,7 +204,7 @@ const handleValidationChange = () => {
               </FdsCheckbox>
             </div>
           </div>
-          
+
           <div class="mt-4">
             <p class="mt-0">
               Value: {{ state.isArray ? JSON.stringify(state.arrayValues) : state.modelValue }}
@@ -215,23 +215,21 @@ const handleValidationChange = () => {
 
       <template #controls="{ state }">
         <HstText v-model="state.labelText" title="Label Text" />
-        
+
         <HstCheckbox v-model="state.isArray" title="Array Model (Multiple Selection)" />
-        
+
         <div v-if="!state.isArray">
           <HstCheckbox v-model="state.modelValue" title="Checked" :disabled="state.disabled" />
           <HstText v-model="state.value" title="Value" />
         </div>
-        
+
         <HstCheckbox v-model="state.withContent" title="With Conditional Content" />
-        
+
         <HstCheckbox v-model="state.disabled" title="Disabled" />
       </template>
     </Variant>
   </Story>
 </template>
-
-
 
 <docs lang="md">
 # FdsCheckbox

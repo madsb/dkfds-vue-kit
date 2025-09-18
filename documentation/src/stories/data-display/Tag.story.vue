@@ -9,7 +9,7 @@ const removableTags = ref([
   { id: '1', name: 'Bornholm', active: true },
   { id: '2', name: 'Sjælland', active: true },
   { id: '3', name: 'Fyn', active: true },
-  { id: '4', name: 'Jylland', active: true }
+  { id: '4', name: 'Jylland', active: true },
 ])
 
 const handleTagClick = (formId: string) => {
@@ -19,25 +19,25 @@ const handleTagClick = (formId: string) => {
 
 const toggleTag = (tagName: string) => {
   if (selectedTags.value.includes(tagName)) {
-    selectedTags.value = selectedTags.value.filter(t => t !== tagName)
+    selectedTags.value = selectedTags.value.filter((t) => t !== tagName)
   } else {
     selectedTags.value.push(tagName)
   }
 }
 
 const removeTag = (tagId: string) => {
-  const tag = removableTags.value.find(t => t.id === tagId)
+  const tag = removableTags.value.find((t) => t.id === tagId)
   if (tag) {
     tag.active = false
     setTimeout(() => {
-      removableTags.value = removableTags.value.filter(t => t.id !== tagId)
+      removableTags.value = removableTags.value.filter((t) => t.id !== tagId)
     }, 150)
   }
 }
 </script>
 
 <template>
-  <Story title="Data Display/Tag" :layout="{ type: 'grid', width: '100%' }" icon="carbon:tag">
+  <Story title="Data Display/Tag" icon="carbon:tag">
     <!-- Showcase all tag variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -79,8 +79,8 @@ const removeTag = (tagId: string) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The tag component follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how tags adapt to different contexts.
+          The tag component follows DKFDS v11 design specifications. Try switching themes using the
+          global theme switcher to see how tags adapt to different contexts.
         </p>
       </div>
     </Variant>
@@ -90,7 +90,7 @@ const removeTag = (tagId: string) => {
       <div class="container py-6">
         <h3 class="h6 mb-2">Select Categories</h3>
         <div>
-          <FdsTag 
+          <FdsTag
             v-for="category in ['Technology', 'Design', 'Development', 'Accessibility', 'DKFDS']"
             :key="category"
             :class="{ 'tag-selected': selectedTags.includes(category) }"
@@ -99,7 +99,7 @@ const removeTag = (tagId: string) => {
             {{ category }}
           </FdsTag>
         </div>
-        
+
         <div>
           <h4 class="h6 mb-2">Selected Filters</h4>
           <div v-if="selectedTags.length > 0">
@@ -109,8 +109,8 @@ const removeTag = (tagId: string) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Click tags to toggle selection. This pattern is commonly used for filtering content
-          or selecting categories in forms and search interfaces.
+          Click tags to toggle selection. This pattern is commonly used for filtering content or
+          selecting categories in forms and search interfaces.
         </p>
       </div>
     </Variant>
@@ -120,29 +120,32 @@ const removeTag = (tagId: string) => {
       <div class="container py-6">
         <h3 class="h6 mb-2">Manage Your Tags</h3>
         <div>
-          <FdsTag 
-            v-for="tag in removableTags.filter(t => t.active)"
+          <FdsTag
+            v-for="tag in removableTags.filter((t) => t.active)"
             :key="tag.id"
-            icon="highlight-off"
+            icon="close"
             @click="removeTag(tag.id)"
           >
             {{ tag.name }}
           </FdsTag>
         </div>
 
-        <div v-if="removableTags.filter(t => t.active).length === 0">
+        <div v-if="removableTags.filter((t) => t.active).length === 0">
           <p>All tags have been removed.</p>
-          <button 
-           
-            @click="removableTags.forEach(t => { t.active = true })"
+          <button
+            @click="
+              removableTags.forEach((t) => {
+                t.active = true
+              })
+            "
           >
             Reset Tags
           </button>
         </div>
 
         <p class="mt-4 mb-0">
-          Tags with close icons allow users to remove items from lists, clear filters,
-          or dismiss categories. Click the × icon to remove a tag.
+          Tags with close icons allow users to remove items from lists, clear filters, or dismiss
+          categories. Click the × icon to remove a tag.
         </p>
       </div>
     </Variant>
@@ -199,8 +202,8 @@ const removeTag = (tagId: string) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Tags work best as supplementary information. Use them to provide context,
-          enable filtering, or indicate status without overwhelming the primary content.
+          Tags work best as supplementary information. Use them to provide context, enable
+          filtering, or indicate status without overwhelming the primary content.
         </p>
       </div>
     </Variant>
@@ -214,15 +217,15 @@ const removeTag = (tagId: string) => {
           text: 'My Tag',
           icon: '',
           showClickCount: false,
-          id: ''
+          id: '',
         })
       "
     >
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsTag
-            :icon="state.icon || undefined"
             :id="state.id || undefined"
+            :icon="state.icon || undefined"
             @click="handleTagClick"
           >
             {{ state.text }}
@@ -233,17 +236,16 @@ const removeTag = (tagId: string) => {
 
       <template #controls="{ state }">
         <HstText v-model="state.text" title="Tag Text" />
-        
+
         <HstText v-model="state.icon" title="Icon Name" placeholder="e.g. star, bookmark, close" />
-        
+
         <HstText v-model="state.id" title="Custom ID" placeholder="Optional custom ID" />
-        
+
         <HstCheckbox v-model="state.showClickCount" title="Show Click Count" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsTag
@@ -254,14 +256,10 @@ Interactive labels for categorization, filtering, and content organization. Unli
 
 ```vue
 <template>
-  <FdsTag @click="handleTagClick">
-    Category Name
-  </FdsTag>
+  <FdsTag @click="handleTagClick"> Category Name </FdsTag>
 
   <!-- Removable tag with icon -->
-  <FdsTag icon="highlight-off" @click="removeTag">
-    Removable Tag
-  </FdsTag>
+  <FdsTag icon="highlight-off" @click="removeTag"> Removable Tag </FdsTag>
 </template>
 
 <script setup>
@@ -279,15 +277,15 @@ const removeTag = (formId) => {
 
 ## Props
 
-| Prop   | Type     | Default | Description                                           |
-| ------ | -------- | ------- | ----------------------------------------------------- |
-| `icon` | `string` | -       | Icon name (commonly 'close', 'star', 'bookmark')     |
-| `id`   | `string` | -       | Custom ID (auto-generated if not provided)           |
+| Prop   | Type     | Default | Description                                      |
+| ------ | -------- | ------- | ------------------------------------------------ |
+| `icon` | `string` | -       | Icon name (commonly 'close', 'star', 'bookmark') |
+| `id`   | `string` | -       | Custom ID (auto-generated if not provided)       |
 
 ## Events
 
-| Event   | Description                                              |
-| ------- | -------------------------------------------------------- |
+| Event   | Description                                             |
+| ------- | ------------------------------------------------------- |
 | `click` | Emitted when tag is clicked, provides form ID parameter |
 
 ## Accessibility
@@ -301,6 +299,7 @@ const removeTag = (formId) => {
 ## Design Guidelines
 
 ### When to Use
+
 - Provide secondary, metadata-related information
 - Enable content categorization and filtering
 - Show user selections or applied filters
@@ -308,12 +307,14 @@ const removeTag = (formId) => {
 - Display status or category information
 
 ### When NOT to Use
+
 - As primary navigation elements
 - To replace systematic navigation
 - For critical functionality (tags should be supplementary)
 - When the information is essential to the user's core workflow
 
 ### Best Practices
+
 - Use tags sparingly and meaningfully
 - Use recognizable words from your solution's context
 - Capitalize first letter, use lowercase for remaining text
@@ -323,20 +324,25 @@ const removeTag = (formId) => {
 ## Common Patterns
 
 ### Content Metadata
+
 Use tags to show categories, topics, or classifications for articles, documents, or other content.
 
 ### Filtering Interface
+
 Allow users to select and deselect filter criteria using clickable tags with visual selection states.
 
 ### Removable Items
+
 Use tags with close icons to represent items that can be removed from lists, selections, or filters.
 
 ### Status Indicators
+
 Show current state, priority level, or processing status using descriptive tags.
 
 ## Themes
 
 The tag component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral colors
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

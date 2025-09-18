@@ -31,7 +31,7 @@ const handleCustomAction = (action: string) => {
 </script>
 
 <template>
-  <Story title="Layout/Cookiemeddelelse" :layout="{ type: 'grid', width: '100%' }" icon="carbon:cookie">
+  <Story title="Layout/Cookiemeddelelse" icon="carbon:cookie">
     <!-- Showcase all cookie notice variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -83,7 +83,7 @@ const handleCustomAction = (action: string) => {
         <div v-else>
           <p>Cookie notice dismissed. It will reappear in 2 seconds for demo purposes.</p>
         </div>
-        
+
         <div>
           <p><strong>Statistics:</strong></p>
           <ul>
@@ -91,7 +91,7 @@ const handleCustomAction = (action: string) => {
             <li>Rejected: {{ rejectedCount }} times</li>
           </ul>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Click the accept or reject buttons to see the event handling in action. The cookie notice will
           reappear after 2 seconds for demonstration purposes.
@@ -105,9 +105,9 @@ const handleCustomAction = (action: string) => {
         <div>
           <h3 class="h6 mb-2">ARIA Attributes</h3>
           <FdsCookiemeddelelse header="Accessible Cookie Notice" />
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">GDPR Compliant Options</h3>
           <FdsCookiemeddelelse header="Data Collection Consent">
             <p>We process personal data to provide our services and improve user experience. 
@@ -118,7 +118,7 @@ const handleCustomAction = (action: string) => {
               <li>Provide personalized content</li>
             </ul>
             <p><a href="#privacy">Read our full privacy policy</a> for detailed information.</p>
-            
+
             <template #actions>
               <div>
                 <FdsButton variant="primary" @click="handleCustomAction('accept-all')">
@@ -134,7 +134,7 @@ const handleCustomAction = (action: string) => {
             </template>
           </FdsCookiemeddelelse>
         </div>
-        
+
         <p class="mt-4 mb-0">
           The component includes proper ARIA attributes for screen readers: role="complementary",
           aria-labelledby, and aria-describedby. Navigate with Tab and use Enter or Space to activate buttons.
@@ -148,7 +148,7 @@ const handleCustomAction = (action: string) => {
         <div>
           <h3 class="h6 mb-2">Fixed Bottom Position</h3>
           <p>Cookie notices are typically positioned at the bottom of the viewport:</p>
-          
+
           <div>
             <div>
               <div>Website Header</div>
@@ -161,17 +161,17 @@ const handleCustomAction = (action: string) => {
               </div>
             </div>
           </div>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Responsive Behavior</h3>
           <p>On mobile devices, the cookie notice adapts to smaller screens:</p>
-          
+
           <div>
             <FdsCookiemeddelelse header="Mobile Cookie Notice" />
           </div>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Cookie notices should be positioned to not obstruct important content while remaining clearly visible.
           The component automatically adapts button layouts on mobile devices.
@@ -205,7 +205,7 @@ const handleCustomAction = (action: string) => {
               <p>{{ state.contentText }}</p>
               <a v-if="state.showLink" href="#">{{ state.linkText }}</a>
             </template>
-            
+
             <template v-if="state.customActions" #actions>
               <div class="button-group">
                 <FdsButton variant="primary" @click="handleCustomAction('accept-all')">
@@ -220,7 +220,7 @@ const handleCustomAction = (action: string) => {
               </div>
             </template>
           </FdsCookiemeddelelse>
-          
+
           <div>
             <p>Events fired - Accepted: {{ acceptedCount }}, Rejected: {{ rejectedCount }}</p>
           </div>
@@ -229,34 +229,33 @@ const handleCustomAction = (action: string) => {
 
       <template #controls="{ state }">
         <HstText v-model="state.header" title="Header Text" />
-        
+
         <HstCheckbox v-model="state.customContent" title="Custom Content" />
-        
+
         <HstTextarea
           v-if="state.customContent"
           v-model="state.contentText"
           title="Content Text"
           :rows="3"
         />
-        
+
         <HstCheckbox
           v-if="state.customContent"
           v-model="state.showLink"
           title="Show Link"
         />
-        
+
         <HstText
           v-if="state.customContent && state.showLink"
           v-model="state.linkText"
           title="Link Text"
         />
-        
+
         <HstCheckbox v-model="state.customActions" title="Custom Actions" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsCookiemeddelelse

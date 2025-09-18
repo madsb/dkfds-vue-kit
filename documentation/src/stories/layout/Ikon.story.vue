@@ -28,7 +28,7 @@ const iconCategories = {
 </script>
 
 <template>
-  <Story title="Layout/Ikon" :layout="{ type: 'grid', width: '100%' }" icon="carbon:image">
+  <Story title="Layout/Ikon" icon="carbon:image">
     <!-- Showcase all common DKFDS icons -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -215,7 +215,6 @@ const iconCategories = {
   </Story>
 </template>
 
-
 <docs lang="md">
 # FdsIkon
 
@@ -227,14 +226,14 @@ The icon component renders SVG icons from the DKFDS Material Design icon set wit
 <template>
   <!-- Decorative icon (hidden from screen readers) -->
   <FdsIkon icon="home" />
-  
+
   <!-- Meaningful icon (accessible to screen readers) -->
   <FdsIkon 
     icon="warning" 
     :decorative="false" 
     aria-label="Warning: Please review your input" 
   />
-  
+
   <!-- Inline icon that scales with text -->
   <p>
     <FdsIkon icon="check" :inline="true" />

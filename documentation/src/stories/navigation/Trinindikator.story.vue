@@ -47,7 +47,7 @@ const handleModalClose = () => {
 </script>
 
 <template>
-  <Story title="Navigation/Trinindikator" :layout="{ type: 'grid', width: '100%' }" icon="carbon:flow">
+  <Story title="Navigation/Trinindikator" icon="carbon:flow">
     <!-- Showcase all trinindikator variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -69,7 +69,7 @@ const handleModalClose = () => {
               />
             </FdsTrinindikatorGroup>
           </div>
-          
+
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With Step Information</h3>
             <FdsTrinindikatorGroup
@@ -118,9 +118,9 @@ const handleModalClose = () => {
             :disabled="step.disabled || false"
           />
         </FdsTrinindikatorGroup>
-        
+
         <hr class="my-6" />
-        
+
         <h3 class="h6 mb-2">Progress States</h3>
         <div>
           <div>
@@ -140,7 +140,7 @@ const handleModalClose = () => {
               />
             </FdsTrinindikatorGroup>
           </div>
-          
+
           <div>
             <h4>Step 4: Completion</h4>
             <FdsTrinindikatorGroup
@@ -191,7 +191,7 @@ const handleModalClose = () => {
             @click="handleStepClick"
           />
         </FdsTrinindikatorGroup>
-        
+
         <div>
           <button 
             class="button button-secondary"
@@ -225,7 +225,7 @@ const handleModalClose = () => {
           <strong>Desktop:</strong> Full step indicator visible<br>
           <strong>Mobile:</strong> Compact button that opens modal when tapped
         </p>
-        
+
         <FdsTrinindikatorGroup
           :current-step="currentStep"
           :total-steps="4"
@@ -242,7 +242,7 @@ const handleModalClose = () => {
             :is-completed="step.number < currentStep"
           />
         </FdsTrinindikatorGroup>
-        
+
         <div>
           <p>Simulate mobile view by resizing your browser window to less than 768px wide.</p>
           <div>
@@ -343,34 +343,34 @@ const handleModalClose = () => {
           :min="1" 
           :max="state.totalSteps"
         />
-        
+
         <HstNumber 
           v-model="state.totalSteps" 
           title="Total Steps" 
           :min="1" 
           :max="10"
         />
-        
+
         <HstCheckbox v-model="state.clickableSteps" title="Clickable Steps" />
-        
+
         <HstCheckbox v-model="state.showStepInfo" title="Show Step Info" />
-        
+
         <HstText v-model="state.modalTitle" title="Modal Title" />
-        
+
         <HstText v-model="state.ariaLabel" title="ARIA Label" />
-        
+
         <HstText v-model="state.step1Title" title="Step 1 Title" />
         <HstText v-model="state.step1Info" title="Step 1 Info" v-if="state.showStepInfo" />
         <HstCheckbox v-model="state.step1HasError" title="Step 1 Error" />
-        
+
         <HstText v-model="state.step2Title" title="Step 2 Title" />
         <HstText v-model="state.step2Info" title="Step 2 Info" v-if="state.showStepInfo" />
         <HstCheckbox v-model="state.step2HasError" title="Step 2 Error" />
-        
+
         <HstText v-model="state.step3Title" title="Step 3 Title" />
         <HstText v-model="state.step3Info" title="Step 3 Info" v-if="state.showStepInfo" />
         <HstCheckbox v-model="state.step3HasError" title="Step 3 Error" />
-        
+
         <HstText v-model="state.step4Title" title="Step 4 Title" />
         <HstText v-model="state.step4Info" title="Step 4 Info" v-if="state.showStepInfo" />
         <HstCheckbox v-model="state.step4HasError" title="Step 4 Error" />
@@ -378,7 +378,6 @@ const handleModalClose = () => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsTrinindikatorGroup & FdsTrinindikatorStep

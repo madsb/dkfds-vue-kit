@@ -17,7 +17,7 @@ const handleToggle = (value: boolean) => {
 </script>
 
 <template>
-  <Story title="Input/ToggleSwitch" :layout="{ type: 'grid', width: '100%' }" icon="carbon:toggle-on">
+  <Story title="Input/ToggleSwitch" icon="carbon:toggle-on">
     <!-- Showcase all toggle switch variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -56,7 +56,7 @@ const handleToggle = (value: boolean) => {
               {{ darkModeToggle ? '🌙 Dark Mode On' : '☀️ Light Mode' }}
             </FdsToggleSwitch>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Notification Settings</h3>
             <div>
@@ -125,14 +125,14 @@ const handleToggle = (value: boolean) => {
               <FdsToggleSwitch id="toggle-1" v-model="notificationsToggle" />
               <small>Automatically includes role="switch" and aria-checked</small>
             </div>
-            
+
             <div>
               <label for="toggle-2">Dark mode preference</label>
               <FdsToggleSwitch id="toggle-2" v-model="darkModeToggle" onText="Enabled" offText="Disabled" />
               <small>Custom text labels for better context</small>
             </div>
           </div>
-          
+
           <div>
             <h4 class="h6 mb-2">Keyboard Navigation</h4>
             <ul>
@@ -181,19 +181,18 @@ const handleToggle = (value: boolean) => {
 
       <template #controls="{ state }">
         <HstCheckbox v-model="state.modelValue" title="Current State (On/Off)" />
-        
+
         <HstCheckbox v-model="state.disabled" title="Disabled" />
-        
+
         <HstText v-model="state.onText" title="On Text" />
-        
+
         <HstText v-model="state.offText" title="Off Text" />
-        
+
         <HstCheckbox v-model="state.customContent" title="Use Custom Slot Content" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsToggleSwitch

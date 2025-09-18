@@ -32,7 +32,7 @@ const tabContent = {
 </script>
 
 <template>
-  <Story title="Navigation/Faneblade" :layout="{ type: 'grid', width: '100%' }" icon="carbon:tabs">
+  <Story title="Navigation/Faneblade" icon="carbon:tabs">
     <!-- Showcase all faneblade components in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -133,12 +133,12 @@ const tabContent = {
             @click="handleNavClick"
           />
         </fds-faneblade-nav>
-        
+
         <div>
           <h4 class="h6 mb-2">Current Section: {{ activeNavSection }}</h4>
           <p>Navigation tabs are ideal for linking to different pages or major sections of an application.</p>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Navigation tabs use semantic anchor links with proper ARIA attributes.
           Click events are prevented here for demo purposes.
@@ -199,7 +199,7 @@ const tabContent = {
             </fds-faneblade-panel>
           </template>
         </fds-faneblade>
-        
+
         <p class="mt-4 mb-0">
           Content tabs use proper ARIA tabpanel/tab relationships. Panels are hidden when inactive
           and support keyboard navigation with Tab and arrow keys.
@@ -212,7 +212,7 @@ const tabContent = {
       <div class="container py-6">
         <div>
           <h3 class="h5 mb-2">Accessibility Features</h3>
-          
+
           <div>
             <h4 class="h6 mb-2">Tab Navigation</h4>
             <fds-faneblade>
@@ -249,7 +249,7 @@ const tabContent = {
               </template>
             </fds-faneblade>
           </div>
-          
+
           <div>
             <h4 class="h6 mb-2">Keyboard Instructions</h4>
             <ul>
@@ -260,7 +260,7 @@ const tabContent = {
             </ul>
           </div>
         </div>
-        
+
         <p class="mt-4 mb-0">
           All faneblade components support full keyboard navigation and screen reader accessibility.
           Try using Tab and arrow keys to navigate the tabs above.
@@ -310,7 +310,7 @@ const tabContent = {
             </fds-faneblade-nav>
             <p>Active navigation: {{ state.activeDemo }}</p>
           </div>
-          
+
           <div v-else>
             <h4 class="h6 mb-2">Content Tabs</h4>
             <fds-faneblade>
@@ -362,11 +362,11 @@ const tabContent = {
             { value: 'navigation', label: 'Navigation Tabs (links)' },
           ]"
         />
-        
+
         <HstText v-model="state.navLabel" title="Navigation ARIA Label" />
-        
+
         <HstCheckbox v-model="state.showIcons" title="Show Icons" />
-        
+
         <HstSelect
           v-model="state.activeDemo"
           title="Active Tab"
@@ -380,7 +380,6 @@ const tabContent = {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsFaneblade

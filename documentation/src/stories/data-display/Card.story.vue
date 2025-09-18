@@ -10,7 +10,7 @@ const handleCardClick = () => {
 </script>
 
 <template>
-  <Story title="Data Display/Card" :layout="{ type: 'grid', width: '100%' }" icon="carbon:data-view">
+  <Story title="Data Display/Card" icon="carbon:data-view">
     <!-- Showcase all card variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -297,7 +297,7 @@ const handleCardClick = () => {
         <HstText v-model="state.header" title="Header Text" />
         <HstText v-model="state.subheader" title="Subheader Text" />
         <HstTextarea v-model="state.content" title="Content" />
-        
+
         <HstSelect
           v-model="state.variant"
           title="Variant"
@@ -328,7 +328,6 @@ const handleCardClick = () => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsCard & FdsCardGroup

@@ -10,7 +10,7 @@ const handleNotificationClick = () => {
 </script>
 
 <template>
-  <Story title="Data Display/Badge" :layout="{ type: 'grid', width: '100%' }" icon="carbon:status">
+  <Story title="Data Display/Badge" icon="carbon:status">
     <!-- Showcase all badge variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -81,7 +81,7 @@ const handleNotificationClick = () => {
             </h4>
             <p>New regulations effective immediately.</p>
           </div>
-          
+
           <div>
             <h4>
               Digital Tax Services
@@ -163,7 +163,6 @@ const handleNotificationClick = () => {
   </Story>
 </template>
 
-
 <docs lang="md">
 # FdsBadge
 
@@ -176,12 +175,12 @@ Small labels used to highlight new, important, or status-related content. Design
   <div>
     <!-- Basic badge -->
     <FdsBadge>New</FdsBadge>
-    
+
     <!-- Status badges -->
     <FdsBadge variant="success">Approved</FdsBadge>
     <FdsBadge variant="warning">Pending</FdsBadge>
     <FdsBadge variant="error">Rejected</FdsBadge>
-    
+
     <!-- Emphasized badge -->
     <FdsBadge tag="strong" variant="warning">Important</FdsBadge>
   </div>

@@ -21,7 +21,7 @@ const isAlertVisible = (alertId: string) => {
 </script>
 
 <template>
-  <Story title="Feedback/Alert" :layout="{ type: 'grid', width: '100%' }" icon="carbon:warning">
+  <Story title="Feedback/Alert" icon="carbon:warning">
     <!-- Showcase all alert variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -65,15 +65,15 @@ const isAlertVisible = (alertId: string) => {
           <FdsAlert variant="info" header="Information" show-icon>
             Your application has been received and is being processed. You will receive updates via email.
           </FdsAlert>
-          
+
           <FdsAlert variant="success" header="Payment Confirmed" show-icon>
             Your payment of 1,250 DKK has been processed successfully. Receipt #12345 has been sent to your email.
           </FdsAlert>
-          
+
           <FdsAlert variant="warning" header="Action Required" show-icon>
             Your session will expire in 5 minutes. Please save your work or extend your session.
           </FdsAlert>
-          
+
           <FdsAlert variant="error" header="Validation Error" show-icon>
             Please correct the following errors before submitting:
             <br>• Email address is required
@@ -101,7 +101,7 @@ const isAlertVisible = (alertId: string) => {
           >
             This alert can be dismissed by clicking the close button.
           </FdsAlert>
-          
+
           <FdsAlert 
             v-if="isAlertVisible('closeable-success')" 
             variant="success" 
@@ -111,7 +111,7 @@ const isAlertVisible = (alertId: string) => {
           >
             File uploaded successfully. You can dismiss this notification.
           </FdsAlert>
-          
+
           <FdsAlert 
             v-if="isAlertVisible('closeable-warning')" 
             variant="warning" 
@@ -123,7 +123,7 @@ const isAlertVisible = (alertId: string) => {
             This feature will be temporarily unavailable for maintenance on Sunday.
           </FdsAlert>
         </div>
-        
+
         <div class="button-group">
           <button 
             type="button" 
@@ -134,7 +134,7 @@ const isAlertVisible = (alertId: string) => {
             Reset Alerts
           </button>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Closeable alerts allow users to dismiss notifications. Click "Reset Alerts" to restore dismissed alerts.
           The close button includes both icon and text for accessibility.
@@ -150,9 +150,9 @@ const isAlertVisible = (alertId: string) => {
           <FdsAlert variant="info">
             Clean alert without icon for minimal design needs.
           </FdsAlert>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Rich Content</h3>
           <FdsAlert variant="warning" header="Document Requirements" show-icon>
             <template #default>
@@ -165,9 +165,9 @@ const isAlertVisible = (alertId: string) => {
               <em>Documents not meeting these requirements will be rejected.</em>
             </template>
           </FdsAlert>
-          
+
           <hr class="my-6" />
-          
+
           <h3 class="h6 mb-2">Custom Header Slot</h3>
           <FdsAlert variant="success" show-icon>
             <template #header>
@@ -231,7 +231,7 @@ const isAlertVisible = (alertId: string) => {
         />
 
         <HstCheckbox v-model="state.hasHeader" title="Show Header" />
-        
+
         <HstText 
           v-model="state.header" 
           title="Header Text" 
@@ -247,7 +247,6 @@ const isAlertVisible = (alertId: string) => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsAlert

@@ -10,7 +10,7 @@ const handleItemClick = (item: string) => {
 </script>
 
 <template>
-  <Story title="DataDisplay/List" :layout="{ type: 'grid', width: '100%' }" icon="carbon:list">
+  <Story title="Data Display/List" icon="carbon:list">
     <!-- Showcase all list variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -80,7 +80,7 @@ const handleItemClick = (item: string) => {
               <FdsListItem>Main topic three</FdsListItem>
             </FdsList>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Nested Ordered Lists</h3>
             <FdsList :ordered="true">
@@ -113,7 +113,7 @@ const handleItemClick = (item: string) => {
           </FdsListItem>
           <FdsListItem>Contact options</FdsListItem>
         </FdsList>
-        
+
         <p class="mt-4 mb-0">Lists can be nested and mixed to create complex content hierarchies.</p>
       </div>
     </Variant>
@@ -338,7 +338,6 @@ const handleItemClick = (item: string) => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsList & FdsListItem

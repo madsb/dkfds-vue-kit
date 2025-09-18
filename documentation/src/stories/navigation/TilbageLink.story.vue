@@ -21,7 +21,7 @@ const handleCustomNavigation = (event: MouseEvent) => {
 </script>
 
 <template>
-  <Story title="Navigation/TilbageLink" :layout="{ type: 'grid', width: '100%' }" icon="carbon:arrow-left">
+  <Story title="Navigation/TilbageLink" icon="carbon:arrow-left">
     <!-- Showcase all tilbage link variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -132,9 +132,9 @@ const handleCustomNavigation = (event: MouseEvent) => {
 
       <template #controls="{ state }">
         <HstText v-model="state.text" title="Link Text" />
-        
+
         <HstCheckbox v-model="state.useHref" title="Use Href (instead of click handler)" />
-        
+
         <HstText 
           v-model="state.href" 
           title="Href URL" 
@@ -144,7 +144,6 @@ const handleCustomNavigation = (event: MouseEvent) => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsTilbageLink

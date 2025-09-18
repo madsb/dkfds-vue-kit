@@ -25,7 +25,7 @@ const resetValidation = () => {
 </script>
 
 <template>
-  <Story title="Input/DatoFelter" :layout="{ type: 'grid', width: '100%' }" icon="carbon:calendar">
+  <Story title="Input/DatoFelter" icon="carbon:calendar">
     <!-- Showcase all variations in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -211,7 +211,7 @@ const resetValidation = () => {
               @valid="state.showValidation ? handleValidation : undefined"
               @dirty="state.showEvents ? handleDirty : undefined"
             />
-            
+
             <div>
               <div>
                 <strong>Model Value:</strong> {{ state.dateValue || 'empty' }}
@@ -229,15 +229,14 @@ const resetValidation = () => {
 
       <template #controls="{ state }">
         <HstText v-model="state.dateValue" title="Date Value (YYYY-MM-DD)" />
-        
+
         <HstCheckbox v-model="state.showValidation" title="Show Validation Events" />
-        
+
         <HstCheckbox v-model="state.showEvents" title="Show Dirty Events" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsDatoFelter

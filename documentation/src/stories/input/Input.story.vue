@@ -22,7 +22,7 @@ const handleInput = (value: string, field: string) => {
 </script>
 
 <template>
-  <Story title="Input/Input" :layout="{ type: 'grid', width: '100%' }" icon="carbon:text-input">
+  <Story title="Input/Input" icon="carbon:text-input">
     <!-- Showcase all input types and features -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">

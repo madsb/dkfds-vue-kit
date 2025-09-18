@@ -4,12 +4,11 @@
   "description": "Histoire documentation site for DKFDS Vue 3 component library",
   "type": "module",
   "scripts": {
-    "copy-themes": "rm -rf public/css public/fonts public/img && mkdir -p public/css public/fonts public/img && cp ../node_modules/dkfds/dist/css/dkfds*.css public/css/ && cp -R ../node_modules/dkfds/dist/fonts/. public/fonts/ && cp -R ../node_modules/dkfds/dist/img/. public/img/",
-    "story:dev": "npm run copy-themes && histoire dev",
-    "story:build": "npm run copy-themes && histoire build",
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
     "story:preview": "histoire preview",
-    "dev": "npm run copy-themes && histoire dev",
-    "build": "npm run copy-themes && histoire build",
+    "dev": "histoire dev",
+    "build": "histoire build",
     "preview": "histoire preview"
   },
   "dependencies": {

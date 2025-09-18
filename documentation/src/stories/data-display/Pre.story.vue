@@ -133,9 +133,8 @@ const getPrePlaygroundState = () => ({
 })
 </script>
 
-
 <template>
-  <Story title="Data Display/Pre" :layout="{ type: 'grid', width: '100%' }" icon="carbon:code">
+  <Story title="Data Display/Pre" icon="carbon:code">
     <!-- Showcase all pre variations -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -325,23 +324,23 @@ const getPrePlaygroundState = () => ({
             { value: 'slot', label: 'Slot Content' }
           ]"
         />
-        
+
         <HstText v-model="state.header" title="Header Text" />
-        
+
         <HstTextarea
           v-if="state.contentType === 'code'"
           v-model="state.codeValue"
           title="Code Content"
           :rows="6"
         />
-        
+
         <HstTextarea
           v-if="state.contentType === 'json'"
           v-model="state.jsonValue"
           title="JSON String"
           :rows="4"
         />
-        
+
         <HstTextarea
           v-if="state.contentType === 'slot'"
           v-model="state.slotContent"
@@ -352,7 +351,6 @@ const getPrePlaygroundState = () => ({
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsPre
@@ -368,13 +366,13 @@ The Pre component displays preformatted text and code blocks following DKFDS v11
     header="JavaScript Example"
     code="const hello = 'world';"
   />
-  
+
   <!-- JSON object -->
   <FdsPre
     header="API Response"
     :json="{ status: 'success', data: userInfo }"
   />
-  
+
   <!-- Slot content -->
   <FdsPre header="Configuration">
     server:

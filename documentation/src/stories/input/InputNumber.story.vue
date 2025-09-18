@@ -22,7 +22,6 @@ const handleDirty = (isDirty: boolean) => {
 <template>
   <Story
     title="Input/InputNumber"
-    :layout="{ type: 'grid', width: '100%' }"
     icon="carbon:text-input"
   >
     <!-- Showcase all input variants in one view -->

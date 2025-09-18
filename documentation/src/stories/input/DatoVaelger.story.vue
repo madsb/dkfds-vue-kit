@@ -48,7 +48,7 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
 </script>
 
 <template>
-  <Story title="Input/DatoVaelger" :layout="{ type: 'grid', width: '100%' }" icon="carbon:calendar">
+  <Story title="Input/DatoVaelger" icon="carbon:calendar">
     <!-- Showcase all date picker variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -232,35 +232,34 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
 
       <template #controls="{ state }">
         <HstText v-model="state.modelValue" title="Date Value (YYYY-MM-DD)" />
-        
+
         <HstText v-model="state.id" title="Custom ID" />
-        
+
         <HstCheckbox v-model="state.showLabel" title="Show Label" />
-        
+
         <HstText 
           v-model="state.labelText" 
           title="Label Text" 
           :disabled="!state.showLabel"
         />
-        
+
         <HstText 
           v-model="state.hintText" 
           title="Hint Text" 
           :disabled="!state.showLabel"
         />
-        
+
         <HstCheckbox 
           v-model="state.required" 
           title="Required" 
           :disabled="!state.showLabel"
         />
-        
+
         <HstCheckbox v-model="state.showValidation" title="Show Validation" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsDatoVaelger

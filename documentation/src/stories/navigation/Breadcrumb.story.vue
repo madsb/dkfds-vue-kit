@@ -90,7 +90,6 @@ const getPlaygroundItems = (state: PlaygroundState) => {
 <template>
   <Story
     title="Navigation/Breadcrumb"
-    :layout="{ type: 'grid', width: '100%' }"
     icon="carbon:breadcrumb"
   >
     <!-- Showcase all breadcrumb variants in one view -->
@@ -128,24 +127,24 @@ const getPlaygroundItems = (state: PlaygroundState) => {
             <h3 class="h6 mb-2">Short (2 levels)</h3>
             <FdsBreadcrumb :items="shortPath" @item-click="handleBreadcrumbClick" />
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Medium (5 levels)</h3>
             <FdsBreadcrumb :items="mediumPath" @item-click="handleBreadcrumbClick" />
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Long (7 levels)</h3>
             <FdsBreadcrumb :items="longPath" @item-click="handleBreadcrumbClick" />
           </div>
         </div>
-        
+
         <div v-if="clickCount > 0">
           <p class="mt-4 mb-0">
             Clicks: {{ clickCount }} | Last clicked: {{ lastClickedItem }}
           </p>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Breadcrumbs automatically handle different path lengths. Long paths wrap naturally on mobile devices while maintaining proper semantic structure and accessibility.
         </p>
@@ -161,26 +160,26 @@ const getPlaygroundItems = (state: PlaygroundState) => {
             <FdsBreadcrumb :items="basicItems" @item-click="handleBreadcrumbClick" />
             <p>Standard anchor tags with href attributes</p>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Vue Router Links (to)</h3>
             <FdsBreadcrumb :items="routerItems" @item-click="handleBreadcrumbClick" />
             <p>Uses router-link when 'to' property is present</p>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Mixed External/Internal</h3>
             <FdsBreadcrumb :items="externalItems" @item-click="handleBreadcrumbClick" />
             <p>External links open in new tab with proper rel attributes</p>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Force Native Links</h3>
             <FdsBreadcrumb :items="routerItems" :use-native-links="true" @item-click="handleBreadcrumbClick" />
             <p>Uses anchor tags even when Vue Router is available</p>
           </div>
         </div>
-        
+
         <p class="mt-4 mb-0">
           The component automatically detects Vue Router and uses router-link when appropriate. External links are properly marked and opened in new tabs.
         </p>
@@ -196,13 +195,13 @@ const getPlaygroundItems = (state: PlaygroundState) => {
             <FdsBreadcrumb :items="basicItems" />
             <p>aria-label="Brødkrumme" (default)</p>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Custom ARIA Label</h3>
             <FdsBreadcrumb :items="basicItems" aria-label="Navigationssti" />
             <p>Custom aria-label for different contexts</p>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">English Context</h3>
             <FdsBreadcrumb 
@@ -212,7 +211,7 @@ const getPlaygroundItems = (state: PlaygroundState) => {
             <p>Proper English labeling for international use</p>
           </div>
         </div>
-        
+
         <div>
           <h3 class="h6 mb-2">Accessibility Features</h3>
           <ul>
@@ -224,7 +223,7 @@ const getPlaygroundItems = (state: PlaygroundState) => {
             <li>Screen reader friendly text and structure</li>
           </ul>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Test with keyboard navigation: Use Tab to navigate between breadcrumb links, Enter to activate. Screen readers will announce the navigation structure and current page properly.
         </p>
@@ -254,7 +253,7 @@ const getPlaygroundItems = (state: PlaygroundState) => {
             :use-native-links="state.useNativeLinks"
             @item-click="handleBreadcrumbClick"
           />
-          
+
           <div v-if="clickCount > 0">
             <p class="mt-4 mb-0">
               Interactions: {{ clickCount }} | Last: {{ lastClickedItem }}
@@ -286,7 +285,6 @@ const getPlaygroundItems = (state: PlaygroundState) => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsBreadcrumb

@@ -19,7 +19,7 @@ const handleLangCode = (lang: string) => {
 </script>
 
 <template>
-  <Story title="Layout/Sprogvaelger" :layout="{ type: 'grid', width: '100%' }" icon="carbon:language">
+  <Story title="Layout/Sprogvaelger" icon="carbon:language">
     <!-- Showcase all language selector variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -73,7 +73,7 @@ const handleLangCode = (lang: string) => {
             @language-change="handleLanguageChange"
             @lang="handleLangCode"
           />
-          
+
           <div>
             <h3 class="h6 mb-2">Current Active Language</h3>
             <div>
@@ -100,7 +100,7 @@ const handleLangCode = (lang: string) => {
               { title: 'العربية', active: false, lang: 'ar', ariaLabel: 'اختر اللغة: العربية' },
             ]"
           />
-          
+
           <div>
             <h4>Accessibility Features:</h4>
             <ul>
@@ -135,7 +135,7 @@ const handleLangCode = (lang: string) => {
             @language-change="(lang) => console.log('Custom handler:', lang)"
             @lang="(code) => console.log('Language code changed:', code)"
           />
-          
+
           <div>
             <h4>Event Usage:</h4>
             <pre>@language-change="handleLanguageChange"
@@ -176,7 +176,7 @@ const handleLangCode = (lang: string) => {
             @language-change="(lang) => console.log('Language changed:', lang)"
             @lang="(code) => console.log('Lang code:', code)"
           />
-          
+
           <div>
             <p>
               Active: {{ state.languages.find(l => l.active)?.title }}
@@ -188,7 +188,7 @@ const handleLangCode = (lang: string) => {
       <template #controls="{ state }">
         <HstCheckbox v-model="state.autoSetLang" title="Auto Set Document Lang" />
         <HstCheckbox v-model="state.preventDefault" title="Prevent Default Navigation" />
-        
+
         <div>
           <h4>Languages</h4>
           <div v-for="(lang, index) in state.languages" :key="index">
@@ -207,7 +207,6 @@ const handleLangCode = (lang: string) => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsSprogvaelger

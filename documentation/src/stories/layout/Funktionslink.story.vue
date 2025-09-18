@@ -10,7 +10,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <Story title="Layout/Funktionslink" :layout="{ type: 'grid', width: '100%' }" icon="carbon:link">
+  <Story title="Layout/Funktionslink" icon="carbon:link">
     <!-- Showcase all function link variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -308,7 +308,6 @@ const handleClick = () => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsFunktionslink

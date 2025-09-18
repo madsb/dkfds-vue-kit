@@ -14,7 +14,7 @@ const handleHide = () => {
 </script>
 
 <template>
-  <Story title="Feedback/Tooltip" :layout="{ type: 'grid', width: '100%' }" icon="carbon:information">
+  <Story title="Feedback/Tooltip" icon="carbon:information">
     <!-- Showcase all tooltip variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -300,7 +300,6 @@ const handleHide = () => {
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsTooltip

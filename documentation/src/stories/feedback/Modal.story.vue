@@ -30,7 +30,7 @@ const openModal = (modalRef: any) => {
 </script>
 
 <template>
-  <Story title="Feedback/Modal" :layout="{ type: 'grid', width: '100%' }" icon="carbon:popup">
+  <Story title="Feedback/Modal" icon="carbon:popup">
     <!-- Showcase all modal types -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -49,7 +49,7 @@ const openModal = (modalRef: any) => {
               This is a basic modal with default actions.
             </FdsModal>
           </div>
-          
+
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With Scrollable Content</h3>
             <FdsButton variant="secondary" @click="openModal(largeContentModalRef)">Open Scrollable Modal</FdsButton>
@@ -73,7 +73,7 @@ const openModal = (modalRef: any) => {
               </div>
             </FdsModal>
           </div>
-          
+
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Custom Actions</h3>
             <FdsButton variant="tertiary" @click="openModal(customModalRef)">Open Custom Modal</FdsButton>
@@ -86,7 +86,7 @@ const openModal = (modalRef: any) => {
               </template>
             </FdsModal>
           </div>
-          
+
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Non-Closeable</h3>
             <FdsButton variant="warning" @click="openModal(confirmModalRef)">Critical Action</FdsButton>
@@ -103,7 +103,7 @@ const openModal = (modalRef: any) => {
             </FdsModal>
           </div>
         </div>
-        
+
         <p class="mt-4 mb-0">
           The modal component follows DKFDS v11 design specifications with proper focus management and keyboard navigation. 
           Try switching themes using the global theme switcher to see how modals adapt to different contexts.
@@ -123,12 +123,12 @@ const openModal = (modalRef: any) => {
             <li><strong>Focus Trap:</strong> Prevents tabbing outside modal boundaries</li>
             <li><strong>Return Focus:</strong> Returns focus to triggering element when closed</li>
           </ul>
-          
+
           <FdsButton variant="primary" @click="openModal(basicModalRef)">Test Focus Management</FdsButton>
         </div>
-        
+
         <hr class="my-6" />
-        
+
         <div>
           <h3 class="h6 mb-2">ARIA Attributes</h3>
           <p>The modal includes proper ARIA labeling:</p>
@@ -138,7 +138,7 @@ const openModal = (modalRef: any) => {
             <li><code>role="dialog"</code> - Provided by native HTML dialog element</li>
           </ul>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Try opening a modal and using keyboard navigation (Tab, Shift+Tab, ESC) to test accessibility features.
         </p>
@@ -153,25 +153,25 @@ const openModal = (modalRef: any) => {
             <h3 class="h6 mb-2">With Custom Header</h3>
             <FdsButton variant="secondary" @click="openModal(customModalRef)">Custom Header</FdsButton>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Action Confirmation</h3>
             <FdsButton variant="warning" @click="openModal(confirmModalRef)">Destructive Action</FdsButton>
           </div>
-          
+
           <div>
             <h3 class="h6 mb-2">Information Display</h3>
             <FdsButton variant="tertiary" @click="openModal(largeContentModalRef)">Show Details</FdsButton>
           </div>
         </div>
-        
+
         <hr class="my-6" />
-        
+
         <div>
           <p class="h6 mb-2">Interaction Count: {{ actionCount }}</p>
           <p>Track user interactions with modal actions to understand usage patterns.</p>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Different modal configurations serve various purposes: confirmations, information display, 
           multi-step workflows, and critical actions that require user attention.
@@ -219,8 +219,6 @@ const openModal = (modalRef: any) => {
   </Story>
 </template>
 
-
-
 <docs lang="md">
 # FdsModal
 
@@ -231,7 +229,7 @@ The modal component creates accessible dialog overlays for displaying important 
 ```vue
 <template>
   <FdsButton @click="openModal">Open Modal</FdsButton>
-  
+
   <FdsModal
     ref="modalRef"
     header="Confirm Action"

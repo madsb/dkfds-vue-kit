@@ -24,7 +24,7 @@ const toggleSettings = () => {
 </script>
 
 <template>
-  <Story title="Navigation/Menu" :layout="{ type: 'grid', width: '100%' }" icon="carbon:menu">
+  <Story title="Navigation/Menu" icon="carbon:menu">
     <!-- Showcase all menu variants -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -43,7 +43,7 @@ const toggleSettings = () => {
               </FdsMenuItem>
             </FdsMenu>
           </div>
-          
+
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With Hints</h3>
             <FdsMenu variant="sidemenu" aria-label="Application navigation">
@@ -94,7 +94,7 @@ const toggleSettings = () => {
           <FdsMenuItem href="/dashboard" :current="currentPage === 'dashboard'" id="dashboard" @navigate="handleNavigation">
             Dashboard
           </FdsMenuItem>
-          
+
           <FdsMenuItem 
             href="/settings" 
             :expanded="showSettingsSubmenu" 
@@ -131,12 +131,12 @@ const toggleSettings = () => {
               </FdsMenu>
             </template>
           </FdsMenuItem>
-          
+
           <FdsMenuItem href="/help" :current="currentPage === 'help'" id="help" @navigate="handleNavigation">
             Help & Support
           </FdsMenuItem>
         </FdsMenu>
-        
+
         <p class="mt-4 mb-0">
           Click "Settings" to toggle the submenu visibility. Submenus use the variant="submenu" 
           and are placed within the submenu slot of parent menu items. Current page: {{ currentPage }}
@@ -182,9 +182,9 @@ const toggleSettings = () => {
             Confirmation
           </FdsMenuItem>
         </FdsMenu>
-        
+
         <hr class="my-6" />
-        
+
         <h3 class="h6 mb-2">Step Navigation</h3>
         <div class="button-group">
           <button 
@@ -204,7 +204,7 @@ const toggleSettings = () => {
             Next Step
           </button>
         </div>
-        
+
         <p class="mt-4 mb-0">
           Current step: {{ currentStep }}. Numbered menu items automatically display step numbers 
           and can include hint text for additional context. Use the buttons to simulate step progression.
@@ -230,7 +230,7 @@ const toggleSettings = () => {
               </FdsMenuItem>
             </FdsMenu>
           </div>
-          
+
           <div class="col-12 col-lg-4 mb-5">
             <h3 class="h6 mb-2">Expanded States</h3>
             <FdsMenu variant="sidemenu" aria-label="Expansion demonstration">
@@ -257,9 +257,9 @@ const toggleSettings = () => {
             </FdsMenu>
           </div>
         </div>
-        
+
         <hr class="my-6" />
-        
+
         <h3 class="h6 mb-2">Accessibility Features</h3>
         <ul>
           <li><strong>Keyboard Navigation:</strong> Tab through menu items, Enter/Space to activate</li>
@@ -267,7 +267,7 @@ const toggleSettings = () => {
           <li><strong>Current Page:</strong> Uses aria-current="page" for screen readers</li>
           <li><strong>Semantic Structure:</strong> Proper nav/ul/li hierarchy for assistive technology</li>
         </ul>
-        
+
         <p class="mt-4 mb-0">
           Menu items support keyboard navigation and include proper ARIA attributes. 
           Click the expandable item to toggle submenu visibility. Screen readers will 
@@ -321,7 +321,7 @@ const toggleSettings = () => {
                 </FdsMenu>
               </template>
             </FdsMenuItem>
-            
+
             <FdsMenuItem href="/other" :current="!state.current">
               Other Menu Item
             </FdsMenuItem>
@@ -338,31 +338,30 @@ const toggleSettings = () => {
             { value: 'submenu', label: 'Submenu' },
           ]"
         />
-        
+
         <HstText v-model="state.ariaLabel" title="ARIA Label" />
-        
+
         <HstText v-model="state.itemText" title="Menu Item Text" />
-        
+
         <HstText v-model="state.href" title="Link URL" />
-        
+
         <HstCheckbox v-model="state.current" title="Current Page" />
-        
+
         <HstCheckbox v-model="state.expanded" title="Expanded State" />
-        
+
         <HstCheckbox v-model="state.withHint" title="Include Hint Text" />
-        
+
         <HstText v-model="state.hint" title="Hint Text" :disabled="!state.withHint" />
-        
+
         <HstCheckbox v-model="state.withIndex" title="Include Index Number" />
-        
+
         <HstNumber v-model="state.index" title="Index Number" :disabled="!state.withIndex" />
-        
+
         <HstCheckbox v-model="state.withSubmenu" title="Include Submenu" />
       </template>
     </Variant>
   </Story>
 </template>
-
 
 <docs lang="md">
 # FdsMenu & FdsMenuItem

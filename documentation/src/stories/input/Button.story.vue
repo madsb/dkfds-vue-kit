@@ -10,7 +10,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <Story title="Input/Button" :layout="{ type: 'grid', width: '100%' }" icon="carbon:button-centered">
+  <Story title="Input/Button" icon="carbon:button-centered">
     <!-- Showcase all button variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
