@@ -51,6 +51,12 @@ pnpm test:coverage
 
 # Run tests with UI
 pnpm test:ui
+
+# Run a single test file
+pnpm test src/__tests__/components/fds-button.test.ts
+
+# Run tests matching a pattern
+pnpm test button
 ```
 
 ### Documentation
@@ -64,6 +70,21 @@ pnpm docs:build
 
 # Preview built documentation locally
 pnpm docs:preview
+```
+
+### Histoire Component Stories
+
+```bash
+# Run Histoire story development server
+pnpm -C documentation run story:dev
+# or
+pnpm -C documentation run dev
+
+# Build Histoire stories for production
+pnpm -C documentation run story:build
+
+# Preview built Histoire stories
+pnpm -C documentation run story:preview
 ```
 
 ## Architecture
@@ -85,14 +106,6 @@ src/
 ├── types/               # TypeScript type definitions
 ├── assets/              # SCSS styles
 └── index.ts             # Main entry point with exports
-
-docs-site/
-├── docs/                # VitePress documentation
-│   ├── .vitepress/      # VitePress configuration
-│   ├── guide/           # Getting started guides
-│   ├── components/      # Component documentation
-│   └── api/             # API reference
-└── package.json         # Documentation site dependencies
 
 examples/
 └── demo/                # Demo application showcasing all components
@@ -117,9 +130,9 @@ examples/
 
 ```typescript
 // Import from component categories
-import { FdsButton } from '@madsb/dkfds-vue3'  // From layout
-import { FdsInput } from '@madsb/dkfds-vue3'   // From input
-import { FdsAlert } from '@madsb/dkfds-vue3'   // From feedback
+import { FdsButton } from '@madsb/dkfds-vue3' // From layout
+import { FdsInput } from '@madsb/dkfds-vue3' // From input
+import { FdsAlert } from '@madsb/dkfds-vue3' // From feedback
 
 // Import composables
 import { useToast, formId } from '@madsb/dkfds-vue3'
@@ -171,16 +184,23 @@ pnpm test:run
 
 ### Documentation Architecture
 
-The project uses VitePress for comprehensive documentation:
+The project uses two documentation systems:
 
-- **VitePress Configuration**: `docs-site/docs/.vitepress/config.ts` contains navigation and site configuration
+#### VitePress Documentation
+- **Configuration**: `docs-site/docs/.vitepress/config.ts` contains navigation and site configuration
 - **Component Documentation**: Each component has its own markdown file in `docs-site/docs/components/[category]/`
-- **Documentation Structure**: 
+- **Structure**:
   - Guide section for installation and getting started
   - Components section organized by the same categories as the source code
   - API reference for technical details
-- **Live Examples**: Documentation includes interactive component examples
-- **Theme Integration**: Documentation site uses DKFDS styling and supports both VirkDK and BorgerDK themes
+
+#### Histoire Component Stories
+- **Location**: `documentation/src/stories/[category]/`
+- **Story Files**: 39 `.story.vue` files covering all 59 components
+- **Story Guidelines**: `documentation/STORY_GUIDELINES.md` defines story requirements
+- **Story Structure**: Each story has max 5 variants (Showcase + features + Playground)
+- **Icon Collection**: FdsIconCollection is globally available via `documentation/histoire.setup.ts`
+- **Theme Switcher**: Global theme switcher available in top-right corner of all stories
 
 ## Important Notes
 
@@ -190,3 +210,9 @@ The project uses VitePress for comprehensive documentation:
 - Documentation is in `docs-site/` and uses VitePress for static site generation
 - Always run format and lint after major edits: `pnpm run format && pnpm run lint:fix`
 - Keep component documentation in sync with component changes
+
+### Icon System
+- Icons are provided via `fds-icon-collection` component containing SVG sprite
+- Icon names must match SVG symbol IDs in the collection (e.g., `check`, `warning`, `error`)
+- Common icons: `check`, `warning`, `error`, `arrow-forward`, `arrow-back`, `close`, `menu`
+- The icon collection is globally available in Histoire stories
