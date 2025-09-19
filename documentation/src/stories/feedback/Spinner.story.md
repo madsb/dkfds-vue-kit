@@ -10,9 +10,7 @@ The spinner component provides visual feedback for loading states with accessibi
   <FdsSpinner sr-only-text="Loading content..." />
 
   <!-- Spinner with visible status text -->
-  <FdsSpinner aria-live="polite">
-    Loading your data...
-  </FdsSpinner>
+  <FdsSpinner aria-live="polite"> Loading your data... </FdsSpinner>
 
   <!-- Small spinner for inline use -->
   <FdsSpinner size="small" sr-only-text="Processing..." />
@@ -25,19 +23,19 @@ import { FdsSpinner } from '@madsb/dkfds-vue3'
 
 ## Props
 
-| Prop         | Type                              | Default     | Description                                               |
-| ------------ | --------------------------------- | ----------- | --------------------------------------------------------- |
-| `size`       | `'small' \| 'large'`               | `'large'`   | Size variant affecting visual dimensions                  |
-| `variant`    | `'default' \| 'light'`             | `'default'` | Color variant for different background contexts          |
-| `srOnlyText` | `string`                          | -           | Screen reader text when no visible status is shown      |
-| `centered`   | `boolean`                         | `false`     | Whether to center spinner horizontally in container     |
-| `ariaLive`   | `'polite' \| 'assertive' \| 'off'` | `'polite'`  | ARIA live region politeness for status announcements   |
+| Prop         | Type                               | Default     | Description                                          |
+| ------------ | ---------------------------------- | ----------- | ---------------------------------------------------- |
+| `size`       | `'small' \| 'large'`               | `'large'`   | Size variant affecting visual dimensions             |
+| `variant`    | `'default' \| 'light'`             | `'default'` | Color variant for different background contexts      |
+| `srOnlyText` | `string`                           | -           | Screen reader text when no visible status is shown   |
+| `centered`   | `boolean`                          | `false`     | Whether to center spinner horizontally in container  |
+| `ariaLive`   | `'polite' \| 'assertive' \| 'off'` | `'polite'`  | ARIA live region politeness for status announcements |
 
 ## Slots
 
-| Slot      | Description                                              |
-| --------- | -------------------------------------------------------- |
-| `default` | Status text content displayed next to spinner          |
+| Slot      | Description                                   |
+| --------- | --------------------------------------------- |
+| `default` | Status text content displayed next to spinner |
 
 ## Accessibility
 
@@ -63,11 +61,13 @@ import { FdsSpinner } from '@madsb/dkfds-vue3'
 ## Usage Patterns
 
 ### Inline Loading
+
 ```vue
 <p>Processing your request <FdsSpinner size="small" sr-only-text="Processing" /> please wait...</p>
 ```
 
 ### Button Loading State
+
 ```vue
 <button :disabled="loading">
   <FdsSpinner v-if="loading" size="small" sr-only-text="Saving" />
@@ -76,23 +76,17 @@ import { FdsSpinner } from '@madsb/dkfds-vue3'
 ```
 
 ### Full-Page Loading
+
 ```vue
-<FdsSpinner 
-  size="large" 
-  :centered="true" 
-  aria-live="polite"
->
+<FdsSpinner size="large" :centered="true" aria-live="polite">
   Loading application data...
 </FdsSpinner>
 ```
 
 ### Modal Loading
+
 ```vue
-<FdsSpinner 
-  size="large" 
-  :centered="true" 
-  aria-live="assertive"
->
+<FdsSpinner size="large" :centered="true" aria-live="assertive">
   Processing your submission...
 </FdsSpinner>
 ```
@@ -100,6 +94,7 @@ import { FdsSpinner } from '@madsb/dkfds-vue3'
 ## Themes
 
 The spinner component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with theme-appropriate colors
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

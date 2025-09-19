@@ -27,10 +27,10 @@ import { FdsBadge } from '@madsb/dkfds-vue3'
 
 ## Props
 
-| Prop      | Type                                           | Default | Description                                                    |
-| --------- | ---------------------------------------------- | ------- | -------------------------------------------------------------- |
-| `tag`     | `'span' \| 'strong'`                          | `'span'` | HTML element type for semantic meaning                         |
-| `variant` | `'success' \| 'info' \| 'warning' \| 'error' \| null` | `null`   | Visual variant indicating semantic status or importance level  |
+| Prop      | Type                                                  | Default  | Description                                                   |
+| --------- | ----------------------------------------------------- | -------- | ------------------------------------------------------------- |
+| `tag`     | `'span' \| 'strong'`                                  | `'span'` | HTML element type for semantic meaning                        |
+| `variant` | `'success' \| 'info' \| 'warning' \| 'error' \| null` | `null`   | Visual variant indicating semantic status or importance level |
 
 ## Events
 
@@ -69,6 +69,7 @@ This component does not emit any events.
 ## Themes
 
 The badge component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral colors
 - **VirkDK**: Business-oriented styling optimized for Virk.dk
 - **BorgerDK**: Citizen-oriented styling optimized for Borger.dk

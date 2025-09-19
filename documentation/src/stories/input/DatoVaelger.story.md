@@ -23,18 +23,18 @@ const handleValidation = (isValid) => {
 
 ## Props
 
-| Prop         | Type     | Default | Description                                    |
-| ------------ | -------- | ------- | ---------------------------------------------- |
-| `modelValue` | `string` | `''`    | The date value in ISO format (YYYY-MM-DD)     |
+| Prop         | Type     | Default | Description                                              |
+| ------------ | -------- | ------- | -------------------------------------------------------- |
+| `modelValue` | `string` | `''`    | The date value in ISO format (YYYY-MM-DD)                |
 | `id`         | `string` | -       | Custom ID for the input (auto-generated if not provided) |
 
 ## Events
 
-| Event              | Description                                           |
-| ------------------ | ----------------------------------------------------- |
-| `update:modelValue` | Emitted when the date value changes                   |
-| `valid`            | Emitted when validation state changes (boolean)       |
-| `dirty`            | Emitted when the input loses focus (always true)      |
+| Event               | Description                                      |
+| ------------------- | ------------------------------------------------ |
+| `update:modelValue` | Emitted when the date value changes              |
+| `valid`             | Emitted when validation state changes (boolean)  |
+| `dirty`             | Emitted when the input loses focus (always true) |
 
 ## Form Integration
 
@@ -47,12 +47,14 @@ const handleValidation = (isValid) => {
       <FdsDatoVaelger
         :id="formid"
         v-model="eventDate"
-        @valid="isValid => { isDateValid = isValid }"
+        @valid="
+          (isValid) => {
+            isDateValid = isValid
+          }
+        "
         @dirty="validateDate"
       />
-      <FdsFejlmeddelelse v-if="!isDateValid">
-        Please select a valid date
-      </FdsFejlmeddelelse>
+      <FdsFejlmeddelelse v-if="!isDateValid"> Please select a valid date </FdsFejlmeddelelse>
     </template>
   </FdsFormgroup>
 </template>
@@ -100,6 +102,7 @@ The component automatically validates dates and handles edge cases:
 ## Themes
 
 The date picker component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling for government portals
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

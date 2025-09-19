@@ -6,10 +6,7 @@ The cookie notice component provides a GDPR-compliant interface for obtaining us
 
 ```vue
 <template>
-  <FdsCookiemeddelelse
-    @accept="handleCookieAccept"
-    @cancel="handleCookieReject"
-  />
+  <FdsCookiemeddelelse @accept="handleCookieAccept" @cancel="handleCookieReject" />
 </template>
 
 <script setup>
@@ -29,24 +26,24 @@ const handleCookieReject = () => {
 
 ## Props
 
-| Prop     | Type     | Default                           | Description                                    |
-| -------- | -------- | --------------------------------- | ---------------------------------------------- |
-| `header` | `string` | `'Fortæl os om du accepterer cookies'` | Header text for the cookie notice             |
+| Prop     | Type     | Default                                | Description                       |
+| -------- | -------- | -------------------------------------- | --------------------------------- |
+| `header` | `string` | `'Fortæl os om du accepterer cookies'` | Header text for the cookie notice |
 
 ## Events
 
-| Event    | Parameters | Description                        |
-| -------- | ---------- | ---------------------------------- |
-| `accept` | `boolean`  | Emitted when user accepts cookies  |
-| `cancel` | `boolean`  | Emitted when user rejects cookies  |
+| Event    | Parameters | Description                       |
+| -------- | ---------- | --------------------------------- |
+| `accept` | `boolean`  | Emitted when user accepts cookies |
+| `cancel` | `boolean`  | Emitted when user rejects cookies |
 
 ## Slots
 
-| Slot      | Description                                    |
-| --------- | ---------------------------------------------- |
+| Slot      | Description                                   |
+| --------- | --------------------------------------------- |
 | `header`  | Custom header content (overrides header prop) |
-| `default` | Custom message content                         |
-| `actions` | Custom action buttons                          |
+| `default` | Custom message content                        |
+| `actions` | Custom action buttons                         |
 
 ## Accessibility
 
@@ -76,6 +73,7 @@ const handleCookieReject = () => {
 ## Themes
 
 The cookie notice component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

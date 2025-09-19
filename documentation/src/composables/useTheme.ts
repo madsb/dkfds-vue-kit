@@ -15,13 +15,13 @@ export function useTheme() {
       if (typeof window !== 'undefined') {
         localStorage.setItem(THEME_STORAGE_KEY, value)
       }
-    }
+    },
   })
 
   const themes: { value: DKFDSTheme; label: string }[] = [
     { value: 'default', label: 'Default' },
     { value: 'virkdk', label: 'Virk.dk' },
-    { value: 'borgerdk', label: 'Borger.dk' }
+    { value: 'borgerdk', label: 'Borger.dk' },
   ]
 
   async function applyTheme(themeName: DKFDSTheme) {
@@ -32,7 +32,7 @@ export function useTheme() {
     const href = await resolveThemeUrl(themeName)
 
     const existingThemeLinks = document.querySelectorAll('link[data-theme="dkfds"]')
-    existingThemeLinks.forEach(link => link.remove())
+    existingThemeLinks.forEach((link) => link.remove())
 
     const link = document.createElement('link')
     link.rel = 'stylesheet'
@@ -46,7 +46,7 @@ export function useTheme() {
 
   async function initializeTheme() {
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as DKFDSTheme | null
-    if (savedTheme && themes.some(t => t.value === savedTheme)) {
+    if (savedTheme && themes.some((t) => t.value === savedTheme)) {
       currentTheme.value = savedTheme
     } else {
       currentTheme.value = 'default'
@@ -59,9 +59,13 @@ export function useTheme() {
   })
 
   if (typeof window !== 'undefined') {
-    watch(currentTheme, (newTheme) => {
-      void applyTheme(newTheme)
-    }, { immediate: true })
+    watch(
+      currentTheme,
+      (newTheme) => {
+        void applyTheme(newTheme)
+      },
+      { immediate: true },
+    )
   }
 
   return {
@@ -69,6 +73,6 @@ export function useTheme() {
     themes,
     setTheme: (newTheme: DKFDSTheme) => {
       theme.value = newTheme
-    }
+    },
   }
 }

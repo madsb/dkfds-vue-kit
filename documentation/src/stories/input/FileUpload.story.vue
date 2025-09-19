@@ -79,8 +79,8 @@ const clearStatus = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The file upload component follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how file uploads adapt to different contexts.
+          The file upload component follows DKFDS v11 design specifications. Try switching themes
+          using the global theme switcher to see how file uploads adapt to different contexts.
         </p>
       </div>
     </Variant>
@@ -129,7 +129,8 @@ const clearStatus = () => {
         </div>
 
         <p class="mt-4 mb-0">
-          Try uploading files that exceed the size limit, wrong file types, or too many files to see validation errors.
+          Try uploading files that exceed the size limit, wrong file types, or too many files to see
+          validation errors.
         </p>
       </div>
     </Variant>
@@ -188,7 +189,8 @@ const clearStatus = () => {
         </div>
 
         <p class="mt-4 mb-0">
-          File list shows selected files with names, sizes, and optional remove buttons. Customize the display and behavior.
+          File list shows selected files with names, sizes, and optional remove buttons. Customize
+          the display and behavior.
         </p>
       </div>
     </Variant>
@@ -230,7 +232,8 @@ const clearStatus = () => {
         </div>
 
         <p class="mt-4 mb-0">
-          Error states provide clear feedback with ARIA announcements. Try uploading invalid files to trigger errors.
+          Error states provide clear feedback with ARIA announcements. Try uploading invalid files
+          to trigger errors.
         </p>
       </div>
     </Variant>
@@ -299,23 +302,15 @@ const clearStatus = () => {
 
         <HstCheckbox v-model="state.showFileList" title="Show File List" />
 
-        <HstCheckbox 
-          v-model="state.removable" 
-          title="Removable Files" 
-          :disabled="!state.showFileList" 
+        <HstCheckbox
+          v-model="state.removable"
+          title="Removable Files"
+          :disabled="!state.showFileList"
         />
 
-        <HstNumber 
-          v-model="state.maxFileSize" 
-          title="Max File Size (bytes)" 
-          :step="1024" 
-        />
+        <HstNumber v-model="state.maxFileSize" title="Max File Size (bytes)" :step="1024" />
 
-        <HstNumber 
-          v-model="state.maxFiles" 
-          title="Max Files" 
-          :disabled="!state.multiple" 
-        />
+        <HstNumber v-model="state.maxFiles" title="Max Files" :disabled="!state.multiple" />
 
         <HstJson v-model="state.accept" title="Accepted Types" />
 

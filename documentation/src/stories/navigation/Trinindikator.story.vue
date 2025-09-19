@@ -12,7 +12,7 @@ const basicSteps = [
   { number: 1, title: 'Personlige oplysninger' },
   { number: 2, title: 'Dokumenter' },
   { number: 3, title: 'Gennemse' },
-  { number: 4, title: 'Bekræftelse' }
+  { number: 4, title: 'Bekræftelse' },
 ]
 
 const detailedSteps = [
@@ -20,14 +20,14 @@ const detailedSteps = [
   { number: 2, title: 'Upload dokumenter', info: 'Påkrævede dokumenter og billeder' },
   { number: 3, title: 'Validering', info: 'System validerer dine oplysninger' },
   { number: 4, title: 'Godkendelse', info: 'Afventer godkendelse' },
-  { number: 5, title: 'Færdig', info: 'Ansøgning er fuldført' }
+  { number: 5, title: 'Færdig', info: 'Ansøgning er fuldført' },
 ]
 
 const errorSteps = [
   { number: 1, title: 'Persondata', completed: true },
   { number: 2, title: 'Upload dokumenter', error: true, info: 'Manglende dokumenter' },
   { number: 3, title: 'Gennemse', disabled: true },
-  { number: 4, title: 'Send ansøgning', disabled: true }
+  { number: 4, title: 'Send ansøgning', disabled: true },
 ]
 
 // Event handlers
@@ -91,8 +91,8 @@ const handleModalClose = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The trinindikator component follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how step indicators adapt to different contexts.
+          The trinindikator component follows DKFDS v11 design specifications. Try switching themes
+          using the global theme switcher to see how step indicators adapt to different contexts.
         </p>
       </div>
     </Variant>
@@ -125,11 +125,7 @@ const handleModalClose = () => {
         <div>
           <div>
             <h4>Step 1: Beginning</h4>
-            <FdsTrinindikatorGroup
-              :current-step="1"
-              :total-steps="4"
-              aria-label="Process at start"
-            >
+            <FdsTrinindikatorGroup :current-step="1" :total-steps="4" aria-label="Process at start">
               <FdsTrinindikatorStep
                 v-for="step in basicSteps"
                 :key="step.number"
@@ -160,8 +156,8 @@ const handleModalClose = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Steps can show different states: current (highlighted), completed (checkmark), 
-          error (warning icon), and disabled (grayed out).
+          Steps can show different states: current (highlighted), completed (checkmark), error
+          (warning icon), and disabled (grayed out).
         </p>
       </div>
     </Variant>
@@ -193,27 +189,29 @@ const handleModalClose = () => {
         </FdsTrinindikatorGroup>
 
         <div>
-          <button 
+          <button
             class="button button-secondary"
             @click="interactiveCurrentStep = Math.max(1, interactiveCurrentStep - 1)"
             :disabled="interactiveCurrentStep === 1"
           >
             Forrige
           </button>
-          <button 
+          <button
             class="button button-primary"
-            @click="() => {
-              interactiveCurrentStep = Math.min(5, interactiveCurrentStep + 1)
-              maxCompletedStep = Math.max(maxCompletedStep, interactiveCurrentStep)
-            }"
+            @click="
+              () => {
+                interactiveCurrentStep = Math.min(5, interactiveCurrentStep + 1)
+                maxCompletedStep = Math.max(maxCompletedStep, interactiveCurrentStep)
+              }
+            "
             :disabled="interactiveCurrentStep === 5"
           >
             Næste
           </button>
         </div>
         <p class="mt-4 mb-0">
-          Click on completed steps to navigate. Use the buttons to progress through the steps.
-          On mobile, tap "Trin X af Y" to see the full step modal.
+          Click on completed steps to navigate. Use the buttons to progress through the steps. On
+          mobile, tap "Trin X af Y" to see the full step modal.
         </p>
       </div>
     </Variant>
@@ -222,7 +220,7 @@ const handleModalClose = () => {
     <Variant title="Responsive Behavior" icon="carbon:devices">
       <div class="container py-6">
         <p>
-          <strong>Desktop:</strong> Full step indicator visible<br>
+          <strong>Desktop:</strong> Full step indicator visible<br />
           <strong>Mobile:</strong> Compact button that opens modal when tapped
         </p>
 
@@ -246,15 +244,17 @@ const handleModalClose = () => {
         <div>
           <p>Simulate mobile view by resizing your browser window to less than 768px wide.</p>
           <div>
-            <button class="step-indicator-button" style="position: relative; z-index: 1;">
-              <span>Trin <strong>{{ currentStep }}</strong> af {{ basicSteps.length }}</span>
+            <button class="step-indicator-button" style="position: relative; z-index: 1">
+              <span
+                >Trin <strong>{{ currentStep }}</strong> af {{ basicSteps.length }}</span
+              >
             </button>
             <p>↑ This is how it appears on mobile screens</p>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The component automatically adapts to screen size. On mobile devices, 
-          the full step list is hidden and accessible via a modal dialog for better usability.
+          The component automatically adapts to screen size. On mobile devices, the full step list
+          is hidden and accessible via a modal dialog for better usability.
         </p>
       </div>
     </Variant>
@@ -337,19 +337,14 @@ const handleModalClose = () => {
       </template>
 
       <template #controls="{ state }">
-        <HstNumber 
-          v-model="state.currentStep" 
-          title="Current Step" 
-          :min="1" 
+        <HstNumber
+          v-model="state.currentStep"
+          title="Current Step"
+          :min="1"
           :max="state.totalSteps"
         />
 
-        <HstNumber 
-          v-model="state.totalSteps" 
-          title="Total Steps" 
-          :min="1" 
-          :max="10"
-        />
+        <HstNumber v-model="state.totalSteps" title="Total Steps" :min="1" :max="10" />
 
         <HstCheckbox v-model="state.clickableSteps" title="Clickable Steps" />
 

@@ -40,8 +40,9 @@ const handleToggle = (value: boolean) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The toggle switch follows DKFDS v11 design specifications for binary controls. Try switching themes using
-          the global theme switcher to see how the component adapts to different contexts.
+          The toggle switch follows DKFDS v11 design specifications for binary controls. Try
+          switching themes using the global theme switcher to see how the component adapts to
+          different contexts.
         </p>
       </div>
     </Variant>
@@ -72,7 +73,8 @@ const handleToggle = (value: boolean) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Use slot content for dynamic labels or custom formatting. The toggle supports both prop-based and slot-based content.
+          Use slot content for dynamic labels or custom formatting. The toggle supports both
+          prop-based and slot-based content.
         </p>
       </div>
     </Variant>
@@ -109,7 +111,8 @@ const handleToggle = (value: boolean) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Toggle switches support keyboard navigation (Tab to focus, Space/Enter to toggle). Disabled toggles prevent all interaction.
+          Toggle switches support keyboard navigation (Tab to focus, Space/Enter to toggle).
+          Disabled toggles prevent all interaction.
         </p>
       </div>
     </Variant>
@@ -128,7 +131,12 @@ const handleToggle = (value: boolean) => {
 
             <div>
               <label for="toggle-2">Dark mode preference</label>
-              <FdsToggleSwitch id="toggle-2" v-model="darkModeToggle" onText="Enabled" offText="Disabled" />
+              <FdsToggleSwitch
+                id="toggle-2"
+                v-model="darkModeToggle"
+                onText="Enabled"
+                offText="Disabled"
+              />
               <small>Custom text labels for better context</small>
             </div>
           </div>
@@ -143,7 +151,8 @@ const handleToggle = (value: boolean) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Toggle switches automatically provide proper ARIA attributes and keyboard support. Always pair with descriptive labels for optimal accessibility.
+          Toggle switches automatically provide proper ARIA attributes and keyboard support. Always
+          pair with descriptive labels for optimal accessibility.
         </p>
       </div>
     </Variant>
@@ -169,7 +178,12 @@ const handleToggle = (value: boolean) => {
             :disabled="state.disabled"
             :on-text="state.onText"
             :off-text="state.offText"
-            @update:model-value="(value) => { state.modelValue = value; handleToggle(value); }"
+            @update:model-value="
+              (value) => {
+                state.modelValue = value
+                handleToggle(value)
+              }
+            "
           >
             <template v-if="state.customContent">
               {{ state.modelValue ? '✅ Feature Active' : '❌ Feature Inactive' }}

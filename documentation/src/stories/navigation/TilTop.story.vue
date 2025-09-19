@@ -12,23 +12,20 @@ const simulateScroll = () => {
   // Scroll down to make the button visible
   window.scrollTo({
     top: window.innerHeight * 2.5,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
 
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
 </script>
 
 <template>
-  <Story
-    title="Navigation/TilTop"
-    icon="carbon:arrow-up"
-  >
+  <Story title="Navigation/TilTop" icon="carbon:arrow-up">
     <!-- Showcase all variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -43,7 +40,7 @@ const scrollToTop = () => {
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Custom Text</h3>
             <div>
-              <FdsTilTop 
+              <FdsTilTop
                 visible-text="Tilbage til top"
                 screen-reader-text="Spring til toppen af siden"
               />
@@ -53,9 +50,7 @@ const scrollToTop = () => {
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Slot Content</h3>
             <div>
-              <FdsTilTop screen-reader-text="Gå til toppen">
-                Op
-              </FdsTilTop>
+              <FdsTilTop screen-reader-text="Gå til toppen"> Op </FdsTilTop>
               <p>Using slot for custom content</p>
             </div>
           </div>
@@ -68,13 +63,11 @@ const scrollToTop = () => {
           </div>
         </div>
         <div>
-          <button @click="simulateScroll">
-            Scroll Down to Show Buttons
-          </button>
+          <button @click="simulateScroll">Scroll Down to Show Buttons</button>
         </div>
         <p class="mt-4 mb-0">
-          The back to top component follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how the component adapts to different contexts.
+          The back to top component follows DKFDS v11 design specifications. Try switching themes
+          using the global theme switcher to see how the component adapts to different contexts.
           Scroll down to see the buttons appear when the threshold is reached.
         </p>
       </div>
@@ -110,8 +103,8 @@ const scrollToTop = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The component appears when the user scrolls past the threshold. Default threshold
-          is 2 viewport heights, but can be customized. Buttons use smooth scrolling behavior.
+          The component appears when the user scrolls past the threshold. Default threshold is 2
+          viewport heights, but can be customized. Buttons use smooth scrolling behavior.
         </p>
       </div>
     </Variant>
@@ -141,12 +134,15 @@ const scrollToTop = () => {
         <hr class="my-6" />
         <div>
           <h3 class="h6 mb-2">Fixed Positioning</h3>
-          <p>The button is positioned fixed in the bottom-right corner and doesn't interfere with page content.</p>
+          <p>
+            The button is positioned fixed in the bottom-right corner and doesn't interfere with
+            page content.
+          </p>
           <FdsTilTop :threshold="100" visible-text="Demo Button" />
         </div>
         <p class="mt-4 mb-0">
-          Resize the browser window to see responsive behavior. On mobile devices, only the icon
-          is visible to save space. The button maintains proper touch targets and accessibility.
+          Resize the browser window to see responsive behavior. On mobile devices, only the icon is
+          visible to save space. The button maintains proper touch targets and accessibility.
         </p>
       </div>
     </Variant>
@@ -164,7 +160,7 @@ const scrollToTop = () => {
             </div>
             <div>
               <h4>Custom Screen Reader Text</h4>
-              <FdsTilTop 
+              <FdsTilTop
                 screen-reader-text="Spring tilbage til toppen af dokumentet"
                 visible-text="Top"
               />
@@ -188,8 +184,9 @@ const scrollToTop = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The component provides excellent accessibility with proper ARIA labeling, keyboard navigation,
-          and screen reader support. The icon is marked as decorative to avoid redundant announcements.
+          The component provides excellent accessibility with proper ARIA labeling, keyboard
+          navigation, and screen reader support. The icon is marked as decorative to avoid redundant
+          announcements.
         </p>
       </div>
     </Variant>
@@ -198,13 +195,15 @@ const scrollToTop = () => {
     <Variant
       title="Playground"
       icon="carbon:game-console"
-      :init-state="() => ({
-        visibleText: 'Til toppen',
-        screenReaderText: 'Til toppen af siden',
-        threshold: 400,
-        useSlot: false,
-        slotContent: 'Op'
-      })"
+      :init-state="
+        () => ({
+          visibleText: 'Til toppen',
+          screenReaderText: 'Til toppen af siden',
+          threshold: 400,
+          useSlot: false,
+          slotContent: 'Op',
+        })
+      "
     >
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
@@ -226,12 +225,8 @@ const scrollToTop = () => {
             <div>
               <p>Current threshold: {{ state.threshold }}px</p>
               <p>Scroll down to see the button appear</p>
-              <button @click="simulateScroll">
-                Scroll to Test Threshold
-              </button>
-              <button @click="scrollToTop">
-                Scroll to Top
-              </button>
+              <button @click="simulateScroll">Scroll to Test Threshold</button>
+              <button @click="scrollToTop">Scroll to Top</button>
             </div>
           </div>
         </div>
@@ -240,7 +235,13 @@ const scrollToTop = () => {
       <template #controls="{ state }">
         <HstText v-model="state.visibleText" title="Visible Text" />
         <HstText v-model="state.screenReaderText" title="Screen Reader Text" />
-        <HstNumber v-model="state.threshold" title="Threshold (px)" :min="100" :max="2000" :step="50" />
+        <HstNumber
+          v-model="state.threshold"
+          title="Threshold (px)"
+          :min="100"
+          :max="2000"
+          :step="50"
+        />
         <HstCheckbox v-model="state.useSlot" title="Use Slot Content" />
         <HstText v-if="state.useSlot" v-model="state.slotContent" title="Slot Content" />
       </template>

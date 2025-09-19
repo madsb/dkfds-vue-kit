@@ -9,7 +9,7 @@ The error summary component provides a centralized display of form validation er
   <FdsFejlopsummering
     :errors="[
       { id: 'email-field', message: 'E-mail er påkrævet' },
-      { id: 'password-field', message: 'Adgangskode skal være mindst 8 karakterer' }
+      { id: 'password-field', message: 'Adgangskode skal være mindst 8 karakterer' },
     ]"
     @error-clicked="handleErrorClick"
   />
@@ -26,35 +26,35 @@ const handleErrorClick = (fieldId) => {
 
 ## Props
 
-| Prop          | Type        | Default           | Description                                                |
-| ------------- | ----------- | ----------------- | ---------------------------------------------------------- |
-| `header`      | `string`    | 'Der er problemer'| Main heading text for the error summary section           |
-| `id`          | `string`    | -                 | Unique identifier for the container (auto-generated)      |
-| `errors`      | `ErrorItem[]` | `[]`            | Manual list of error items to display                     |
-| `autoCollect` | `boolean`   | `true`            | Whether to automatically collect errors from child components |
+| Prop          | Type          | Default            | Description                                                   |
+| ------------- | ------------- | ------------------ | ------------------------------------------------------------- |
+| `header`      | `string`      | 'Der er problemer' | Main heading text for the error summary section               |
+| `id`          | `string`      | -                  | Unique identifier for the container (auto-generated)          |
+| `errors`      | `ErrorItem[]` | `[]`               | Manual list of error items to display                         |
+| `autoCollect` | `boolean`     | `true`             | Whether to automatically collect errors from child components |
 
 ### ErrorItem Interface
 
 ```typescript
 interface ErrorItem {
-  id: string        // Unique identifier matching the form field ID
-  message: string   // Human-readable error message to display
+  id: string // Unique identifier matching the form field ID
+  message: string // Human-readable error message to display
   element?: HTMLElement // Optional reference to the form element
 }
 ```
 
 ## Events
 
-| Event          | Description                                              |
-| -------------- | -------------------------------------------------------- |
+| Event           | Description                                                   |
+| --------------- | ------------------------------------------------------------- |
 | `error-clicked` | Emitted when a user clicks on an error link (fieldId: string) |
 
 ## Slots
 
-| Slot     | Description                                    |
-| -------- | ---------------------------------------------- |
-| `header` | Custom content for the error summary header   |
-| `default`| Additional error items or custom content      |
+| Slot      | Description                                 |
+| --------- | ------------------------------------------- |
+| `header`  | Custom content for the error summary header |
+| `default` | Additional error items or custom content    |
 
 ## Accessibility
 
@@ -96,6 +96,7 @@ The component can automatically collect errors from child form components when `
 ## Themes
 
 The component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with red error colors
 - **VirkDK**: Business-oriented styling for Virk.dk with consistent error handling
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible error presentation

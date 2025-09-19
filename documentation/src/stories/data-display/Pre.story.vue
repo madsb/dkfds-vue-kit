@@ -141,10 +141,7 @@ const getPrePlaygroundState = () => ({
         <div class="row">
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Code Block</h3>
-            <FdsPre
-              header="JavaScript Example"
-              :code="jsIntroSnippet"
-            />
+            <FdsPre header="JavaScript Example" :code="jsIntroSnippet" />
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">JSON Data</h3>
@@ -155,15 +152,13 @@ const getPrePlaygroundState = () => ({
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Configuration</h3>
-            <FdsPre
-              header="YAML Config"
-              :code="yamlConfigSnippet"
-            />
+            <FdsPre header="YAML Config" :code="yamlConfigSnippet" />
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The Pre component follows DKFDS v11 specifications for displaying code blocks and preformatted text.
-          Try switching themes using the global theme switcher to see how it adapts to different contexts.
+          The Pre component follows DKFDS v11 specifications for displaying code blocks and
+          preformatted text. Try switching themes using the global theme switcher to see how it
+          adapts to different contexts.
         </p>
       </div>
     </Variant>
@@ -174,26 +169,17 @@ const getPrePlaygroundState = () => ({
         <div>
           <div>
             <h3 class="h6 mb-2">JavaScript</h3>
-            <FdsPre
-              header="Function Example"
-              :code="jsAsyncSnippet"
-            />
+            <FdsPre header="Function Example" :code="jsAsyncSnippet" />
           </div>
 
           <div>
             <h3 class="h6 mb-2">Python</h3>
-            <FdsPre
-              header="Class Definition"
-              :code="pythonClassSnippet"
-            />
+            <FdsPre header="Class Definition" :code="pythonClassSnippet" />
           </div>
 
           <div>
             <h3 class="h6 mb-2">HTML</h3>
-            <FdsPre
-              header="Form Structure"
-              :code="htmlFormSnippet"
-            />
+            <FdsPre header="Form Structure" :code="htmlFormSnippet" />
           </div>
         </div>
         <p class="mt-4 mb-0">
@@ -215,17 +201,14 @@ const getPrePlaygroundState = () => ({
                 id: 123,
                 name: 'Maria Larsen',
                 email: 'maria@example.dk',
-                verified: true
+                verified: true,
               }"
             />
           </div>
 
           <div>
             <h3 class="h6 mb-2">Complex Structure</h3>
-            <FdsPre
-              header="Application Settings"
-              :json="sampleJson"
-            />
+            <FdsPre header="Application Settings" :json="sampleJson" />
           </div>
 
           <div>
@@ -237,13 +220,17 @@ const getPrePlaygroundState = () => ({
                   { id: 1, title: 'Hjem', url: '/', active: true },
                   { id: 2, title: 'Om os', url: '/about', active: false },
                   { id: 3, title: 'Kontakt', url: '/contact', active: false },
-                  { id: 4, title: 'Services', url: '/services', active: false,
+                  {
+                    id: 4,
+                    title: 'Services',
+                    url: '/services',
+                    active: false,
                     children: [
                       { id: 41, title: 'Web Development', url: '/services/web' },
-                      { id: 42, title: 'Consulting', url: '/services/consulting' }
-                    ]
-                  }
-                ]
+                      { id: 42, title: 'Consulting', url: '/services/consulting' },
+                    ],
+                  },
+                ],
               }"
             />
           </div>
@@ -261,41 +248,28 @@ const getPrePlaygroundState = () => ({
         <div>
           <div>
             <h3 class="h6 mb-2">Log Output</h3>
-            <FdsPre
-              header="Application Logs"
-              :code="logOutput"
-            />
+            <FdsPre header="Application Logs" :code="logOutput" />
           </div>
 
           <div>
             <h3 class="h6 mb-2">Command Line</h3>
-            <FdsPre
-              header="Terminal Commands"
-              :code="terminalCommands"
-            />
+            <FdsPre header="Terminal Commands" :code="terminalCommands" />
           </div>
 
           <div>
             <h3 class="h6 mb-2">Data Format</h3>
-            <FdsPre
-              header="CSV Data"
-              :code="csvDataset"
-            />
+            <FdsPre header="CSV Data" :code="csvDataset" />
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Pre components preserve exact formatting including whitespace, making them ideal for
-          logs, command output, and structured data formats.
+          Pre components preserve exact formatting including whitespace, making them ideal for logs,
+          command output, and structured data formats.
         </p>
       </div>
     </Variant>
 
     <!-- Interactive playground -->
-    <Variant
-      title="Playground"
-      icon="carbon:game-console"
-      :init-state="getPrePlaygroundState"
-    >
+    <Variant title="Playground" icon="carbon:game-console" :init-state="getPrePlaygroundState">
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsPre
@@ -321,7 +295,7 @@ const getPrePlaygroundState = () => ({
           :options="[
             { value: 'code', label: 'Code String' },
             { value: 'json', label: 'JSON Object' },
-            { value: 'slot', label: 'Slot Content' }
+            { value: 'slot', label: 'Slot Content' },
           ]"
         />
 

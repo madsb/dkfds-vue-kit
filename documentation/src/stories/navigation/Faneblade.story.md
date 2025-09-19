@@ -77,49 +77,52 @@ import { FdsFanebladeNav, FdsFanebladeNavItem } from '@madsb/dkfds-vue3'
 
 ### FdsFaneblade
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| - | - | - | Container for tabs and panels using slots |
+| Prop | Type | Default | Description                               |
+| ---- | ---- | ------- | ----------------------------------------- |
+| -    | -    | -       | Container for tabs and panels using slots |
 
 **Slots:**
+
 - `tabs` - Contains fds-faneblade-tab components
 - `panels` - Contains fds-faneblade-panel components
 
 ### FdsFanebladeTab
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `id` | `string` | - | Unique identifier linking to panel |
-| `label` | `string` | - | Tab button text |
-| `active` | `boolean` | `false` | Whether tab is currently active |
-| `icon` | `string` | - | Optional DKFDS icon identifier |
+| Prop     | Type      | Default | Description                        |
+| -------- | --------- | ------- | ---------------------------------- |
+| `id`     | `string`  | -       | Unique identifier linking to panel |
+| `label`  | `string`  | -       | Tab button text                    |
+| `active` | `boolean` | `false` | Whether tab is currently active    |
+| `icon`   | `string`  | -       | Optional DKFDS icon identifier     |
 
 **Events:**
+
 - `click` - Emitted with tab id when clicked
 
 ### FdsFanebladePanel
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `id` | `string` | - | Identifier matching corresponding tab |
-| `active` | `boolean` | `false` | Whether panel is currently visible |
+| Prop     | Type      | Default | Description                           |
+| -------- | --------- | ------- | ------------------------------------- |
+| `id`     | `string`  | -       | Identifier matching corresponding tab |
+| `active` | `boolean` | `false` | Whether panel is currently visible    |
 
 ### FdsFanebladeNav
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `ariaLabel` | `string` | - | ARIA label for navigation context |
+| Prop        | Type     | Default | Description                       |
+| ----------- | -------- | ------- | --------------------------------- |
+| `ariaLabel` | `string` | -       | ARIA label for navigation context |
 
 ### FdsFanebladeNavItem
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `href` | `string` | - | Link destination URL |
-| `label` | `string` | - | Link text |
+| Prop     | Type      | Default | Description                      |
+| -------- | --------- | ------- | -------------------------------- |
+| `href`   | `string`  | -       | Link destination URL             |
+| `label`  | `string`  | -       | Link text                        |
 | `active` | `boolean` | `false` | Whether item is currently active |
-| `icon` | `string` | - | Optional DKFDS icon identifier |
+| `icon`   | `string`  | -       | Optional DKFDS icon identifier   |
 
 **Events:**
+
 - `click` - Emitted with click event for navigation handling
 
 ## Accessibility
@@ -150,6 +153,7 @@ import { FdsFanebladeNav, FdsFanebladeNavItem } from '@madsb/dkfds-vue3'
 ## Themes
 
 The faneblade components automatically adapt to the selected theme:
+
 - **Default**: Standard DKFDS styling with blue accent
 - **VirkDK**: Business-oriented styling for Virk.dk with corporate colors
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible design

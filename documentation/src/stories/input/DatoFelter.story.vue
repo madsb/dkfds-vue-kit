@@ -42,10 +42,7 @@ const resetValidation = () => {
               @valid="handleValidation"
               @dirty="handleDirty"
             />
-            <p>
-              Valid: {{ isValid ? 'Yes' : 'No' }} | 
-              Dirty: {{ isDirty ? 'Yes' : 'No' }}
-            </p>
+            <p>Valid: {{ isValid ? 'Yes' : 'No' }} | Dirty: {{ isDirty ? 'Yes' : 'No' }}</p>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Pre-filled Date</h3>
@@ -65,11 +62,7 @@ const resetValidation = () => {
       <div class="container py-6">
         <h3 class="h6 mb-2">Danish Date Format (DD/MM/YYYY)</h3>
         <div>
-          <FdsDatoFelter
-            v-model="validationDate"
-            @valid="handleValidation"
-            @dirty="handleDirty"
-          />
+          <FdsDatoFelter v-model="validationDate" @valid="handleValidation" @dirty="handleDirty" />
           <div>
             <span :class="{ valid: isValid, invalid: isDirty && !isValid }">
               {{ isValid ? '✓ Valid date' : isDirty ? '✗ Invalid date' : '○ Not validated' }}
@@ -109,40 +102,30 @@ const resetValidation = () => {
       <div class="container py-6">
         <h3 class="h6 mb-2">Auto-Tab Progression</h3>
         <p>
-          Type in the day field - after 2 digits, focus automatically moves to month field, 
-          then to year field for seamless data entry.
+          Type in the day field - after 2 digits, focus automatically moves to month field, then to
+          year field for seamless data entry.
         </p>
         <FdsDatoFelter v-model="basicDate" />
 
         <hr class="my-6" />
 
         <h3 class="h6 mb-2">Focus Selection</h3>
-        <p>
-          Click any field to focus and automatically select existing content for easy editing.
-        </p>
+        <p>Click any field to focus and automatically select existing content for easy editing.</p>
         <FdsDatoFelter v-model="disabledDate" />
 
         <hr class="my-6" />
 
         <h3 class="h6 mb-2">Keyboard Navigation</h3>
         <div>
-          <div>
-            <strong>Tab:</strong> Move between fields
-          </div>
-          <div>
-            <strong>Numbers only:</strong> Automatic validation
-          </div>
-          <div>
-            <strong>Auto-advance:</strong> After 2 digits (day/month)
-          </div>
-          <div>
-            <strong>Select all:</strong> On focus for easy editing
-          </div>
+          <div><strong>Tab:</strong> Move between fields</div>
+          <div><strong>Numbers only:</strong> Automatic validation</div>
+          <div><strong>Auto-advance:</strong> After 2 digits (day/month)</div>
+          <div><strong>Select all:</strong> On focus for easy editing</div>
         </div>
 
         <p class="mt-4 mb-0">
-          The component uses tel input type for better mobile keyboard support and includes
-          pattern validation to ensure only numbers are entered.
+          The component uses tel input type for better mobile keyboard support and includes pattern
+          validation to ensure only numbers are entered.
         </p>
       </div>
     </Variant>
@@ -157,15 +140,9 @@ const resetValidation = () => {
             <div>
               <strong>Labels:</strong> Each field has descriptive Danish labels (Dag, Måned, År)
             </div>
-            <div>
-              <strong>Titles:</strong> Tooltip guidance for each input field
-            </div>
-            <div>
-              <strong>Pattern:</strong> Input validation patterns for screen readers
-            </div>
-            <div>
-              <strong>ARIA:</strong> Semantic markup for date input group
-            </div>
+            <div><strong>Titles:</strong> Tooltip guidance for each input field</div>
+            <div><strong>Pattern:</strong> Input validation patterns for screen readers</div>
+            <div><strong>ARIA:</strong> Semantic markup for date input group</div>
           </div>
         </div>
 
@@ -173,15 +150,9 @@ const resetValidation = () => {
 
         <h3 class="h6 mb-2">Input Constraints</h3>
         <div>
-          <div>
-            <strong>Day:</strong> 1-31 (max 2 digits)
-          </div>
-          <div>
-            <strong>Month:</strong> 1-12 (max 2 digits)
-          </div>
-          <div>
-            <strong>Year:</strong> 1900-3000 (max 4 digits)
-          </div>
+          <div><strong>Day:</strong> 1-31 (max 2 digits)</div>
+          <div><strong>Month:</strong> 1-12 (max 2 digits)</div>
+          <div><strong>Year:</strong> 1900-3000 (max 4 digits)</div>
         </div>
 
         <p class="mt-4 mb-0">
@@ -213,9 +184,7 @@ const resetValidation = () => {
             />
 
             <div>
-              <div>
-                <strong>Model Value:</strong> {{ state.dateValue || 'empty' }}
-              </div>
+              <div><strong>Model Value:</strong> {{ state.dateValue || 'empty' }}</div>
               <div v-if="state.showValidation">
                 <strong>Valid:</strong> {{ isValid ? 'Yes' : 'No' }}
               </div>

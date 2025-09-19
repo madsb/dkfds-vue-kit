@@ -27,9 +27,7 @@ const handleValidationChange = () => {
         <div class="row">
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Single Checkbox</h3>
-            <FdsCheckbox v-model="singleCheck">
-              I agree to the terms and conditions
-            </FdsCheckbox>
+            <FdsCheckbox v-model="singleCheck"> I agree to the terms and conditions </FdsCheckbox>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Checkbox Group</h3>
@@ -51,9 +49,7 @@ const handleValidationChange = () => {
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Disabled State</h3>
-            <FdsCheckbox :model-value="true" disabled>
-              This option is disabled
-            </FdsCheckbox>
+            <FdsCheckbox :model-value="true" disabled> This option is disabled </FdsCheckbox>
           </div>
         </div>
         <p class="mt-4 mb-0">
@@ -80,21 +76,16 @@ const handleValidationChange = () => {
               <FdsCheckbox v-model="workFields" value="development">
                 Software Development
               </FdsCheckbox>
-              <FdsCheckbox v-model="workFields" value="design">
-                Design
-              </FdsCheckbox>
-              <FdsCheckbox v-model="workFields" value="management">
-                Management
-              </FdsCheckbox>
-              <FdsCheckbox v-model="workFields" value="sales">
-                Sales
-              </FdsCheckbox>
+              <FdsCheckbox v-model="workFields" value="design"> Design </FdsCheckbox>
+              <FdsCheckbox v-model="workFields" value="management"> Management </FdsCheckbox>
+              <FdsCheckbox v-model="workFields" value="sales"> Sales </FdsCheckbox>
             </div>
             <p class="mt-3 mb-0">Selected: {{ workFields.join(', ') || 'None' }}</p>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Checkbox groups allow multiple selections from a set of options. Individual checkboxes work with boolean values.
+          Checkbox groups allow multiple selections from a set of options. Individual checkboxes
+          work with boolean values.
         </p>
       </div>
     </Variant>
@@ -124,8 +115,8 @@ const handleValidationChange = () => {
             <template #default="{ formid, ariaDescribedby }">
               <FdsLabel :required="true">Required Checkbox</FdsLabel>
               <FdsHint>You must accept this to continue</FdsHint>
-              <FdsCheckbox 
-                v-model="validationCheck" 
+              <FdsCheckbox
+                v-model="validationCheck"
                 :aria-describedby="ariaDescribedby"
                 @change="handleValidationChange"
               >
@@ -138,7 +129,8 @@ const handleValidationChange = () => {
           </FdsFormgroup>
         </div>
         <p class="mt-4 mb-0">
-          Checkboxes integrate with the DKFDS form structure using FdsFormgroup, FdsLabel, FdsHint, and FdsFejlmeddelelse components.
+          Checkboxes integrate with the DKFDS form structure using FdsFormgroup, FdsLabel, FdsHint,
+          and FdsFejlmeddelelse components.
         </p>
       </div>
     </Variant>
@@ -167,7 +159,11 @@ const handleValidationChange = () => {
               :model-value="state.modelValue"
               :value="state.value"
               :disabled="state.disabled"
-              @update:model-value="(value) => { state.modelValue = value }"
+              @update:model-value="
+                (value) => {
+                  state.modelValue = value
+                }
+              "
             >
               {{ state.labelText }}
               <template v-if="state.withContent" #content>
@@ -182,7 +178,11 @@ const handleValidationChange = () => {
                 :model-value="state.arrayValues"
                 value="option1"
                 :disabled="state.disabled"
-                @update:model-value="(value) => { state.arrayValues = value }"
+                @update:model-value="
+                  (value) => {
+                    state.arrayValues = value
+                  }
+                "
               >
                 Option 1
               </FdsCheckbox>
@@ -190,7 +190,11 @@ const handleValidationChange = () => {
                 :model-value="state.arrayValues"
                 value="option2"
                 :disabled="state.disabled"
-                @update:model-value="(value) => { state.arrayValues = value }"
+                @update:model-value="
+                  (value) => {
+                    state.arrayValues = value
+                  }
+                "
               >
                 Option 2
               </FdsCheckbox>
@@ -198,7 +202,11 @@ const handleValidationChange = () => {
                 :model-value="state.arrayValues"
                 value="option3"
                 :disabled="state.disabled"
-                @update:model-value="(value) => { state.arrayValues = value }"
+                @update:model-value="
+                  (value) => {
+                    state.arrayValues = value
+                  }
+                "
               >
                 Option 3
               </FdsCheckbox>

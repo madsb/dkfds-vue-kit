@@ -42,36 +42,36 @@ const handleCancel = () => {
 
 ## Props
 
-| Prop         | Type      | Default     | Description                                      |
-| ------------ | --------- | ----------- | ------------------------------------------------ |
-| `header`     | `string`  | -           | Modal header text displayed as title            |
-| `id`         | `string`  | -           | Unique identifier (auto-generated if not set)   |
-| `closeable`  | `boolean` | `true`      | Allow closing with ESC key and X button         |
-| `acceptText` | `string`  | `'Godkend'` | Text for the primary action button              |
-| `cancelText` | `string`  | `'Annuller'`| Text for the cancel button                      |
+| Prop         | Type      | Default      | Description                                   |
+| ------------ | --------- | ------------ | --------------------------------------------- |
+| `header`     | `string`  | -            | Modal header text displayed as title          |
+| `id`         | `string`  | -            | Unique identifier (auto-generated if not set) |
+| `closeable`  | `boolean` | `true`       | Allow closing with ESC key and X button       |
+| `acceptText` | `string`  | `'Godkend'`  | Text for the primary action button            |
+| `cancelText` | `string`  | `'Annuller'` | Text for the cancel button                    |
 
 ## Events
 
-| Event    | Description                              |
-| -------- | ---------------------------------------- |
-| `accept` | Emitted when accept button is clicked    |
-| `cancel` | Emitted when cancel button is clicked    |
-| `close`  | Emitted when modal is closed by any means|
+| Event    | Description                               |
+| -------- | ----------------------------------------- |
+| `accept` | Emitted when accept button is clicked     |
+| `cancel` | Emitted when cancel button is clicked     |
+| `close`  | Emitted when modal is closed by any means |
 
 ## Slots
 
-| Slot     | Description                              |
-| -------- | ---------------------------------------- |
-| `default`| Main modal content                       |
-| `header` | Custom header content                    |
-| `footer` | Custom footer actions                    |
+| Slot      | Description           |
+| --------- | --------------------- |
+| `default` | Main modal content    |
+| `header`  | Custom header content |
+| `footer`  | Custom footer actions |
 
 ## Methods
 
-| Method      | Description                              |
-| ----------- | ---------------------------------------- |
-| `showModal` | Opens the modal dialog                   |
-| `hideModal` | Closes the modal dialog                  |
+| Method      | Description             |
+| ----------- | ----------------------- |
+| `showModal` | Opens the modal dialog  |
+| `hideModal` | Closes the modal dialog |
 
 ## Accessibility
 
@@ -103,6 +103,7 @@ const handleCancel = () => {
 ## Themes
 
 The modal component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral background
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

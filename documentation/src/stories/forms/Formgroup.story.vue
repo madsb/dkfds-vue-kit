@@ -6,7 +6,7 @@ import {
   FdsHint,
   FdsFejlmeddelelse,
   FdsInput,
-  FdsButton
+  FdsButton,
 } from '@madsb/dkfds-vue3'
 
 // Demo state
@@ -98,8 +98,8 @@ const resetForm = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The formgroup component follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how form structure adapts to different contexts.
+          The formgroup component follows DKFDS v11 design specifications. Try switching themes
+          using the global theme switcher to see how form structure adapts to different contexts.
         </p>
       </div>
     </Variant>
@@ -152,17 +152,13 @@ const resetForm = () => {
           </div>
 
           <div v-if="formSubmitted">
-            <p v-if="emailValid && passwordValid">
-              ✅ Form is valid and ready for submission
-            </p>
-            <p v-else>
-              ❌ Please fix the errors above
-            </p>
+            <p v-if="emailValid && passwordValid">✅ Form is valid and ready for submission</p>
+            <p v-else>❌ Please fix the errors above</p>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Try entering invalid data and clicking "Validate Form" to see error states.
-          Valid email needs @ symbol, password needs 6+ characters.
+          Try entering invalid data and clicking "Validate Form" to see error states. Valid email
+          needs @ symbol, password needs 6+ characters.
         </p>
       </div>
     </Variant>
@@ -217,8 +213,8 @@ const resetForm = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Formgroup provides consistent structure and accessibility regardless of input type.
-          All form controls inherit proper ARIA relationships automatically.
+          Formgroup provides consistent structure and accessibility regardless of input type. All
+          form controls inherit proper ARIA relationships automatically.
         </p>
       </div>
     </Variant>
@@ -239,9 +235,7 @@ const resetForm = () => {
                 placeholder="Enter username"
                 value="ab"
               />
-              <FdsFejlmeddelelse>
-                Username is too short (minimum 3 characters)
-              </FdsFejlmeddelelse>
+              <FdsFejlmeddelelse> Username is too short (minimum 3 characters) </FdsFejlmeddelelse>
             </template>
           </FdsFormgroup>
 
@@ -278,7 +272,7 @@ const resetForm = () => {
           isValid: true,
           showError: false,
           errorMessage: 'Please enter a valid email address',
-          placeholder: 'user@example.com'
+          placeholder: 'user@example.com',
         })
       "
     >
@@ -296,7 +290,7 @@ const resetForm = () => {
                 :type="state.inputType"
                 :placeholder="state.placeholder"
                 :modelValue="state.inputValue"
-                @update:modelValue="(value) => state.inputValue = value"
+                @update:modelValue="(value) => (state.inputValue = value)"
               />
               <FdsFejlmeddelelse v-if="state.showError && !state.isValid">
                 {{ state.errorMessage }}
@@ -321,7 +315,7 @@ const resetForm = () => {
             { value: 'tel', label: 'Telephone' },
             { value: 'url', label: 'URL' },
             { value: 'number', label: 'Number' },
-            { value: 'search', label: 'Search' }
+            { value: 'search', label: 'Search' },
           ]"
         />
 

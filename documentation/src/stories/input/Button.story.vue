@@ -85,7 +85,9 @@ const handleClick = () => {
             </div>
           </div>
         </div>
-        <p class="mt-4 mb-0">Click count: {{ clickCount }} - Disabled buttons prevent interaction.</p>
+        <p class="mt-4 mb-0">
+          Click count: {{ clickCount }} - Disabled buttons prevent interaction.
+        </p>
       </div>
     </Variant>
 
@@ -96,7 +98,9 @@ const handleClick = () => {
           <FdsButton class="mb-3" variant="primary" full-width-mobile>Submit Form</FdsButton>
           <FdsButton variant="secondary" full-width-mobile>Cancel</FdsButton>
         </div>
-        <p class="mt-4 mb-0">Resize the viewport to mobile size (< 768px) to see buttons expand to full width.</p>
+        <p class="mt-4 mb-0">
+          Resize the viewport to mobile size (< 768px) to see buttons expand to full width.
+        </p>
 
         <hr class="my-6" />
 
@@ -106,7 +110,9 @@ const handleClick = () => {
           <FdsButton variant="secondary">Preview</FdsButton>
           <FdsButton variant="primary">Publish</FdsButton>
         </div>
-        <p class="mt-4 mb-0">Button groups automatically adjust spacing and layout on mobile devices.</p>
+        <p class="mt-4 mb-0">
+          Button groups automatically adjust spacing and layout on mobile devices.
+        </p>
       </div>
     </Variant>
 

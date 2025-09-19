@@ -36,10 +36,30 @@ const handleLangCode = (lang: string) => {
             <h3 class="h5 mb-2">European Languages</h3>
             <FdsSprogvaelger
               :model-value="[
-                { title: 'Français', active: false, lang: 'fr', ariaLabel: 'Choisir la langue: Français' },
-                { title: 'Español', active: false, lang: 'es', ariaLabel: 'Seleccionar idioma: Español' },
-                { title: 'Italiano', active: true, lang: 'it', ariaLabel: 'Lingua selezionata: Italiano' },
-                { title: 'Nederlands', active: false, lang: 'nl', ariaLabel: 'Taal selecteren: Nederlands' },
+                {
+                  title: 'Français',
+                  active: false,
+                  lang: 'fr',
+                  ariaLabel: 'Choisir la langue: Français',
+                },
+                {
+                  title: 'Español',
+                  active: false,
+                  lang: 'es',
+                  ariaLabel: 'Seleccionar idioma: Español',
+                },
+                {
+                  title: 'Italiano',
+                  active: true,
+                  lang: 'it',
+                  ariaLabel: 'Lingua selezionata: Italiano',
+                },
+                {
+                  title: 'Nederlands',
+                  active: false,
+                  lang: 'nl',
+                  ariaLabel: 'Taal selecteren: Nederlands',
+                },
               ]"
             />
           </div>
@@ -47,9 +67,27 @@ const handleLangCode = (lang: string) => {
             <h3 class="h5 mb-2">With Custom URLs</h3>
             <FdsSprogvaelger
               :model-value="[
-                { title: 'Dansk', active: true, lang: 'da', ariaLabel: 'Valgt sprog: Dansk', href: '/da' },
-                { title: 'English', active: false, lang: 'en', ariaLabel: 'Select language: English', href: '/en' },
-                { title: 'Svenska', active: false, lang: 'sv', ariaLabel: 'Välj språk: Svenska', href: '/sv' },
+                {
+                  title: 'Dansk',
+                  active: true,
+                  lang: 'da',
+                  ariaLabel: 'Valgt sprog: Dansk',
+                  href: '/da',
+                },
+                {
+                  title: 'English',
+                  active: false,
+                  lang: 'en',
+                  ariaLabel: 'Select language: English',
+                  href: '/en',
+                },
+                {
+                  title: 'Svenska',
+                  active: false,
+                  lang: 'sv',
+                  ariaLabel: 'Välj språk: Svenska',
+                  href: '/sv',
+                },
               ]"
               :prevent-default="false"
             />
@@ -57,8 +95,8 @@ const handleLangCode = (lang: string) => {
         </div>
         <p class="mt-4 mb-0">
           The language selector follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how the component adapts to different contexts.
-          Active languages are displayed first with a check mark icon.
+          the global theme switcher to see how the component adapts to different contexts. Active
+          languages are displayed first with a check mark icon.
         </p>
       </div>
     </Variant>
@@ -77,13 +115,15 @@ const handleLangCode = (lang: string) => {
           <div>
             <h3 class="h6 mb-2">Current Active Language</h3>
             <div>
-              {{ demoLanguages.find(l => l.active)?.title }} ({{ demoLanguages.find(l => l.active)?.lang }})
+              {{ demoLanguages.find((l) => l.active)?.title }} ({{
+                demoLanguages.find((l) => l.active)?.lang
+              }})
             </div>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Click any language to switch. This example has `autoSetLang` enabled, which updates the document's
-          language attribute. Check the browser console to see emitted events.
+          Click any language to switch. This example has `autoSetLang` enabled, which updates the
+          document's language attribute. Check the browser console to see emitted events.
         </p>
       </div>
     </Variant>
@@ -96,7 +136,12 @@ const handleLangCode = (lang: string) => {
           <FdsSprogvaelger
             :model-value="[
               { title: 'Dansk', active: true, lang: 'da', ariaLabel: 'Valgt sprog: Dansk' },
-              { title: 'English', active: false, lang: 'en', ariaLabel: 'Select language: English' },
+              {
+                title: 'English',
+                active: false,
+                lang: 'en',
+                ariaLabel: 'Select language: English',
+              },
               { title: 'العربية', active: false, lang: 'ar', ariaLabel: 'اختر اللغة: العربية' },
             ]"
           />
@@ -114,8 +159,8 @@ const handleLangCode = (lang: string) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The component includes comprehensive accessibility features for screen readers.
-          Test with keyboard navigation (Tab to focus, Enter/Space to activate).
+          The component includes comprehensive accessibility features for screen readers. Test with
+          keyboard navigation (Tab to focus, Enter/Space to activate).
         </p>
       </div>
     </Variant>
@@ -128,7 +173,12 @@ const handleLangCode = (lang: string) => {
           <FdsSprogvaelger
             :model-value="[
               { title: 'Dansk', active: false, lang: 'da', ariaLabel: 'Vælg sprog: Dansk' },
-              { title: 'English', active: true, lang: 'en', ariaLabel: 'Selected language: English' },
+              {
+                title: 'English',
+                active: true,
+                lang: 'en',
+                ariaLabel: 'Selected language: English',
+              },
               { title: 'Norsk', active: false, lang: 'no', ariaLabel: 'Velg språk: Norsk' },
             ]"
             :prevent-default="true"
@@ -138,9 +188,11 @@ const handleLangCode = (lang: string) => {
 
           <div>
             <h4>Event Usage:</h4>
-            <pre>@language-change="handleLanguageChange"
+            <pre>
+@language-change="handleLanguageChange"
 @lang="handleLangCode"
-@update:modelValue="updateLanguages"</pre>
+@update:modelValue="updateLanguages"</pre
+            >
           </div>
         </div>
         <p class="mt-4 mb-0">
@@ -172,15 +224,17 @@ const handleLangCode = (lang: string) => {
             :model-value="state.languages"
             :auto-set-lang="state.autoSetLang"
             :prevent-default="state.preventDefault"
-            @update:model-value="(newLangs) => { state.languages = newLangs }"
+            @update:model-value="
+              (newLangs) => {
+                state.languages = newLangs
+              }
+            "
             @language-change="(lang) => console.log('Language changed:', lang)"
             @lang="(code) => console.log('Lang code:', code)"
           />
 
           <div>
-            <p>
-              Active: {{ state.languages.find(l => l.active)?.title }}
-            </p>
+            <p>Active: {{ state.languages.find((l) => l.active)?.title }}</p>
           </div>
         </div>
       </template>
@@ -194,13 +248,19 @@ const handleLangCode = (lang: string) => {
           <div v-for="(lang, index) in state.languages" :key="index">
             <HstText v-model="lang.title" :title="`Language ${index + 1} Title`" />
             <HstText v-model="lang.lang" :title="`Language ${index + 1} Code`" />
-            <HstCheckbox v-model="lang.active" :title="`Active Language ${index + 1}`" @update:model-value="(active) => {
-              if (active) {
-                state.languages.forEach((l, i) => {
-                  l.active = i === index
-                })
-              }
-            }" />
+            <HstCheckbox
+              v-model="lang.active"
+              :title="`Active Language ${index + 1}`"
+              @update:model-value="
+                (active) => {
+                  if (active) {
+                    state.languages.forEach((l, i) => {
+                      l.active = i === index
+                    })
+                  }
+                }
+              "
+            />
           </div>
         </div>
       </template>

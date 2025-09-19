@@ -5,12 +5,10 @@ Card and card group components for displaying content in organized, clickable co
 ## Usage
 
 ### Basic Card
+
 ```vue
 <template>
-  <FdsCard
-    header="Card Title"
-    subheader="Category"
-  >
+  <FdsCard header="Card Title" subheader="Category">
     This is the main content of the card.
   </FdsCard>
 </template>
@@ -21,25 +19,20 @@ import { FdsCard } from '@madsb/dkfds-vue3'
 ```
 
 ### Navigation Card
+
 ```vue
 <template>
-  <FdsCard
-    header="Article Title"
-    subheader="News"
-    :to="{ name: 'article', params: { id: 123 } }"
-  >
+  <FdsCard header="Article Title" subheader="News" :to="{ name: 'article', params: { id: 123 } }">
     Click this entire card to navigate to the article.
   </FdsCard>
 </template>
 ```
 
 ### Card with Image and Actions
+
 ```vue
 <template>
-  <FdsCard
-    header="Product Name"
-    subheader="Category"
-  >
+  <FdsCard header="Product Name" subheader="Category">
     <template #image>
       <img src="/product-image.jpg" alt="Product preview" />
     </template>
@@ -53,6 +46,7 @@ import { FdsCard } from '@madsb/dkfds-vue3'
 ```
 
 ### Card Groups
+
 ```vue
 <template>
   <!-- Default responsive grid -->
@@ -78,26 +72,26 @@ import { FdsCard } from '@madsb/dkfds-vue3'
 
 ## FdsCard Props
 
-| Prop        | Type                               | Default | Description                                    |
-| ----------- | ---------------------------------- | ------- | ---------------------------------------------- |
-| `header`    | `string`                          | -       | Main heading text for the card                |
+| Prop        | Type                                   | Default | Description                                   |
+| ----------- | -------------------------------------- | ------- | --------------------------------------------- |
+| `header`    | `string`                               | -       | Main heading text for the card                |
 | `headerTag` | `'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6'` | `'h2'`  | HTML heading tag level for semantic structure |
-| `subheader` | `string`                          | -       | Secondary text displayed above main header    |
-| `to`        | `string \| Record<string, any>`    | -       | Navigation destination (URL or router object) |
-| `external`  | `boolean`                         | `false` | Force external link behavior                   |
-| `icon`      | `string`                          | -       | Icon for navigation cards                      |
-| `variant`   | `'long'`                          | -       | Visual variant affecting layout                |
+| `subheader` | `string`                               | -       | Secondary text displayed above main header    |
+| `to`        | `string \| Record<string, any>`        | -       | Navigation destination (URL or router object) |
+| `external`  | `boolean`                              | `false` | Force external link behavior                  |
+| `icon`      | `string`                               | -       | Icon for navigation cards                     |
+| `variant`   | `'long'`                               | -       | Visual variant affecting layout               |
 
 ## FdsCardGroup Props
 
-| Prop   | Type                             | Default | Description                           |
-| ------ | -------------------------------- | ------- | ------------------------------------- |
-| `type` | `'deck' \| 'columns' \| null`     | `null`  | Layout type for card arrangement      |
+| Prop   | Type                          | Default | Description                      |
+| ------ | ----------------------------- | ------- | -------------------------------- |
+| `type` | `'deck' \| 'columns' \| null` | `null`  | Layout type for card arrangement |
 
 ## Card Slots
 
-| Slot      | Description                                    |
-| --------- | ---------------------------------------------- |
+| Slot      | Description                                   |
+| --------- | --------------------------------------------- |
 | `image`   | Visual content displayed at the top of card   |
 | `header`  | Custom header content (overrides header prop) |
 | `content` | Named slot for main content                   |
@@ -106,9 +100,9 @@ import { FdsCard } from '@madsb/dkfds-vue3'
 
 ## Events
 
-| Event   | Description                              |
-| ------- | ---------------------------------------- |
-| `click` | Emitted when navigation card is clicked  |
+| Event   | Description                             |
+| ------- | --------------------------------------- |
+| `click` | Emitted when navigation card is clicked |
 
 ## Accessibility
 
@@ -121,23 +115,27 @@ import { FdsCard } from '@madsb/dkfds-vue3'
 ## Design Guidelines
 
 ### When to Use Cards
+
 - Displaying related information as a cohesive unit
 - Creating navigational elements to other pages or sections
 - Organizing content in dashboard or listing interfaces
 - Presenting products, articles, or services
 
 ### Card Groups
+
 - **Default**: Responsive grid that adapts to viewport
 - **Deck**: Use when cards should have equal heights
 - **Columns**: Use for content feeds or masonry-style layouts
 
 ### Navigation Cards
+
 - Entire card becomes clickable when `to` prop is provided
 - Automatically detects internal vs external links
 - Shows appropriate icons (arrow-forward for internal, open-in-new for external)
 - Supports both string URLs and Vue Router location objects
 
 ### Content Organization
+
 - Use `subheader` for categories, dates, or tags
 - Place primary actions in the `actions` slot
 - Use appropriate header tag levels for document hierarchy
@@ -146,6 +144,7 @@ import { FdsCard } from '@madsb/dkfds-vue3'
 ## Themes
 
 The card components automatically adapt to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral colors
 - **VirkDK**: Business-oriented styling for Virk.dk with professional appearance
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible design

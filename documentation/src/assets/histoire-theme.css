@@ -3,7 +3,8 @@
 /* Reset Histoire's default styles that might conflict */
 .histoire-app {
   /* Use system fonts for Histoire UI to avoid DKFDS font interference */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
 }
 
 /* Ensure story iframe has proper isolation */
@@ -24,7 +25,13 @@
 /* Ensure DKFDS styles only apply within story content */
 .story-content {
   /* This class will wrap our actual component demos */
-  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'IBM Plex Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
 }
 
 /* Global theme switcher positioning */

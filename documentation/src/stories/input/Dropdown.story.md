@@ -27,18 +27,18 @@ const handleChange = (event) => {
 
 ## Props
 
-| Prop         | Type     | Default | Description                                      |
-| ------------ | -------- | ------- | ------------------------------------------------ |
+| Prop         | Type     | Default | Description                                        |
+| ------------ | -------- | ------- | -------------------------------------------------- |
 | `id`         | `string` | -       | Unique identifier (auto-generated if not provided) |
-| `modelValue` | `string` | `''`    | The v-model value for two-way data binding      |
+| `modelValue` | `string` | `''`    | The v-model value for two-way data binding         |
 
 ## Events
 
-| Event                | Description                                          |
-| -------------------- | ---------------------------------------------------- |
-| `update:modelValue`  | Emitted when selection changes (v-model binding)    |
-| `change`             | Emitted on change event with raw DOM event          |
-| `dirty`              | Emitted when dropdown loses focus after interaction |
+| Event               | Description                                         |
+| ------------------- | --------------------------------------------------- |
+| `update:modelValue` | Emitted when selection changes (v-model binding)    |
+| `change`            | Emitted on change event with raw DOM event          |
+| `dirty`             | Emitted when dropdown loses focus after interaction |
 
 ## Accessibility
 
@@ -117,6 +117,7 @@ Generate options from data arrays:
 ## Themes
 
 The dropdown component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral colors
 - **VirkDK**: Business-oriented styling for Virk.dk with professional appearance
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible design

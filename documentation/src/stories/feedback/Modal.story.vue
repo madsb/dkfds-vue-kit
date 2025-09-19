@@ -38,7 +38,9 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
         <div class="row">
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Basic Modal</h3>
-            <FdsButton variant="primary" @click="openModal(basicModalRef)">Open Basic Modal</FdsButton>
+            <FdsButton variant="primary" @click="openModal(basicModalRef)"
+              >Open Basic Modal</FdsButton
+            >
             <FdsModal
               ref="basicModalRef"
               header="Basic Modal"
@@ -53,7 +55,9 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
 
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With Scrollable Content</h3>
-            <FdsButton variant="secondary" @click="openModal(largeContentModalRef)">Open Scrollable Modal</FdsButton>
+            <FdsButton variant="secondary" @click="openModal(largeContentModalRef)"
+              >Open Scrollable Modal</FdsButton
+            >
             <FdsModal
               ref="largeContentModalRef"
               header="Terms and Conditions"
@@ -63,34 +67,83 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
               @cancel="handleCancel"
             >
               <div>
-                <p>This modal contains a lot of content that demonstrates scrolling behavior within the modal body.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+                <p>
+                  This modal contains a lot of content that demonstrates scrolling behavior within
+                  the modal body.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua.
+                </p>
+                <p>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat.
+                </p>
+                <p>
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                  fugiat nulla pariatur.
+                </p>
+                <p>
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </p>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                  doloremque laudantium.
+                </p>
+                <p>
+                  Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt.
+                </p>
+                <p>
+                  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
+                  quia consequuntur magni dolores.
+                </p>
               </div>
             </FdsModal>
           </div>
 
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Custom Actions</h3>
-            <FdsButton variant="tertiary" @click="openModal(customModalRef)">Open Custom Modal</FdsButton>
+            <FdsButton variant="tertiary" @click="openModal(customModalRef)"
+              >Open Custom Modal</FdsButton
+            >
             <FdsModal ref="customModalRef" header="Save Document">
               <p>Would you like to save your changes before closing?</p>
               <template #footer>
-                <FdsButton variant="primary" @click="handleCustomAction('save-close'); customModalRef.hideModal()">Save & Close</FdsButton>
-                <FdsButton variant="secondary" @click="handleCustomAction('save'); customModalRef.hideModal()">Save Only</FdsButton>
-                <FdsButton variant="tertiary" @click="handleCustomAction('discard'); customModalRef.hideModal()">Discard</FdsButton>
+                <FdsButton
+                  variant="primary"
+                  @click="
+                    handleCustomAction('save-close')
+                    customModalRef.hideModal()
+                  "
+                  >Save & Close</FdsButton
+                >
+                <FdsButton
+                  variant="secondary"
+                  @click="
+                    handleCustomAction('save')
+                    customModalRef.hideModal()
+                  "
+                  >Save Only</FdsButton
+                >
+                <FdsButton
+                  variant="tertiary"
+                  @click="
+                    handleCustomAction('discard')
+                    customModalRef.hideModal()
+                  "
+                  >Discard</FdsButton
+                >
               </template>
             </FdsModal>
           </div>
 
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Non-Closeable</h3>
-            <FdsButton variant="warning" @click="openModal(confirmModalRef)">Critical Action</FdsButton>
+            <FdsButton variant="warning" @click="openModal(confirmModalRef)"
+              >Critical Action</FdsButton
+            >
             <FdsModal
               ref="confirmModalRef"
               header="Confirm Deletion"
@@ -100,14 +153,18 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
               @accept="handleAccept"
               @cancel="handleCancel"
             >
-              <p><strong>Warning:</strong> This action cannot be undone. Are you sure you want to delete this item?</p>
+              <p>
+                <strong>Warning:</strong> This action cannot be undone. Are you sure you want to
+                delete this item?
+              </p>
             </FdsModal>
           </div>
         </div>
 
         <p class="mt-4 mb-0">
-          The modal component follows DKFDS v11 design specifications with proper focus management and keyboard navigation. 
-          Try switching themes using the global theme switcher to see how modals adapt to different contexts.
+          The modal component follows DKFDS v11 design specifications with proper focus management
+          and keyboard navigation. Try switching themes using the global theme switcher to see how
+          modals adapt to different contexts.
         </p>
       </div>
     </Variant>
@@ -125,7 +182,9 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
             <li><strong>Return Focus:</strong> Returns focus to triggering element when closed</li>
           </ul>
 
-          <FdsButton variant="primary" @click="openModal(basicModalRef)">Test Focus Management</FdsButton>
+          <FdsButton variant="primary" @click="openModal(basicModalRef)"
+            >Test Focus Management</FdsButton
+          >
         </div>
 
         <hr class="my-6" />
@@ -141,7 +200,8 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Try opening a modal and using keyboard navigation (Tab, Shift+Tab, ESC) to test accessibility features.
+          Try opening a modal and using keyboard navigation (Tab, Shift+Tab, ESC) to test
+          accessibility features.
         </p>
       </div>
     </Variant>
@@ -152,17 +212,23 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
         <div>
           <div>
             <h3 class="h6 mb-2">With Custom Header</h3>
-            <FdsButton variant="secondary" @click="openModal(customModalRef)">Custom Header</FdsButton>
+            <FdsButton variant="secondary" @click="openModal(customModalRef)"
+              >Custom Header</FdsButton
+            >
           </div>
 
           <div>
             <h3 class="h6 mb-2">Action Confirmation</h3>
-            <FdsButton variant="warning" @click="openModal(confirmModalRef)">Destructive Action</FdsButton>
+            <FdsButton variant="warning" @click="openModal(confirmModalRef)"
+              >Destructive Action</FdsButton
+            >
           </div>
 
           <div>
             <h3 class="h6 mb-2">Information Display</h3>
-            <FdsButton variant="tertiary" @click="openModal(largeContentModalRef)">Show Details</FdsButton>
+            <FdsButton variant="tertiary" @click="openModal(largeContentModalRef)"
+              >Show Details</FdsButton
+            >
           </div>
         </div>
 
@@ -174,7 +240,7 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Different modal configurations serve various purposes: confirmations, information display, 
+          Different modal configurations serve various purposes: confirmations, information display,
           multi-step workflows, and critical actions that require user attention.
         </p>
       </div>

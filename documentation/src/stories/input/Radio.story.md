@@ -23,56 +23,56 @@ const selectedValue = ref('option1')
 
 ## FdsRadioGroup Props
 
-| Prop         | Type                                | Default     | Description                                        |
-| ------------ | ----------------------------------- | ----------- | -------------------------------------------------- |
-| `modelValue` | `string \| number \| boolean \| null` | `null`      | The v-model value for the selected option         |
-| `id`         | `string`                            | -           | Unique identifier (auto-generated if not provided) |
-| `label`      | `string`                            | -           | Label for the radio group (required)              |
-| `helpText`   | `string`                            | `''`        | Help text providing additional context             |
-| `name`       | `string`                            | -           | Name attribute for radio inputs                    |
+| Prop         | Type                                  | Default | Description                                        |
+| ------------ | ------------------------------------- | ------- | -------------------------------------------------- |
+| `modelValue` | `string \| number \| boolean \| null` | `null`  | The v-model value for the selected option          |
+| `id`         | `string`                              | -       | Unique identifier (auto-generated if not provided) |
+| `label`      | `string`                              | -       | Label for the radio group (required)               |
+| `helpText`   | `string`                              | `''`    | Help text providing additional context             |
+| `name`       | `string`                              | -       | Name attribute for radio inputs                    |
 
 ## FdsRadioItem Props
 
-| Prop       | Type                            | Default | Description                                           |
-| ---------- | ------------------------------- | ------- | ----------------------------------------------------- |
-| `value`    | `string \| number \| boolean`     | -       | Value for this radio option (required)               |
-| `index`    | `string`                        | -       | Index identifier for unique ID generation            |
-| `id`       | `string`                        | -       | Unique identifier (auto-generated if not provided)   |
-| `disabled` | `boolean`                       | `false` | Whether the radio button is disabled                 |
-| `name`     | `string`                        | -       | Name attribute (usually inherited from radio group)  |
+| Prop       | Type                          | Default | Description                                         |
+| ---------- | ----------------------------- | ------- | --------------------------------------------------- |
+| `value`    | `string \| number \| boolean` | -       | Value for this radio option (required)              |
+| `index`    | `string`                      | -       | Index identifier for unique ID generation           |
+| `id`       | `string`                      | -       | Unique identifier (auto-generated if not provided)  |
+| `disabled` | `boolean`                     | `false` | Whether the radio button is disabled                |
+| `name`     | `string`                      | -       | Name attribute (usually inherited from radio group) |
 
 ## Events
 
 ### FdsRadioGroup Events
 
-| Event                | Description                                      |
-| -------------------- | ------------------------------------------------ |
-| `update:modelValue`  | Emitted when radio selection changes            |
-| `dirty`              | Emitted when any radio button loses focus       |
+| Event               | Description                               |
+| ------------------- | ----------------------------------------- |
+| `update:modelValue` | Emitted when radio selection changes      |
+| `dirty`             | Emitted when any radio button loses focus |
 
 ### FdsRadioItem Events
 
-| Event    | Description                                      |
-| -------- | ------------------------------------------------ |
-| `dirty`  | Emitted when radio button loses focus           |
-| `change` | Emitted on change event                          |
+| Event    | Description                           |
+| -------- | ------------------------------------- |
+| `dirty`  | Emitted when radio button loses focus |
+| `change` | Emitted on change event               |
 
 ## Slots
 
 ### FdsRadioGroup Slots
 
-| Slot     | Description                     |
-| -------- | ------------------------------- |
-| `label`  | Custom content for the label   |
-| `help`   | Custom content for help text    |
-| default  | Radio items content             |
+| Slot    | Description                  |
+| ------- | ---------------------------- |
+| `label` | Custom content for the label |
+| `help`  | Custom content for help text |
+| default | Radio items content          |
 
 ### FdsRadioItem Slots
 
-| Slot      | Description                                    |
-| --------- | ---------------------------------------------- |
-| default   | Label content for the radio option            |
-| `content` | Conditional content shown when selected        |
+| Slot      | Description                             |
+| --------- | --------------------------------------- |
+| default   | Label content for the radio option      |
+| `content` | Conditional content shown when selected |
 
 ## Accessibility
 
@@ -109,6 +109,7 @@ Radio items can display additional content when selected using the `content` slo
 ## Themes
 
 The radio components automatically adapt to the selected theme:
+
 - **Default**: Standard DKFDS styling with blue selection indicators
 - **VirkDK**: Business-oriented styling for Virk.dk with appropriate brand colors
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible contrast ratios

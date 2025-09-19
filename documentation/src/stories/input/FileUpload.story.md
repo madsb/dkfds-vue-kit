@@ -34,38 +34,38 @@ const handleFileError = (error) => {
 
 ## Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `id` | `string` | auto-generated | Unique identifier for the file input |
-| `name` | `string` | `''` | Input name attribute for form submission |
-| `label` | `string` | `'Vælg fil'` | Label text displayed above the input |
-| `showLabel` | `boolean` | `true` | Whether to show the label element |
-| `hint` | `string` | `''` | Hint text to provide guidance |
-| `accept` | `string[]` | `['image/png', 'image/jpg', 'image/jpeg', '.pdf', '.doc', '.docx', '.odt']` | Accepted file types |
-| `multiple` | `boolean` | `false` | Enable selection of multiple files |
-| `maxFileSize` | `number` | `5242880` | Maximum file size in bytes (5MB) |
-| `maxFiles` | `number` | `10` | Maximum number of files (when multiple) |
-| `disabled` | `boolean` | `false` | Whether the input is disabled |
-| `required` | `boolean` | `false` | Whether the input is required |
-| `error` | `string` | `''` | Error message to display |
-| `removeContentHeaders` | `boolean` | `false` | Remove content headers from base64 data |
-| `showFileList` | `boolean` | `true` | Display list of selected files |
-| `removable` | `boolean` | `true` | Allow users to remove selected files |
-| `requiredText` | `string` | `'Obligatorisk felt'` | Text for required field indicator |
-| `ariaLive` | `'polite' \| 'assertive'` | `'polite'` | ARIA live region politeness |
-| `fileListAriaLabel` | `string` | `'Valgte filer'` | ARIA label for file list |
-| `removeFileText` | `string` | `'Fjern fil'` | Text for remove file button |
+| Prop                   | Type                      | Default                                                                     | Description                              |
+| ---------------------- | ------------------------- | --------------------------------------------------------------------------- | ---------------------------------------- |
+| `id`                   | `string`                  | auto-generated                                                              | Unique identifier for the file input     |
+| `name`                 | `string`                  | `''`                                                                        | Input name attribute for form submission |
+| `label`                | `string`                  | `'Vælg fil'`                                                                | Label text displayed above the input     |
+| `showLabel`            | `boolean`                 | `true`                                                                      | Whether to show the label element        |
+| `hint`                 | `string`                  | `''`                                                                        | Hint text to provide guidance            |
+| `accept`               | `string[]`                | `['image/png', 'image/jpg', 'image/jpeg', '.pdf', '.doc', '.docx', '.odt']` | Accepted file types                      |
+| `multiple`             | `boolean`                 | `false`                                                                     | Enable selection of multiple files       |
+| `maxFileSize`          | `number`                  | `5242880`                                                                   | Maximum file size in bytes (5MB)         |
+| `maxFiles`             | `number`                  | `10`                                                                        | Maximum number of files (when multiple)  |
+| `disabled`             | `boolean`                 | `false`                                                                     | Whether the input is disabled            |
+| `required`             | `boolean`                 | `false`                                                                     | Whether the input is required            |
+| `error`                | `string`                  | `''`                                                                        | Error message to display                 |
+| `removeContentHeaders` | `boolean`                 | `false`                                                                     | Remove content headers from base64 data  |
+| `showFileList`         | `boolean`                 | `true`                                                                      | Display list of selected files           |
+| `removable`            | `boolean`                 | `true`                                                                      | Allow users to remove selected files     |
+| `requiredText`         | `string`                  | `'Obligatorisk felt'`                                                       | Text for required field indicator        |
+| `ariaLive`             | `'polite' \| 'assertive'` | `'polite'`                                                                  | ARIA live region politeness              |
+| `fileListAriaLabel`    | `string`                  | `'Valgte filer'`                                                            | ARIA label for file list                 |
+| `removeFileText`       | `string`                  | `'Fjern fil'`                                                               | Text for remove file button              |
 
 ## Events
 
-| Event | Description |
-| ----- | ----------- |
-| `blur` | Emitted when input loses focus |
-| `focus` | Emitted when input gains focus |
-| `upload` | Emitted when files are successfully processed |
-| `error` | Emitted when validation or processing error occurs |
-| `dirty` | Emitted when input becomes dirty (user interacted) |
-| `remove-file` | Emitted when a file is removed from the list |
+| Event         | Description                                        |
+| ------------- | -------------------------------------------------- |
+| `blur`        | Emitted when input loses focus                     |
+| `focus`       | Emitted when input gains focus                     |
+| `upload`      | Emitted when files are successfully processed      |
+| `error`       | Emitted when validation or processing error occurs |
+| `dirty`       | Emitted when input becomes dirty (user interacted) |
+| `remove-file` | Emitted when a file is removed from the list       |
 
 ## Accessibility
 
@@ -98,6 +98,7 @@ The component provides comprehensive file validation:
 ## Common Patterns
 
 ### Document Upload
+
 ```vue
 <FdsFileUpload
   label="Upload Supporting Documents"
@@ -109,6 +110,7 @@ The component provides comprehensive file validation:
 ```
 
 ### Image Gallery
+
 ```vue
 <FdsFileUpload
   label="Upload Images"
@@ -120,6 +122,7 @@ The component provides comprehensive file validation:
 ```
 
 ### Single Required File
+
 ```vue
 <FdsFileUpload
   label="Upload CV"
@@ -132,6 +135,7 @@ The component provides comprehensive file validation:
 ## Themes
 
 The file upload component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral colors
 - **VirkDK**: Business-oriented styling for Virk.dk with corporate colors
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible colors

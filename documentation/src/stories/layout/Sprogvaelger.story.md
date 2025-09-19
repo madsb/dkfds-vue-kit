@@ -6,10 +6,7 @@ The language selector component (sprogvælger) provides language switching funct
 
 ```vue
 <template>
-  <FdsSprogvaelger
-    v-model="languages"
-    @language-change="handleLanguageChange"
-  />
+  <FdsSprogvaelger v-model="languages" @language-change="handleLanguageChange" />
 </template>
 
 <script setup>
@@ -30,29 +27,29 @@ const handleLanguageChange = (language) => {
 
 ## Props
 
-| Prop            | Type                      | Default | Description                                        |
-| --------------- | ------------------------- | ------- | -------------------------------------------------- |
-| `modelValue`    | `ExtendedFdsLanguageItem[]` | -       | Array of available languages with selection state |
-| `autoSetLang`   | `boolean`                 | `false` | Automatically set document language attribute      |
-| `preventDefault` | `boolean`                | `true`  | Prevent default link navigation behavior          |
+| Prop             | Type                        | Default | Description                                       |
+| ---------------- | --------------------------- | ------- | ------------------------------------------------- |
+| `modelValue`     | `ExtendedFdsLanguageItem[]` | -       | Array of available languages with selection state |
+| `autoSetLang`    | `boolean`                   | `false` | Automatically set document language attribute     |
+| `preventDefault` | `boolean`                   | `true`  | Prevent default link navigation behavior          |
 
 ## Events
 
-| Event              | Description                                    |
-| ------------------ | ---------------------------------------------- |
-| `update:modelValue` | Emitted when the language array is updated   |
-| `language-change`  | Emitted when a language is selected          |
-| `lang`             | Emitted when language code changes           |
+| Event               | Description                                |
+| ------------------- | ------------------------------------------ |
+| `update:modelValue` | Emitted when the language array is updated |
+| `language-change`   | Emitted when a language is selected        |
+| `lang`              | Emitted when language code changes         |
 
 ## Language Item Structure
 
 ```typescript
 interface FdsLanguageItem {
-  title: string      // Display name (e.g., "Dansk", "English")
-  active: boolean    // Whether this is the currently active language
-  lang: string       // Language code (e.g., "da", "en")
-  ariaLabel: string  // Accessibility label (e.g., "Valgt sprog: Dansk")
-  href?: string      // Optional custom URL for navigation
+  title: string // Display name (e.g., "Dansk", "English")
+  active: boolean // Whether this is the currently active language
+  lang: string // Language code (e.g., "da", "en")
+  ariaLabel: string // Accessibility label (e.g., "Valgt sprog: Dansk")
+  href?: string // Optional custom URL for navigation
 }
 ```
 
@@ -77,34 +74,27 @@ interface FdsLanguageItem {
 ## Event Handling Patterns
 
 ### URL-Based Navigation
+
 ```vue
-<FdsSprogvaelger
-  :model-value="languagesWithUrls"
-  :prevent-default="false"
-/>
+<FdsSprogvaelger :model-value="languagesWithUrls" :prevent-default="false" />
 ```
 
 ### Event-Based Switching
+
 ```vue
-<FdsSprogvaelger
-  v-model="languages"
-  :prevent-default="true"
-  @language-change="switchLanguage"
-/>
+<FdsSprogvaelger v-model="languages" :prevent-default="true" @language-change="switchLanguage" />
 ```
 
 ### Document Language Management
+
 ```vue
-<FdsSprogvaelger
-  v-model="languages"
-  :auto-set-lang="true"
-  @lang="updateAppLanguage"
-/>
+<FdsSprogvaelger v-model="languages" :auto-set-lang="true" @lang="updateAppLanguage" />
 ```
 
 ## Themes
 
 The language selector automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

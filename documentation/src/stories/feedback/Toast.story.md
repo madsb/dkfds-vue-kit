@@ -30,7 +30,7 @@ const { showSuccess } = useToast()
 const showSuccessToast = () => {
   showSuccess('Operation completed successfully!', {
     heading: 'Success',
-    autoDismiss: 3000
+    autoDismiss: 3000,
   })
 }
 </script>
@@ -40,15 +40,15 @@ const showSuccessToast = () => {
 
 ### FdsToast
 
-| Prop          | Type                                      | Default   | Description                                    |
-| ------------- | ----------------------------------------- | --------- | ---------------------------------------------- |
+| Prop          | Type                                          | Default   | Description                                    |
+| ------------- | --------------------------------------------- | --------- | ---------------------------------------------- |
 | `type`        | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'`  | Semantic type affecting icon and styling       |
-| `heading`     | `string`                                  | -         | Main heading text displayed prominently       |
-| `message`     | `string`                                  | -         | Detailed message text                          |
-| `closable`    | `boolean`                                 | `true`    | Whether users can manually dismiss the toast  |
-| `id`          | `string`                                  | generated | Unique identifier for the toast element       |
-| `autoDismiss` | `number`                                  | `0`       | Auto-dismiss timeout in milliseconds (0 = off) |
-| `visible`     | `boolean`                                 | `false`   | Controls toast visibility state                |
+| `heading`     | `string`                                      | -         | Main heading text displayed prominently        |
+| `message`     | `string`                                      | -         | Detailed message text                          |
+| `closable`    | `boolean`                                     | `true`    | Whether users can manually dismiss the toast   |
+| `id`          | `string`                                      | generated | Unique identifier for the toast element        |
+| `autoDismiss` | `number`                                      | `0`       | Auto-dismiss timeout in milliseconds (0 = off) |
+| `visible`     | `boolean`                                     | `false`   | Controls toast visibility state                |
 
 ### FdsToastContainer
 
@@ -60,11 +60,11 @@ const showSuccessToast = () => {
 
 ### FdsToast
 
-| Event            | Description                                          |
-| ---------------- | ---------------------------------------------------- |
+| Event            | Description                                               |
+| ---------------- | --------------------------------------------------------- |
 | `close`          | Emitted when toast is closed manually or programmatically |
-| `click`          | Emitted when the toast content area is clicked      |
-| `update:visible` | Emitted when toast visibility changes (v-model support) |
+| `click`          | Emitted when the toast content area is clicked            |
+| `update:visible` | Emitted when toast visibility changes (v-model support)   |
 
 ## useToast Composable
 
@@ -72,28 +72,28 @@ The `useToast` composable provides programmatic control for creating toast notif
 
 ```typescript
 const {
-  showToast,      // Show custom toast
-  showInfo,       // Show info toast
-  showSuccess,    // Show success toast
-  showWarning,    // Show warning toast
-  showError,      // Show error toast
-  removeToast,    // Remove specific toast
+  showToast, // Show custom toast
+  showInfo, // Show info toast
+  showSuccess, // Show success toast
+  showWarning, // Show warning toast
+  showError, // Show error toast
+  removeToast, // Remove specific toast
   clearAllToasts, // Remove all toasts
-  toasts          // Reactive list of active toasts
+  toasts, // Reactive list of active toasts
 } = useToast()
 ```
 
 ### useToast Methods
 
-| Method          | Parameters                        | Description                    |
-| --------------- | --------------------------------- | ------------------------------ |
-| `showToast`     | `(options: ToastOptions)`         | Show a custom toast            |
-| `showInfo`      | `(message: string, options?)`     | Show info toast                |
-| `showSuccess`   | `(message: string, options?)`     | Show success toast             |
-| `showWarning`   | `(message: string, options?)`     | Show warning toast             |
-| `showError`     | `(message: string, options?)`     | Show error toast               |
-| `removeToast`   | `(id: string)`                    | Remove specific toast by ID    |
-| `clearAllToasts`| `()`                              | Remove all active toasts       |
+| Method           | Parameters                    | Description                 |
+| ---------------- | ----------------------------- | --------------------------- |
+| `showToast`      | `(options: ToastOptions)`     | Show a custom toast         |
+| `showInfo`       | `(message: string, options?)` | Show info toast             |
+| `showSuccess`    | `(message: string, options?)` | Show success toast          |
+| `showWarning`    | `(message: string, options?)` | Show warning toast          |
+| `showError`      | `(message: string, options?)` | Show error toast            |
+| `removeToast`    | `(id: string)`                | Remove specific toast by ID |
+| `clearAllToasts` | `()`                          | Remove all active toasts    |
 
 ## Accessibility
 
@@ -117,6 +117,7 @@ const {
 ## Themes
 
 The toast component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with appropriate color coding
 - **VirkDK**: Business-oriented styling for Virk.dk contexts
 - **BorgerDK**: Citizen-oriented styling for Borger.dk contexts

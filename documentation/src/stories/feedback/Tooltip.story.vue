@@ -75,8 +75,8 @@ const handleHide = () => {
               <span>Help with click trigger</span>
             </div>
             <p>
-              Click triggers provide better accessibility and mobile experience. The tooltip remains visible until
-              explicitly dismissed.
+              Click triggers provide better accessibility and mobile experience. The tooltip remains
+              visible until explicitly dismissed.
             </p>
           </div>
 
@@ -93,14 +93,14 @@ const handleHide = () => {
               <span>Help with hover trigger</span>
             </div>
             <p>
-              Hover triggers respond to mouse hover and keyboard focus. They provide immediate feedback
-              but may be less accessible on touch devices.
+              Hover triggers respond to mouse hover and keyboard focus. They provide immediate
+              feedback but may be less accessible on touch devices.
             </p>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Use click triggers for better accessibility and mobile support. Hover triggers work well for
-          desktop-only applications.
+          Use click triggers for better accessibility and mobile support. Hover triggers work well
+          for desktop-only applications.
         </p>
       </div>
     </Variant>
@@ -146,8 +146,8 @@ const handleHide = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The tooltip automatically adjusts position based on available screen space. The position prop
-          serves as a preference rather than a strict requirement.
+          The tooltip automatically adjusts position based on available screen space. The position
+          prop serves as a preference rather than a strict requirement.
         </p>
       </div>
     </Variant>
@@ -167,8 +167,8 @@ const handleHide = () => {
               <span>Keyboard accessible tooltip</span>
             </div>
             <p>
-              Tooltip triggers are fully keyboard accessible. Use Tab to navigate, Enter/Space to activate click triggers.
-              Hover triggers activate on focus.
+              Tooltip triggers are fully keyboard accessible. Use Tab to navigate, Enter/Space to
+              activate click triggers. Hover triggers activate on focus.
             </p>
           </div>
 
@@ -186,8 +186,8 @@ const handleHide = () => {
               <span>Field with custom ARIA label</span>
             </div>
             <p>
-              Use custom aria-label props to provide meaningful descriptions for screen readers.
-              The default label is "Vis hjælpetekst" (Show help text).
+              Use custom aria-label props to provide meaningful descriptions for screen readers. The
+              default label is "Vis hjælpetekst" (Show help text).
             </p>
           </div>
 
@@ -204,12 +204,14 @@ const handleHide = () => {
               <span>Disabled tooltip</span>
             </div>
             <p>
-              Disabled tooltips provide visual feedback that help is not available in the current context.
+              Disabled tooltips provide visual feedback that help is not available in the current
+              context.
             </p>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          All tooltips support keyboard navigation and screen readers. Press Escape to close any open tooltip.
+          All tooltips support keyboard navigation and screen readers. Press Escape to close any
+          open tooltip.
         </p>
       </div>
     </Variant>
@@ -246,9 +248,7 @@ const handleHide = () => {
             @hide="handleHide"
           />
           <div>
-            <p class="mt-4 mb-0">
-              Show events: {{ showCount }} | Hide events: {{ hideCount }}
-            </p>
+            <p class="mt-4 mb-0">Show events: {{ showCount }} | Hide events: {{ hideCount }}</p>
           </div>
         </div>
       </template>

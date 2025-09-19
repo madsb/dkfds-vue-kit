@@ -18,21 +18,21 @@ import { FdsDetaljer } from '@madsb/dkfds-vue3'
 
 ## Props
 
-| Prop     | Type     | Default            | Description                                    |
-| -------- | -------- | ------------------ | ---------------------------------------------- |
+| Prop     | Type     | Default              | Description                                    |
+| -------- | -------- | -------------------- | ---------------------------------------------- |
 | `header` | `string` | `'Mere information'` | Header text displayed in the clickable summary |
 
 ## Slots
 
-| Slot     | Description                                    |
-| -------- | ---------------------------------------------- |
-| `default` | Content that can be expanded/collapsed         |
+| Slot      | Description                                   |
+| --------- | --------------------------------------------- |
+| `default` | Content that can be expanded/collapsed        |
 | `header`  | Custom header content (overrides header prop) |
 
 ## Events
 
-| Event    | Description                                  |
-| -------- | -------------------------------------------- |
+| Event    | Description                                 |
+| -------- | ------------------------------------------- |
 | `toggle` | Emitted when the details section is toggled |
 
 ## Accessibility
@@ -55,6 +55,7 @@ import { FdsDetaljer } from '@madsb/dkfds-vue3'
 ## Common Patterns
 
 ### FAQ Section
+
 ```vue
 <FdsDetaljer header="How do I create an account?">
   To create an account, click the "Sign Up" button...
@@ -66,6 +67,7 @@ import { FdsDetaljer } from '@madsb/dkfds-vue3'
 ```
 
 ### Optional Form Fields
+
 ```vue
 <FdsDetaljer header="Advanced Settings">
   <FdsFormgroup>
@@ -76,6 +78,7 @@ import { FdsDetaljer } from '@madsb/dkfds-vue3'
 ```
 
 ### Rich Header Content
+
 ```vue
 <FdsDetaljer>
   <template #header>
@@ -89,6 +92,7 @@ import { FdsDetaljer } from '@madsb/dkfds-vue3'
 ## Themes
 
 The component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with subtle borders and spacing
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

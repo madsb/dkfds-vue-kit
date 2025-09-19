@@ -6,11 +6,7 @@ The DatoFelter (Date Fields) component provides three separate input fields for 
 
 ```vue
 <template>
-  <FdsDatoFelter 
-    v-model="birthDate" 
-    @valid="handleValidation"
-    @dirty="markFieldDirty"
-  />
+  <FdsDatoFelter v-model="birthDate" @valid="handleValidation" @dirty="markFieldDirty" />
 </template>
 
 <script setup>
@@ -31,18 +27,18 @@ const markFieldDirty = (isDirty) => {
 
 ## Props
 
-| Prop         | Type     | Default     | Description                                           |
-| ------------ | -------- | ----------- | ----------------------------------------------------- |
-| `id`         | `string` | `undefined` | Unique identifier for the date fields group          |
-| `modelValue` | `string` | `''`        | The v-model value in ISO date format (YYYY-MM-DD)    |
+| Prop         | Type     | Default     | Description                                       |
+| ------------ | -------- | ----------- | ------------------------------------------------- |
+| `id`         | `string` | `undefined` | Unique identifier for the date fields group       |
+| `modelValue` | `string` | `''`        | The v-model value in ISO date format (YYYY-MM-DD) |
 
 ## Events
 
 | Event               | Description                                               |
 | ------------------- | --------------------------------------------------------- |
 | `update:modelValue` | Emitted when date value changes, provides ISO date string |
-| `dirty`             | Emitted when any date field loses focus                  |
-| `valid`             | Emitted when combined date validation state changes      |
+| `dirty`             | Emitted when any date field loses focus                   |
+| `valid`             | Emitted when combined date validation state changes       |
 
 ## Accessibility
 
@@ -73,6 +69,7 @@ const markFieldDirty = (isDirty) => {
 ## Themes
 
 The DatoFelter component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with proper spacing and typography
 - **VirkDK**: Business-oriented styling for Virk.dk with professional appearance
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible design

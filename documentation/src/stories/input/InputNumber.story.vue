@@ -20,10 +20,7 @@ const handleDirty = (isDirty: boolean) => {
 </script>
 
 <template>
-  <Story
-    title="Input/InputNumber"
-    icon="carbon:text-input"
-  >
+  <Story title="Input/InputNumber" icon="carbon:text-input">
     <!-- Showcase all input variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">

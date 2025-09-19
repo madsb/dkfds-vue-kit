@@ -92,8 +92,8 @@ const handleExternalPageChange = (page: number) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Pagination follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how pagination adapts to different contexts.
+          Pagination follows DKFDS v11 design specifications. Try switching themes using the global
+          theme switcher to see how pagination adapts to different contexts.
         </p>
       </div>
     </Variant>
@@ -139,8 +139,8 @@ const handleExternalPageChange = (page: number) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Ellipsis (...) appear automatically when there are more pages than maxElements allows.
-          The component intelligently shows pages around the current page.
+          Ellipsis (...) appear automatically when there are more pages than maxElements allows. The
+          component intelligently shows pages around the current page.
         </p>
       </div>
     </Variant>
@@ -151,9 +151,7 @@ const handleExternalPageChange = (page: number) => {
         <div>
           <div>
             <h3 class="h6 mb-2">Internal Pagination Mode</h3>
-            <p>
-              Use when you have all data available. Component handles slicing internally.
-            </p>
+            <p>Use when you have all data available. Component handles slicing internally.</p>
             <FdsPaginering
               :list="mediumItems"
               :page-size="12"
@@ -167,9 +165,7 @@ const handleExternalPageChange = (page: number) => {
 
           <div>
             <h3 class="h6 mb-2">External Pagination Mode</h3>
-            <p>
-              Use with APIs. You handle data loading based on skip/page-change events.
-            </p>
+            <p>Use with APIs. You handle data loading based on skip/page-change events.</p>
             <FdsPaginering
               :total-items="externalTotalItems"
               :skip="externalSkip"
@@ -178,14 +174,15 @@ const handleExternalPageChange = (page: number) => {
               @page-change="handleExternalPageChange"
             />
             <div>
-              <strong>Current state:</strong> Page {{ externalCurrentPage }}, Skip {{ externalSkip }}
+              <strong>Current state:</strong> Page {{ externalCurrentPage }}, Skip
+              {{ externalSkip }}
             </div>
           </div>
         </div>
 
         <p class="mt-4 mb-0">
-          Internal mode: Use "list" prop. External mode: Use "totalItems" and "skip" props.
-          Both modes emit page-change events for tracking.
+          Internal mode: Use "list" prop. External mode: Use "totalItems" and "skip" props. Both
+          modes emit page-change events for tracking.
         </p>
       </div>
     </Variant>
@@ -244,8 +241,8 @@ const handleExternalPageChange = (page: number) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Try navigating with keyboard (Tab, Enter) and notice the ARIA labels.
-          The mobile display shows "Side X af Y" for better mobile UX.
+          Try navigating with keyboard (Tab, Enter) and notice the ARIA labels. The mobile display
+          shows "Side X af Y" for better mobile UX.
         </p>
       </div>
     </Variant>
@@ -293,7 +290,9 @@ const handleExternalPageChange = (page: number) => {
             <p><strong>Total Items:</strong> {{ state.totalItems }}</p>
             <p><strong>Page Size:</strong> {{ state.pageSize }}</p>
             <p><strong>Total Pages:</strong> {{ Math.ceil(state.totalItems / state.pageSize) }}</p>
-            <p v-if="state.mode === 'external'"><strong>Current Skip:</strong> {{ state.currentSkip }}</p>
+            <p v-if="state.mode === 'external'">
+              <strong>Current Skip:</strong> {{ state.currentSkip }}
+            </p>
           </div>
         </div>
       </template>
@@ -316,26 +315,11 @@ const handleExternalPageChange = (page: number) => {
           :step="10"
         />
 
-        <HstNumber
-          v-model="state.pageSize"
-          title="Page Size"
-          :min="1"
-          :max="100"
-          :step="5"
-        />
+        <HstNumber v-model="state.pageSize" title="Page Size" :min="1" :max="100" :step="5" />
 
-        <HstNumber
-          v-model="state.maxElements"
-          title="Max Elements"
-          :min="3"
-          :max="15"
-          :step="2"
-        />
+        <HstNumber v-model="state.maxElements" title="Max Elements" :min="3" :max="15" :step="2" />
 
-        <HstCheckbox
-          v-model="state.showFirstLast"
-          title="Show First/Last Buttons"
-        />
+        <HstCheckbox v-model="state.showFirstLast" title="Show First/Last Buttons" />
 
         <HstNumber
           v-if="state.mode === 'external'"

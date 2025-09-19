@@ -138,13 +138,15 @@ const cities = {
                 <option value="education">Education</option>
                 <option value="government">Government</option>
               </FdsDropdown>
-              <FdsFejlmeddelelse v-if="multipleValue === ''">Please select an industry sector</FdsFejlmeddelelse>
+              <FdsFejlmeddelelse v-if="multipleValue === ''"
+                >Please select an industry sector</FdsFejlmeddelelse
+              >
             </template>
           </FdsFormgroup>
         </div>
         <p class="mt-4 mb-0">
-          Dropdowns integrate seamlessly with DKFDS form structure components (formgroup, label, hint, error messages).
-          Required fields show validation messages when empty.
+          Dropdowns integrate seamlessly with DKFDS form structure components (formgroup, label,
+          hint, error messages). Required fields show validation messages when empty.
         </p>
       </div>
     </Variant>
@@ -191,8 +193,8 @@ const cities = {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Dropdowns support various states including normal, disabled, error, and pre-selected values.
-          Error states are automatically styled when used within form groups.
+          Dropdowns support various states including normal, disabled, error, and pre-selected
+          values. Error states are automatically styled when used within form groups.
         </p>
       </div>
     </Variant>
@@ -203,7 +205,10 @@ const cities = {
         <div>
           <div>
             <h3 class="h6 mb-2">Dynamic Options</h3>
-            <FdsDropdown v-model="singleValue" @change="(e) => handleChange(singleValue, 'dynamic')">
+            <FdsDropdown
+              v-model="singleValue"
+              @change="(e) => handleChange(singleValue, 'dynamic')"
+            >
               <option value="">Select country</option>
               <option v-for="country in countries" :key="country.value" :value="country.value">
                 {{ country.label }}
@@ -257,8 +262,8 @@ const cities = {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Advanced features include dynamic option generation, option grouping, and custom validation logic.
-          All features maintain accessibility and DKFDS styling standards.
+          Advanced features include dynamic option generation, option grouping, and custom
+          validation logic. All features maintain accessibility and DKFDS styling standards.
         </p>
       </div>
     </Variant>

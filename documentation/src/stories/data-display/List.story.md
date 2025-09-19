@@ -38,21 +38,21 @@ import { FdsList, FdsListItem } from '@madsb/dkfds-vue3'
 
 ### FdsList Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `variant` | `'bordered' \| 'unstyled' \| 'nobullet' \| 'overflow' \| null` | `null` | Visual variant controlling list appearance |
-| `ordered` | `boolean` | `false` | Render as ordered list (ol) with numbering |
-| `noTopMargin` | `boolean` | `false` | Remove top margin for tight layouts |
-| `noBottomMargin` | `boolean` | `false` | Remove bottom margin for tight layouts |
+| Prop             | Type                                                           | Default | Description                                |
+| ---------------- | -------------------------------------------------------------- | ------- | ------------------------------------------ |
+| `variant`        | `'bordered' \| 'unstyled' \| 'nobullet' \| 'overflow' \| null` | `null`  | Visual variant controlling list appearance |
+| `ordered`        | `boolean`                                                      | `false` | Render as ordered list (ol) with numbering |
+| `noTopMargin`    | `boolean`                                                      | `false` | Remove top margin for tight layouts        |
+| `noBottomMargin` | `boolean`                                                      | `false` | Remove bottom margin for tight layouts     |
 
 ### FdsListItem Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `variant` | `'current' \| 'active' \| 'disabled'` | - | Visual state of the list item |
-| `role` | `'none'` | - | ARIA role for accessibility customization |
-| `flex` | `boolean` | `false` | Apply flexbox layout to the item |
-| `justifyBetween` | `boolean` | `false` | Apply justify-content-between (requires flex) |
+| Prop             | Type                                  | Default | Description                                   |
+| ---------------- | ------------------------------------- | ------- | --------------------------------------------- |
+| `variant`        | `'current' \| 'active' \| 'disabled'` | -       | Visual state of the list item                 |
+| `role`           | `'none'`                              | -       | ARIA role for accessibility customization     |
+| `flex`           | `boolean`                             | `false` | Apply flexbox layout to the item              |
+| `justifyBetween` | `boolean`                             | `false` | Apply justify-content-between (requires flex) |
 
 ## Events
 
@@ -94,6 +94,7 @@ Both components inherit standard DOM events through `v-bind="$attrs"`.
 ## Themes
 
 The list components automatically adapt to the selected theme:
+
 - **Default**: Standard DKFDS styling with proper spacing and typography
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

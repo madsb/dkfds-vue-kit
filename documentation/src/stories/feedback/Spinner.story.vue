@@ -12,13 +12,13 @@ const simulateLoading = async () => {
   isLoading.value = true
   loadingText.value = 'Initializing...'
 
-  await new Promise(resolve => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
   loadingText.value = 'Processing data...'
 
-  await new Promise(resolve => setTimeout(resolve, 1500))
+  await new Promise((resolve) => setTimeout(resolve, 1500))
   loadingText.value = 'Finalizing...'
 
-  await new Promise(resolve => setTimeout(resolve, 800))
+  await new Promise((resolve) => setTimeout(resolve, 800))
   isLoading.value = false
   loadingText.value = 'Complete!'
 
@@ -44,9 +44,7 @@ const simulateLoading = async () => {
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With Status Text</h3>
-            <FdsSpinner size="large" aria-live="polite">
-              Loading your data...
-            </FdsSpinner>
+            <FdsSpinner size="large" aria-live="polite"> Loading your data... </FdsSpinner>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Light Variant</h3>
@@ -83,7 +81,7 @@ const simulateLoading = async () => {
           <h3 class="h6 mb-2">Inline Usage</h3>
           <div>
             <p>
-              Processing your request 
+              Processing your request
               <FdsSpinner size="small" sr-only-text="Processing" />
               please wait...
             </p>
@@ -122,9 +120,7 @@ const simulateLoading = async () => {
             </div>
             <div>
               <h4>ARIA Live Region</h4>
-              <FdsSpinner size="large" aria-live="assertive">
-                Processing payment...
-              </FdsSpinner>
+              <FdsSpinner size="large" aria-live="assertive"> Processing payment... </FdsSpinner>
               <p>Visible status text with live region announcements</p>
             </div>
           </div>
@@ -133,24 +129,14 @@ const simulateLoading = async () => {
 
           <h3 class="h6 mb-2">Dynamic Status Updates</h3>
           <div>
-            <FdsSpinner 
-              v-if="isLoading" 
-              size="large" 
-              :centered="true" 
-              aria-live="polite"
-            >
+            <FdsSpinner v-if="isLoading" size="large" :centered="true" aria-live="polite">
               {{ loadingText }}
             </FdsSpinner>
             <div v-else>
               <span>✓</span>
               {{ loadingText }}
             </div>
-            <button 
-              type="button" 
-
-              @click="simulateLoading"
-              :disabled="isLoading"
-            >
+            <button type="button" @click="simulateLoading" :disabled="isLoading">
               {{ isLoading ? 'Loading...' : 'Start Loading Simulation' }}
             </button>
           </div>
@@ -169,18 +155,14 @@ const simulateLoading = async () => {
         <div>
           <h3 class="h6 mb-2">Light Background</h3>
           <div>
-            <FdsSpinner size="large" variant="default">
-              Loading on light background...
-            </FdsSpinner>
+            <FdsSpinner size="large" variant="default"> Loading on light background... </FdsSpinner>
           </div>
 
           <hr class="my-6" />
 
           <h3 class="h6 mb-2">Dark Background</h3>
           <div>
-            <FdsSpinner size="large" variant="light">
-              Loading on dark background...
-            </FdsSpinner>
+            <FdsSpinner size="large" variant="light"> Loading on dark background... </FdsSpinner>
           </div>
 
           <hr class="my-6" />
@@ -203,15 +185,13 @@ const simulateLoading = async () => {
               <h4>Recent Activity</h4>
             </div>
             <div>
-              <FdsSpinner size="small" :centered="true">
-                Loading activity data...
-              </FdsSpinner>
+              <FdsSpinner size="small" :centered="true"> Loading activity data... </FdsSpinner>
             </div>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Use the appropriate variant based on background color. The light variant provides
-          better visibility on dark backgrounds, while default works well on light backgrounds.
+          Use the appropriate variant based on background color. The light variant provides better
+          visibility on dark backgrounds, while default works well on light backgrounds.
         </p>
       </div>
     </Variant>
@@ -273,15 +253,11 @@ const simulateLoading = async () => {
 
         <HstCheckbox v-model="state.hasStatusText" title="Show Status Text" />
 
-        <HstText 
-          v-model="state.statusText" 
-          title="Status Text" 
-          :disabled="!state.hasStatusText"
-        />
+        <HstText v-model="state.statusText" title="Status Text" :disabled="!state.hasStatusText" />
 
-        <HstText 
-          v-model="state.srOnlyText" 
-          title="Screen Reader Text" 
+        <HstText
+          v-model="state.srOnlyText"
+          title="Screen Reader Text"
           :disabled="state.hasStatusText"
         />
 

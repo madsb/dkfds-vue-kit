@@ -6,9 +6,7 @@ The tilbage link component provides consistent back navigation for multi-step pr
 
 ```vue
 <template>
-  <FdsTilbageLink @click="goBack">
-    Tilbage til oversigt
-  </FdsTilbageLink>
+  <FdsTilbageLink @click="goBack"> Tilbage til oversigt </FdsTilbageLink>
 </template>
 
 <script setup>
@@ -23,14 +21,14 @@ const goBack = () => {
 
 ## Props
 
-| Prop   | Type     | Default                 | Description                                                    |
-| ------ | -------- | ----------------------- | -------------------------------------------------------------- |
-| `href` | `string` | `'javascript:void(0);'` | Link destination URL. Defaults to void to use click handler   |
+| Prop   | Type     | Default                 | Description                                                 |
+| ------ | -------- | ----------------------- | ----------------------------------------------------------- |
+| `href` | `string` | `'javascript:void(0);'` | Link destination URL. Defaults to void to use click handler |
 
 ## Events
 
-| Event   | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
+| Event   | Description                                                          |
+| ------- | -------------------------------------------------------------------- |
 | `click` | Emitted when the tilbage link is clicked. Receives MouseEvent object |
 
 ## Accessibility
@@ -64,6 +62,7 @@ const goBack = () => {
 ## Themes
 
 The tilbage link automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with blue chevron and text
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

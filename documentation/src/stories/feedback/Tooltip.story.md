@@ -20,25 +20,25 @@ import { FdsTooltip } from '@madsb/dkfds-vue3'
 
 ## Props
 
-| Prop          | Type                   | Default   | Description                                                      |
-| ------------- | ---------------------- | --------- | ---------------------------------------------------------------- |
-| `content`     | `string`               | -         | Tooltip text content to display (required)                      |
-| `position`    | `'above' \| 'below'`    | `'above'` | Position of tooltip relative to the trigger button              |
-| `trigger`     | `'hover' \| 'click'`    | `'click'` | Interaction method to trigger tooltip display                   |
-| `icon`        | `string`               | `'help'`  | Icon name to display in the tooltip button                      |
-| `disabled`    | `boolean`              | `false`   | Disable tooltip interaction completely                          |
-| `forceVisible`| `boolean`              | `false`   | Force tooltip to remain visible regardless of trigger           |
-| `isLabel`     | `boolean`              | `false`   | Use tooltip content as aria-label instead of aria-describedby   |
-| `id`          | `string`               | -         | Custom ID for the tooltip element (auto-generated if not provided) |
-| `ariaLabel`   | `string`               | -         | Custom aria-label text for the tooltip trigger button          |
+| Prop           | Type                 | Default   | Description                                                        |
+| -------------- | -------------------- | --------- | ------------------------------------------------------------------ |
+| `content`      | `string`             | -         | Tooltip text content to display (required)                         |
+| `position`     | `'above' \| 'below'` | `'above'` | Position of tooltip relative to the trigger button                 |
+| `trigger`      | `'hover' \| 'click'` | `'click'` | Interaction method to trigger tooltip display                      |
+| `icon`         | `string`             | `'help'`  | Icon name to display in the tooltip button                         |
+| `disabled`     | `boolean`            | `false`   | Disable tooltip interaction completely                             |
+| `forceVisible` | `boolean`            | `false`   | Force tooltip to remain visible regardless of trigger              |
+| `isLabel`      | `boolean`            | `false`   | Use tooltip content as aria-label instead of aria-describedby      |
+| `id`           | `string`             | -         | Custom ID for the tooltip element (auto-generated if not provided) |
+| `ariaLabel`    | `string`             | -         | Custom aria-label text for the tooltip trigger button              |
 
 ## Events
 
-| Event    | Description                                           |
-| -------- | ----------------------------------------------------- |
-| `show`   | Emitted when tooltip becomes visible                 |
-| `hide`   | Emitted when tooltip is hidden/dismissed             |
-| `toggle` | Emitted when visibility changes (provides boolean)   |
+| Event    | Description                                        |
+| -------- | -------------------------------------------------- |
+| `show`   | Emitted when tooltip becomes visible               |
+| `hide`   | Emitted when tooltip is hidden/dismissed           |
+| `toggle` | Emitted when visibility changes (provides boolean) |
 
 ## Accessibility
 
@@ -63,6 +63,7 @@ import { FdsTooltip } from '@madsb/dkfds-vue3'
 ## Themes
 
 The tooltip component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral colors
 - **VirkDK**: Business-oriented styling for Virk.dk with professional appearance
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible, friendly design

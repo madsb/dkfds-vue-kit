@@ -19,19 +19,19 @@ const isEnabled = ref(false)
 
 ## Props
 
-| Prop         | Type      | Default   | Description                                        |
-| ------------ | --------- | --------- | -------------------------------------------------- |
-| `id`         | `string`  | -         | Unique identifier (auto-generated if not provided) |
-| `modelValue` | `boolean` | `false`   | Two-way binding value for toggle state            |
-| `disabled`   | `boolean` | `false`   | Whether the toggle is disabled                     |
-| `onText`     | `string`  | `'Til'`   | Text displayed when toggle is on (Danish default) |
-| `offText`    | `string`  | `'Fra'`   | Text displayed when toggle is off (Danish default)|
-| `class`      | `string`  | `''`      | Additional CSS classes                             |
+| Prop         | Type      | Default | Description                                        |
+| ------------ | --------- | ------- | -------------------------------------------------- |
+| `id`         | `string`  | -       | Unique identifier (auto-generated if not provided) |
+| `modelValue` | `boolean` | `false` | Two-way binding value for toggle state             |
+| `disabled`   | `boolean` | `false` | Whether the toggle is disabled                     |
+| `onText`     | `string`  | `'Til'` | Text displayed when toggle is on (Danish default)  |
+| `offText`    | `string`  | `'Fra'` | Text displayed when toggle is off (Danish default) |
+| `class`      | `string`  | `''`    | Additional CSS classes                             |
 
 ## Events
 
-| Event               | Description                                      |
-| ------------------- | ------------------------------------------------ |
+| Event               | Description                                     |
+| ------------------- | ----------------------------------------------- |
 | `update:modelValue` | Emitted when toggle state changes (for v-model) |
 | `click`             | Emitted on click with the original DOM event    |
 
@@ -56,15 +56,13 @@ const isEnabled = ref(false)
 ## Examples
 
 ### With Custom Labels
+
 ```vue
-<FdsToggleSwitch 
-  v-model="notifications" 
-  onText="Enabled" 
-  offText="Disabled" 
-/>
+<FdsToggleSwitch v-model="notifications" onText="Enabled" offText="Disabled" />
 ```
 
 ### With Custom Content
+
 ```vue
 <FdsToggleSwitch v-model="darkMode">
   {{ darkMode ? '🌙 Dark Mode' : '☀️ Light Mode' }}
@@ -72,6 +70,7 @@ const isEnabled = ref(false)
 ```
 
 ### In Form Group
+
 ```vue
 <FdsFormgroup>
   <template #default="{ formid, ariaDescribedby }">
@@ -88,6 +87,7 @@ const isEnabled = ref(false)
 ## Themes
 
 The toggle switch component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with blue accent
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

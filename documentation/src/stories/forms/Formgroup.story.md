@@ -10,27 +10,14 @@ The formgroup component provides the essential structure for form fields in DKFD
     <template #default="{ formid, ariaDescribedby, isValid }">
       <FdsLabel :forId="formid" :required="true">Email Address</FdsLabel>
       <FdsHint>We'll use this to contact you</FdsHint>
-      <FdsInput
-        :id="formid"
-        :aria-describedby="ariaDescribedby"
-        v-model="email"
-        type="email"
-      />
-      <FdsFejlmeddelelse v-if="!isValid">
-        Please enter a valid email address
-      </FdsFejlmeddelelse>
+      <FdsInput :id="formid" :aria-describedby="ariaDescribedby" v-model="email" type="email" />
+      <FdsFejlmeddelelse v-if="!isValid"> Please enter a valid email address </FdsFejlmeddelelse>
     </template>
   </FdsFormgroup>
 </template>
 
 <script setup>
-import {
-  FdsFormgroup,
-  FdsLabel,
-  FdsHint,
-  FdsInput,
-  FdsFejlmeddelelse
-} from '@madsb/dkfds-vue3'
+import { FdsFormgroup, FdsLabel, FdsHint, FdsInput, FdsFejlmeddelelse } from '@madsb/dkfds-vue3'
 
 const email = ref('')
 const emailValid = ref(true)
@@ -39,18 +26,18 @@ const emailValid = ref(true)
 
 ## Props
 
-| Prop      | Type      | Default | Description                                    |
-| --------- | --------- | ------- | ---------------------------------------------- |
-| `id`      | `string`  | -       | Unique identifier for the form group          |
-| `isValid` | `boolean` | `true`  | Validation state affecting styling and ARIA   |
+| Prop      | Type      | Default | Description                                 |
+| --------- | --------- | ------- | ------------------------------------------- |
+| `id`      | `string`  | -       | Unique identifier for the form group        |
+| `isValid` | `boolean` | `true`  | Validation state affecting styling and ARIA |
 
 ## Slot Props
 
-| Prop              | Type      | Description                                        |
-| ----------------- | --------- | -------------------------------------------------- |
-| `formid`          | `string`  | Generated unique ID for form control association  |
-| `ariaDescribedby` | `string`  | ARIA relationships for hint and error elements    |
-| `isValid`         | `boolean` | Current validation state                           |
+| Prop              | Type      | Description                                      |
+| ----------------- | --------- | ------------------------------------------------ |
+| `formid`          | `string`  | Generated unique ID for form control association |
+| `ariaDescribedby` | `string`  | ARIA relationships for hint and error elements   |
+| `isValid`         | `boolean` | Current validation state                         |
 
 ## Events
 
@@ -77,6 +64,7 @@ This component does not emit events directly. It provides context for child comp
 ## Component Integration
 
 Formgroup works seamlessly with:
+
 - **FdsLabel**: Automatic label association via `formid`
 - **FdsHint**: Automatic ARIA description via `hintId`
 - **FdsInput**: Automatic ARIA relationships via `ariaDescribedby`
@@ -86,6 +74,7 @@ Formgroup works seamlessly with:
 ## Themes
 
 The formgroup component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with proper spacing and validation states
 - **VirkDK**: Business-oriented styling for Virk.dk with enhanced contrast
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessibility focus

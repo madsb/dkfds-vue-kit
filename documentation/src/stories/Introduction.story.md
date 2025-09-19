@@ -16,9 +16,10 @@ This library provides Vue 3 wrappers for the Danish Public Design System (DKFDS)
    ```
 2. Import the global styles once, typically in your main entrypoint:
    ```ts
-   import '@madsb/dkfds-vue3/styles';
+   import '@madsb/dkfds-vue3/styles'
    ```
 3. Register and use the components you need:
+
    ```vue
    <script setup lang="ts">
    import { FdsButton } from '@madsb/dkfds-vue3'

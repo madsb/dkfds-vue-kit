@@ -8,12 +8,8 @@ Navigation menu components implementing DKFDS v11 specifications for creating ac
 <template>
   <!-- Basic sidebar menu -->
   <FdsMenu variant="sidemenu" aria-label="Main navigation">
-    <FdsMenuItem href="/dashboard" :current="true">
-      Dashboard
-    </FdsMenuItem>
-    <FdsMenuItem href="/reports">
-      Reports
-    </FdsMenuItem>
+    <FdsMenuItem href="/dashboard" :current="true"> Dashboard </FdsMenuItem>
+    <FdsMenuItem href="/reports"> Reports </FdsMenuItem>
   </FdsMenu>
 
   <!-- Menu with submenus -->
@@ -31,12 +27,8 @@ Navigation menu components implementing DKFDS v11 specifications for creating ac
 
   <!-- Numbered process steps -->
   <FdsMenu aria-label="Application process">
-    <FdsMenuItem :index="1" href="/step1" :current="true">
-      Personal Information
-    </FdsMenuItem>
-    <FdsMenuItem :index="2" href="/step2" hint="Upload documents">
-      Document Upload
-    </FdsMenuItem>
+    <FdsMenuItem :index="1" href="/step1" :current="true"> Personal Information </FdsMenuItem>
+    <FdsMenuItem :index="2" href="/step2" hint="Upload documents"> Document Upload </FdsMenuItem>
   </FdsMenu>
 </template>
 
@@ -47,35 +39,35 @@ import { FdsMenu, FdsMenuItem } from '@madsb/dkfds-vue3'
 
 ## FdsMenu Props
 
-| Prop        | Type                       | Default     | Description                                       |
-| ----------- | -------------------------- | ----------- | ------------------------------------------------- |
-| `variant`   | `'sidemenu' \| 'submenu'`  | `'sidemenu'` | Menu type - sidemenu creates nav element          |
-| `ariaLabel` | `string`                   | -           | ARIA label for navigation (required for sidemenu) |
+| Prop        | Type                      | Default      | Description                                       |
+| ----------- | ------------------------- | ------------ | ------------------------------------------------- |
+| `variant`   | `'sidemenu' \| 'submenu'` | `'sidemenu'` | Menu type - sidemenu creates nav element          |
+| `ariaLabel` | `string`                  | -            | ARIA label for navigation (required for sidemenu) |
 
 ## FdsMenuItem Props
 
-| Prop       | Type      | Default | Description                                        |
-| ---------- | --------- | ------- | -------------------------------------------------- |
-| `id`       | `string`  | -       | Unique identifier for navigation events            |
-| `active`   | `boolean` | `false` | Active state for expanded styling                  |
-| `href`     | `string`  | -       | Link destination URL                               |
-| `index`    | `number`  | `null`  | Optional numeric prefix (e.g., "1. Dashboard")    |
-| `current`  | `boolean` | `false` | Marks item as current page                         |
-| `expanded` | `boolean` | `false` | Controls submenu visibility                        |
-| `hint`     | `string`  | -       | Optional descriptive text below menu item         |
+| Prop       | Type      | Default | Description                                    |
+| ---------- | --------- | ------- | ---------------------------------------------- |
+| `id`       | `string`  | -       | Unique identifier for navigation events        |
+| `active`   | `boolean` | `false` | Active state for expanded styling              |
+| `href`     | `string`  | -       | Link destination URL                           |
+| `index`    | `number`  | `null`  | Optional numeric prefix (e.g., "1. Dashboard") |
+| `current`  | `boolean` | `false` | Marks item as current page                     |
+| `expanded` | `boolean` | `false` | Controls submenu visibility                    |
+| `hint`     | `string`  | -       | Optional descriptive text below menu item      |
 
 ## FdsMenuItem Events
 
-| Event      | Description                              |
-| ---------- | ---------------------------------------- |
-| `navigate` | Emitted when menu item is navigated to  |
-| `click`    | Emitted when menu item is clicked        |
+| Event      | Description                            |
+| ---------- | -------------------------------------- |
+| `navigate` | Emitted when menu item is navigated to |
+| `click`    | Emitted when menu item is clicked      |
 
 ## FdsMenuItem Slots
 
-| Slot      | Description                              |
-| --------- | ---------------------------------------- |
-| `default` | Menu item text content                   |
+| Slot      | Description                                      |
+| --------- | ------------------------------------------------ |
+| `default` | Menu item text content                           |
 | `submenu` | Submenu content (FdsMenu with variant="submenu") |
 
 ## Accessibility
@@ -107,6 +99,7 @@ import { FdsMenu, FdsMenuItem } from '@madsb/dkfds-vue3'
 ## Themes
 
 The menu components automatically adapt to the selected theme:
+
 - **Default**: Standard DKFDS styling with appropriate contrast
 - **VirkDK**: Business-oriented styling for Virk.dk applications
 - **BorgerDK**: Citizen-oriented styling for Borger.dk services

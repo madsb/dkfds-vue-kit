@@ -7,16 +7,10 @@ The function link component is a versatile link/button element that automaticall
 ```vue
 <template>
   <!-- Basic link -->
-  <FdsFunktionslink href="/help">
-    Get Help
-  </FdsFunktionslink>
+  <FdsFunktionslink href="/help"> Get Help </FdsFunktionslink>
 
   <!-- Button with icon -->
-  <FdsFunktionslink
-    type="button"
-    icon="download"
-    @click="downloadFile"
-  >
+  <FdsFunktionslink type="button" icon="download" @click="downloadFile">
     Download
   </FdsFunktionslink>
 
@@ -43,26 +37,27 @@ const downloadFile = () => {
 
 ## Props
 
-| Prop        | Type                                    | Default     | Description                                           |
-| ----------- | --------------------------------------- | ----------- | ----------------------------------------------------- |
-| `icon`      | `string`                                | -           | Icon name from DKFDS icon set                        |
-| `iconRight` | `boolean`                               | `false`     | Position icon on the right side                      |
-| `href`      | `string`                                | -           | URL for link navigation (creates anchor element)     |
-| `type`      | `'link' \| 'button'`                     | auto-detect | Force specific element type                           |
-| `title`     | `string`                                | -           | Title attribute for accessibility                     |
-| `disabled`  | `boolean`                               | `false`     | Disabled state (only for button type)                |
-| `target`    | `'_blank' \| '_self' \| '_parent' \| '_top'` | -           | Target attribute for links                            |
-| `rel`       | `string`                                | -           | Rel attribute for links (use 'noopener noreferrer')  |
+| Prop        | Type                                         | Default     | Description                                         |
+| ----------- | -------------------------------------------- | ----------- | --------------------------------------------------- |
+| `icon`      | `string`                                     | -           | Icon name from DKFDS icon set                       |
+| `iconRight` | `boolean`                                    | `false`     | Position icon on the right side                     |
+| `href`      | `string`                                     | -           | URL for link navigation (creates anchor element)    |
+| `type`      | `'link' \| 'button'`                         | auto-detect | Force specific element type                         |
+| `title`     | `string`                                     | -           | Title attribute for accessibility                   |
+| `disabled`  | `boolean`                                    | `false`     | Disabled state (only for button type)               |
+| `target`    | `'_blank' \| '_self' \| '_parent' \| '_top'` | -           | Target attribute for links                          |
+| `rel`       | `string`                                     | -           | Rel attribute for links (use 'noopener noreferrer') |
 
 ## Events
 
-| Event   | Description                                    |
-| ------- | ---------------------------------------------- |
-| `click` | Emitted when the link or button is clicked    |
+| Event   | Description                                |
+| ------- | ------------------------------------------ |
+| `click` | Emitted when the link or button is clicked |
 
 ## Auto-Detection Logic
 
 The component automatically determines the element type:
+
 - **Anchor element**: When `href` prop is provided
 - **Button element**: When no `href` prop is provided
 - **Override**: Use `type` prop to force specific element type
@@ -88,6 +83,7 @@ The component automatically determines the element type:
 ## Themes
 
 The function link component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

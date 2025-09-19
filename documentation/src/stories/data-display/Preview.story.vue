@@ -9,7 +9,7 @@ import {
   FdsButton,
   FdsInput,
   FdsLabel,
-  FdsFormgroup
+  FdsFormgroup,
 } from '@madsb/dkfds-vue3'
 
 // Demo state for interactive examples
@@ -20,8 +20,8 @@ const sampleJsonData = ref({
   city: 'Copenhagen',
   preferences: {
     theme: 'light',
-    language: 'da'
-  }
+    language: 'da',
+  },
 })
 
 const handleDemoSubmit = () => {
@@ -66,10 +66,7 @@ const getPreviewPlaygroundState = () => ({
 </script>
 
 <template>
-  <Story
-    title="Data Display/Preview"
-    icon="carbon:data-view"
-  >
+  <Story title="Data Display/Preview" icon="carbon:data-view">
     <!-- Showcase all preview components working together -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -78,7 +75,10 @@ const getPreviewPlaygroundState = () => ({
             <h3 class="h5 mb-2">Component Documentation</h3>
             <FdsPreview header="Button Component" href="#" link-text="View Documentation">
               <FdsPreviewItem>
-                <p>Buttons trigger actions and navigation. They come in different variants for different purposes.</p>
+                <p>
+                  Buttons trigger actions and navigation. They come in different variants for
+                  different purposes.
+                </p>
               </FdsPreviewItem>
               <FdsPreviewExample>
                 <FdsButton>Primary Button</FdsButton>
@@ -89,7 +89,7 @@ const getPreviewPlaygroundState = () => ({
               </FdsPreviewCode>
             </FdsPreview>
           </div>
-          
+
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">JSON Data Display</h3>
             <FdsPreview header="API Response Example">
@@ -103,8 +103,9 @@ const getPreviewPlaygroundState = () => ({
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The Preview components follow DKFDS v11 design specifications for documentation and code display. 
-          Try switching themes using the global theme switcher to see how they adapt to different contexts.
+          The Preview components follow DKFDS v11 design specifications for documentation and code
+          display. Try switching themes using the global theme switcher to see how they adapt to
+          different contexts.
         </p>
       </div>
     </Variant>
@@ -122,31 +123,32 @@ const getPreviewPlaygroundState = () => ({
               <li>Provide helpful hints when needed</li>
             </ul>
           </FdsPreviewItem>
-          
+
           <FdsPreviewExample>
             <FdsFormgroup>
               <FdsLabel for="demo-input">Email Address</FdsLabel>
-              <FdsInput 
-                id="demo-input" 
-                type="email" 
-                v-model="demoValue" 
-                placeholder="user@example.com" 
+              <FdsInput
+                id="demo-input"
+                type="email"
+                v-model="demoValue"
+                placeholder="user@example.com"
               />
             </FdsFormgroup>
             <FdsButton @click="handleDemoSubmit" class="mt-3">Submit Form</FdsButton>
           </FdsPreviewExample>
-          
+
           <FdsPreviewCode header="HTML Structure">
             <FdsPre :code="previewFormMarkup" />
           </FdsPreviewCode>
-          
+
           <FdsPreviewCode header="Vue Script">
             <FdsPre :code="previewVueScript" />
           </FdsPreviewCode>
         </FdsPreview>
-        
+
         <p class="mt-4 mb-0">
-          Documentation patterns combine descriptions, live examples, and code samples for comprehensive guides.
+          Documentation patterns combine descriptions, live examples, and code samples for
+          comprehensive guides.
         </p>
       </div>
     </Variant>
@@ -163,35 +165,37 @@ const getPreviewPlaygroundState = () => ({
               </FdsPreviewCode>
             </FdsPreview>
           </div>
-          
+
           <div>
             <h3 class="h5 mb-2">JSON Data</h3>
             <FdsPreview header="Configuration">
               <FdsPreviewCode header="config.json">
-                <FdsPre :json="{ server: { port: 3000, host: 'localhost' }, database: { type: 'postgresql', url: 'postgres://localhost/mydb' } }" />
+                <FdsPre
+                  :json="{
+                    server: { port: 3000, host: 'localhost' },
+                    database: { type: 'postgresql', url: 'postgres://localhost/mydb' },
+                  }"
+                />
               </FdsPreviewCode>
             </FdsPreview>
           </div>
-          
+
           <div>
             <h3 class="h5 mb-2">Slot Content</h3>
             <FdsPreview header="YAML Config">
               <FdsPreviewCode>
                 <FdsPre>
-server:
-  host: localhost
-  port: 3000
-database:
-  type: postgresql
-  url: postgres://localhost/mydb
+                  server: host: localhost port: 3000 database: type: postgresql url:
+                  postgres://localhost/mydb
                 </FdsPre>
               </FdsPreviewCode>
             </FdsPreview>
           </div>
         </div>
-        
+
         <p class="mt-4 mb-0">
-          Code display supports multiple formats: raw strings, formatted JSON objects, and slot content.
+          Code display supports multiple formats: raw strings, formatted JSON objects, and slot
+          content.
         </p>
       </div>
     </Variant>
@@ -205,52 +209,52 @@ database:
             <FdsButton>Click Me</FdsButton>
           </FdsPreviewExample>
         </FdsPreview>
-        
+
         <hr class="my-6" />
-        
+
         <h3 class="h5 mb-2">Preview with Description Only</h3>
         <FdsPreview header="Usage Guidelines">
           <FdsPreviewItem>
-            <p>This component is used for triggering actions in the user interface. It should be placed where users expect to find interactive elements.</p>
+            <p>
+              This component is used for triggering actions in the user interface. It should be
+              placed where users expect to find interactive elements.
+            </p>
           </FdsPreviewItem>
         </FdsPreview>
-        
+
         <hr class="my-6" />
-        
+
         <h3 class="h5 mb-2">Code Only Preview</h3>
         <FdsPreview header="Implementation">
           <FdsPreviewCode header="TypeScript">
             <FdsPre :code="tsInterfaceSnippet" />
           </FdsPreviewCode>
         </FdsPreview>
-        
+
         <p class="mt-4 mb-0">
-          Preview components are flexible - use any combination of description, example, and code sections.
+          Preview components are flexible - use any combination of description, example, and code
+          sections.
         </p>
       </div>
     </Variant>
 
     <!-- Interactive playground -->
-    <Variant
-      title="Playground"
-      icon="carbon:game-console"
-      :init-state="getPreviewPlaygroundState"
-    >
+    <Variant title="Playground" icon="carbon:game-console" :init-state="getPreviewPlaygroundState">
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
-          <FdsPreview 
-            :header="state.header" 
+          <FdsPreview
+            :header="state.header"
             :href="state.href || undefined"
             :link-text="state.linkText"
           >
             <FdsPreviewItem v-if="state.showDescription">
               <p>{{ state.descriptionText }}</p>
             </FdsPreviewItem>
-            
+
             <FdsPreviewExample v-if="state.showExample">
               <FdsButton>{{ state.header }}</FdsButton>
             </FdsPreviewExample>
-            
+
             <FdsPreviewCode v-if="state.showCode" :header="state.codeHeader">
               <FdsPre :code="state.exampleCode" />
             </FdsPreviewCode>
@@ -260,21 +264,25 @@ database:
 
       <template #controls="{ state }">
         <HstText v-model="state.header" title="Header" />
-        
+
         <HstText v-model="state.href" title="Link URL" />
-        
+
         <HstText v-model="state.linkText" title="Link Text" />
-        
+
         <HstCheckbox v-model="state.showDescription" title="Show Description" />
-        
+
         <HstCheckbox v-model="state.showExample" title="Show Example" />
-        
+
         <HstCheckbox v-model="state.showCode" title="Show Code" />
-        
+
         <HstText v-model="state.codeHeader" title="Code Header" :disabled="!state.showCode" />
-        
-        <HstTextarea v-model="state.descriptionText" title="Description Text" :disabled="!state.showDescription" />
-        
+
+        <HstTextarea
+          v-model="state.descriptionText"
+          title="Description Text"
+          :disabled="!state.showDescription"
+        />
+
         <HstTextarea v-model="state.exampleCode" title="Example Code" :disabled="!state.showCode" />
       </template>
     </Variant>

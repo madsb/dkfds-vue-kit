@@ -60,8 +60,8 @@ const menuItems = ref([
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The overflow menu follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how it adapts to different contexts.
+          The overflow menu follows DKFDS v11 design specifications. Try switching themes using the
+          global theme switcher to see how it adapts to different contexts.
         </p>
       </div>
     </Variant>
@@ -114,7 +114,11 @@ const menuItems = ref([
         <div>
           <div>
             <h3 class="h6 mb-2">Left Position Menu</h3>
-            <FdsOverflowMenu header="Vælg handling" position="left" @open="handleAction('menu-opened')">
+            <FdsOverflowMenu
+              header="Vælg handling"
+              position="left"
+              @open="handleAction('menu-opened')"
+            >
               <li><a href="#profile">Min profil</a></li>
               <li><a href="#settings">Indstillinger</a></li>
               <li><button type="button" @click="handleAction('logout')">Log ud</button></li>
@@ -143,7 +147,8 @@ const menuItems = ref([
         </FdsOverflowMenu>
 
         <p class="mt-4 mb-0">
-          Actions performed: {{ actionCount }}. Menus can contain both links and buttons, with different positioning options.
+          Actions performed: {{ actionCount }}. Menus can contain both links and buttons, with
+          different positioning options.
         </p>
       </div>
     </Variant>
@@ -152,8 +157,8 @@ const menuItems = ref([
     <Variant title="Keyboard Navigation" icon="carbon:keyboard">
       <div class="container py-6">
         <div>
-          <FdsOverflowMenu 
-            header="Tastatur navigering" 
+          <FdsOverflowMenu
+            header="Tastatur navigering"
             id="keyboard-menu"
             @open="handleAction('keyboard-menu-opened')"
             @close="handleAction('keyboard-menu-closed')"
@@ -176,8 +181,8 @@ const menuItems = ref([
         </div>
 
         <p class="mt-4 mb-0">
-          Actions performed: {{ actionCount }}. Try using keyboard navigation to interact with the menu.
-          The menu follows WCAG guidelines for accessible dropdown navigation.
+          Actions performed: {{ actionCount }}. Try using keyboard navigation to interact with the
+          menu. The menu follows WCAG guidelines for accessible dropdown navigation.
         </p>
       </div>
     </Variant>
@@ -208,9 +213,7 @@ const menuItems = ref([
             @toggle="(isOpen) => handleAction(`playground-${isOpen ? 'opened' : 'closed'}`)"
           >
             <li v-for="n in state.menuItemCount" :key="n">
-              <button type="button" @click="handleAction(`item-${n}`)">
-                Menu punkt {{ n }}
-              </button>
+              <button type="button" @click="handleAction(`item-${n}`)">Menu punkt {{ n }}</button>
             </li>
           </FdsOverflowMenu>
           <p class="mt-4 mb-0">Actions performed: {{ actionCount }}</p>

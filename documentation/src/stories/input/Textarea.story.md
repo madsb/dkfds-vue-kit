@@ -6,10 +6,10 @@ The textarea component provides a multi-line text input with automatic row sizin
 
 ```vue
 <template>
-  <FdsTextarea 
-    v-model="description" 
-    :rows="5" 
-    :maxlength="500" 
+  <FdsTextarea
+    v-model="description"
+    :rows="5"
+    :maxlength="500"
     placeholder="Enter your description..."
     @dirty="validateInput"
   />
@@ -29,20 +29,20 @@ const validateInput = (isDirty) => {
 
 ## Props
 
-| Prop         | Type     | Default | Description                                              |
-| ------------ | -------- | ------- | -------------------------------------------------------- |
-| `modelValue` | `string` | -       | The v-model value for two-way data binding (required)   |
-| `id`         | `string` | -       | Unique identifier (auto-generated if not provided)      |
-| `rows`       | `number` | `5`     | Number of visible text rows (minimum height)            |
-| `maxRows`    | `number` | `10`    | Maximum number of rows for auto-resize                  |
-| `rowlength`  | `number` | `80`    | Characters per row for auto-resize calculation          |
-| `maxlength`  | `number` | -       | Maximum character length allowed                         |
-| `widthClass` | `string` | `''`    | CSS class for width sizing (input--width-xs to xl)      |
+| Prop         | Type     | Default | Description                                           |
+| ------------ | -------- | ------- | ----------------------------------------------------- |
+| `modelValue` | `string` | -       | The v-model value for two-way data binding (required) |
+| `id`         | `string` | -       | Unique identifier (auto-generated if not provided)    |
+| `rows`       | `number` | `5`     | Number of visible text rows (minimum height)          |
+| `maxRows`    | `number` | `10`    | Maximum number of rows for auto-resize                |
+| `rowlength`  | `number` | `80`    | Characters per row for auto-resize calculation        |
+| `maxlength`  | `number` | -       | Maximum character length allowed                      |
+| `widthClass` | `string` | `''`    | CSS class for width sizing (input--width-xs to xl)    |
 
 ## Events
 
-| Event               | Description                                                |
-| ------------------- | ---------------------------------------------------------- |
+| Event               | Description                                               |
+| ------------------- | --------------------------------------------------------- |
 | `update:modelValue` | Emitted when textarea value changes (v-model)             |
 | `dirty`             | Emitted when textarea loses focus (useful for validation) |
 | `input`             | Emitted on input event (provides raw DOM event)           |
@@ -52,7 +52,7 @@ const validateInput = (isDirty) => {
 The textarea supports DKFDS width classes for consistent sizing:
 
 - `input--width-xs` - Extra small width
-- `input--width-s` - Small width  
+- `input--width-s` - Small width
 - `input--width-m` - Medium width
 - `input--width-l` - Large width
 - `input--width-xl` - Extra large width
@@ -62,7 +62,7 @@ The textarea supports DKFDS width classes for consistent sizing:
 The textarea automatically adjusts its height based on content:
 
 - **Minimum rows**: Set by the `rows` prop
-- **Maximum rows**: Limited by the `maxRows` prop  
+- **Maximum rows**: Limited by the `maxRows` prop
 - **Calculation**: Based on newlines and character count using `rowlength`
 - **Dynamic sizing**: Grows and shrinks as content changes
 
@@ -106,6 +106,7 @@ The textarea works seamlessly with DKFDS form components:
 ## Themes
 
 The textarea component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral colors
 - **VirkDK**: Business-oriented styling for Virk.dk with professional appearance
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible design

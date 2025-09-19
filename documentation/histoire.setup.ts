@@ -28,30 +28,30 @@ async function ensureStoryStyles() {
   }
 }
 
-export const setupVue3 = defineSetupVue3(async ({ app, addWrapper }: { app: App; addWrapper: any }) => {
-  if (!isStoryFrame) {
-    return
-  }
-
-  await ensureStoryStyles()
-
-  // Register global components
-  app.component('ThemeSwitcher', ThemeSwitcher)
-  app.component('FdsIconCollection', FdsIconCollection)
-
-  // Set global properties if needed
-  app.config.globalProperties.$isDocs = true
-
-  // Add a wrapper that includes FdsIconCollection and global theme switcher for all stories
-  addWrapper({
-    render() {
-      return h('div', { class: 'histoire-wrapper' }, [
-        h(FdsIconCollection),
-        h('div', { class: 'global-theme-controls' }, [
-          h(ThemeSwitcher)
-        ]),
-        h('div', { class: 'story-container' }, this.$slots.default?.())
-      ])
+export const setupVue3 = defineSetupVue3(
+  async ({ app, addWrapper }: { app: App; addWrapper: any }) => {
+    if (!isStoryFrame) {
+      return
     }
-  })
-})
+
+    await ensureStoryStyles()
+
+    // Register global components
+    app.component('ThemeSwitcher', ThemeSwitcher)
+    app.component('FdsIconCollection', FdsIconCollection)
+
+    // Set global properties if needed
+    app.config.globalProperties.$isDocs = true
+
+    // Add a wrapper that includes FdsIconCollection and global theme switcher for all stories
+    addWrapper({
+      render() {
+        return h('div', { class: 'histoire-wrapper' }, [
+          h(FdsIconCollection),
+          h('div', { class: 'global-theme-controls' }, [h(ThemeSwitcher)]),
+          h('div', { class: 'story-container' }, this.$slots.default?.()),
+        ])
+      },
+    })
+  },
+)

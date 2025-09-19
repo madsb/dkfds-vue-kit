@@ -1,6 +1,7 @@
 # Theme Switching in Histoire Documentation
 
 The Histoire documentation site now supports dynamic theme switching between the three DKFDS themes:
+
 - **Default** - Standard DKFDS theme
 - **Virk.dk** - Business-oriented theme
 - **Borger.dk** - Citizen-oriented theme
@@ -8,17 +9,20 @@ The Histoire documentation site now supports dynamic theme switching between the
 ## How It Works
 
 ### 1. Theme Composable (`src/composables/useTheme.ts`)
+
 - Manages theme state globally
 - Persists theme selection in localStorage
 - Dynamically loads/unloads CSS files
 - Provides reactive theme state for components
 
 ### 2. Theme Switcher Component (`src/components/ThemeSwitcher.vue`)
+
 - Simple dropdown selector for themes
 - Automatically updates when theme changes
 - Available globally in all stories
 
 ### 3. Theme CSS Files
+
 - Located in `public/css/` directory
 - Automatically copied from node_modules during build
 - Served as static assets by Histoire
@@ -26,6 +30,7 @@ The Histoire documentation site now supports dynamic theme switching between the
 ## Usage in Stories
 
 ### Basic Usage
+
 ```vue
 <template>
   <Story title="My Component">
@@ -41,24 +46,30 @@ The Histoire documentation site now supports dynamic theme switching between the
 ```
 
 ### Theme-Aware Components
+
 Components automatically adapt to the selected theme since the CSS is loaded globally.
 
 ## Implementation Details
 
 ### Dynamic CSS Loading
+
 When a theme is selected:
+
 1. Previous theme CSS is removed from the DOM
 2. New theme CSS is added via a `<link>` tag
 3. Body class is updated (e.g., `theme-virkdk`)
 4. Theme preference is saved to localStorage
 
 ### Build Process
+
 The `copy-themes` script runs automatically when starting the dev server:
+
 ```bash
 npm run copy-themes  # Copies DKFDS CSS files to public/css/
 ```
 
 This is integrated into the dev and build scripts:
+
 ```json
 {
   "scripts": {

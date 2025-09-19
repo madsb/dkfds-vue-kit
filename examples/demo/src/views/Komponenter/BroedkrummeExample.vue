@@ -300,12 +300,6 @@ const navigateToPage = (index: number) => {
   }
 }
 
-const handleRouterClick = (event: MouseEvent, item: BreadcrumbItem, index: number) => {
-  event.preventDefault() // Prevent navigation for demo
-  console.log('Router breadcrumb clicked:', { item, index })
-  lastAction.value = `Router link klikket: "${item.text}"`
-}
-
 const handleNativeClick = (event: MouseEvent, item: BreadcrumbItem, index: number) => {
   event.preventDefault() // Prevent navigation for demo
   console.log('Native breadcrumb clicked:', { item, index })

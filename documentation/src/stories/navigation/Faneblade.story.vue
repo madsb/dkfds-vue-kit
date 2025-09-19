@@ -25,9 +25,10 @@ const handleNavClick = (event: MouseEvent) => {
 // Sample content for different tabs
 const tabContent = {
   overview: 'This is the overview section with general information about the case.',
-  documents: 'Here you can find all documents related to this case, including forms and attachments.',
+  documents:
+    'Here you can find all documents related to this case, including forms and attachments.',
   timeline: 'This timeline shows all activities and status changes for the case.',
-  contact: 'Contact information for case handlers and relevant departments.'
+  contact: 'Contact information for case handlers and relevant departments.',
 }
 </script>
 
@@ -94,8 +95,9 @@ const tabContent = {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The faneblade components follow DKFDS v11 design specifications with full keyboard navigation support.
-          Try switching themes using the global theme switcher to see how tabs adapt to different contexts.
+          The faneblade components follow DKFDS v11 design specifications with full keyboard
+          navigation support. Try switching themes using the global theme switcher to see how tabs
+          adapt to different contexts.
         </p>
       </div>
     </Variant>
@@ -136,12 +138,15 @@ const tabContent = {
 
         <div>
           <h4 class="h6 mb-2">Current Section: {{ activeNavSection }}</h4>
-          <p>Navigation tabs are ideal for linking to different pages or major sections of an application.</p>
+          <p>
+            Navigation tabs are ideal for linking to different pages or major sections of an
+            application.
+          </p>
         </div>
 
         <p class="mt-4 mb-0">
-          Navigation tabs use semantic anchor links with proper ARIA attributes.
-          Click events are prevented here for demo purposes.
+          Navigation tabs use semantic anchor links with proper ARIA attributes. Click events are
+          prevented here for demo purposes.
         </p>
       </div>
     </Variant>
@@ -238,7 +243,10 @@ const tabContent = {
               </template>
               <template #panels>
                 <fds-faneblade-panel id="feature1" :active="activeTab === 'feature1'">
-                  <p>This panel is accessible via keyboard navigation. Press Tab to focus, then use arrow keys.</p>
+                  <p>
+                    This panel is accessible via keyboard navigation. Press Tab to focus, then use
+                    arrow keys.
+                  </p>
                 </fds-faneblade-panel>
                 <fds-faneblade-panel id="feature2" :active="activeTab === 'feature2'">
                   <p>Screen readers announce the tab relationship and current selection state.</p>
@@ -277,7 +285,7 @@ const tabContent = {
           navLabel: 'Application sections',
           showIcons: true,
           tabType: 'content',
-          activeDemo: 'demo1'
+          activeDemo: 'demo1',
         })
       "
     >
@@ -291,21 +299,36 @@ const tabContent = {
                 label="Demo 1"
                 :icon="state.showIcons ? 'dashboard' : undefined"
                 :active="state.activeDemo === 'demo1'"
-                @click="(e) => { e.preventDefault(); state.activeDemo = 'demo1' }"
+                @click="
+                  (e) => {
+                    e.preventDefault()
+                    state.activeDemo = 'demo1'
+                  }
+                "
               />
               <fds-faneblade-nav-item
                 href="/demo2"
                 label="Demo 2"
                 :icon="state.showIcons ? 'settings' : undefined"
                 :active="state.activeDemo === 'demo2'"
-                @click="(e) => { e.preventDefault(); state.activeDemo = 'demo2' }"
+                @click="
+                  (e) => {
+                    e.preventDefault()
+                    state.activeDemo = 'demo2'
+                  }
+                "
               />
               <fds-faneblade-nav-item
                 href="/demo3"
                 label="Demo 3"
                 :icon="state.showIcons ? 'user' : undefined"
                 :active="state.activeDemo === 'demo3'"
-                @click="(e) => { e.preventDefault(); state.activeDemo = 'demo3' }"
+                @click="
+                  (e) => {
+                    e.preventDefault()
+                    state.activeDemo = 'demo3'
+                  }
+                "
               />
             </fds-faneblade-nav>
             <p>Active navigation: {{ state.activeDemo }}</p>
@@ -320,21 +343,21 @@ const tabContent = {
                   label="Demo 1"
                   :icon="state.showIcons ? 'dashboard' : undefined"
                   :active="state.activeDemo === 'demo1'"
-                  @click="() => state.activeDemo = 'demo1'"
+                  @click="() => (state.activeDemo = 'demo1')"
                 />
                 <fds-faneblade-tab
                   id="demo2"
                   label="Demo 2"
                   :icon="state.showIcons ? 'settings' : undefined"
                   :active="state.activeDemo === 'demo2'"
-                  @click="() => state.activeDemo = 'demo2'"
+                  @click="() => (state.activeDemo = 'demo2')"
                 />
                 <fds-faneblade-tab
                   id="demo3"
                   label="Demo 3"
                   :icon="state.showIcons ? 'user' : undefined"
                   :active="state.activeDemo === 'demo3'"
-                  @click="() => state.activeDemo = 'demo3'"
+                  @click="() => (state.activeDemo = 'demo3')"
                 />
               </template>
               <template #panels>

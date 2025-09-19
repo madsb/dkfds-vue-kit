@@ -6,9 +6,7 @@ The button component is used to trigger actions in forms, dialogs, and more. It 
 
 ```vue
 <template>
-  <FdsButton variant="primary" @click="handleClick">
-    Click me
-  </FdsButton>
+  <FdsButton variant="primary" @click="handleClick"> Click me </FdsButton>
 </template>
 
 <script setup>
@@ -56,6 +54,7 @@ const handleClick = () => {
 ## Themes
 
 The button component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

@@ -19,7 +19,9 @@ const handleClick = () => {
             <h3 class="h5 mb-2">Basic Links</h3>
             <div>
               <FdsFunktionslink href="/page1">Simple Link</FdsFunktionslink>
-              <FdsFunktionslink href="/page2" title="Navigate to page 2">Link with Title</FdsFunktionslink>
+              <FdsFunktionslink href="/page2" title="Navigate to page 2"
+                >Link with Title</FdsFunktionslink
+              >
             </div>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
@@ -52,8 +54,8 @@ const handleClick = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The function link component follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how links adapt to different contexts.
+          The function link component follows DKFDS v11 design specifications. Try switching themes
+          using the global theme switcher to see how links adapt to different contexts.
         </p>
       </div>
     </Variant>
@@ -77,7 +79,9 @@ const handleClick = () => {
             <FdsFunktionslink href="/settings" icon="settings">Settings</FdsFunktionslink>
             <FdsFunktionslink href="/profile" icon="account">My Profile</FdsFunktionslink>
             <FdsFunktionslink href="/support" icon="help-circle">Support</FdsFunktionslink>
-            <FdsFunktionslink type="button" icon="refresh" @click="handleClick">Refresh</FdsFunktionslink>
+            <FdsFunktionslink type="button" icon="refresh" @click="handleClick"
+              >Refresh</FdsFunktionslink
+            >
           </div>
         </div>
 
@@ -86,16 +90,20 @@ const handleClick = () => {
         <div>
           <h3 class="h6 mb-2">Action Icons</h3>
           <div>
-            <FdsFunktionslink type="button" icon="save" @click="handleClick">Save Changes</FdsFunktionslink>
-            <FdsFunktionslink type="button" icon="delete" @click="handleClick">Delete Item</FdsFunktionslink>
+            <FdsFunktionslink type="button" icon="save" @click="handleClick"
+              >Save Changes</FdsFunktionslink
+            >
+            <FdsFunktionslink type="button" icon="delete" @click="handleClick"
+              >Delete Item</FdsFunktionslink
+            >
             <FdsFunktionslink href="/print" icon="printer">Print Page</FdsFunktionslink>
             <FdsFunktionslink href="/share" icon="share" icon-right>Share</FdsFunktionslink>
           </div>
         </div>
 
         <p class="mt-4 mb-0">
-          Icons help users quickly understand the purpose of function links. Position icons before text for actions
-          and after text for navigation or external links.
+          Icons help users quickly understand the purpose of function links. Position icons before
+          text for actions and after text for navigation or external links.
         </p>
       </div>
     </Variant>
@@ -108,7 +116,9 @@ const handleClick = () => {
             <h3 class="h6 mb-2">Normal State</h3>
             <div>
               <FdsFunktionslink href="/normal" @click="handleClick">Normal Link</FdsFunktionslink>
-              <FdsFunktionslink type="button" icon="check" @click="handleClick">Normal Button</FdsFunktionslink>
+              <FdsFunktionslink type="button" icon="check" @click="handleClick"
+                >Normal Button</FdsFunktionslink
+              >
             </div>
           </div>
           <div class="col-12 col-lg-4 mb-5">
@@ -161,8 +171,8 @@ const handleClick = () => {
         </div>
 
         <p class="mt-4 mb-0">
-          Click count: {{ clickCount }} - Use title attributes to provide additional context. 
-          Always include rel="noopener noreferrer" for external links with target="_blank".
+          Click count: {{ clickCount }} - Use title attributes to provide additional context. Always
+          include rel="noopener noreferrer" for external links with target="_blank".
         </p>
       </div>
     </Variant>
@@ -185,9 +195,15 @@ const handleClick = () => {
         <div>
           <h3 class="h6 mb-2">Action Pattern</h3>
           <div>
-            <FdsFunktionslink type="button" icon="add" @click="handleClick">Add New</FdsFunktionslink>
-            <FdsFunktionslink type="button" icon="edit" @click="handleClick">Edit Selected</FdsFunktionslink>
-            <FdsFunktionslink type="button" icon="delete" @click="handleClick">Delete</FdsFunktionslink>
+            <FdsFunktionslink type="button" icon="add" @click="handleClick"
+              >Add New</FdsFunktionslink
+            >
+            <FdsFunktionslink type="button" icon="edit" @click="handleClick"
+              >Edit Selected</FdsFunktionslink
+            >
+            <FdsFunktionslink type="button" icon="delete" @click="handleClick"
+              >Delete</FdsFunktionslink
+            >
           </div>
         </div>
 
@@ -206,13 +222,15 @@ const handleClick = () => {
             >
               External Support
             </FdsFunktionslink>
-            <FdsFunktionslink type="button" icon="contact-support" @click="handleClick">Contact Us</FdsFunktionslink>
+            <FdsFunktionslink type="button" icon="contact-support" @click="handleClick"
+              >Contact Us</FdsFunktionslink
+            >
           </div>
         </div>
 
         <p class="mt-4 mb-0">
-          Function links adapt automatically between anchor and button elements based on whether
-          an href is provided. This ensures semantic correctness and proper accessibility.
+          Function links adapt automatically between anchor and button elements based on whether an
+          href is provided. This ensures semantic correctness and proper accessibility.
         </p>
       </div>
     </Variant>
@@ -252,8 +270,11 @@ const handleClick = () => {
           </FdsFunktionslink>
           <p class="mt-4 mb-0">
             Click count: {{ clickCount }}
-            <br>
-            Element type: {{ state.type === 'auto' ? (state.type === 'button' ? 'button' : 'anchor') : state.type }}
+            <br />
+            Element type:
+            {{
+              state.type === 'auto' ? (state.type === 'button' ? 'button' : 'anchor') : state.type
+            }}
           </p>
         </div>
       </template>
@@ -271,25 +292,13 @@ const handleClick = () => {
           ]"
         />
 
-        <HstText
-          v-model="state.href"
-          title="Link URL (href)"
-          :disabled="state.type === 'button'"
-        />
+        <HstText v-model="state.href" title="Link URL (href)" :disabled="state.type === 'button'" />
 
         <HstText v-model="state.icon" title="Icon Name" />
 
-        <HstCheckbox
-          v-model="state.iconRight"
-          title="Icon on Right"
-          :disabled="!state.icon"
-        />
+        <HstCheckbox v-model="state.iconRight" title="Icon on Right" :disabled="!state.icon" />
 
-        <HstCheckbox
-          v-model="state.disabled"
-          title="Disabled"
-          :disabled="state.type === 'link'"
-        />
+        <HstCheckbox v-model="state.disabled" title="Disabled" :disabled="state.type === 'link'" />
 
         <HstText
           v-model="state.target"

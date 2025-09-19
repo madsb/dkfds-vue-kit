@@ -12,7 +12,7 @@ This template provides the optimized structure for creating component stories in
 
 ## Template Structure
 
-```vue
+````vue
 <script setup lang="ts">
 import { ref } from 'vue'
 import { FdsComponentName } from '@madsb/dkfds-vue3'
@@ -36,9 +36,7 @@ const handleAction = () => {
         <div class="variant-grid">
           <!-- Show all main variants/types -->
         </div>
-        <p class="story-hint">
-          Brief description of the component and theme switching capability.
-        </p>
+        <p class="story-hint">Brief description of the component and theme switching capability.</p>
       </div>
     </Variant>
 
@@ -46,9 +44,7 @@ const handleAction = () => {
     <Variant title="Feature Name" icon="carbon:appropriate-icon">
       <div class="story-content">
         <!-- Focused demonstration of specific feature -->
-        <p class="story-hint">
-          Helpful context or usage notes.
-        </p>
+        <p class="story-hint">Helpful context or usage notes.</p>
       </div>
     </Variant>
 
@@ -56,12 +52,14 @@ const handleAction = () => {
     <Variant
       title="Playground"
       icon="carbon:game-console"
-      :init-state="() => ({
-        // Initial state for controls
-        prop1: 'default value',
-        prop2: false,
-        prop3: 'option1'
-      })"
+      :init-state="
+        () => ({
+          // Initial state for controls
+          prop1: 'default value',
+          prop2: false,
+          prop3: 'option1',
+        })
+      "
     >
       <template #default="{ state }">
         <div class="story-content playground">
@@ -159,24 +157,8 @@ const handleAction = () => {
 }
 </style>
 
-<docs lang="md">
-# FdsComponentName
-
-Brief description of the component and its purpose in DKFDS.
-
-## Usage
-
-```vue
-<template>
-  <FdsComponentName prop="value">
-    Content
-  </FdsComponentName>
-</template>
-
-<script setup>
-import { FdsComponentName } from '@madsb/dkfds-vue3'
-</script>
-```
+<docs lang="md"></docs>
+````
 
 ## Props
 
@@ -205,10 +187,12 @@ import { FdsComponentName } from '@madsb/dkfds-vue3'
 ## Themes
 
 The component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk
-</docs>
+  </docs>
+
 ```
 
 ## Variant Ideas by Component Type
@@ -268,3 +252,4 @@ Use Carbon icons that best represent the component:
 5. **Theme Awareness**: Mention theme adaptability in descriptions
 6. **Mobile Consideration**: Test and document mobile behavior
 7. **Performance**: Don't create overly complex demos that slow down the browser
+```

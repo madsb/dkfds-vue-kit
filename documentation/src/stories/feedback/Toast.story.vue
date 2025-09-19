@@ -130,8 +130,9 @@ const handleClearAll = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The toast component follows DKFDS v11 design specifications for contextual feedback.
-          Try switching themes using the global theme switcher to see how toasts adapt to different contexts.
+          The toast component follows DKFDS v11 design specifications for contextual feedback. Try
+          switching themes using the global theme switcher to see how toasts adapt to different
+          contexts.
         </p>
       </div>
     </Variant>
@@ -183,7 +184,8 @@ const handleClearAll = () => {
         </FdsToastContainer>
 
         <p class="mt-4 mb-0">
-          Click the buttons to show different toast types. Each toast can be manually closed using the close button.
+          Click the buttons to show different toast types. Each toast can be manually closed using
+          the close button.
         </p>
       </div>
     </Variant>
@@ -224,8 +226,9 @@ showSuccess('Operation completed!', {
         </div>
 
         <p class="mt-4 mb-0">
-          The useToast composable provides programmatic control for creating toast notifications anywhere in your application.
-          Auto-dismiss toasts automatically close after the specified timeout.
+          The useToast composable provides programmatic control for creating toast notifications
+          anywhere in your application. Auto-dismiss toasts automatically close after the specified
+          timeout.
         </p>
       </div>
     </Variant>
@@ -263,8 +266,8 @@ showSuccess('Operation completed!', {
         </ul>
 
         <p class="mt-4 mb-0">
-          Multiple toasts stack vertically and maintain their individual state. The toast container manages
-          the proper ARIA announcements for screen readers.
+          Multiple toasts stack vertically and maintain their individual state. The toast container
+          manages the proper ARIA announcements for screen readers.
         </p>
       </div>
     </Variant>
@@ -287,12 +290,8 @@ showSuccess('Operation completed!', {
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <div>
-            <button @click="state.visible = true" :disabled="state.visible">
-              Show Toast
-            </button>
-            <button @click="state.visible = false" :disabled="!state.visible">
-              Hide Toast
-            </button>
+            <button @click="state.visible = true" :disabled="state.visible">Show Toast</button>
+            <button @click="state.visible = false" :disabled="!state.visible">Hide Toast</button>
           </div>
 
           <FdsToastContainer>

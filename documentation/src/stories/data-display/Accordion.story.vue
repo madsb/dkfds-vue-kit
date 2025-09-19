@@ -8,10 +8,7 @@ const demoGroupExpanded = ref(false)
 </script>
 
 <template>
-  <Story
-    title="Data Display/Accordion"
-    icon="carbon:data-view"
-  >
+  <Story title="Data Display/Accordion" icon="carbon:data-view">
     <!-- Showcase all accordion variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">

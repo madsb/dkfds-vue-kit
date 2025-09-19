@@ -43,34 +43,38 @@ const handleSkipChange = (skip) => {
 
 ## Props
 
-| Prop            | Type      | Default | Description                                                  |
-| --------------- | --------- | ------- | ------------------------------------------------------------ |
+| Prop            | Type      | Default | Description                                                 |
+| --------------- | --------- | ------- | ----------------------------------------------------------- |
 | `list`          | `any[]`   | `[]`    | Array of items to paginate (internal mode)                  |
 | `skip`          | `number`  | `0`     | Number of items to skip (external pagination)               |
-| `pageSize`      | `number`  | `10`    | Number of items per page                                     |
+| `pageSize`      | `number`  | `10`    | Number of items per page                                    |
 | `maxElements`   | `number`  | `7`     | Maximum number of visible page elements (includes ellipsis) |
-| `showFirstLast` | `boolean` | `true`  | Show first/last navigation buttons                           |
-| `id`            | `string`  | auto    | Unique identifier for the pagination component               |
+| `showFirstLast` | `boolean` | `true`  | Show first/last navigation buttons                          |
+| `id`            | `string`  | auto    | Unique identifier for the pagination component              |
 | `totalItems`    | `number`  | `0`     | Total number of items (external pagination)                 |
 
 ## Events
 
-| Event          | Payload      | Description                                         |
-| -------------- | ------------ | --------------------------------------------------- |
-| `filteredPage` | `items: any[]` | Emitted with current page items (internal mode)    |
-| `skip`         | `skip: number` | Emitted when skip value changes (external mode)    |
-| `page-change`  | `page: number` | Emitted when page changes (1-based page number)    |
+| Event          | Payload        | Description                                     |
+| -------------- | -------------- | ----------------------------------------------- |
+| `filteredPage` | `items: any[]` | Emitted with current page items (internal mode) |
+| `skip`         | `skip: number` | Emitted when skip value changes (external mode) |
+| `page-change`  | `page: number` | Emitted when page changes (1-based page number) |
 
 ## Pagination Modes
 
 ### Internal Pagination
+
 Use when you have all data available. The component handles slicing internally:
+
 - Provide `list` prop with all items
 - Listen to `filteredPage` event for current page items
 - Component automatically hides when items fit on one page
 
 ### External Pagination
+
 Use with APIs where you load data per page:
+
 - Provide `totalItems` and `skip` props
 - Listen to `skip` and `page-change` events
 - You handle the data loading based on skip value
@@ -103,6 +107,7 @@ Use with APIs where you load data per page:
 ## Themes
 
 The pagination component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

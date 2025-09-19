@@ -44,6 +44,7 @@ const handleAction = () => {
 ## 🎯 Story Variant Rules
 
 ### Maximum Variants
+
 - **STRICT LIMIT**: 5 variants maximum per component
 - **REQUIRED**: Every story MUST include a "Playground" variant
 
@@ -69,6 +70,7 @@ const handleAction = () => {
 ### Content Wrapper Requirements
 
 Every variant content MUST be wrapped in:
+
 ```vue
 <div class="story-content">
   <!-- Component demonstrations -->
@@ -78,6 +80,7 @@ Every variant content MUST be wrapped in:
 ## 📐 Typography Rules (10px Base)
 
 ### Minimum Font Sizes
+
 - **Body text**: `1.6rem` (16px) - Standard content
 - **Hints/Labels**: `1.4rem` (14px) - Absolute minimum for readability
 - **NEVER use**: Sizes below `1.4rem` (14px)
@@ -116,6 +119,7 @@ Every variant content MUST be wrapped in:
 ## 🎨 Layout Standards
 
 ### Grid Layouts
+
 ```css
 .variant-grid {
   display: grid;
@@ -126,6 +130,7 @@ Every variant content MUST be wrapped in:
 ```
 
 ### Button Groups
+
 ```css
 .button-group {
   display: flex;
@@ -136,6 +141,7 @@ Every variant content MUST be wrapped in:
 ```
 
 ### Responsive Requirements
+
 ```css
 @media (max-width: 768px) {
   .story-content {
@@ -150,13 +156,16 @@ Every variant content MUST be wrapped in:
 ## 🎭 Theme Integration
 
 ### Global Theme Switcher
+
 - Theme switcher is **automatically provided** in the top-right corner
 - **DO NOT** create per-story theme variants
 - **DO NOT** include ThemeSwitcher component in individual stories
 - **DO** mention theme switching capability in story hints
 
 ### Theme-Aware Documentation
+
 Include this note in the first variant's hint:
+
 ```vue
 <p class="story-hint">
   The [component] follows DKFDS v11 design specifications. Try switching themes using
@@ -167,15 +176,18 @@ Include this note in the first variant's hint:
 ## ♿ Accessibility Requirements
 
 ### ARIA Labels
+
 - Icon-only buttons MUST include `aria-label`
 - Form inputs MUST have associated labels
 - Complex components MUST include keyboard navigation examples
 
 ### Keyboard Navigation
+
 - Include keyboard interaction examples where applicable
 - Document supported keyboard shortcuts in story hints
 
 ### Example:
+
 ```vue
 <FdsButton
   variant="primary"
@@ -189,7 +201,7 @@ Include this note in the first variant's hint:
 
 Every story MUST include a `<docs>` block with:
 
-```markdown
+````markdown
 <docs lang="md">
 # FdsComponentName
 
@@ -199,26 +211,25 @@ Brief description of the component and its purpose in DKFDS.
 
 ```vue
 <template>
-  <FdsComponentName prop="value">
-    Content
-  </FdsComponentName>
+  <FdsComponentName prop="value"> Content </FdsComponentName>
 </template>
 
 <script setup>
 import { FdsComponentName } from '@madsb/dkfds-vue3'
 </script>
 ```
+````
 
 ## Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
+| Prop       | Type   | Default   | Description |
+| ---------- | ------ | --------- | ----------- |
 | `propName` | `type` | `default` | Description |
 
 ## Events
 
-| Event | Description |
-| ----- | ----------- |
+| Event       | Description |
+| ----------- | ----------- |
 | `eventName` | Description |
 
 ## Accessibility
@@ -236,11 +247,13 @@ import { FdsComponentName } from '@madsb/dkfds-vue3'
 ## Themes
 
 The component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk
-</docs>
-```
+  </docs>
+
+````
 
 ## 🚨 Anti-Patterns (What NOT to Do)
 
@@ -373,7 +386,7 @@ const handleAction = () => {
 <docs lang="md">
 <!-- Documentation following the required structure -->
 </docs>
-```
+````
 
 ---
 

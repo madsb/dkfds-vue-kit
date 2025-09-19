@@ -49,8 +49,8 @@ const handleItemClick = (item: string) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The list component follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how lists adapt to different contexts.
+          The list component follows DKFDS v11 design specifications. Try switching themes using the
+          global theme switcher to see how lists adapt to different contexts.
         </p>
       </div>
     </Variant>
@@ -114,7 +114,9 @@ const handleItemClick = (item: string) => {
           <FdsListItem>Contact options</FdsListItem>
         </FdsList>
 
-        <p class="mt-4 mb-0">Lists can be nested and mixed to create complex content hierarchies.</p>
+        <p class="mt-4 mb-0">
+          Lists can be nested and mixed to create complex content hierarchies.
+        </p>
       </div>
     </Variant>
 
@@ -147,30 +149,30 @@ const handleItemClick = (item: string) => {
         <div>
           <h3 class="h6 mb-2">Interactive List Items</h3>
           <FdsList variant="bordered">
-            <FdsListItem 
-              :flex="true" 
+            <FdsListItem
+              :flex="true"
               :justify-between="true"
-              style="cursor: pointer; padding: 1.2rem;"
+              style="cursor: pointer; padding: 1.2rem"
               @click="handleItemClick('dashboard')"
               :class="{ active: selectedItem === 'dashboard' }"
             >
               <span>Dashboard</span>
               <span v-if="selectedItem === 'dashboard'">✓</span>
             </FdsListItem>
-            <FdsListItem 
-              :flex="true" 
+            <FdsListItem
+              :flex="true"
               :justify-between="true"
-              style="cursor: pointer; padding: 1.2rem;"
+              style="cursor: pointer; padding: 1.2rem"
               @click="handleItemClick('profile')"
               :class="{ active: selectedItem === 'profile' }"
             >
               <span>Profile Settings</span>
               <span v-if="selectedItem === 'profile'">✓</span>
             </FdsListItem>
-            <FdsListItem 
-              :flex="true" 
+            <FdsListItem
+              :flex="true"
               :justify-between="true"
-              style="cursor: pointer; padding: 1.2rem;"
+              style="cursor: pointer; padding: 1.2rem"
               @click="handleItemClick('notifications')"
               :class="{ active: selectedItem === 'notifications' }"
             >
@@ -193,21 +195,21 @@ const handleItemClick = (item: string) => {
               <FdsListItem :flex="true" :justify-between="true">
                 <div>
                   <strong>Application #12345</strong>
-                  <div style="font-size: 1.4rem; color: #666;">Submitted 2024-01-15</div>
+                  <div style="font-size: 1.4rem; color: #666">Submitted 2024-01-15</div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 0.8rem;">
-                  <span style="color: #28a745; font-size: 1.4rem;">Approved</span>
-                  <button style="padding: 0.4rem 0.8rem; font-size: 1.2rem;">View</button>
+                <div style="display: flex; align-items: center; gap: 0.8rem">
+                  <span style="color: #28a745; font-size: 1.4rem">Approved</span>
+                  <button style="padding: 0.4rem 0.8rem; font-size: 1.2rem">View</button>
                 </div>
               </FdsListItem>
               <FdsListItem :flex="true" :justify-between="true">
                 <div>
                   <strong>Application #12346</strong>
-                  <div style="font-size: 1.4rem; color: #666;">Submitted 2024-01-16</div>
+                  <div style="font-size: 1.4rem; color: #666">Submitted 2024-01-16</div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 0.8rem;">
-                  <span style="color: #ffc107; font-size: 1.4rem;">Pending</span>
-                  <button style="padding: 0.4rem 0.8rem; font-size: 1.2rem;">View</button>
+                <div style="display: flex; align-items: center; gap: 0.8rem">
+                  <span style="color: #ffc107; font-size: 1.4rem">Pending</span>
+                  <button style="padding: 0.4rem 0.8rem; font-size: 1.2rem">View</button>
                 </div>
               </FdsListItem>
             </FdsList>
@@ -218,14 +220,18 @@ const handleItemClick = (item: string) => {
             <FdsList variant="unstyled" :no-top-margin="true">
               <FdsListItem role="none">
                 <div>
-                  <h4 style="margin: 0 0 0.8rem 0; font-size: 1.6rem;">Custom Card 1</h4>
-                  <p style="margin: 0; color: #666; font-size: 1.4rem;">Custom styled content without default list styling.</p>
+                  <h4 style="margin: 0 0 0.8rem 0; font-size: 1.6rem">Custom Card 1</h4>
+                  <p style="margin: 0; color: #666; font-size: 1.4rem">
+                    Custom styled content without default list styling.
+                  </p>
                 </div>
               </FdsListItem>
               <FdsListItem role="none">
                 <div>
-                  <h4 style="margin: 0 0 0.8rem 0; font-size: 1.6rem;">Custom Card 2</h4>
-                  <p style="margin: 0; color: #666; font-size: 1.4rem;">Another card with custom styling.</p>
+                  <h4 style="margin: 0 0 0.8rem 0; font-size: 1.6rem">Custom Card 2</h4>
+                  <p style="margin: 0; color: #666; font-size: 1.4rem">
+                    Another card with custom styling.
+                  </p>
                 </div>
               </FdsListItem>
             </FdsList>
@@ -235,19 +241,30 @@ const handleItemClick = (item: string) => {
         <hr class="my-6" />
 
         <h3 class="h6 mb-2">Overflow Menu Style</h3>
-        <FdsList variant="overflow" style="max-width: 200px; border: 1px solid #ddd;">
-          <FdsListItem style="padding: 0.8rem 1.2rem; cursor: pointer;" @click="handleItemClick('edit')">
+        <FdsList variant="overflow" style="max-width: 200px; border: 1px solid #ddd">
+          <FdsListItem
+            style="padding: 0.8rem 1.2rem; cursor: pointer"
+            @click="handleItemClick('edit')"
+          >
             <span>Edit</span>
           </FdsListItem>
-          <FdsListItem style="padding: 0.8rem 1.2rem; cursor: pointer;" @click="handleItemClick('duplicate')">
+          <FdsListItem
+            style="padding: 0.8rem 1.2rem; cursor: pointer"
+            @click="handleItemClick('duplicate')"
+          >
             <span>Duplicate</span>
           </FdsListItem>
-          <FdsListItem style="padding: 0.8rem 1.2rem; cursor: pointer;" @click="handleItemClick('delete')">
-            <span style="color: #dc3545;">Delete</span>
+          <FdsListItem
+            style="padding: 0.8rem 1.2rem; cursor: pointer"
+            @click="handleItemClick('delete')"
+          >
+            <span style="color: #dc3545">Delete</span>
           </FdsListItem>
         </FdsList>
 
-        <p class="mt-4 mb-0">Lists support various layouts and styling options for different use cases.</p>
+        <p class="mt-4 mb-0">
+          Lists support various layouts and styling options for different use cases.
+        </p>
       </div>
     </Variant>
 
@@ -322,18 +339,13 @@ const handleItemClick = (item: string) => {
 
         <HstCheckbox v-model="state.flex" title="Flex Layout" />
 
-        <HstCheckbox 
-          v-model="state.justifyBetween" 
-          title="Justify Between" 
+        <HstCheckbox
+          v-model="state.justifyBetween"
+          title="Justify Between"
           :disabled="!state.flex"
         />
 
-        <HstNumber
-          v-model="state.itemCount"
-          title="Number of Items"
-          :min="1"
-          :max="10"
-        />
+        <HstNumber v-model="state.itemCount" title="Number of Items" :min="1" :max="10" />
       </template>
     </Variant>
   </Story>

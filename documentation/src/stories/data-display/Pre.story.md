@@ -7,23 +7,13 @@ The Pre component displays preformatted text and code blocks following DKFDS v11
 ```vue
 <template>
   <!-- Code string -->
-  <FdsPre
-    header="JavaScript Example"
-    code="const hello = 'world';"
-  />
+  <FdsPre header="JavaScript Example" code="const hello = 'world';" />
 
   <!-- JSON object -->
-  <FdsPre
-    header="API Response"
-    :json="{ status: 'success', data: userInfo }"
-  />
+  <FdsPre header="API Response" :json="{ status: 'success', data: userInfo }" />
 
   <!-- Slot content -->
-  <FdsPre header="Configuration">
-    server:
-      host: localhost
-      port: 3000
-  </FdsPre>
+  <FdsPre header="Configuration"> server: host: localhost port: 3000 </FdsPre>
 </template>
 
 <script setup>
@@ -35,8 +25,8 @@ const userInfo = { id: 1, name: 'Anders' }
 
 ## Props
 
-| Prop     | Type             | Default | Description                                           |
-| -------- | ---------------- | ------- | ----------------------------------------------------- |
+| Prop     | Type             | Default | Description                                          |
+| -------- | ---------------- | ------- | ---------------------------------------------------- |
 | `json`   | `object \| null` | -       | JavaScript object to display as formatted JSON       |
 | `code`   | `string \| null` | -       | Raw code string to display with monospace formatting |
 | `header` | `string`         | -       | Optional header text displayed above the code block  |
@@ -44,6 +34,7 @@ const userInfo = { id: 1, name: 'Anders' }
 ## Content Priority
 
 When multiple content sources are provided:
+
 1. `json` prop takes precedence over `code` prop
 2. `code` prop takes precedence over slot content
 3. Slot content is used when neither `json` nor `code` are provided
@@ -82,6 +73,7 @@ When multiple content sources are provided:
 ## Themes
 
 The Pre component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with light background
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

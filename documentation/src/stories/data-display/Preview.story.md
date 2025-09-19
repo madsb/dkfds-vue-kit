@@ -10,11 +10,11 @@ The Preview component system provides a comprehensive solution for documenting a
     <FdsPreviewItem>
       <p>Description of the component and its usage.</p>
     </FdsPreviewItem>
-    
+
     <FdsPreviewExample>
       <FdsButton>Live Example</FdsButton>
     </FdsPreviewExample>
-    
+
     <FdsPreviewCode header="HTML">
       <FdsPre code="<FdsButton>Live Example</FdsButton>" />
     </FdsPreviewCode>
@@ -28,7 +28,7 @@ import {
   FdsPreviewExample,
   FdsPreviewCode,
   FdsPre,
-  FdsButton
+  FdsButton,
 } from '@madsb/dkfds-vue3'
 </script>
 ```
@@ -37,16 +37,16 @@ import {
 
 ### FdsPreview Props
 
-| Prop       | Type     | Default         | Description                                    |
-| ---------- | -------- | --------------- | ---------------------------------------------- |
-| `header`   | `string` | -               | Header text describing the preview content     |
-| `href`     | `string` | -               | Optional URL for documentation link            |
-| `linkText` | `string` | `'Design System'` | Text for the documentation link               |
+| Prop       | Type     | Default           | Description                                |
+| ---------- | -------- | ----------------- | ------------------------------------------ |
+| `header`   | `string` | -                 | Header text describing the preview content |
+| `href`     | `string` | -                 | Optional URL for documentation link        |
+| `linkText` | `string` | `'Design System'` | Text for the documentation link            |
 
 ### FdsPreviewCode Props
 
-| Prop     | Type     | Default | Description                           |
-| -------- | -------- | ------- | ------------------------------------- |
+| Prop     | Type     | Default | Description                          |
+| -------- | -------- | ------- | ------------------------------------ |
 | `header` | `string` | `null`  | Optional header for the code section |
 
 ### FdsPreviewItem
@@ -75,6 +75,7 @@ Container for live component demonstrations. Provides proper semantic labeling w
 ## Layout Patterns
 
 ### Full Documentation
+
 ```vue
 <FdsPreview header="Component" href="/docs" link-text="Full Docs">
   <FdsPreviewItem><!-- Description --></FdsPreviewItem>
@@ -84,6 +85,7 @@ Container for live component demonstrations. Provides proper semantic labeling w
 ```
 
 ### Example Only
+
 ```vue
 <FdsPreview header="Quick Demo">
   <FdsPreviewExample><!-- Live example --></FdsPreviewExample>
@@ -91,6 +93,7 @@ Container for live component demonstrations. Provides proper semantic labeling w
 ```
 
 ### Code Documentation
+
 ```vue
 <FdsPreview header="API Reference">
   <FdsPreviewCode header="TypeScript">
@@ -102,6 +105,7 @@ Container for live component demonstrations. Provides proper semantic labeling w
 ## Themes
 
 The Preview component system automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with neutral backgrounds
 - **VirkDK**: Business-oriented styling with professional appearance
 - **BorgerDK**: Citizen-oriented styling with accessible design

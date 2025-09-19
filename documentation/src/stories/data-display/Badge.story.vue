@@ -107,7 +107,8 @@ const handleNotificationClick = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Use the tag prop with "strong" for emphasized badges, and numeric badges for counts or quantities.
+          Use the tag prop with "strong" for emphasized badges, and numeric badges for counts or
+          quantities.
         </p>
       </div>
     </Variant>
@@ -126,10 +127,7 @@ const handleNotificationClick = () => {
     >
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
-          <FdsBadge
-            :variant="state.variant"
-            :tag="state.tag"
-          >
+          <FdsBadge :variant="state.variant" :tag="state.tag">
             {{ state.text }}
           </FdsBadge>
         </div>

@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsFejlopsummering, FdsFormgroup, FdsLabel, FdsInput, FdsTextarea, FdsDropdown, FdsButton } from '@madsb/dkfds-vue3'
+import {
+  FdsFejlopsummering,
+  FdsFormgroup,
+  FdsLabel,
+  FdsInput,
+  FdsTextarea,
+  FdsDropdown,
+  FdsButton,
+} from '@madsb/dkfds-vue3'
 
 // Demo state for form validation examples
 const formData = ref({
@@ -8,25 +16,23 @@ const formData = ref({
   email: '',
   phone: '',
   message: '',
-  country: ''
+  country: '',
 })
 
 // Error state management
 const errors = ref([
   { id: 'name-field', message: 'Navn er påkrævet' },
   { id: 'email-field', message: 'E-mail skal have et gyldigt format' },
-  { id: 'phone-field', message: 'Telefonnummer skal være mindst 8 cifre' }
+  { id: 'phone-field', message: 'Telefonnummer skal være mindst 8 cifre' },
 ])
 
-const singleError = ref([
-  { id: 'email-field', message: 'E-mail-adressen er ikke gyldig' }
-])
+const singleError = ref([{ id: 'email-field', message: 'E-mail-adressen er ikke gyldig' }])
 
 const validationErrors = ref([
   { id: 'username-field', message: 'Brugernavn skal være mindst 3 karakterer' },
   { id: 'password-field', message: 'Adgangskode skal være mindst 8 karakterer' },
   { id: 'confirm-password-field', message: 'Adgangskoder stemmer ikke overens' },
-  { id: 'terms-field', message: 'Du skal acceptere vilkårene' }
+  { id: 'terms-field', message: 'Du skal acceptere vilkårene' },
 ])
 
 // Handle error click events
@@ -43,22 +49,22 @@ const getPlaygroundErrors = (type: string, count: number) => {
       { id: 'email-field', message: 'E-mail skal have et gyldigt format' },
       { id: 'phone-field', message: 'Telefonnummer skal være mindst 8 cifre' },
       { id: 'message-field', message: 'Besked skal være mindst 10 karakterer' },
-      { id: 'terms-field', message: 'Du skal acceptere vilkårene' }
+      { id: 'terms-field', message: 'Du skal acceptere vilkårene' },
     ],
     login: [
       { id: 'username-field', message: 'Brugernavn er påkrævet' },
       { id: 'password-field', message: 'Adgangskode er påkrævet' },
       { id: 'captcha-field', message: 'CAPTCHA er ikke korrekt' },
       { id: 'remember-field', message: 'Vælg huskningsmulighed' },
-      { id: 'account-field', message: 'Konto er midlertidigt spærret' }
+      { id: 'account-field', message: 'Konto er midlertidigt spærret' },
     ],
     contact: [
       { id: 'subject-field', message: 'Emne er påkrævet' },
       { id: 'contact-email-field', message: 'Kontakt e-mail er påkrævet' },
       { id: 'department-field', message: 'Vælg afdeling' },
       { id: 'priority-field', message: 'Vælg prioritet' },
-      { id: 'description-field', message: 'Beskrivelse skal være mindst 20 karakterer' }
-    ]
+      { id: 'description-field', message: 'Beskrivelse skal være mindst 20 karakterer' },
+    ],
   }
 
   return errorSets[type]?.slice(0, count) || []
@@ -81,10 +87,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Custom Header</h3>
-            <FdsFejlopsummering 
-              :errors="errors" 
-              header="Ret følgende fejl"
-            />
+            <FdsFejlopsummering :errors="errors" header="Ret følgende fejl" />
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">No Errors</h3>
@@ -93,8 +96,9 @@ const getPlaygroundErrors = (type: string, count: number) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The error summary component follows DKFDS v11 design specifications and provides accessible navigation to form errors. 
-          Try switching themes using the global theme switcher to see how the component adapts to different contexts.
+          The error summary component follows DKFDS v11 design specifications and provides
+          accessible navigation to form errors. Try switching themes using the global theme switcher
+          to see how the component adapts to different contexts.
         </p>
       </div>
     </Variant>
@@ -102,7 +106,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
     <!-- Form integration with error navigation -->
     <Variant title="Form Integration" icon="carbon:form">
       <div class="container py-6">
-        <FdsFejlopsummering 
+        <FdsFejlopsummering
           :errors="validationErrors"
           header="Der er {{ validationErrors.length }} fejl i formularen"
           @error-clicked="handleErrorClick"
@@ -111,40 +115,46 @@ const getPlaygroundErrors = (type: string, count: number) => {
         <div>
           <FdsFormgroup id="username-field">
             <FdsLabel for="username-input">Brugernavn *</FdsLabel>
-            <FdsInput 
-              id="username-input" 
-              v-model="formData.name" 
+            <FdsInput
+              id="username-input"
+              v-model="formData.name"
               :error="true"
               aria-describedby="username-error"
             />
-            <div id="username-error" class="form-error">Brugernavn skal være mindst 3 karakterer</div>
+            <div id="username-error" class="form-error">
+              Brugernavn skal være mindst 3 karakterer
+            </div>
           </FdsFormgroup>
 
           <FdsFormgroup id="password-field">
             <FdsLabel for="password-input">Adgangskode *</FdsLabel>
-            <FdsInput 
-              id="password-input" 
+            <FdsInput
+              id="password-input"
               type="password"
               :error="true"
               aria-describedby="password-error"
             />
-            <div id="password-error" class="form-error">Adgangskode skal være mindst 8 karakterer</div>
+            <div id="password-error" class="form-error">
+              Adgangskode skal være mindst 8 karakterer
+            </div>
           </FdsFormgroup>
 
           <FdsFormgroup id="confirm-password-field">
             <FdsLabel for="confirm-password-input">Bekræft adgangskode *</FdsLabel>
-            <FdsInput 
-              id="confirm-password-input" 
+            <FdsInput
+              id="confirm-password-input"
               type="password"
               :error="true"
               aria-describedby="confirm-password-error"
             />
-            <div id="confirm-password-error" class="form-error">Adgangskoder stemmer ikke overens</div>
+            <div id="confirm-password-error" class="form-error">
+              Adgangskoder stemmer ikke overens
+            </div>
           </FdsFormgroup>
 
           <FdsFormgroup id="terms-field">
             <label>
-              <input type="checkbox" id="terms-checkbox" aria-describedby="terms-error">
+              <input type="checkbox" id="terms-checkbox" aria-describedby="terms-error" />
               Jeg accepterer vilkårene og betingelserne *
             </label>
             <div id="terms-error" class="form-error">Du skal acceptere vilkårene</div>
@@ -152,8 +162,9 @@ const getPlaygroundErrors = (type: string, count: number) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Click on error links in the summary to navigate directly to the problematic form fields. 
-          The component uses smooth scrolling and proper focus management for optimal user experience.
+          Click on error links in the summary to navigate directly to the problematic form fields.
+          The component uses smooth scrolling and proper focus management for optimal user
+          experience.
         </p>
       </div>
     </Variant>
@@ -163,40 +174,37 @@ const getPlaygroundErrors = (type: string, count: number) => {
       <div class="container py-6">
         <div>
           <h3 class="h6 mb-2">ARIA Live Region</h3>
-          <FdsFejlopsummering 
-            :errors="errors"
-            header="Fejl opdaget i formularen"
-          />
+          <FdsFejlopsummering :errors="errors" header="Fejl opdaget i formularen" />
 
           <div>
             <h4>Accessibility Features:</h4>
             <ul>
               <li><strong>Navigation Landmark:</strong> Uses &lt;nav&gt; with aria-labelledby</li>
-              <li><strong>Alert Role:</strong> Error container has role="alert" for screen readers</li>
+              <li>
+                <strong>Alert Role:</strong> Error container has role="alert" for screen readers
+              </li>
               <li><strong>Focus Management:</strong> Error links focus target form fields</li>
-              <li><strong>Keyboard Navigation:</strong> Full keyboard accessibility with Tab and Enter</li>
-              <li><strong>Screen Reader:</strong> Icon has aria-label="Fejl" and decorative="false"</li>
+              <li>
+                <strong>Keyboard Navigation:</strong> Full keyboard accessibility with Tab and Enter
+              </li>
+              <li>
+                <strong>Screen Reader:</strong> Icon has aria-label="Fejl" and decorative="false"
+              </li>
             </ul>
           </div>
 
           <div>
             <h4>Keyboard Navigation:</h4>
             <div>
-              <div>
-                <kbd>Tab</kbd> - Navigate between error links
-              </div>
-              <div>
-                <kbd>Enter</kbd> / <kbd>Space</kbd> - Activate error link to focus field
-              </div>
-              <div>
-                <kbd>Shift + Tab</kbd> - Navigate backwards
-              </div>
+              <div><kbd>Tab</kbd> - Navigate between error links</div>
+              <div><kbd>Enter</kbd> / <kbd>Space</kbd> - Activate error link to focus field</div>
+              <div><kbd>Shift + Tab</kbd> - Navigate backwards</div>
             </div>
           </div>
         </div>
 
         <p class="mt-4 mb-0">
-          The component meets WCAG 2.1 AA accessibility standards with proper ARIA attributes, 
+          The component meets WCAG 2.1 AA accessibility standards with proper ARIA attributes,
           keyboard navigation, and screen reader support.
         </p>
       </div>
@@ -221,7 +229,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
 
           <div>
             <h3 class="h6 mb-2">Dynamic Count</h3>
-            <FdsFejlopsummering 
+            <FdsFejlopsummering
               :errors="validationErrors"
               :header="`Formular validation: ${validationErrors.length} fejl`"
             />
@@ -231,7 +239,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
 
           <div>
             <h3 class="h6 mb-2">Contextual Message</h3>
-            <FdsFejlopsummering 
+            <FdsFejlopsummering
               :errors="singleError"
               header="Login mislykket - ret følgende fejl"
             />
@@ -239,7 +247,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Use custom headers to provide context-specific error messages that help users understand 
+          Use custom headers to provide context-specific error messages that help users understand
           what went wrong and what they need to do to fix it.
         </p>
       </div>
@@ -249,17 +257,19 @@ const getPlaygroundErrors = (type: string, count: number) => {
     <Variant
       title="Playground"
       icon="carbon:game-console"
-      :init-state="() => ({
-        header: 'Der er problemer',
-        errorCount: 2,
-        autoCollect: true,
-        customHeader: false,
-        errorType: 'validation'
-      })"
+      :init-state="
+        () => ({
+          header: 'Der er problemer',
+          errorCount: 2,
+          autoCollect: true,
+          customHeader: false,
+          errorType: 'validation',
+        })
+      "
     >
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
-          <FdsFejlopsummering 
+          <FdsFejlopsummering
             :header="state.customHeader ? state.header : undefined"
             :errors="getPlaygroundErrors(state.errorType, state.errorCount)"
             :auto-collect="state.autoCollect"
@@ -283,15 +293,15 @@ const getPlaygroundErrors = (type: string, count: number) => {
           :options="[
             { value: 'validation', label: 'Form Validation' },
             { value: 'login', label: 'Login Errors' },
-            { value: 'contact', label: 'Contact Form' }
+            { value: 'contact', label: 'Contact Form' },
           ]"
         />
 
-        <HstSlider 
-          v-model="state.errorCount" 
-          title="Number of Errors" 
-          :min="0" 
-          :max="5" 
+        <HstSlider
+          v-model="state.errorCount"
+          title="Number of Errors"
+          :min="0"
+          :max="5"
           :step="1"
         />
 

@@ -6,8 +6,8 @@ Flexible navigation link component implementing DKFDS v11 navigation specificati
 
 ```vue
 <template>
-  <FdsNavLink 
-    href="/dashboard" 
+  <FdsNavLink
+    href="/dashboard"
     :current="$route.path === '/dashboard'"
     icon="dashboard"
     hint="Main overview page"
@@ -29,19 +29,19 @@ const handleNavigation = (event) => {
 
 ## Props
 
-| Prop       | Type      | Default | Description                                               |
-| ---------- | --------- | ------- | --------------------------------------------------------- |
-| `href`     | `string`  | `'#'`   | Link destination URL (relative or absolute)               |
-| `current`  | `boolean` | `false` | Whether this is the current page/section                 |
-| `disabled` | `boolean` | `false` | Whether the link is disabled                             |
-| `icon`     | `string`  | -       | Optional DKFDS icon identifier                           |
-| `hint`     | `string`  | -       | Optional hint/description text below the link           |
+| Prop       | Type      | Default | Description                                   |
+| ---------- | --------- | ------- | --------------------------------------------- |
+| `href`     | `string`  | `'#'`   | Link destination URL (relative or absolute)   |
+| `current`  | `boolean` | `false` | Whether this is the current page/section      |
+| `disabled` | `boolean` | `false` | Whether the link is disabled                  |
+| `icon`     | `string`  | -       | Optional DKFDS icon identifier                |
+| `hint`     | `string`  | -       | Optional hint/description text below the link |
 
 ## Events
 
-| Event   | Description                                                     |
-| ------- | --------------------------------------------------------------- |
-| `click` | Emitted when the link is clicked (even when href is '#')      |
+| Event   | Description                                              |
+| ------- | -------------------------------------------------------- |
+| `click` | Emitted when the link is clicked (even when href is '#') |
 
 ## Accessibility
 
@@ -71,6 +71,7 @@ const handleNavigation = (event) => {
 ## Themes
 
 The navigation link component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with subtle hover states
 - **VirkDK**: Business-oriented styling optimized for Virk.dk
 - **BorgerDK**: Citizen-friendly styling optimized for Borger.dk

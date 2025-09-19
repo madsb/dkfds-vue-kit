@@ -1,7 +1,7 @@
 <template>
   <div
     ref="switcherRef"
-    :class="['theme-switcher', `theme-switcher--${theme}` , { 'is-open': isOpen }]"
+    :class="['theme-switcher', `theme-switcher--${theme}`, { 'is-open': isOpen }]"
     :style="paletteStyle"
   >
     <button
@@ -20,12 +20,7 @@
     </button>
 
     <transition name="theme-menu">
-      <div
-        v-if="isOpen"
-        class="theme-menu"
-        role="menu"
-        aria-label="Theme selection"
-      >
+      <div v-if="isOpen" class="theme-menu" role="menu" aria-label="Theme selection">
         <p class="theme-menu__title">Choose a theme</p>
         <ul class="theme-menu__list" role="listbox">
           <li v-for="themeOption in themedOptions" :key="themeOption.value">
@@ -39,7 +34,7 @@
               :style="{
                 '--option-swatch': themeOption.palette.swatch,
                 '--option-accent': themeOption.palette.accent,
-                '--option-text': themeOption.palette.text
+                '--option-text': themeOption.palette.text,
               }"
             >
               <span class="theme-option__swatch" aria-hidden="true"></span>
@@ -66,25 +61,25 @@ const themePalette: Record<DKFDSTheme, { swatch: string; accent: string; text: s
   default: {
     swatch: 'linear-gradient(135deg, #6e7075, #3c4043)',
     accent: 'rgba(60, 64, 67, 0.22)',
-    text: '#2b2f33'
+    text: '#2b2f33',
   },
   virkdk: {
     swatch: 'linear-gradient(135deg, #0f4fa3, #1f6ad6)',
     accent: 'rgba(17, 82, 158, 0.22)',
-    text: '#103b7a'
+    text: '#103b7a',
   },
   borgerdk: {
     swatch: 'linear-gradient(135deg, #0f6d3f, #2eb872)',
     accent: 'rgba(15, 109, 63, 0.22)',
-    text: '#0c4f2f'
-  }
+    text: '#0c4f2f',
+  },
 }
 
 const themedOptions = computed(() =>
-  themes.map(option => ({
+  themes.map((option) => ({
     ...option,
-    palette: themePalette[option.value]
-  }))
+    palette: themePalette[option.value],
+  })),
 )
 
 const activePalette = computed(() => themePalette[theme.value])
@@ -92,7 +87,7 @@ const activePalette = computed(() => themePalette[theme.value])
 const paletteStyle = computed(() => ({
   '--theme-swatch': activePalette.value.swatch,
   '--theme-accent': activePalette.value.accent,
-  '--theme-text': activePalette.value.text
+  '--theme-text': activePalette.value.text,
 }))
 
 const close = () => {
@@ -165,7 +160,10 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease;
   backdrop-filter: blur(4px);
 }
 
@@ -191,7 +189,9 @@ onBeforeUnmount(() => {
   height: 0.6rem;
   border-radius: 50%;
   opacity: 0.65;
-  transition: opacity 160ms ease, transform 160ms ease;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
 }
 
 .theme-switcher--default .theme-dot--default,
@@ -267,7 +267,10 @@ onBeforeUnmount(() => {
   font-size: 1.3rem;
   font-weight: 500;
   cursor: pointer;
-  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .theme-option:hover {
@@ -301,7 +304,9 @@ onBeforeUnmount(() => {
 
 .theme-menu-enter-active,
 .theme-menu-leave-active {
-  transition: opacity 140ms ease, transform 140ms ease;
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
 }
 
 .theme-menu-enter-from,

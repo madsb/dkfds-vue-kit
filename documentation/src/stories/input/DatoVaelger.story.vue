@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { 
+import {
   FdsDatoVaelger,
   FdsFormgroup,
   FdsLabel,
   FdsHint,
-  FdsFejlmeddelelse
+  FdsFejlmeddelelse,
 } from '@madsb/dkfds-vue3'
 
 // Demo state for interactive examples
@@ -71,7 +71,8 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
         </div>
         <p class="mt-4 mb-0">
           The dato vælger follows DKFDS v11 design specifications and uses native HTML5 date input.
-          Try switching themes using the global theme switcher to see how the component adapts to different contexts.
+          Try switching themes using the global theme switcher to see how the component adapts to
+          different contexts.
         </p>
       </div>
     </Variant>
@@ -114,8 +115,9 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
         </FdsFormgroup>
 
         <p class="mt-4 mb-0">
-          The date picker integrates seamlessly with DKFDS form components including labels, hints, and error messages.
-          Try entering invalid dates (like 2024-02-30) to see validation in action.
+          The date picker integrates seamlessly with DKFDS form components including labels, hints,
+          and error messages. Try entering invalid dates (like 2024-02-30) to see validation in
+          action.
         </p>
       </div>
     </Variant>
@@ -167,8 +169,8 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The component validates dates automatically and emits 'valid' events.
-          Browser behavior may prevent some invalid dates from being entered directly.
+          The component validates dates automatically and emits 'valid' events. Browser behavior may
+          prevent some invalid dates from being entered directly.
         </p>
       </div>
     </Variant>
@@ -185,7 +187,7 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
           showLabel: true,
           labelText: 'Select Date',
           hintText: 'Choose your preferred date',
-          required: false
+          required: false,
         })
       "
     >
@@ -194,9 +196,9 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
           <div v-if="state.showLabel">
             <FdsFormgroup>
               <template #default="{ formid }">
-                <FdsLabel 
-                  v-if="state.showLabel" 
-                  :for-id="state.id || formid" 
+                <FdsLabel
+                  v-if="state.showLabel"
+                  :for-id="state.id || formid"
                   :required="state.required"
                 >
                   {{ state.labelText }}
@@ -208,7 +210,9 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
                   @valid="handlePlaygroundValidation"
                   @dirty="handlePlaygroundDirty"
                 />
-                <FdsFejlmeddelelse v-if="state.showValidation && !playgroundValid && playgroundDirty">
+                <FdsFejlmeddelelse
+                  v-if="state.showValidation && !playgroundValid && playgroundDirty"
+                >
                   Please enter a valid date
                 </FdsFejlmeddelelse>
               </template>
@@ -237,23 +241,11 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
 
         <HstCheckbox v-model="state.showLabel" title="Show Label" />
 
-        <HstText 
-          v-model="state.labelText" 
-          title="Label Text" 
-          :disabled="!state.showLabel"
-        />
+        <HstText v-model="state.labelText" title="Label Text" :disabled="!state.showLabel" />
 
-        <HstText 
-          v-model="state.hintText" 
-          title="Hint Text" 
-          :disabled="!state.showLabel"
-        />
+        <HstText v-model="state.hintText" title="Hint Text" :disabled="!state.showLabel" />
 
-        <HstCheckbox 
-          v-model="state.required" 
-          title="Required" 
-          :disabled="!state.showLabel"
-        />
+        <HstCheckbox v-model="state.required" title="Required" :disabled="!state.showLabel" />
 
         <HstCheckbox v-model="state.showValidation" title="Show Validation" />
       </template>

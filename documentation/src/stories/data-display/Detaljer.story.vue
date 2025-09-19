@@ -64,8 +64,14 @@ const handleToggle = () => {
       <div class="container py-6">
         <div>
           <FdsDetaljer header="Text Content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat.
+            </p>
           </FdsDetaljer>
 
           <FdsDetaljer header="List Content">
@@ -90,7 +96,8 @@ const handleToggle = () => {
           </FdsDetaljer>
         </div>
         <p class="mt-4 mb-0">
-          Detaljer can contain any type of content: paragraphs, lists, forms, or mixed content types.
+          Detaljer can contain any type of content: paragraphs, lists, forms, or mixed content
+          types.
         </p>
       </div>
     </Variant>
@@ -101,8 +108,14 @@ const handleToggle = () => {
         <h3 class="h6 mb-2">Frequently Asked Questions</h3>
         <div>
           <FdsDetaljer header="How do I create an account?">
-            <p>To create an account, click the "Sign Up" button and fill out the registration form with your email address and chosen password.</p>
-            <p>You will receive a confirmation email within a few minutes. Click the link in the email to activate your account.</p>
+            <p>
+              To create an account, click the "Sign Up" button and fill out the registration form
+              with your email address and chosen password.
+            </p>
+            <p>
+              You will receive a confirmation email within a few minutes. Click the link in the
+              email to activate your account.
+            </p>
           </FdsDetaljer>
 
           <FdsDetaljer header="What payment methods do you accept?">
@@ -126,13 +139,20 @@ const handleToggle = () => {
           </FdsDetaljer>
 
           <FdsDetaljer header="Is my data secure?">
-            <p>Yes, we take data security seriously. All data is encrypted both in transit and at rest using industry-standard encryption protocols.</p>
-            <p>We are GDPR compliant and regularly undergo security audits to ensure your information remains protected.</p>
+            <p>
+              Yes, we take data security seriously. All data is encrypted both in transit and at
+              rest using industry-standard encryption protocols.
+            </p>
+            <p>
+              We are GDPR compliant and regularly undergo security audits to ensure your information
+              remains protected.
+            </p>
           </FdsDetaljer>
         </div>
         <p class="mt-4 mb-0">
-          This pattern is common for FAQ sections where users can expand only the questions they're interested in.
-          Click to expand sections and press Enter or Space on focused summary elements.
+          This pattern is common for FAQ sections where users can expand only the questions they're
+          interested in. Click to expand sections and press Enter or Space on focused summary
+          elements.
         </p>
       </div>
     </Variant>
@@ -148,7 +168,10 @@ const handleToggle = () => {
               <li><strong>Enter/Space:</strong> Toggle the expanded state</li>
               <li><strong>Tab:</strong> Continue to content inside when expanded</li>
             </ul>
-            <p>The native HTML details/summary elements provide built-in keyboard support and screen reader compatibility.</p>
+            <p>
+              The native HTML details/summary elements provide built-in keyboard support and screen
+              reader compatibility.
+            </p>
           </FdsDetaljer>
 
           <FdsDetaljer>
@@ -162,11 +185,15 @@ const handleToggle = () => {
               <li>The current expanded/collapsed state</li>
               <li>Content changes when toggled</li>
             </ul>
-            <p>No additional ARIA attributes are needed as the semantic HTML provides all necessary information.</p>
+            <p>
+              No additional ARIA attributes are needed as the semantic HTML provides all necessary
+              information.
+            </p>
           </FdsDetaljer>
         </div>
         <p class="mt-4 mb-0">
-          Toggle count: {{ expandCount }}. Use Tab to navigate and Enter/Space to expand. The native details element provides excellent accessibility support.
+          Toggle count: {{ expandCount }}. Use Tab to navigate and Enter/Space to expand. The native
+          details element provides excellent accessibility support.
         </p>
       </div>
     </Variant>
@@ -186,10 +213,7 @@ const handleToggle = () => {
     >
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
-          <FdsDetaljer
-            :header="!state.useSlot ? state.header : undefined"
-            @toggle="handleToggle"
-          >
+          <FdsDetaljer :header="!state.useSlot ? state.header : undefined" @toggle="handleToggle">
             <template v-if="state.useSlot" #header>
               <span v-if="state.richHeader">
                 <strong>{{ state.header }}</strong>
@@ -210,8 +234,8 @@ const handleToggle = () => {
 
         <HstCheckbox v-model="state.useSlot" title="Use Header Slot" />
 
-        <HstCheckbox 
-          v-model="state.richHeader" 
+        <HstCheckbox
+          v-model="state.richHeader"
           title="Rich Header Content"
           :disabled="!state.useSlot"
         />

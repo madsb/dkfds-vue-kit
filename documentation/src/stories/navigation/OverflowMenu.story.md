@@ -28,35 +28,35 @@ const handleEdit = () => {
 
 ## Props
 
-| Prop           | Type                | Default         | Description                                         |
-| -------------- | ------------------- | --------------- | --------------------------------------------------- |
-| `header`       | `string`            | `'Overflow menu'` | Header text displayed on the menu trigger button   |
-| `id`           | `string`            | auto-generated  | Unique identifier for ARIA relationships            |
-| `icon`         | `string`            | `'more-vert'`   | Icon identifier from DKFDS icon set                |
-| `iconPosition` | `'left' \| 'right'` | `'right'`       | Position of icon relative to header text           |
-| `position`     | `'left' \| 'right'` | `'right'`       | Dropdown menu positioning relative to trigger      |
+| Prop           | Type                | Default           | Description                                      |
+| -------------- | ------------------- | ----------------- | ------------------------------------------------ |
+| `header`       | `string`            | `'Overflow menu'` | Header text displayed on the menu trigger button |
+| `id`           | `string`            | auto-generated    | Unique identifier for ARIA relationships         |
+| `icon`         | `string`            | `'more-vert'`     | Icon identifier from DKFDS icon set              |
+| `iconPosition` | `'left' \| 'right'` | `'right'`         | Position of icon relative to header text         |
+| `position`     | `'left' \| 'right'` | `'right'`         | Dropdown menu positioning relative to trigger    |
 
 ## Events
 
-| Event    | Payload     | Description                                      |
-| -------- | ----------- | ------------------------------------------------ |
-| `open`   | -           | Emitted when the overflow menu opens             |
-| `close`  | -           | Emitted when the overflow menu closes            |
-| `toggle` | `isOpen: boolean` | Emitted when menu state changes with new state  |
+| Event    | Payload           | Description                                    |
+| -------- | ----------------- | ---------------------------------------------- |
+| `open`   | -                 | Emitted when the overflow menu opens           |
+| `close`  | -                 | Emitted when the overflow menu closes          |
+| `toggle` | `isOpen: boolean` | Emitted when menu state changes with new state |
 
 ## Slots
 
-| Slot        | Description                                    |
-| ----------- | ---------------------------------------------- |
-| `default`   | Menu items content (should contain `<li>` elements) |
-| `header`    | Custom header content for the trigger button  |
-| `icon-left` | Custom icon content positioned on the left    |
-| `icon-right`| Custom icon content positioned on the right   |
+| Slot         | Description                                         |
+| ------------ | --------------------------------------------------- |
+| `default`    | Menu items content (should contain `<li>` elements) |
+| `header`     | Custom header content for the trigger button        |
+| `icon-left`  | Custom icon content positioned on the left          |
+| `icon-right` | Custom icon content positioned on the right         |
 
 ## Accessibility
 
 - **ARIA Support**: Full ARIA labeling with `aria-expanded`, `aria-controls`, `aria-haspopup`, and `aria-hidden`
-- **Keyboard Navigation**: 
+- **Keyboard Navigation**:
   - `Tab` - Navigate to/from trigger button
   - `Enter`/`Space` - Open/close menu
   - `Escape` - Close menu and return focus to trigger
@@ -76,6 +76,7 @@ const handleEdit = () => {
 ## Common Patterns
 
 ### Table Row Actions
+
 ```vue
 <FdsOverflowMenu header="Handlinger" position="right">
   <li><button @click="viewDetails">Se detaljer</button></li>
@@ -85,6 +86,7 @@ const handleEdit = () => {
 ```
 
 ### Card Actions
+
 ```vue
 <FdsOverflowMenu header="Mere" position="left">
   <li><a href="/share">Del</a></li>
@@ -94,6 +96,7 @@ const handleEdit = () => {
 ```
 
 ### Custom Icon and Header
+
 ```vue
 <FdsOverflowMenu icon="settings" icon-position="left">
   <template #header>Indstillinger</template>
@@ -105,6 +108,7 @@ const handleEdit = () => {
 ## Themes
 
 The overflow menu component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with proper contrast and spacing
 - **VirkDK**: Business-oriented styling for Virk.dk with corporate styling
 - **BorgerDK**: Citizen-oriented styling for Borger.dk with accessible design

@@ -10,20 +10,55 @@ const demoLabel = ref('')
 
 // Common icons used throughout DKFDS components
 const commonIcons = [
-  'home', 'account', 'arrow-back', 'arrow-forward', 'check', 'close', 'warning',
-  'info', 'error', 'chevron-right', 'chevron-left', 'chevron-up', 'chevron-down',
-  'download', 'save', 'delete', 'edit', 'search', 'menu', 'refresh',
-  'first-page', 'last-page', 'star', 'bookmark', 'add', 'remove',
-  'visibility', 'visibility-off', 'settings', 'help', 'calendar-month'
+  'home',
+  'account',
+  'arrow-back',
+  'arrow-forward',
+  'check',
+  'close',
+  'warning',
+  'info',
+  'error',
+  'chevron-right',
+  'chevron-left',
+  'chevron-up',
+  'chevron-down',
+  'download',
+  'save',
+  'delete',
+  'edit',
+  'search',
+  'menu',
+  'refresh',
+  'first-page',
+  'last-page',
+  'star',
+  'bookmark',
+  'add',
+  'remove',
+  'visibility',
+  'visibility-off',
+  'settings',
+  'help',
+  'calendar-month',
 ]
 
 // Categorized icons for better organization
 const iconCategories = {
-  navigation: ['home', 'arrow-back', 'arrow-forward', 'chevron-right', 'chevron-left', 'chevron-up', 'chevron-down', 'menu'],
+  navigation: [
+    'home',
+    'arrow-back',
+    'arrow-forward',
+    'chevron-right',
+    'chevron-left',
+    'chevron-up',
+    'chevron-down',
+    'menu',
+  ],
   actions: ['check', 'close', 'save', 'delete', 'edit', 'add', 'remove', 'refresh'],
   feedback: ['warning', 'info', 'error', 'help'],
   content: ['search', 'star', 'bookmark', 'calendar-month', 'download'],
-  user: ['account', 'visibility', 'visibility-off', 'settings']
+  user: ['account', 'visibility', 'visibility-off', 'settings'],
 }
 </script>
 
@@ -42,8 +77,9 @@ const iconCategories = {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The icon component follows DKFDS v11 design specifications with Material Design icons. Try switching themes using
-          the global theme switcher to see how icons adapt to different contexts.
+          The icon component follows DKFDS v11 design specifications with Material Design icons. Try
+          switching themes using the global theme switcher to see how icons adapt to different
+          contexts.
         </p>
       </div>
     </Variant>
@@ -69,28 +105,28 @@ const iconCategories = {
           <h3 class="h6 mb-2">Meaningful Icons (Screen Reader Accessible)</h3>
           <div>
             <p>
-              <FdsIkon 
-                icon="error" 
-                :decorative="false" 
+              <FdsIkon
+                icon="error"
+                :decorative="false"
                 aria-label="Error: Invalid input detected"
-                :inline="true" 
+                :inline="true"
               />
               Form validation failed
             </p>
             <p>
-              <FdsIkon 
-                icon="help" 
-                :decorative="false" 
+              <FdsIkon
+                icon="help"
+                :decorative="false"
                 aria-label="Help: Click for additional information"
-                :inline="true" 
+                :inline="true"
               />
               Need assistance?
             </p>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Decorative icons use aria-hidden="true" and are hidden from screen readers. 
-          Meaningful icons require aria-label and role="img" for accessibility.
+          Decorative icons use aria-hidden="true" and are hidden from screen readers. Meaningful
+          icons require aria-label and role="img" for accessibility.
         </p>
       </div>
     </Variant>
@@ -125,8 +161,8 @@ const iconCategories = {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Inline icons automatically scale with the surrounding text size. 
-          Block icons maintain consistent size regardless of text context.
+          Inline icons automatically scale with the surrounding text size. Block icons maintain
+          consistent size regardless of text context.
         </p>
       </div>
     </Variant>
@@ -146,7 +182,8 @@ const iconCategories = {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Icons are organized by usage category. All icons use Material Design symbols from the DKFDS icon set.
+          Icons are organized by usage category. All icons use Material Design symbols from the
+          DKFDS icon set.
         </p>
       </div>
     </Variant>
@@ -155,12 +192,14 @@ const iconCategories = {
     <Variant
       title="Playground"
       icon="carbon:game-console"
-      :init-state="() => ({
-        icon: 'home',
-        inline: false,
-        decorative: true,
-        ariaLabel: 'Example icon description'
-      })"
+      :init-state="
+        () => ({
+          icon: 'home',
+          inline: false,
+          decorative: true,
+          ariaLabel: 'Example icon description',
+        })
+      "
     >
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
@@ -192,24 +231,14 @@ const iconCategories = {
         <HstSelect
           v-model="state.icon"
           title="Icon Name"
-          :options="commonIcons.map(icon => ({ value: icon, label: icon }))"
+          :options="commonIcons.map((icon) => ({ value: icon, label: icon }))"
         />
 
-        <HstCheckbox
-          v-model="state.inline"
-          title="Inline (scale with text)"
-        />
+        <HstCheckbox v-model="state.inline" title="Inline (scale with text)" />
 
-        <HstCheckbox
-          v-model="state.decorative"
-          title="Decorative (aria-hidden)"
-        />
+        <HstCheckbox v-model="state.decorative" title="Decorative (aria-hidden)" />
 
-        <HstText
-          v-model="state.ariaLabel"
-          title="ARIA Label"
-          :disabled="state.decorative"
-        />
+        <HstText v-model="state.ariaLabel" title="ARIA Label" :disabled="state.decorative" />
       </template>
     </Variant>
   </Story>

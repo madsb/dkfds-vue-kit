@@ -34,9 +34,7 @@ const isAlertVisible = (alertId: string) => {
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Success</h3>
-            <FdsAlert variant="success" show-icon>
-              Operation completed successfully.
-            </FdsAlert>
+            <FdsAlert variant="success" show-icon> Operation completed successfully. </FdsAlert>
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Warning</h3>
@@ -63,11 +61,13 @@ const isAlertVisible = (alertId: string) => {
       <div class="container py-6">
         <div>
           <FdsAlert variant="info" header="Information" show-icon>
-            Your application has been received and is being processed. You will receive updates via email.
+            Your application has been received and is being processed. You will receive updates via
+            email.
           </FdsAlert>
 
           <FdsAlert variant="success" header="Payment Confirmed" show-icon>
-            Your payment of 1,250 DKK has been processed successfully. Receipt #12345 has been sent to your email.
+            Your payment of 1,250 DKK has been processed successfully. Receipt #12345 has been sent
+            to your email.
           </FdsAlert>
 
           <FdsAlert variant="warning" header="Action Required" show-icon>
@@ -76,8 +76,7 @@ const isAlertVisible = (alertId: string) => {
 
           <FdsAlert variant="error" header="Validation Error" show-icon>
             Please correct the following errors before submitting:
-            <br>• Email address is required
-            <br>• Phone number format is invalid
+            <br />• Email address is required <br />• Phone number format is invalid
           </FdsAlert>
         </div>
         <p class="mt-4 mb-0">
@@ -91,33 +90,33 @@ const isAlertVisible = (alertId: string) => {
     <Variant title="Closeable Alerts" icon="carbon:close">
       <div class="container py-6">
         <div>
-          <FdsAlert 
-            v-if="isAlertVisible('closeable-info')" 
-            variant="info" 
-            header="Dismissible Information" 
-            show-icon 
-            closeable 
+          <FdsAlert
+            v-if="isAlertVisible('closeable-info')"
+            variant="info"
+            header="Dismissible Information"
+            show-icon
+            closeable
             @close="handleAlertClose('closeable-info')"
           >
             This alert can be dismissed by clicking the close button.
           </FdsAlert>
 
-          <FdsAlert 
-            v-if="isAlertVisible('closeable-success')" 
-            variant="success" 
-            show-icon 
-            closeable 
+          <FdsAlert
+            v-if="isAlertVisible('closeable-success')"
+            variant="success"
+            show-icon
+            closeable
             @close="handleAlertClose('closeable-success')"
           >
             File uploaded successfully. You can dismiss this notification.
           </FdsAlert>
 
-          <FdsAlert 
-            v-if="isAlertVisible('closeable-warning')" 
-            variant="warning" 
-            header="Temporary Notice" 
-            show-icon 
-            closeable 
+          <FdsAlert
+            v-if="isAlertVisible('closeable-warning')"
+            variant="warning"
+            header="Temporary Notice"
+            show-icon
+            closeable
             @close="handleAlertClose('closeable-warning')"
           >
             This feature will be temporarily unavailable for maintenance on Sunday.
@@ -125,9 +124,9 @@ const isAlertVisible = (alertId: string) => {
         </div>
 
         <div class="button-group">
-          <button 
-            type="button" 
-            class="button button-secondary" 
+          <button
+            type="button"
+            class="button button-secondary"
             @click="resetAlerts"
             :disabled="dismissedAlerts.size === 0"
           >
@@ -136,8 +135,8 @@ const isAlertVisible = (alertId: string) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Closeable alerts allow users to dismiss notifications. Click "Reset Alerts" to restore dismissed alerts.
-          The close button includes both icon and text for accessibility.
+          Closeable alerts allow users to dismiss notifications. Click "Reset Alerts" to restore
+          dismissed alerts. The close button includes both icon and text for accessibility.
         </p>
       </div>
     </Variant>
@@ -147,9 +146,7 @@ const isAlertVisible = (alertId: string) => {
       <div class="container py-6">
         <div>
           <h3 class="h6 mb-2">Without Icons</h3>
-          <FdsAlert variant="info">
-            Clean alert without icon for minimal design needs.
-          </FdsAlert>
+          <FdsAlert variant="info"> Clean alert without icon for minimal design needs. </FdsAlert>
 
           <hr class="my-6" />
 
@@ -157,11 +154,9 @@ const isAlertVisible = (alertId: string) => {
           <FdsAlert variant="warning" header="Document Requirements" show-icon>
             <template #default>
               Please ensure your document meets these requirements:
-              <br><br>
-              <strong>Format:</strong> PDF, DOC, or DOCX
-              <br><strong>Size:</strong> Maximum 10 MB
-              <br><strong>Content:</strong> Must include official letterhead
-              <br><br>
+              <br /><br />
+              <strong>Format:</strong> PDF, DOC, or DOCX <br /><strong>Size:</strong> Maximum 10 MB
+              <br /><strong>Content:</strong> Must include official letterhead <br /><br />
               <em>Documents not meeting these requirements will be rejected.</em>
             </template>
           </FdsAlert>
@@ -176,12 +171,13 @@ const isAlertVisible = (alertId: string) => {
                 Application Approved
               </h2>
             </template>
-            Your application has been approved and processed. The next steps have been sent to your registered email address.
+            Your application has been approved and processed. The next steps have been sent to your
+            registered email address.
           </FdsAlert>
         </div>
         <p class="mt-4 mb-0">
-          Alerts support rich content including HTML formatting, custom headers via slots,
-          and can be used with or without icons depending on design needs.
+          Alerts support rich content including HTML formatting, custom headers via slots, and can
+          be used with or without icons depending on design needs.
         </p>
       </div>
     </Variant>
@@ -232,11 +228,7 @@ const isAlertVisible = (alertId: string) => {
 
         <HstCheckbox v-model="state.hasHeader" title="Show Header" />
 
-        <HstText 
-          v-model="state.header" 
-          title="Header Text" 
-          :disabled="!state.hasHeader"
-        />
+        <HstText v-model="state.header" title="Header Text" :disabled="!state.hasHeader" />
 
         <HstTextarea v-model="state.content" title="Alert Content" />
 

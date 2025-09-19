@@ -36,7 +36,9 @@ const handleCustomNavigation = (event: MouseEvent) => {
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With Href</h3>
-            <FdsTilbageLink href="/previous-page" @click="handleClick">Tilbage til forrige trin</FdsTilbageLink>
+            <FdsTilbageLink href="/previous-page" @click="handleClick"
+              >Tilbage til forrige trin</FdsTilbageLink
+            >
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Long Text</h3>
@@ -44,8 +46,8 @@ const handleCustomNavigation = (event: MouseEvent) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The tilbage link follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how the tilbage link adapts to different contexts.
+          The tilbage link follows DKFDS v11 design specifications. Try switching themes using the
+          global theme switcher to see how the tilbage link adapts to different contexts.
         </p>
       </div>
     </Variant>
@@ -70,7 +72,7 @@ const handleCustomNavigation = (event: MouseEvent) => {
         <p>Use href prop for direct URL navigation</p>
 
         <p class="mt-4 mb-0">
-          Click count: {{ clickCount }}. Position tilbage links at the top left of the page, 
+          Click count: {{ clickCount }}. Position tilbage links at the top left of the page,
           immediately under the header. Do not use with breadcrumbs as they serve similar purposes.
         </p>
       </div>
@@ -135,11 +137,7 @@ const handleCustomNavigation = (event: MouseEvent) => {
 
         <HstCheckbox v-model="state.useHref" title="Use Href (instead of click handler)" />
 
-        <HstText 
-          v-model="state.href" 
-          title="Href URL" 
-          :disabled="!state.useHref"
-        />
+        <HstText v-model="state.href" title="Href URL" :disabled="!state.useHref" />
       </template>
     </Variant>
   </Story>

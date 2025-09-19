@@ -23,13 +23,25 @@ const handleNavClick = (href: string, event: MouseEvent) => {
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Basic Links</h3>
             <div>
-              <FdsNavLink href="/home" :current="currentRoute === '/home'" @click="(e) => handleNavClick('/home', e)">
+              <FdsNavLink
+                href="/home"
+                :current="currentRoute === '/home'"
+                @click="(e) => handleNavClick('/home', e)"
+              >
                 Home
               </FdsNavLink>
-              <FdsNavLink href="/about" :current="currentRoute === '/about'" @click="(e) => handleNavClick('/about', e)">
+              <FdsNavLink
+                href="/about"
+                :current="currentRoute === '/about'"
+                @click="(e) => handleNavClick('/about', e)"
+              >
                 About
               </FdsNavLink>
-              <FdsNavLink href="/contact" :current="currentRoute === '/contact'" @click="(e) => handleNavClick('/contact', e)">
+              <FdsNavLink
+                href="/contact"
+                :current="currentRoute === '/contact'"
+                @click="(e) => handleNavClick('/contact', e)"
+              >
                 Contact
               </FdsNavLink>
             </div>
@@ -38,13 +50,28 @@ const handleNavClick = (href: string, event: MouseEvent) => {
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With Icons</h3>
             <div>
-              <FdsNavLink href="/dashboard" icon="dashboard" :current="currentRoute === '/dashboard'" @click="(e) => handleNavClick('/dashboard', e)">
+              <FdsNavLink
+                href="/dashboard"
+                icon="dashboard"
+                :current="currentRoute === '/dashboard'"
+                @click="(e) => handleNavClick('/dashboard', e)"
+              >
                 Dashboard
               </FdsNavLink>
-              <FdsNavLink href="/settings" icon="settings" :current="currentRoute === '/settings'" @click="(e) => handleNavClick('/settings', e)">
+              <FdsNavLink
+                href="/settings"
+                icon="settings"
+                :current="currentRoute === '/settings'"
+                @click="(e) => handleNavClick('/settings', e)"
+              >
                 Settings
               </FdsNavLink>
-              <FdsNavLink href="/profile" icon="person" :current="currentRoute === '/profile'" @click="(e) => handleNavClick('/profile', e)">
+              <FdsNavLink
+                href="/profile"
+                icon="person"
+                :current="currentRoute === '/profile'"
+                @click="(e) => handleNavClick('/profile', e)"
+              >
                 Profile
               </FdsNavLink>
             </div>
@@ -53,10 +80,20 @@ const handleNavClick = (href: string, event: MouseEvent) => {
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With Hints</h3>
             <div>
-              <FdsNavLink href="/reports" hint="View analytics and reports" :current="currentRoute === '/reports'" @click="(e) => handleNavClick('/reports', e)">
+              <FdsNavLink
+                href="/reports"
+                hint="View analytics and reports"
+                :current="currentRoute === '/reports'"
+                @click="(e) => handleNavClick('/reports', e)"
+              >
                 Reports
               </FdsNavLink>
-              <FdsNavLink href="/users" hint="Manage user accounts" :current="currentRoute === '/users'" @click="(e) => handleNavClick('/users', e)">
+              <FdsNavLink
+                href="/users"
+                hint="Manage user accounts"
+                :current="currentRoute === '/users'"
+                @click="(e) => handleNavClick('/users', e)"
+              >
                 User Management
               </FdsNavLink>
             </div>
@@ -65,9 +102,7 @@ const handleNavClick = (href: string, event: MouseEvent) => {
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Disabled State</h3>
             <div>
-              <FdsNavLink href="/admin" :disabled="true">
-                Admin Panel
-              </FdsNavLink>
+              <FdsNavLink href="/admin" :disabled="true"> Admin Panel </FdsNavLink>
               <FdsNavLink href="/premium" icon="star" hint="Premium feature" :disabled="true">
                 Premium Features
               </FdsNavLink>
@@ -76,8 +111,8 @@ const handleNavClick = (href: string, event: MouseEvent) => {
         </div>
         <p class="mt-4 mb-0">
           The nav link component follows DKFDS v11 design specifications. Try switching themes using
-          the global theme switcher to see how navigation links adapt to different contexts.
-          Current route: {{ currentRoute }} • Clicks: {{ clickCount }}
+          the global theme switcher to see how navigation links adapt to different contexts. Current
+          route: {{ currentRoute }} • Clicks: {{ clickCount }}
         </p>
       </div>
     </Variant>
@@ -91,18 +126,24 @@ const handleNavClick = (href: string, event: MouseEvent) => {
             <FdsNavLink href="/normal" @click="(e) => handleNavClick('/normal', e)">
               Normal Link
             </FdsNavLink>
-            <FdsNavLink href="/with-icon" icon="home" @click="(e) => handleNavClick('/with-icon', e)">
+            <FdsNavLink
+              href="/with-icon"
+              icon="home"
+              @click="(e) => handleNavClick('/with-icon', e)"
+            >
               With Icon
             </FdsNavLink>
-            <FdsNavLink href="/with-hint" hint="Additional information" @click="(e) => handleNavClick('/with-hint', e)">
+            <FdsNavLink
+              href="/with-hint"
+              hint="Additional information"
+              @click="(e) => handleNavClick('/with-hint', e)"
+            >
               With Hint
             </FdsNavLink>
           </div>
           <div class="col-12 col-lg-4 mb-5">
             <h3 class="h6 mb-2">Current</h3>
-            <FdsNavLink href="/current" :current="true">
-              Current Page
-            </FdsNavLink>
+            <FdsNavLink href="/current" :current="true"> Current Page </FdsNavLink>
             <FdsNavLink href="/current-icon" icon="star" :current="true">
               Current with Icon
             </FdsNavLink>
@@ -112,9 +153,7 @@ const handleNavClick = (href: string, event: MouseEvent) => {
           </div>
           <div class="col-12 col-lg-4 mb-5">
             <h3 class="h6 mb-2">Disabled</h3>
-            <FdsNavLink href="/disabled" :disabled="true">
-              Disabled Link
-            </FdsNavLink>
+            <FdsNavLink href="/disabled" :disabled="true"> Disabled Link </FdsNavLink>
             <FdsNavLink href="/disabled-icon" icon="lock" :disabled="true">
               Disabled with Icon
             </FdsNavLink>
@@ -124,8 +163,8 @@ const handleNavClick = (href: string, event: MouseEvent) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Navigation links automatically handle accessibility attributes including aria-current for current page
-          and aria-disabled for disabled states. Click count: {{ clickCount }}
+          Navigation links automatically handle accessibility attributes including aria-current for
+          current page and aria-disabled for disabled states. Click count: {{ clickCount }}
         </p>
       </div>
     </Variant>
@@ -136,19 +175,46 @@ const handleNavClick = (href: string, event: MouseEvent) => {
         <h3 class="h6 mb-2">Sidebar Navigation</h3>
         <div>
           <nav aria-label="Main navigation">
-            <FdsNavLink href="/dashboard" icon="dashboard" :current="currentRoute === '/dashboard'" @click="(e) => handleNavClick('/dashboard', e)">
+            <FdsNavLink
+              href="/dashboard"
+              icon="dashboard"
+              :current="currentRoute === '/dashboard'"
+              @click="(e) => handleNavClick('/dashboard', e)"
+            >
               Dashboard
             </FdsNavLink>
-            <FdsNavLink href="/projects" icon="folder" :current="currentRoute === '/projects'" @click="(e) => handleNavClick('/projects', e)">
+            <FdsNavLink
+              href="/projects"
+              icon="folder"
+              :current="currentRoute === '/projects'"
+              @click="(e) => handleNavClick('/projects', e)"
+            >
               Projects
             </FdsNavLink>
-            <FdsNavLink href="/tasks" icon="checklist" hint="Manage your tasks" :current="currentRoute === '/tasks'" @click="(e) => handleNavClick('/tasks', e)">
+            <FdsNavLink
+              href="/tasks"
+              icon="checklist"
+              hint="Manage your tasks"
+              :current="currentRoute === '/tasks'"
+              @click="(e) => handleNavClick('/tasks', e)"
+            >
               Tasks
             </FdsNavLink>
-            <FdsNavLink href="/reports" icon="bar-chart" hint="Analytics and insights" :current="currentRoute === '/reports'" @click="(e) => handleNavClick('/reports', e)">
+            <FdsNavLink
+              href="/reports"
+              icon="bar-chart"
+              hint="Analytics and insights"
+              :current="currentRoute === '/reports'"
+              @click="(e) => handleNavClick('/reports', e)"
+            >
               Reports
             </FdsNavLink>
-            <FdsNavLink href="/settings" icon="settings" :current="currentRoute === '/settings'" @click="(e) => handleNavClick('/settings', e)">
+            <FdsNavLink
+              href="/settings"
+              icon="settings"
+              :current="currentRoute === '/settings'"
+              @click="(e) => handleNavClick('/settings', e)"
+            >
               Settings
             </FdsNavLink>
           </nav>
@@ -167,8 +233,9 @@ const handleNavClick = (href: string, event: MouseEvent) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Navigation links can be used in sidebars, menus, or as standalone elements. They automatically
-          prevent default navigation when href is '#' and emit click events for SPA routing.
+          Navigation links can be used in sidebars, menus, or as standalone elements. They
+          automatically prevent default navigation when href is '#' and emit click events for SPA
+          routing.
         </p>
       </div>
     </Variant>

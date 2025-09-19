@@ -21,10 +21,7 @@ const basicItems: BreadcrumbItem[] = [
   { text: 'Brødkrumme' },
 ]
 
-const shortPath: BreadcrumbItem[] = [
-  { text: 'Hjem', href: '/' },
-  { text: 'Aktuel side' },
-]
+const shortPath: BreadcrumbItem[] = [{ text: 'Hjem', href: '/' }, { text: 'Aktuel side' }]
 
 const mediumPath: BreadcrumbItem[] = [
   { text: 'Forside', href: '/' },
@@ -88,10 +85,7 @@ const getPlaygroundItems = (state: PlaygroundState) => {
 </script>
 
 <template>
-  <Story
-    title="Navigation/Breadcrumb"
-    icon="carbon:breadcrumb"
-  >
+  <Story title="Navigation/Breadcrumb" icon="carbon:breadcrumb">
     <!-- Showcase all breadcrumb variants in one view -->
     <Variant title="Showcase" icon="carbon:grid">
       <div class="container py-6">
@@ -114,7 +108,10 @@ const getPlaygroundItems = (state: PlaygroundState) => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Breadcrumb navigation follows DKFDS v11 design specifications with chevron separators and proper semantic structure. The last item is automatically marked as the current page and rendered without a link. Try switching themes using the global theme switcher to see how breadcrumbs adapt to different contexts.
+          Breadcrumb navigation follows DKFDS v11 design specifications with chevron separators and
+          proper semantic structure. The last item is automatically marked as the current page and
+          rendered without a link. Try switching themes using the global theme switcher to see how
+          breadcrumbs adapt to different contexts.
         </p>
       </div>
     </Variant>
@@ -140,13 +137,12 @@ const getPlaygroundItems = (state: PlaygroundState) => {
         </div>
 
         <div v-if="clickCount > 0">
-          <p class="mt-4 mb-0">
-            Clicks: {{ clickCount }} | Last clicked: {{ lastClickedItem }}
-          </p>
+          <p class="mt-4 mb-0">Clicks: {{ clickCount }} | Last clicked: {{ lastClickedItem }}</p>
         </div>
 
         <p class="mt-4 mb-0">
-          Breadcrumbs automatically handle different path lengths. Long paths wrap naturally on mobile devices while maintaining proper semantic structure and accessibility.
+          Breadcrumbs automatically handle different path lengths. Long paths wrap naturally on
+          mobile devices while maintaining proper semantic structure and accessibility.
         </p>
       </div>
     </Variant>
@@ -175,13 +171,18 @@ const getPlaygroundItems = (state: PlaygroundState) => {
 
           <div>
             <h3 class="h6 mb-2">Force Native Links</h3>
-            <FdsBreadcrumb :items="routerItems" :use-native-links="true" @item-click="handleBreadcrumbClick" />
+            <FdsBreadcrumb
+              :items="routerItems"
+              :use-native-links="true"
+              @item-click="handleBreadcrumbClick"
+            />
             <p>Uses anchor tags even when Vue Router is available</p>
           </div>
         </div>
 
         <p class="mt-4 mb-0">
-          The component automatically detects Vue Router and uses router-link when appropriate. External links are properly marked and opened in new tabs.
+          The component automatically detects Vue Router and uses router-link when appropriate.
+          External links are properly marked and opened in new tabs.
         </p>
       </div>
     </Variant>
@@ -204,8 +205,12 @@ const getPlaygroundItems = (state: PlaygroundState) => {
 
           <div>
             <h3 class="h6 mb-2">English Context</h3>
-            <FdsBreadcrumb 
-              :items="[{ text: 'Home', href: '/' }, { text: 'Services', href: '/services' }, { text: 'Current Page' }]"
+            <FdsBreadcrumb
+              :items="[
+                { text: 'Home', href: '/' },
+                { text: 'Services', href: '/services' },
+                { text: 'Current Page' },
+              ]"
               aria-label="Breadcrumb navigation"
             />
             <p>Proper English labeling for international use</p>
@@ -225,7 +230,8 @@ const getPlaygroundItems = (state: PlaygroundState) => {
         </div>
 
         <p class="mt-4 mb-0">
-          Test with keyboard navigation: Use Tab to navigate between breadcrumb links, Enter to activate. Screen readers will announce the navigation structure and current page properly.
+          Test with keyboard navigation: Use Tab to navigate between breadcrumb links, Enter to
+          activate. Screen readers will announce the navigation structure and current page properly.
         </p>
       </div>
     </Variant>
@@ -255,9 +261,7 @@ const getPlaygroundItems = (state: PlaygroundState) => {
           />
 
           <div v-if="clickCount > 0">
-            <p class="mt-4 mb-0">
-              Interactions: {{ clickCount }} | Last: {{ lastClickedItem }}
-            </p>
+            <p class="mt-4 mb-0">Interactions: {{ clickCount }} | Last: {{ lastClickedItem }}</p>
           </div>
         </div>
       </template>

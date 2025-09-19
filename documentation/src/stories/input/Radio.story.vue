@@ -52,8 +52,9 @@ const handleRadioChange = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Radio groups follow DKFDS v11 design specifications for single-choice selection.
-          Try switching themes using the global theme switcher to see how radio buttons adapt to different contexts.
+          Radio groups follow DKFDS v11 design specifications for single-choice selection. Try
+          switching themes using the global theme switcher to see how radio buttons adapt to
+          different contexts.
         </p>
       </div>
     </Variant>
@@ -64,7 +65,8 @@ const handleRadioChange = () => {
         <FdsRadioGroup v-model="serviceType" label="What type of service do you need?">
           <FdsRadioItem value="standard">Standard Service</FdsRadioItem>
           <FdsRadioItem value="priority">Priority Service</FdsRadioItem>
-          <FdsRadioItem value="phone-support">Phone Support
+          <FdsRadioItem value="phone-support"
+            >Phone Support
             <template #content>
               <div>
                 <label for="phone-input" class="form-label">Phone Number</label>
@@ -78,14 +80,14 @@ const handleRadioChange = () => {
               </div>
             </template>
           </FdsRadioItem>
-          <FdsRadioItem value="other">Other
+          <FdsRadioItem value="other"
+            >Other
             <template #content>
               <div>
                 <label for="other-input" class="form-label">Please specify</label>
                 <textarea
                   id="other-input"
                   v-model="otherService"
-
                   rows="3"
                   placeholder="Describe the service you need"
                 ></textarea>
@@ -123,8 +125,8 @@ const handleRadioChange = () => {
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Radio buttons support various states including normal, selected, and disabled.
-          Disabled options prevent selection and show appropriate visual feedback.
+          Radio buttons support various states including normal, selected, and disabled. Disabled
+          options prevent selection and show appropriate visual feedback.
         </p>
       </div>
     </Variant>
@@ -152,8 +154,8 @@ const handleRadioChange = () => {
           </ul>
         </div>
         <p class="mt-4 mb-0">
-          Radio groups are fully accessible with ARIA labels, keyboard navigation,
-          and screen reader support. The fieldset and legend provide proper grouping semantics.
+          Radio groups are fully accessible with ARIA labels, keyboard navigation, and screen reader
+          support. The fieldset and legend provide proper grouping semantics.
         </p>
       </div>
     </Variant>

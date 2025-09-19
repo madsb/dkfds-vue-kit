@@ -7,9 +7,7 @@ The checkbox component allows users to select one or more options from a set. It
 ```vue
 <template>
   <!-- Single checkbox (boolean model) -->
-  <FdsCheckbox v-model="acceptTerms">
-    I accept the terms and conditions
-  </FdsCheckbox>
+  <FdsCheckbox v-model="acceptTerms"> I accept the terms and conditions </FdsCheckbox>
 
   <!-- Checkbox group (array model) -->
   <FdsCheckbox v-model="interests" value="sports">Sports</FdsCheckbox>
@@ -39,48 +37,54 @@ const allergyDetails = ref('')
 
 ## Props
 
-| Prop         | Type                             | Default | Description                                                       |
-| ------------ | -------------------------------- | ------- | ----------------------------------------------------------------- |
-| `modelValue` | `boolean \| string \| string[]`  | `false` | The v-model value for two-way data binding                       |
-| `value`      | `string \| number \| boolean`    | `true`  | Checkbox value for form submission and array models              |
-| `id`         | `string`                         | -       | Unique identifier (auto-generated if not provided)               |
-| `name`       | `string`                         | -       | Name attribute for form submission                                |
-| `disabled`   | `boolean`                        | `false` | Whether the checkbox is disabled                                  |
+| Prop         | Type                            | Default | Description                                         |
+| ------------ | ------------------------------- | ------- | --------------------------------------------------- |
+| `modelValue` | `boolean \| string \| string[]` | `false` | The v-model value for two-way data binding          |
+| `value`      | `string \| number \| boolean`   | `true`  | Checkbox value for form submission and array models |
+| `id`         | `string`                        | -       | Unique identifier (auto-generated if not provided)  |
+| `name`       | `string`                        | -       | Name attribute for form submission                  |
+| `disabled`   | `boolean`                       | `false` | Whether the checkbox is disabled                    |
 
 ## Events
 
-| Event                 | Description                                           |
-| --------------------- | ----------------------------------------------------- |
-| `update:modelValue`   | Emitted when checkbox state changes (v-model)        |
-| `change`              | Emitted on change event with raw DOM event           |
-| `dirty`               | Emitted when checkbox loses focus after interaction  |
+| Event               | Description                                         |
+| ------------------- | --------------------------------------------------- |
+| `update:modelValue` | Emitted when checkbox state changes (v-model)       |
+| `change`            | Emitted on change event with raw DOM event          |
+| `dirty`             | Emitted when checkbox loses focus after interaction |
 
 ## Slots
 
-| Slot      | Description                                                    |
-| --------- | -------------------------------------------------------------- |
-| `default` | Checkbox label content                                         |
-| `content` | Conditional content shown when checkbox is checked            |
+| Slot      | Description                                        |
+| --------- | -------------------------------------------------- |
+| `default` | Checkbox label content                             |
+| `content` | Conditional content shown when checkbox is checked |
 
 ## Model Types
 
 ### Boolean Model (Single Checkbox)
+
 ```vue
 <FdsCheckbox v-model="singleValue">Single option</FdsCheckbox>
 ```
+
 The `modelValue` will be `true` when checked, `false` when unchecked.
 
 ### Array Model (Checkbox Group)
+
 ```vue
 <FdsCheckbox v-model="arrayValue" value="option1">Option 1</FdsCheckbox>
 <FdsCheckbox v-model="arrayValue" value="option2">Option 2</FdsCheckbox>
 ```
+
 The `modelValue` array will contain the `value` of each checked checkbox.
 
 ### String Model (Named Value)
+
 ```vue
 <FdsCheckbox v-model="stringValue" value="yes">Yes, I agree</FdsCheckbox>
 ```
+
 The `modelValue` will be the `value` when checked, or the previous value when unchecked.
 
 ## Form Integration
@@ -123,6 +127,7 @@ Checkboxes work seamlessly with DKFDS form structure components:
 ## Themes
 
 The checkbox component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling with blue accent color
 - **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

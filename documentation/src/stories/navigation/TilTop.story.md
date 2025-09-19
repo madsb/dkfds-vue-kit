@@ -16,11 +16,11 @@ import { FdsTilTop } from '@madsb/dkfds-vue3'
 
 ## Props
 
-| Prop               | Type     | Default                | Description                                              |
-| ------------------ | -------- | ---------------------- | -------------------------------------------------------- |
+| Prop               | Type     | Default                 | Description                                              |
+| ------------------ | -------- | ----------------------- | -------------------------------------------------------- |
 | `screenReaderText` | `string` | `'Til toppen af siden'` | Hidden text announced by screen readers                  |
-| `visibleText`      | `string` | `'Til toppen'`         | Text displayed alongside icon on desktop                 |
-| `threshold`        | `number` | `undefined`            | Custom scroll threshold in pixels (default: 2x viewport) |
+| `visibleText`      | `string` | `'Til toppen'`          | Text displayed alongside icon on desktop                 |
+| `threshold`        | `number` | `undefined`             | Custom scroll threshold in pixels (default: 2x viewport) |
 
 ## Slots
 
@@ -57,6 +57,7 @@ import { FdsTilTop } from '@madsb/dkfds-vue3'
 ## Themes
 
 The component automatically adapts to the selected theme:
+
 - **Default**: Standard DKFDS styling
-- **VirkDK**: Business-oriented styling for Virk.dk  
+- **VirkDK**: Business-oriented styling for Virk.dk
 - **BorgerDK**: Citizen-oriented styling for Borger.dk

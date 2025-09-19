@@ -4,7 +4,9 @@ import { FdsTextarea } from '@madsb/dkfds-vue3'
 
 // Demo state
 const basicValue = ref('')
-const expandingValue = ref('This is some initial text that demonstrates the auto-expanding feature.\n\nThe textarea will grow as you add more content, up to the maximum rows limit.')
+const expandingValue = ref(
+  'This is some initial text that demonstrates the auto-expanding feature.\n\nThe textarea will grow as you add more content, up to the maximum rows limit.',
+)
 const limitedValue = ref('This textarea has a character limit.')
 
 const handleInput = (event: Event) => {
@@ -32,16 +34,25 @@ const handleDirty = (isDirty: boolean) => {
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">With character limit (150)</h3>
-            <FdsTextarea v-model="limitedValue" :maxlength="150" placeholder="Max 150 characters..." />
+            <FdsTextarea
+              v-model="limitedValue"
+              :maxlength="150"
+              placeholder="Max 150 characters..."
+            />
           </div>
           <div class="col-12 col-md-6 col-xl-3 mb-5">
             <h3 class="h5 mb-2">Width sized (Large)</h3>
-            <FdsTextarea v-model="basicValue" width-class="input--width-l" placeholder="Large width textarea..." />
+            <FdsTextarea
+              v-model="basicValue"
+              width-class="input--width-l"
+              placeholder="Large width textarea..."
+            />
           </div>
         </div>
         <p class="mt-4 mb-0">
-          The textarea component follows DKFDS v11 design specifications with auto-expanding rows. Try switching themes using
-          the global theme switcher to see how textareas adapt to different contexts.
+          The textarea component follows DKFDS v11 design specifications with auto-expanding rows.
+          Try switching themes using the global theme switcher to see how textareas adapt to
+          different contexts.
         </p>
       </div>
     </Variant>
@@ -51,14 +62,17 @@ const handleDirty = (isDirty: boolean) => {
       <div class="container py-6">
         <div>
           <h3 class="h6 mb-2">Dynamic Row Expansion</h3>
-          <FdsTextarea 
-            v-model="expandingValue" 
-            :rows="3" 
-            :max-rows="8" 
+          <FdsTextarea
+            v-model="expandingValue"
+            :rows="3"
+            :max-rows="8"
             :rowlength="50"
-            placeholder="Start typing to see the textarea expand..." 
+            placeholder="Start typing to see the textarea expand..."
           />
-          <p class="mt-4 mb-0">Current rows: {{ Math.max(3, Math.min(8, expandingValue.split('\n').length)) }} (min: 3, max: 8)</p>
+          <p class="mt-4 mb-0">
+            Current rows: {{ Math.max(3, Math.min(8, expandingValue.split('\n').length)) }} (min: 3,
+            max: 8)
+          </p>
         </div>
 
         <hr class="my-6" />
@@ -67,15 +81,30 @@ const handleDirty = (isDirty: boolean) => {
         <div>
           <div>
             <label>Compact (2-4 rows)</label>
-            <FdsTextarea v-model="basicValue" :rows="2" :max-rows="4" placeholder="Compact sizing..." />
+            <FdsTextarea
+              v-model="basicValue"
+              :rows="2"
+              :max-rows="4"
+              placeholder="Compact sizing..."
+            />
           </div>
           <div>
             <label>Standard (5-10 rows)</label>
-            <FdsTextarea v-model="basicValue" :rows="5" :max-rows="10" placeholder="Standard sizing..." />
+            <FdsTextarea
+              v-model="basicValue"
+              :rows="5"
+              :max-rows="10"
+              placeholder="Standard sizing..."
+            />
           </div>
           <div>
             <label>Large (8-15 rows)</label>
-            <FdsTextarea v-model="basicValue" :rows="8" :max-rows="15" placeholder="Large sizing..." />
+            <FdsTextarea
+              v-model="basicValue"
+              :rows="8"
+              :max-rows="15"
+              placeholder="Large sizing..."
+            />
           </div>
         </div>
       </div>
@@ -87,7 +116,12 @@ const handleDirty = (isDirty: boolean) => {
         <div class="row">
           <div class="col-12 col-lg-4 mb-5">
             <h3 class="h6 mb-2">Normal</h3>
-            <FdsTextarea v-model="basicValue" placeholder="Normal state" @input="handleInput" @dirty="handleDirty" />
+            <FdsTextarea
+              v-model="basicValue"
+              placeholder="Normal state"
+              @input="handleInput"
+              @dirty="handleDirty"
+            />
           </div>
           <div class="col-12 col-lg-4 mb-5">
             <h3 class="h6 mb-2">Disabled</h3>
@@ -95,9 +129,9 @@ const handleDirty = (isDirty: boolean) => {
           </div>
           <div class="col-12 col-lg-4 mb-5">
             <h3 class="h6 mb-2">Readonly</h3>
-            <FdsTextarea 
+            <FdsTextarea
               model-value="This textarea is readonly and cannot be edited by the user. The content is displayed but not interactive."
-              readonly 
+              readonly
               :rows="4"
             />
           </div>
@@ -109,23 +143,48 @@ const handleDirty = (isDirty: boolean) => {
         <div>
           <div>
             <label>Extra Small</label>
-            <FdsTextarea v-model="basicValue" width-class="input--width-xs" :rows="2" placeholder="XS width" />
+            <FdsTextarea
+              v-model="basicValue"
+              width-class="input--width-xs"
+              :rows="2"
+              placeholder="XS width"
+            />
           </div>
           <div>
             <label>Small</label>
-            <FdsTextarea v-model="basicValue" width-class="input--width-s" :rows="2" placeholder="S width" />
+            <FdsTextarea
+              v-model="basicValue"
+              width-class="input--width-s"
+              :rows="2"
+              placeholder="S width"
+            />
           </div>
           <div>
             <label>Medium</label>
-            <FdsTextarea v-model="basicValue" width-class="input--width-m" :rows="2" placeholder="M width" />
+            <FdsTextarea
+              v-model="basicValue"
+              width-class="input--width-m"
+              :rows="2"
+              placeholder="M width"
+            />
           </div>
           <div>
             <label>Large</label>
-            <FdsTextarea v-model="basicValue" width-class="input--width-l" :rows="2" placeholder="L width" />
+            <FdsTextarea
+              v-model="basicValue"
+              width-class="input--width-l"
+              :rows="2"
+              placeholder="L width"
+            />
           </div>
           <div>
             <label>Extra Large</label>
-            <FdsTextarea v-model="basicValue" width-class="input--width-xl" :rows="2" placeholder="XL width" />
+            <FdsTextarea
+              v-model="basicValue"
+              width-class="input--width-xl"
+              :rows="2"
+              placeholder="XL width"
+            />
           </div>
         </div>
       </div>
@@ -139,12 +198,14 @@ const handleDirty = (isDirty: boolean) => {
             <h3 class="h6 mb-2">With Label and Hint</h3>
             <div class="form-group">
               <label for="description-textarea" class="form-label">Project Description</label>
-              <div class="form-hint">Describe your project goals and requirements (maximum 500 characters)</div>
-              <FdsTextarea 
+              <div class="form-hint">
+                Describe your project goals and requirements (maximum 500 characters)
+              </div>
+              <FdsTextarea
                 id="description-textarea"
-                v-model="limitedValue" 
-                :maxlength="500" 
-                :rows="4" 
+                v-model="limitedValue"
+                :maxlength="500"
+                :rows="4"
                 :max-rows="8"
                 placeholder="Enter project description..."
                 aria-describedby="description-hint description-limit"
@@ -158,28 +219,23 @@ const handleDirty = (isDirty: boolean) => {
             <div>
               <div>
                 <label class="form-label">Valid Input</label>
-                <FdsTextarea 
+                <FdsTextarea
                   model-value="This is a valid textarea input with proper content."
-                  :rows="3" 
-
+                  :rows="3"
                 />
                 <div>Content looks good!</div>
               </div>
               <div>
                 <label class="form-label">Invalid Input</label>
-                <FdsTextarea 
-                  model-value=""
-                  :rows="3" 
-                  placeholder="This field is required"
-
-                />
+                <FdsTextarea model-value="" :rows="3" placeholder="This field is required" />
                 <div>This field is required</div>
               </div>
             </div>
           </div>
         </div>
         <p class="mt-4 mb-0">
-          Textareas integrate seamlessly with DKFDS form patterns. Use proper labels, hints, and validation messages for optimal accessibility.
+          Textareas integrate seamlessly with DKFDS form patterns. Use proper labels, hints, and
+          validation messages for optimal accessibility.
         </p>
       </div>
     </Variant>
@@ -190,7 +246,8 @@ const handleDirty = (isDirty: boolean) => {
       icon="carbon:game-console"
       :init-state="
         () => ({
-          value: 'Edit this text to test the textarea behavior...\n\nTry adding more lines to see auto-expansion in action.',
+          value:
+            'Edit this text to test the textarea behavior...\n\nTry adding more lines to see auto-expansion in action.',
           rows: 5,
           maxRows: 10,
           rowlength: 80,
@@ -218,9 +275,26 @@ const handleDirty = (isDirty: boolean) => {
             @dirty="handleDirty"
           />
           <div>
-            <p class="mt-4 mb-0">Character count: {{ state.value.length }}{{ state.maxlength ? `/${state.maxlength}` : '' }}</p>
+            <p class="mt-4 mb-0">
+              Character count: {{ state.value.length
+              }}{{ state.maxlength ? `/${state.maxlength}` : '' }}
+            </p>
             <p class="mt-4 mb-0">Lines: {{ state.value.split('\n').length }}</p>
-            <p class="mt-4 mb-0">Calculated rows: {{ Math.max(state.rows, Math.min(state.maxRows, Math.max(state.value.split('\n').length, Math.floor(state.value.length / state.rowlength) + 1))) }}</p>
+            <p class="mt-4 mb-0">
+              Calculated rows:
+              {{
+                Math.max(
+                  state.rows,
+                  Math.min(
+                    state.maxRows,
+                    Math.max(
+                      state.value.split('\n').length,
+                      Math.floor(state.value.length / state.rowlength) + 1,
+                    ),
+                  ),
+                )
+              }}
+            </p>
           </div>
         </div>
       </template>
@@ -234,7 +308,12 @@ const handleDirty = (isDirty: boolean) => {
 
         <HstNumber v-model="state.rowlength" title="Row Length (chars)" :min="20" :max="200" />
 
-        <HstNumber v-model="state.maxlength" title="Max Length (0 = no limit)" :min="0" :max="2000" />
+        <HstNumber
+          v-model="state.maxlength"
+          title="Max Length (0 = no limit)"
+          :min="0"
+          :max="2000"
+        />
 
         <HstSelect
           v-model="state.widthClass"
