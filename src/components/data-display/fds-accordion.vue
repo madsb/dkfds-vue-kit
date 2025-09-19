@@ -223,9 +223,9 @@ onUnmounted(() => {
 
 // Icon configuration
 const icons = {
-  success: 'check',
-  warning: 'warning',
-  error: 'error',
+  success: 'check-circle',
+  warning: 'report-problem',
+  error: 'highlight-off',
 } as const
 
 const defaultVariantTexts = {

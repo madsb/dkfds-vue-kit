@@ -12,7 +12,7 @@
     </div>
 
     <div v-if="hasError && errorMessage" class="error-message" role="alert" :aria-live="ariaLive">
-      <fds-ikon icon="warning" decorative />
+      <fds-ikon icon="report-problem" decorative />
       <span class="error-message-text">{{ errorMessage }}</span>
     </div>
 
