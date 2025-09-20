@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, toRefs, watch } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -71,7 +71,11 @@ export interface FdsDatoVaelgerProps {
   modelValue?: string
 }
 
-const { id, modelValue = '' } = defineProps<FdsDatoVaelgerProps>()
+const props = withDefaults(defineProps<FdsDatoVaelgerProps>(), {
+  modelValue: '',
+})
+
+const { id, modelValue } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -90,8 +94,14 @@ const emit = defineEmits<{
    */
   valid: [isValid: boolean]
 }>()
-const { formid } = formId(id, true)
-const refValue = ref(modelValue)
+const { formid } = formId(id.value, true)
+const refValue = ref(modelValue.value)
+
+watch(modelValue, (newValue) => {
+  if (newValue !== refValue.value) {
+    refValue.value = newValue
+  }
+})
 
 const isDateValid = (dateString: string) => {
   // First check if it's parseable

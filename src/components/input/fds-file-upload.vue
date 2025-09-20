@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, toRefs } from 'vue'
 
 import { formId } from '../../composables'
 import { removeBrowserFileContentHeaders } from '../../utils'
@@ -250,27 +250,48 @@ export interface FdsFileUploadProps {
   removeFileText?: string
 }
 
+const props = withDefaults(defineProps<FdsFileUploadProps>(), {
+  name: '',
+  label: 'Vælg fil',
+  showLabel: true,
+  hint: '',
+  accept: () => ['image/png', 'image/jpg', 'image/jpeg', '.pdf', '.doc', '.docx', '.odt'],
+  multiple: false,
+  maxFileSize: 5242880,
+  maxFiles: 10,
+  disabled: false,
+  required: false,
+  error: '',
+  removeContentHeaders: false,
+  showFileList: true,
+  removable: true,
+  requiredText: 'Obligatorisk felt',
+  ariaLive: 'polite' as const,
+  fileListAriaLabel: 'Valgte filer',
+  removeFileText: 'Fjern fil',
+})
+
 const {
   id,
-  name = '',
-  label = 'Vælg fil',
-  showLabel = true,
-  hint = '',
-  accept = ['image/png', 'image/jpg', 'image/jpeg', '.pdf', '.doc', '.docx', '.odt'],
-  multiple = false,
-  maxFileSize = 5242880, // 5MB
-  maxFiles = 10,
-  disabled = false,
-  required = false,
-  error = '',
-  removeContentHeaders = false,
-  showFileList = true,
-  removable = true,
-  requiredText = 'Obligatorisk felt',
-  ariaLive = 'polite',
-  fileListAriaLabel = 'Valgte filer',
-  removeFileText = 'Fjern fil',
-} = defineProps<FdsFileUploadProps>()
+  name,
+  label,
+  showLabel,
+  hint,
+  accept,
+  multiple,
+  maxFileSize,
+  maxFiles,
+  disabled,
+  required,
+  error,
+  removeContentHeaders,
+  showFileList,
+  removable,
+  requiredText,
+  ariaLive,
+  fileListAriaLabel,
+  removeFileText,
+} = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -305,17 +326,17 @@ const emit = defineEmits<{
   'remove-file': [index: number, file: File]
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 const selectedFiles = ref<File[]>([])
 const isDirty = ref(false)
-const hintId = computed(() => (hint ? `${formid.value}-hint` : undefined))
+const hintId = computed(() => (hint.value ? `${formid.value}-hint` : undefined))
 const errorId = computed(() => (hasError.value ? `${formid.value}-error` : undefined))
 
-const acceptedTypes = computed(() => accept.join(','))
+const acceptedTypes = computed(() => accept.value.join(','))
 
-const hasError = computed(() => Boolean(error))
+const hasError = computed(() => Boolean(error.value))
 
-const errorMessage = computed(() => error)
+const errorMessage = computed(() => error.value)
 
 const inputClasses = computed(() => ({
   'form-control': true,
@@ -353,19 +374,19 @@ const validateFile = (
   file: File,
 ): { valid: boolean; error?: { type: string; message: string } } => {
   // Check file size
-  if (file.size > maxFileSize) {
+  if (file.size > maxFileSize.value) {
     return {
       valid: false,
       error: {
         type: 'size',
-        message: `Filen "${file.name}" er for stor. Maksimal størrelse er ${formatFileSize(maxFileSize)}.`,
+        message: `Filen "${file.name}" er for stor. Maksimal størrelse er ${formatFileSize(maxFileSize.value)}.`,
       },
     }
   }
 
   // Check file type if specified
-  if (accept.length > 0) {
-    const isValidType = accept.some((acceptedType) => {
+  if (accept.value.length > 0) {
+    const isValidType = accept.value.some((acceptedType) => {
       if (acceptedType.startsWith('.')) {
         return file.name.toLowerCase().endsWith(acceptedType.toLowerCase())
       }
@@ -377,7 +398,7 @@ const validateFile = (
         valid: false,
         error: {
           type: 'type',
-          message: `Filen "${file.name}" har et ikke-understøttet format. Tilladte formater: ${accept.join(', ')}.`,
+          message: `Filen "${file.name}" har et ikke-understøttet format. Tilladte formater: ${accept.value.join(', ')}.`,
         },
       }
     }
@@ -412,10 +433,10 @@ const processFiles = async (files: File[]) => {
   }
 
   // Check total file count
-  if (selectedFiles.value.length + validFiles.length > maxFiles) {
+  if (selectedFiles.value.length + validFiles.length > maxFiles.value) {
     emit('error', {
       type: 'count',
-      message: `Du kan maksimalt vælge ${maxFiles} filer.`,
+      message: `Du kan maksimalt vælge ${maxFiles.value} filer.`,
     })
     return
   }
@@ -430,7 +451,7 @@ const processFiles = async (files: File[]) => {
         reader.readAsDataURL(file)
       })
 
-      const data = removeContentHeaders ? removeBrowserFileContentHeaders(result) : result
+      const data = removeContentHeaders.value ? removeBrowserFileContentHeaders(result) : result
 
       const fileModel: FdsFileInputModel = {
         filename: file.name,

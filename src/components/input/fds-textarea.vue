@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, isRef, type Ref, useAttrs } from 'vue'
+import { computed, inject, isRef, toRefs, type Ref, useAttrs } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -111,15 +111,14 @@ export interface FdsTextareaProps {
   widthClass?: string
 }
 
-const {
-  modelValue,
-  id,
-  rows = 5,
-  maxRows = 10,
-  rowlength = 80,
-  maxlength,
-  widthClass = '',
-} = defineProps<FdsTextareaProps>()
+const props = withDefaults(defineProps<FdsTextareaProps>(), {
+  rows: 5,
+  maxRows: 10,
+  rowlength: 80,
+  widthClass: '',
+})
+
+const { modelValue, id, rows, maxRows, rowlength, maxlength, widthClass } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -139,7 +138,7 @@ const emit = defineEmits<{
   input: [event: Event]
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 // Inject aria-describedby from formgroup if available
 const injectedAriaDescribedby = inject<string | Ref<string> | undefined>(
@@ -165,8 +164,8 @@ const computedAriaDescribedby = computed((): string | undefined => {
 const textareaClass = computed((): string => {
   const classes = ['form-input']
 
-  if (widthClass) {
-    classes.push(widthClass)
+  if (widthClass.value) {
+    classes.push(widthClass.value)
   }
 
   return classes.join(' ')
@@ -176,23 +175,23 @@ const textareaClass = computed((): string => {
  * Calculate dynamic rows based on content
  */
 const getRows = computed(() => {
-  if (!modelValue) {
-    return rows
+  if (!modelValue.value) {
+    return rows.value
   }
-  const newlineRows = modelValue.split(/\r?\n/).length
+  const newlineRows = modelValue.value.split(/\r?\n/).length
 
-  const textLengthRow = Math.floor(modelValue.length / rowlength) + 1
+  const textLengthRow = Math.floor(modelValue.value.length / rowlength.value) + 1
   const result = newlineRows > textLengthRow ? newlineRows : textLengthRow
 
-  if (result < maxRows) {
-    return result < rows ? rows : result
+  if (result < maxRows.value) {
+    return result < rows.value ? rows.value : result
   }
-  return maxRows
+  return maxRows.value
 })
 
 const inputValue = computed({
   get() {
-    return modelValue
+    return modelValue.value
   },
   set(newValue) {
     emit('update:modelValue', newValue)

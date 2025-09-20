@@ -62,7 +62,7 @@
  */
 
 import { formId } from '../../composables'
-import { computed, useSlots } from 'vue'
+import { computed, useSlots, toRefs } from 'vue'
 import FdsIkon from '../layout/fds-ikon.vue'
 
 export interface FdsTagProps {
@@ -80,7 +80,8 @@ export interface FdsTagProps {
   id?: string
 }
 
-const { icon, id } = defineProps<FdsTagProps>()
+const props = defineProps<FdsTagProps>()
+const { icon, id } = toRefs(props)
 
 const slots = useSlots()
 
@@ -93,10 +94,10 @@ const emit = defineEmits<{
   click: [formId: string]
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 // Check if tag has an icon (either via prop or slot)
-const hasIcon = computed(() => icon || slots.icon)
+const hasIcon = computed(() => icon.value || slots.icon)
 
 /**
  * Handle click events on the tag button

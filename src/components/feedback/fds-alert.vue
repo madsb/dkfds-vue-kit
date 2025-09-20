@@ -83,7 +83,7 @@
  *
  * @see {@link https://designsystem.dk/komponenter/beskeder/} DKFDS Alert Documentation
  */
-import { ref, computed } from 'vue'
+import { ref, computed, toRefs } from 'vue'
 import FdsIkon from '../layout/fds-ikon.vue'
 
 export interface FdsAlertProps {
@@ -115,12 +115,14 @@ export interface FdsAlertProps {
   closeable?: boolean
 }
 
-const {
-  header = null,
-  variant = 'info',
-  showIcon = false,
-  closeable = false,
-} = defineProps<FdsAlertProps>()
+const props = withDefaults(defineProps<FdsAlertProps>(), {
+  header: null,
+  variant: 'info' as const,
+  showIcon: false,
+  closeable: false,
+})
+
+const { header, variant, showIcon, closeable } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -132,7 +134,7 @@ const emit = defineEmits<{
 
 const showAlert = ref(true)
 
-const compAlert = computed(() => ['warning', 'error'].includes(variant))
+const compAlert = computed(() => ['warning', 'error'].includes(variant.value))
 
 const iconAriaLabel = computed(() => {
   const labels = {
@@ -141,7 +143,7 @@ const iconAriaLabel = computed(() => {
     warning: 'Advarsel',
     error: 'Fejl',
   }
-  return labels[variant]
+  return labels[variant.value]
 })
 
 const onClose = () => {

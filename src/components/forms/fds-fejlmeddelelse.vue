@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, useSlots, isRef, type Ref, watch, onUnmounted } from 'vue'
+import { computed, inject, useSlots, isRef, toRefs, type Ref, watch, onUnmounted } from 'vue'
 
 /**
  * Error message component implementing DKFDS v11 error display specifications.
@@ -64,7 +64,11 @@ export interface FdsFejlmeddelelseProps {
   id?: string
 }
 
-const { auto = true, id } = defineProps<FdsFejlmeddelelseProps>()
+const props = withDefaults(defineProps<FdsFejlmeddelelseProps>(), {
+  auto: true,
+})
+
+const { auto, id } = toRefs(props)
 
 const slots = useSlots()
 
@@ -79,7 +83,7 @@ const errorSummary = inject<{
 } | null>('errorSummary', null)
 
 const compErrorMessage = computed(() => {
-  if (!auto) {
+  if (!auto.value) {
     return null
   }
   const isValid = isRef(injIsValid) ? injIsValid.value : injIsValid
@@ -122,7 +126,7 @@ const displayedError = computed(() => {
 
 // Get the computed ID for the error element
 const computedId = computed(() => {
-  if (id) return id
+  if (id.value) return id.value
   if (errorId) {
     return isRef(errorId) ? errorId.value : errorId
   }

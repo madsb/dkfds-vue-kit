@@ -104,7 +104,7 @@
  */
 
 import { generateId } from '../../composables'
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted, toRefs } from 'vue'
 import FdsIkon from '../layout/fds-ikon.vue'
 
 export interface FdsModalProps {
@@ -135,13 +135,13 @@ export interface FdsModalProps {
   cancelText?: string
 }
 
-const {
-  header,
-  id,
-  closeable = true,
-  acceptText = 'Godkend',
-  cancelText = 'Annuller',
-} = defineProps<FdsModalProps>()
+const props = withDefaults(defineProps<FdsModalProps>(), {
+  closeable: true,
+  acceptText: 'Godkend',
+  cancelText: 'Annuller',
+})
+
+const { header, id, closeable, acceptText, cancelText } = toRefs(props)
 
 const emit = defineEmits<{
   close: []
@@ -150,7 +150,7 @@ const emit = defineEmits<{
 }>()
 
 const refDialog = ref(null)
-const dialogId = generateId(id)
+const dialogId = generateId(id.value)
 const htmlDialog = computed(() => refDialog.value as unknown as HTMLDialogElement)
 
 const showModal = () => {
@@ -167,7 +167,7 @@ defineExpose({
 })
 
 onMounted(() => {
-  if (closeable) {
+  if (closeable.value) {
     // cancel is exposed by HTMLDialogElement
     htmlDialog.value.addEventListener('cancel', () => {
       hideModal()
