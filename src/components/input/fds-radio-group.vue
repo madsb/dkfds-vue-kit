@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { provide, computed, useSlots } from 'vue'
+import { provide, computed, useSlots, toRefs } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -99,7 +99,11 @@ export interface FdsRadioGroupProps {
   name?: string
 }
 
-const { modelValue, id, label, helpText = '', name } = defineProps<FdsRadioGroupProps>()
+const props = withDefaults(defineProps<FdsRadioGroupProps>(), {
+  helpText: '',
+})
+
+const { modelValue, id, label, helpText, name } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -115,16 +119,16 @@ const emit = defineEmits<{
 }>()
 
 const slots = useSlots()
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 // Generate IDs for accessibility
 const legendId = computed(() => `${formid.value}-legend`)
-const helpTextId = computed(() => (helpText || slots.help ? `${formid.value}-help` : undefined))
+const helpTextId = computed(() => (helpText.value || slots.help ? `${formid.value}-help` : undefined))
 
 // Provide radio name to children
-const radioName = computed(() => name || `radio-${formid.value}`)
+const radioName = computed(() => name.value || `radio-${formid.value}`)
 
-const value = computed(() => modelValue)
+const value = computed(() => modelValue.value)
 
 const exposeEmit = (newValue: string | number | boolean) => {
   emit('update:modelValue', newValue)

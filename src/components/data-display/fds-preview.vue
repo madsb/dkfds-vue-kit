@@ -64,6 +64,8 @@
  *
  * @see {@link https://designsystem.dk/komponenter/} DKFDS Documentation
  */
+import { toRefs } from 'vue'
+
 export interface FdsPreviewProps {
   /**
    * Header text describing the component or example being previewed
@@ -83,7 +85,11 @@ export interface FdsPreviewProps {
   linkText?: string
 }
 
-const { header, href, linkText = 'Design System' } = defineProps<FdsPreviewProps>()
+const props = withDefaults(defineProps<FdsPreviewProps>(), {
+  linkText: 'Design System',
+})
+
+const { header, href, linkText } = toRefs(props)
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -52,6 +52,8 @@
  *
  * @see {@link https://designsystem.dk/komponenter/} DKFDS Documentation
  */
+import { toRefs } from 'vue'
+
 export interface FdsPreviewCodeProps {
   /**
    * Optional header text for the code section
@@ -61,5 +63,9 @@ export interface FdsPreviewCodeProps {
   header?: string | null
 }
 
-const { header = null } = defineProps<FdsPreviewCodeProps>()
+const props = withDefaults(defineProps<FdsPreviewCodeProps>(), {
+  header: null,
+})
+
+const { header } = toRefs(props)
 </script>

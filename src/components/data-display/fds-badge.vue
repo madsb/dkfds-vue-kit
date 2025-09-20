@@ -46,7 +46,7 @@
  *
  * @see {@link https://designsystem.dk/komponenter/badges/} DKFDS Badge Documentation
  */
-import { computed } from 'vue'
+import { computed, toRefs } from 'vue'
 
 export interface FdsBadgeProps {
   /**
@@ -65,14 +65,14 @@ export interface FdsBadgeProps {
   variant?: 'success' | 'info' | 'warning' | 'error' | null
 }
 
-const {
-  /** HTML tag to use - 'strong' for emphasis, 'span' for regular badges */
-  tag = 'span',
-  /** Visual variant for different statuses */
-  variant = null,
-} = defineProps<FdsBadgeProps>()
+const props = withDefaults(defineProps<FdsBadgeProps>(), {
+  tag: 'span',
+  variant: null,
+})
 
-const getVariantClass = computed(() => (variant ? `badge-${variant}` : ''))
+const { tag, variant } = toRefs(props)
+
+const getVariantClass = computed(() => (variant.value ? `badge-${variant.value}` : ''))
 </script>
 
 <style scoped lang="scss"></style>

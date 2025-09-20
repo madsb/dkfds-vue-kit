@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, computed } from 'vue'
+import { inject, computed, toRefs } from 'vue'
 import type { Component } from 'vue'
 import FdsIkon from '../layout/fds-ikon.vue'
 
@@ -171,21 +171,12 @@ export interface FdsCardProps {
  *
  * @see {@link https://designsystem.dk/komponenter/cards/} DKFDS Card Documentation
  */
-const {
-  /** Overskrift */
-  header = undefined,
-  headerTag = 'h2',
-  /** Under overskrift */
-  subheader = undefined,
-  /** Link for navigation card - supports both regular URLs and Vue Router locations */
-  to = undefined,
-  /** Force use of standard anchor tag even if Vue Router is available */
-  external = false,
-  /** Icon for navigation card (e.g., 'arrow-forward', 'open-in-new') */
-  icon = undefined,
-  /** Card variant */
-  variant = undefined,
-} = defineProps<FdsCardProps>()
+const props = withDefaults(defineProps<FdsCardProps>(), {
+  headerTag: 'h2',
+  external: false,
+})
+
+const { header, headerTag, subheader, to, external, icon, variant } = toRefs(props)
 
 // Check if Vue Router is available
 const $router = inject<any>('$router', null)
@@ -199,13 +190,13 @@ const hasRouter = computed(() => {
 // Determine if the link is external
 const isExternalLink = computed(() => {
   // If explicitly set as external, respect that
-  if (external) return true
+  if (external.value) return true
 
   // If not a string, it's a router location object (internal)
-  if (typeof to !== 'string') return false
+  if (typeof to.value !== 'string') return false
 
   // Check for various external URL patterns
-  const url = to as string
+  const url = to.value as string
 
   // Common protocol patterns for external links
   if (url.startsWith('http://') || url.startsWith('https://')) return true
@@ -253,21 +244,20 @@ const getLinkProps = () => {
   const isAnchor = getLinkComponent() === 'a'
 
   if (isAnchor) {
-    return { href: to }
-  } else {
-    return { to }
+    return { href: to.value }
   }
+  return { to: to.value }
 }
 
 // Determine the icon to use based on link type
 const getIcon = computed(() => {
   // If icon is explicitly set, use it
-  if (icon !== undefined) {
-    return icon
+  if (icon.value !== undefined) {
+    return icon.value
   }
 
   // If there's a link, provide smart defaults
-  if (to) {
+  if (to.value) {
     // External links get open-in-new icon by default
     if (isExternalLink.value) {
       return 'open-in-new'

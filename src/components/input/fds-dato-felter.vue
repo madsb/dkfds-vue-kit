@@ -61,7 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, toRefs, watch } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -126,11 +126,11 @@ export interface FdsDatoFelterProps {
   modelValue?: string
 }
 
-const {
-  id,
-  /** JSON Date */
-  modelValue = '',
-} = defineProps<FdsDatoFelterProps>()
+const props = withDefaults(defineProps<FdsDatoFelterProps>(), {
+  modelValue: '',
+})
+
+const { id, modelValue } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -186,8 +186,8 @@ const getModelDate = (dateString: string) => {
   return { day: '', month: '', year: '' }
 }
 
-const { formid } = formId(id, true)
-const dateObj = ref<{ day: string; month: string; year: string }>(getModelDate(modelValue))
+const { formid } = formId(id.value, true)
+const dateObj = ref<{ day: string; month: string; year: string }>(getModelDate(modelValue.value))
 
 const onInput = () => {
   // Zero-pad values for proper date format (only if not empty)
@@ -230,7 +230,7 @@ let isUserTyping = false
 
 // Watch for modelValue changes from parent
 watch(
-  () => modelValue,
+  modelValue,
   (newValue) => {
     // Don't update while user is typing
     if (isUserTyping) {

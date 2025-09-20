@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, provide, ref } from 'vue'
+import { computed, inject, provide, ref, toRefs } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -70,13 +70,17 @@ export interface FdsFormgroupProps {
   isValid?: boolean
 }
 
-const { id, isValid = true } = defineProps<FdsFormgroupProps>()
+const props = withDefaults(defineProps<FdsFormgroupProps>(), {
+  isValid: true,
+})
+
+const { id, isValid } = toRefs(props)
 
 /**
  * Form id der bruges i slots
  * eg. label for input element
  */
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 /**
  * Generate IDs for hint and error elements following DKFDS v11 naming conventions
@@ -121,7 +125,7 @@ const injIsValid = ref<boolean | null>(inject('provideIsValid', null))
  * Computed validation state that considers both local prop and injected state
  * Prioritizes injected state for form-wide validation coordination
  */
-const compValid = computed(() => injIsValid.value ?? isValid)
+const compValid = computed(() => injIsValid.value ?? isValid.value)
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

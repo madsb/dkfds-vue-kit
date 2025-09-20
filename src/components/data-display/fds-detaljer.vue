@@ -71,6 +71,8 @@
  *
  * @see {@link https://designsystem.dk/komponenter/detaljer/} DKFDS Details Documentation
  */
+import { toRefs } from 'vue'
+
 export interface FdsDetaljerProps {
   /**
    * Header text displayed in the clickable summary area
@@ -80,8 +82,9 @@ export interface FdsDetaljerProps {
   header?: string
 }
 
-const {
-  /** Overskrift */
-  header = 'Mere information',
-} = defineProps<FdsDetaljerProps>()
+const props = withDefaults(defineProps<FdsDetaljerProps>(), {
+  header: 'Mere information',
+})
+
+const { header } = toRefs(props)
 </script>

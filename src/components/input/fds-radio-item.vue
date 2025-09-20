@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, useSlots, isRef, type Ref } from 'vue'
+import { computed, inject, useSlots, isRef, toRefs, type Ref } from 'vue'
 import { formId, generateId } from '../../composables'
 
 /**
@@ -112,7 +112,11 @@ export interface FdsRadioItemProps {
   name?: string
 }
 
-const { value, index, id, disabled = false, name } = defineProps<FdsRadioItemProps>()
+const props = withDefaults(defineProps<FdsRadioItemProps>(), {
+  disabled: false,
+})
+
+const { value, index, id, disabled, name } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -136,8 +140,8 @@ const injGroupValue = inject<
 >('provideGroupValue', null)
 const injGroupName = inject<Ref<string> | string>('provideGroupName', '')
 
-const { formid } = formId(id, true)
-const indexIdRef = generateId(index)
+const { formid } = formId(id.value, true)
+const indexIdRef = generateId(index.value)
 const indexId = indexIdRef ? indexIdRef.value : 'item'
 
 // Generate unique radio ID
@@ -146,7 +150,7 @@ const radioId = computed(() => `radio-${formid.value}-${indexId}`)
 // Use injected name or prop name
 const radioName = computed(() => {
   const groupName = isRef(injGroupName) ? injGroupName.value : injGroupName
-  return name || groupName || `radio-${formid.value}`
+  return name.value || groupName || `radio-${formid.value}`
 })
 
 // Check if content slot is provided
@@ -155,7 +159,7 @@ const hasContent = computed(() => !!slots.content)
 // Check if this radio is selected
 const isChecked = computed(() => {
   const groupValue = isRef(injGroupValue) ? injGroupValue.value : injGroupValue
-  return value === groupValue
+  return value.value === groupValue
 })
 
 // Inject aria-describedby from formgroup if available

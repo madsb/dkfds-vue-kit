@@ -75,7 +75,7 @@
  *
  * @see {@link https://designsystem.dk/komponenter/fejlopsummering/} DKFDS Error Summary Documentation
  */
-import { computed, provide, ref, onMounted, onUnmounted, toValue } from 'vue'
+import { computed, provide, ref, onMounted, onUnmounted, toRefs, toValue } from 'vue'
 import { generateId } from '../../composables'
 import FdsIkon from '../layout/fds-ikon.vue'
 
@@ -114,16 +114,13 @@ export interface FdsFejlopsummeringProps {
   autoCollect?: boolean
 }
 
-const {
-  /** Overskrift for fejlopsummering */
-  header = 'Der er problemer',
-  /** ID for accessibility aria-labelledby */
-  id,
-  /** Manuel liste af fejl */
-  errors = [],
-  /** Om komponenten automatisk skal indsamle fejl fra formfelter */
-  autoCollect = true,
-} = defineProps<FdsFejlopsummeringProps>()
+const props = withDefaults(defineProps<FdsFejlopsummeringProps>(), {
+  header: 'Der er problemer',
+  errors: () => [],
+  autoCollect: true,
+})
+
+const { header, id, errors, autoCollect } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -134,7 +131,7 @@ const emit = defineEmits<{
 }>()
 
 // Generate unique ID for heading
-const generatedId = generateId(id)
+const generatedId = generateId(id.value)
 const headingId = computed(() => toValue(generatedId))
 
 // Store for collected errors
@@ -142,9 +139,9 @@ const collectedErrors = ref<Map<string, ErrorItem>>(new Map())
 
 // Combine manual errors with collected errors
 const allErrors = computed(() => {
-  const errorList: ErrorItem[] = [...errors]
+  const errorList: ErrorItem[] = [...errors.value]
 
-  if (autoCollect) {
+  if (autoCollect.value) {
     collectedErrors.value.forEach((error) => {
       errorList.push(error)
     })
@@ -158,14 +155,14 @@ const hasErrors = computed(() => allErrors.value.length > 0)
 
 // Function to register an error (for child components to use)
 const registerError = (id: string, message: string, element?: HTMLElement) => {
-  if (!autoCollect) return
+  if (!autoCollect.value) return
 
   collectedErrors.value.set(id, { id, message, element })
 }
 
 // Function to unregister an error
 const unregisterError = (id: string) => {
-  if (!autoCollect) return
+  if (!autoCollect.value) return
 
   collectedErrors.value.delete(id)
 }

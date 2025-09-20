@@ -66,7 +66,7 @@
  *
  * @see {@link https://designsystem.dk/komponenter/cards/} DKFDS Card Documentation
  */
-import { computed } from 'vue'
+import { computed, toRefs } from 'vue'
 
 export interface FdsCardGroupProps {
   /**
@@ -80,7 +80,11 @@ export interface FdsCardGroupProps {
   type?: 'deck' | 'columns' | null
 }
 
-const { type = null } = defineProps<FdsCardGroupProps>()
+const props = withDefaults(defineProps<FdsCardGroupProps>(), {
+  type: null,
+})
 
-const getClass = computed(() => type ?? 'normal')
+const { type } = toRefs(props)
+
+const getClass = computed(() => type.value ?? 'normal')
 </script>
