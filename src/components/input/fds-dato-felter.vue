@@ -229,20 +229,17 @@ const onNextTab = (event: Event, source: string) => {
 let isUserTyping = false
 
 // Watch for modelValue changes from parent
-watch(
-  modelValue,
-  (newValue) => {
-    // Don't update while user is typing
-    if (isUserTyping) {
-      isUserTyping = false
-      return
-    }
+watch(modelValue, (newValue) => {
+  // Don't update while user is typing
+  if (isUserTyping) {
+    isUserTyping = false
+    return
+  }
 
-    // Only update if the value is significantly different
-    const newDate = getModelDate(newValue)
-    if (JSON.stringify(newDate) !== JSON.stringify(dateObj.value)) {
-      dateObj.value = newDate
-    }
-  },
-)
+  // Only update if the value is significantly different
+  const newDate = getModelDate(newValue)
+  if (JSON.stringify(newDate) !== JSON.stringify(dateObj.value)) {
+    dateObj.value = newDate
+  }
+})
 </script>

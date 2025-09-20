@@ -201,8 +201,16 @@ const props = withDefaults(defineProps<FdsTrinindikatorGroupProps>(), {
   closeButtonText: 'Luk',
 })
 
-const { id, currentStep, totalSteps, ariaLabel, showStepInfo, clickableSteps, modalTitle, closeButtonText } =
-  toRefs(props)
+const {
+  id,
+  currentStep,
+  totalSteps,
+  ariaLabel,
+  showStepInfo,
+  clickableSteps,
+  modalTitle,
+  closeButtonText,
+} = toRefs(props)
 
 const emit = defineEmits<{
   /**

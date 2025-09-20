@@ -12,7 +12,7 @@ This template provides the optimized structure for creating component stories in
 
 ## Template Structure
 
-````vue
+```vue
 <script setup lang="ts">
 import { ref } from 'vue'
 import { FdsComponentName } from '@madsb/dkfds-vue3'
@@ -158,7 +158,7 @@ const handleAction = () => {
 </style>
 
 <docs lang="md"></docs>
-````
+```
 
 ## Props
 

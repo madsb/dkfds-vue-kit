@@ -123,7 +123,9 @@ const { formid } = formId(id.value, true)
 
 // Generate IDs for accessibility
 const legendId = computed(() => `${formid.value}-legend`)
-const helpTextId = computed(() => (helpText.value || slots.help ? `${formid.value}-help` : undefined))
+const helpTextId = computed(() =>
+  helpText.value || slots.help ? `${formid.value}-help` : undefined,
+)
 
 // Provide radio name to children
 const radioName = computed(() => name.value || `radio-${formid.value}`)
