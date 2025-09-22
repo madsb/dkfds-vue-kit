@@ -44,7 +44,7 @@ const tabContent = {
               <fds-faneblade-nav-item
                 href="/profile"
                 label="Profile"
-                icon="user"
+                icon="account"
                 :active="activeNavSection === '/profile'"
                 @click="handleNavClick"
               />
@@ -58,7 +58,7 @@ const tabContent = {
               <fds-faneblade-nav-item
                 href="/notifications"
                 label="Notifications"
-                icon="notification"
+                icon="notifications"
                 :active="activeNavSection === '/notifications'"
                 @click="handleNavClick"
               />
@@ -72,7 +72,7 @@ const tabContent = {
                 <fds-faneblade-tab
                   id="info"
                   label="Information"
-                  icon="information"
+                  icon="info"
                   :active="activeTab === 'info'"
                   @click="setActiveTab"
                 />
@@ -160,7 +160,7 @@ const tabContent = {
             <fds-faneblade-tab
               id="overview"
               label="Overview"
-              icon="dashboard"
+              icon="home"
               :active="activeTab === 'overview'"
               @click="setActiveTab"
             />
@@ -189,8 +189,8 @@ const tabContent = {
           <template #panels>
             <fds-faneblade-panel
               v-for="(content, tabId) in tabContent"
-              :key="tabId"
               :id="tabId"
+              :key="tabId"
               :active="activeTab === tabId"
             >
               <div>
@@ -297,7 +297,7 @@ const tabContent = {
               <fds-faneblade-nav-item
                 href="/demo1"
                 label="Demo 1"
-                :icon="state.showIcons ? 'dashboard' : undefined"
+                :icon="state.showIcons ? 'home' : undefined"
                 :active="state.activeDemo === 'demo1'"
                 @click="
                   (e) => {
@@ -321,7 +321,7 @@ const tabContent = {
               <fds-faneblade-nav-item
                 href="/demo3"
                 label="Demo 3"
-                :icon="state.showIcons ? 'user' : undefined"
+                :icon="state.showIcons ? 'account' : undefined"
                 :active="state.activeDemo === 'demo3'"
                 @click="
                   (e) => {

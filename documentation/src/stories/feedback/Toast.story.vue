@@ -140,12 +140,20 @@ const handleClearAll = () => {
     <!-- Interactive demo with closable toasts -->
     <Variant title="Interactive Toasts" icon="carbon:touch-interaction">
       <div class="container py-6">
-        <div class="button-group">
-          <button @click="handleShowInfo">Show Info Toast</button>
-          <button @click="handleShowSuccess">Show Success Toast</button>
-          <button @click="handleShowWarning">Show Warning Toast</button>
-          <button @click="handleShowError">Show Error Toast</button>
-          <button @click="handleClearAll">Clear All</button>
+        <div class="d-flex flex-column">
+          <button class="button button-primary mb-4" @click="handleShowInfo">
+            Show Info Toast
+          </button>
+          <button class="button button-primary mb-4" @click="handleShowSuccess">
+            Show Success Toast
+          </button>
+          <button class="button button-primary mb-4" @click="handleShowWarning">
+            Show Warning Toast
+          </button>
+          <button class="button button-primary mb-4" @click="handleShowError">
+            Show Error Toast
+          </button>
+          <button class="button button-secondary mb-4" @click="handleClearAll">Clear All</button>
         </div>
 
         <FdsToastContainer>
@@ -290,8 +298,8 @@ showSuccess('Operation completed!', {
       <template #default="{ state }">
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <div>
-            <button @click="state.visible = true" :disabled="state.visible">Show Toast</button>
-            <button @click="state.visible = false" :disabled="!state.visible">Hide Toast</button>
+            <button :disabled="state.visible" @click="state.visible = true">Show Toast</button>
+            <button :disabled="!state.visible" @click="state.visible = false">Hide Toast</button>
           </div>
 
           <FdsToastContainer>

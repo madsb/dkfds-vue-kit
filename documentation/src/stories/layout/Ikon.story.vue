@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { FdsIkon } from '@madsb/dkfds-vue3'
-
-// Demo state for interactive examples
-const demoIcon = ref('home')
-const demoSize = ref(false)
-const demoDecorative = ref(true)
-const demoLabel = ref('')
 
 // Common icons used throughout DKFDS components
 const commonIcons = [
@@ -146,7 +139,7 @@ const iconCategories = {
 
           <h3 class="h6 mb-2">Inline Icons (Text Height)</h3>
           <div>
-            <p>
+            <p class="small-text">
               <FdsIkon icon="check" :decorative="true" :inline="true" />
               Small text with inline icon
             </p>
@@ -154,7 +147,7 @@ const iconCategories = {
               <FdsIkon icon="star" :decorative="true" :inline="true" />
               Normal text with inline icon
             </p>
-            <p>
+            <p class="displayheading-1">
               <FdsIkon icon="bookmark" :decorative="true" :inline="true" />
               Large text with inline icon
             </p>

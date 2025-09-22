@@ -1,7 +1,6 @@
 ---
-group: 'top'
 icon: 'carbon:bookmark'
-title: 'Introduction'
+title: '1. Introduction'
 ---
 
 # DKFDS Vue 3 Component Library
@@ -43,5 +42,4 @@ pnpm docs:dev  # starts the documentation site with these stories
 ## Learn More
 
 - Browse the component sections in the sidebar to see live examples and the extracted markdown documentation.
-- Check the `documentation/STORY_GUIDELINES.md` file for authoring tips when adding or updating stories.
 - Visit [designsystem.dk](https://designsystem.dk/) for the official DKFDS guidance and compare behaviors with the Vue implementations here.

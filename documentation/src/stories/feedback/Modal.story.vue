@@ -4,10 +4,10 @@ import type { Ref } from 'vue'
 import { FdsModal, FdsButton } from '@madsb/dkfds-vue3'
 
 // Demo state for interactions
-const basicModalRef = ref(null)
-const largeContentModalRef = ref(null)
-const customModalRef = ref(null)
-const confirmModalRef = ref(null)
+const basicModalRef = ref<InstanceType<typeof FdsModal> | null>(null)
+const largeContentModalRef = ref<InstanceType<typeof FdsModal> | null>(null)
+const customModalRef = ref<InstanceType<typeof FdsModal> | null>(null)
+const confirmModalRef = ref<InstanceType<typeof FdsModal> | null>(null)
 const actionCount = ref(0)
 
 const handleAccept = () => {
@@ -21,6 +21,21 @@ const handleCancel = () => {
 const handleCustomAction = (action: string) => {
   actionCount.value++
   console.log(`Custom action: ${action}`)
+}
+
+const handleSaveAndClose = () => {
+  handleCustomAction('save-close')
+  customModalRef.value?.hideModal()
+}
+
+const handleSaveOnly = () => {
+  handleCustomAction('save')
+  customModalRef.value?.hideModal()
+}
+
+const handleDiscard = () => {
+  handleCustomAction('discard')
+  customModalRef.value?.hideModal()
 }
 
 type ModalInstance = InstanceType<typeof FdsModal> | null
@@ -111,30 +126,9 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
             <FdsModal ref="customModalRef" header="Save Document">
               <p>Would you like to save your changes before closing?</p>
               <template #footer>
-                <FdsButton
-                  variant="primary"
-                  @click="
-                    handleCustomAction('save-close')
-                    customModalRef.hideModal()
-                  "
-                  >Save & Close</FdsButton
-                >
-                <FdsButton
-                  variant="secondary"
-                  @click="
-                    handleCustomAction('save')
-                    customModalRef.hideModal()
-                  "
-                  >Save Only</FdsButton
-                >
-                <FdsButton
-                  variant="tertiary"
-                  @click="
-                    handleCustomAction('discard')
-                    customModalRef.hideModal()
-                  "
-                  >Discard</FdsButton
-                >
+                <FdsButton variant="primary" @click="handleSaveAndClose">Save & Close</FdsButton>
+                <FdsButton variant="secondary" @click="handleSaveOnly">Save Only</FdsButton>
+                <FdsButton variant="tertiary" @click="handleDiscard">Discard</FdsButton>
               </template>
             </FdsModal>
           </div>
@@ -261,7 +255,7 @@ const openModal = (modal: ModalInstance | Ref<ModalInstance>) => {
         })
       "
     >
-      <template #default="{ state }">
+      <template #default>
         <div class="container py-6 d-flex flex-column align-items-center justify-content-center">
           <FdsButton variant="primary" @click="openModal(basicModalRef)">Open Modal</FdsButton>
 
