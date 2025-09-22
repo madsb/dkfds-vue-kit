@@ -10,14 +10,10 @@
     >
       <!-- Icon or Number -->
       <span v-if="hasError" class="step-icon">
-        <svg class="icon-svg" :aria-label="errorIconLabel" focusable="false">
-          <use href="#report-problem"></use>
-        </svg>
+        <FdsIkon icon="report-problem" :decorative="false" :aria-label="errorIconLabel" />
       </span>
       <span v-else-if="isCompleted && !isCurrent" class="step-icon">
-        <svg class="icon-svg" :aria-label="completedIconLabel" focusable="false">
-          <use href="#check"></use>
-        </svg>
+        <FdsIkon icon="check" :decorative="false" :aria-label="completedIconLabel" />
       </span>
       <span v-else class="step-number">
         <span>{{ stepNumber }}</span>
@@ -34,6 +30,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+
+import FdsIkon from '../layout/fds-ikon.vue'
 
 /**
  * Individual step component implementing DKFDS v11 step indicator specifications.

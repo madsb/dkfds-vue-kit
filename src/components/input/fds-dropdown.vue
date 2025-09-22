@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { formId } from '../../composables'
-import { ref, computed } from 'vue'
+import { ref, computed, toRefs } from 'vue'
 
 /**
  * Dropdown select component implementing DKFDS v11 select field specifications.
@@ -81,7 +81,11 @@ export interface FdsDropdownProps {
   modelValue?: string
 }
 
-const { id, modelValue = '' } = defineProps<FdsDropdownProps>()
+const props = withDefaults(defineProps<FdsDropdownProps>(), {
+  modelValue: '',
+})
+
+const { id, modelValue } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -101,13 +105,13 @@ const emit = defineEmits<{
   change: [event: Event]
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 const refElement = ref(null)
 const dirty = ref(false)
 
 // Create a computed property for v-model binding
 const selectedValue = computed({
-  get: () => modelValue,
+  get: () => modelValue.value,
   set: (value: string) => emit('update:modelValue', value),
 })
 

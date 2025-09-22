@@ -1,0 +1,61 @@
+import { defineConfig } from 'histoire'
+import { HstVue } from '@histoire/plugin-vue'
+import { fileURLToPath } from 'node:url'
+
+const projectRoot = fileURLToPath(new URL('..', import.meta.url))
+const nodeModulesRoot = fileURLToPath(new URL('../node_modules', import.meta.url))
+const histoireBase = process.env.HISTOIRE_BASE ?? '/'
+
+export default defineConfig({
+  plugins: [HstVue()],
+
+  setupFile: './histoire.setup.ts',
+
+  storyMatch: ['src/stories/**/*.story.vue'],
+
+  theme: {
+    title: 'DKFDS Vue 3 Components',
+  },
+
+  defaultStoryProps: {
+    layout: {
+      type: 'single',
+      iframe: true,
+    },
+    responsiveDisabled: false,
+    autoPropsDisabled: false,
+  },
+
+  backgroundPresets: [
+    {
+      label: 'White',
+      color: '#ffffff',
+    },
+    {
+      label: 'Gray 100',
+      color: '#f5f5f5',
+    },
+    {
+      label: 'Gray 200',
+      color: '#e0e0e0',
+    },
+    {
+      label: 'DKFDS Background',
+      color: '#f5f5f7',
+    },
+  ],
+
+  vite: {
+    base: histoireBase,
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
+    },
+    server: {
+      fs: {
+        allow: [projectRoot, nodeModulesRoot],
+      },
+    },
+  },
+})

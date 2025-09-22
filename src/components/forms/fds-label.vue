@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, isRef, type Ref } from 'vue'
+import { computed, inject, isRef, toRefs, type Ref } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -77,16 +77,17 @@ export interface FdsLabelProps {
   requiredText?: string
 }
 
-const {
-  forId,
-  required = false,
-  showRequired = true,
-  requiredText = '(skal udfyldes)',
-} = defineProps<FdsLabelProps>()
+const props = withDefaults(defineProps<FdsLabelProps>(), {
+  required: false,
+  showRequired: true,
+  requiredText: '(skal udfyldes)',
+})
+
+const { forId, required, showRequired, requiredText } = toRefs(props)
 
 // Try to get form ID from formgroup context first, then use prop, then generate
 const injectedFormId = inject<string | Ref<string> | undefined>('formid', undefined)
-const { formid } = formId(forId)
+const { formid } = formId(forId.value)
 
 const computedFor = computed((): string => {
   // Use injected formid from formgroup if available

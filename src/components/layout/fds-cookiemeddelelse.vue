@@ -88,6 +88,8 @@
  *
  * @see {@link https://designsystem.dk/komponenter/cookiemeddelelse/} DKFDS Cookie Notice Documentation
  */
+import { toRefs } from 'vue'
+
 export interface FdsCookiemeddelelseProps {
   /**
    * Header text for the cookie notice
@@ -97,7 +99,11 @@ export interface FdsCookiemeddelelseProps {
   header?: string
 }
 
-const { header = 'Fortæl os om du accepterer cookies' } = defineProps<FdsCookiemeddelelseProps>()
+const props = withDefaults(defineProps<FdsCookiemeddelelseProps>(), {
+  header: 'Fortæl os om du accepterer cookies',
+})
+
+const { header } = toRefs(props)
 
 defineEmits<{
   /**

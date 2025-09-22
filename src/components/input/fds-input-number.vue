@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs, inject, isRef, type Ref } from 'vue'
+import { computed, useAttrs, inject, isRef, toRefs, type Ref } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -54,7 +54,7 @@ import { formId } from '../../composables'
  *   prefix="kr."
  *   :step="0.01"
  *   :min="0"
- *   widthClass="input--width-m"
+ *   widthClass="input-width-m"
  * />
  * ```
  *
@@ -127,22 +127,18 @@ export interface FdsInputNumberProps {
   step?: number | string
   /**
    * CSS class for input width sizing.
-   * @values 'input--width-xs', 'input--width-s', 'input--width-m', 'input--width-l', 'input--width-xl'
+   * @values 'input-width-xs', 'input-width-s', 'input-width-m', 'input-width-l', 'input-width-xl'
    * @default ''
    */
   widthClass?: string
 }
 
-const {
-  id,
-  modelValue = '',
-  suffix,
-  prefix,
-  min,
-  max,
-  step,
-  widthClass = '',
-} = defineProps<FdsInputNumberProps>()
+const props = withDefaults(defineProps<FdsInputNumberProps>(), {
+  modelValue: '',
+  widthClass: '',
+})
+
+const { id, modelValue, suffix, prefix, min, max, step, widthClass } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -162,7 +158,7 @@ const emit = defineEmits<{
   input: [event: Event]
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 // Inject aria-describedby from formgroup if available
 const injectedAriaDescribedby = inject<string | Ref<string> | undefined>(
@@ -187,9 +183,9 @@ const computedAriaDescribedby = computed((): string | undefined => {
 const wrapperClass = computed((): string => {
   const classes: string[] = []
 
-  if (suffix) {
+  if (suffix.value) {
     classes.push('form-input-wrapper', 'form-input-wrapper--suffix')
-  } else if (prefix) {
+  } else if (prefix.value) {
     classes.push('form-input-wrapper', 'form-input-wrapper--prefix')
   }
 
@@ -202,8 +198,8 @@ const wrapperClass = computed((): string => {
 const inputClass = computed((): string => {
   const classes = ['form-input']
 
-  if (widthClass) {
-    classes.push(widthClass)
+  if (widthClass.value) {
+    classes.push(widthClass.value)
   }
 
   return classes.join(' ')
@@ -211,7 +207,7 @@ const inputClass = computed((): string => {
 
 const inputValue = computed({
   get() {
-    return modelValue
+    return modelValue.value
   },
   set(newValue) {
     emit('update:modelValue', newValue)

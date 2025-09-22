@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, toRefs } from 'vue'
 import { formId } from '../../composables'
 import FdsModal from '../feedback/fds-modal.vue'
 
@@ -188,19 +188,29 @@ export interface FdsTrinindikatorGroupProps {
   closeButtonText?: string
 }
 
+const props = withDefaults(defineProps<FdsTrinindikatorGroupProps>(), {
+  currentStep: 1,
+  totalSteps: 0,
+  ariaLabel: 'Trinindikator',
+  responsive: true,
+  mobileBreakpoint: 768,
+  showStepInfo: false,
+  clickableSteps: false,
+  modalTitle: 'Trin',
+  modalAriaLabel: 'Trin modal',
+  closeButtonText: 'Luk',
+})
+
 const {
   id,
-  currentStep = 1,
-  totalSteps = 0,
-  ariaLabel = 'Trinindikator',
-  responsive: _responsive = true,
-  mobileBreakpoint: _mobileBreakpoint = 768,
-  showStepInfo = false,
-  clickableSteps = false,
-  modalTitle = 'Trin',
-  modalAriaLabel: _modalAriaLabel = 'Trin modal',
-  closeButtonText = 'Luk',
-} = defineProps<FdsTrinindikatorGroupProps>()
+  currentStep,
+  totalSteps,
+  ariaLabel,
+  showStepInfo,
+  clickableSteps,
+  modalTitle,
+  closeButtonText,
+} = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -222,12 +232,12 @@ const emit = defineEmits<{
   'modal-close': []
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 const mobileModal = ref<InstanceType<typeof FdsModal> | null>(null)
 
 const stepIndicatorClasses = computed(() => ({
-  'step-indicator--clickable': clickableSteps,
-  'step-indicator--with-info': showStepInfo,
+  'step-indicator--clickable': clickableSteps.value,
+  'step-indicator--with-info': showStepInfo.value,
 }))
 
 const openMobileModal = () => {

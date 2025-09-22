@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, toRefs } from 'vue'
 import { formId } from '../../composables'
 import FdsIkon from '../layout/fds-ikon.vue'
 
@@ -133,12 +133,13 @@ export interface FdsOverflowMenuProps {
   position?: 'left' | 'right'
 }
 
-const {
-  icon = 'more-vert',
-  position = 'right',
-  iconPosition = 'right',
-  id,
-} = defineProps<FdsOverflowMenuProps>()
+const props = withDefaults(defineProps<FdsOverflowMenuProps>(), {
+  icon: 'more-vert',
+  position: 'right' as const,
+  iconPosition: 'right' as const,
+})
+
+const { icon, position, iconPosition, id, header } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -160,7 +161,7 @@ const emit = defineEmits<{
   toggle: [isOpen: boolean]
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 const buttonRef = ref<HTMLButtonElement>()
 const menuRef = ref<HTMLDivElement>()
@@ -169,7 +170,7 @@ const isOpen = ref(false)
 const buttonId = computed(() => `button_${formid.value}`)
 const menuId = computed(() => formid.value)
 const positionClass = computed(() => {
-  return position === 'left' ? 'overflow-menu--open-left' : 'overflow-menu--open-right'
+  return position.value === 'left' ? 'overflow-menu--open-left' : 'overflow-menu--open-right'
 })
 
 const open = () => {

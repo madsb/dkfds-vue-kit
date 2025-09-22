@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, isRef, type Ref } from 'vue'
+import { computed, inject, isRef, toRefs, type Ref } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -106,14 +106,15 @@ export interface FdsToggleSwitchProps {
   class?: string
 }
 
-const {
-  id,
-  modelValue = false,
-  disabled = false,
-  offText = 'Fra',
-  onText = 'Til',
-  class: className = '',
-} = defineProps<FdsToggleSwitchProps>()
+const props = withDefaults(defineProps<FdsToggleSwitchProps>(), {
+  modelValue: false,
+  disabled: false,
+  offText: 'Fra',
+  onText: 'Til',
+  class: '',
+})
+
+const { id, modelValue, disabled, offText, onText, class: className } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -128,7 +129,7 @@ const emit = defineEmits<{
   click: [event: MouseEvent]
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 // Inject aria-describedby from formgroup if available
 const injectedAriaDescribedby = inject<string | Ref<string> | undefined>(
@@ -148,8 +149,8 @@ const computedAriaDescribedby = computed((): string | undefined => {
 const toggleSwitchClass = computed((): string => {
   const classes: string[] = []
 
-  if (className) {
-    classes.push(className)
+  if (className.value) {
+    classes.push(className.value)
   }
 
   return classes.join(' ')
@@ -159,9 +160,9 @@ const toggleSwitchClass = computed((): string => {
  * Handle toggle state change
  */
 const handleToggle = (event: MouseEvent) => {
-  if (disabled) return
+  if (disabled.value) return
 
-  const newValue = !modelValue
+  const newValue = !modelValue.value
   emit('update:modelValue', newValue)
   emit('click', event)
 }

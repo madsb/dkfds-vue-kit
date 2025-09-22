@@ -1,0 +1,28 @@
+{
+  "name": "dkfds-vue3-histoire",
+  "version": "1.0.0",
+  "description": "Histoire documentation site for DKFDS Vue 3 component library",
+  "type": "module",
+  "scripts": {
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview",
+    "dev": "histoire dev",
+    "build": "histoire build",
+    "preview": "histoire preview"
+  },
+  "dependencies": {
+    "@madsb/dkfds-vue3": "workspace:*",
+    "dkfds": "^11.0.1"
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "^0.17.17",
+    "@types/node": "^22.14.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "histoire": "^0.17.17",
+    "sass": "^1.89.2",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.11",
+    "vue": "^3.5.18"
+  }
+}

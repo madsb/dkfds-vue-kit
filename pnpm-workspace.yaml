@@ -1,6 +1,6 @@
 packages:
   - .
-  - docs-site
+  - documentation
   - examples/**
   - '!**/test/**'
 

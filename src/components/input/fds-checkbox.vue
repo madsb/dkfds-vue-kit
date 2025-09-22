@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots, inject, isRef, type Ref } from 'vue'
+import { computed, useAttrs, useSlots, inject, isRef, toRefs, type Ref } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -109,13 +109,13 @@ export interface FdsCheckboxProps {
   disabled?: boolean
 }
 
-const {
-  id,
-  modelValue = false,
-  value = true,
-  name,
-  disabled = false,
-} = defineProps<FdsCheckboxProps>()
+const props = withDefaults(defineProps<FdsCheckboxProps>(), {
+  modelValue: false,
+  value: true,
+  disabled: false,
+})
+
+const { id, modelValue, value, name, disabled } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -135,7 +135,7 @@ const emit = defineEmits<{
   change: [event: Event]
 }>()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 // Check if content slot is provided
 const hasContent = computed(() => !!slots.content)
@@ -169,13 +169,13 @@ const checkboxClass = computed((): string => {
  * Determine if checkbox is checked
  */
 const isChecked = computed((): boolean => {
-  if (Array.isArray(modelValue)) {
-    return modelValue.includes(value as string)
+  if (Array.isArray(modelValue.value)) {
+    return modelValue.value.includes(value.value as string)
   }
-  if (typeof modelValue === 'boolean') {
-    return modelValue
+  if (typeof modelValue.value === 'boolean') {
+    return modelValue.value
   }
-  return modelValue === value
+  return modelValue.value === value.value
 })
 
 /**
@@ -185,14 +185,14 @@ const handleChange = (event: Event) => {
   const target = event.target as HTMLInputElement
   const checked = target.checked
 
-  if (Array.isArray(modelValue)) {
-    const newValue = [...modelValue]
+  if (Array.isArray(modelValue.value)) {
+    const newValue = [...modelValue.value]
     if (checked) {
-      if (!newValue.includes(value as string)) {
-        newValue.push(value as string)
+      if (!newValue.includes(value.value as string)) {
+        newValue.push(value.value as string)
       }
     } else {
-      const index = newValue.indexOf(value as string)
+      const index = newValue.indexOf(value.value as string)
       if (index > -1) {
         newValue.splice(index, 1)
       }

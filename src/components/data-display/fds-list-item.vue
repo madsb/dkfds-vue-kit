@@ -62,7 +62,7 @@
  *
  * @see {@link https://designsystem.dk/komponenter/lister/} DKFDS List Documentation
  */
-import { computed } from 'vue'
+import { computed, toRefs } from 'vue'
 
 export interface FdsListItemProps {
   /**
@@ -94,21 +94,26 @@ export interface FdsListItemProps {
   justifyBetween?: boolean
 }
 
-const { variant, role, flex = false, justifyBetween = false } = defineProps<FdsListItemProps>()
+const props = withDefaults(defineProps<FdsListItemProps>(), {
+  flex: false,
+  justifyBetween: false,
+})
+
+const { variant, role, flex, justifyBetween } = toRefs(props)
 
 const itemClasses = computed(() => {
   const classes: string[] = []
 
   // Status classes
-  if (variant) {
-    classes.push(variant)
+  if (variant.value) {
+    classes.push(variant.value)
   }
 
   // Flex layout classes
-  if (flex) {
+  if (flex.value) {
     classes.push('d-flex')
   }
-  if (justifyBetween) {
+  if (justifyBetween.value) {
     classes.push('justify-content-between')
   }
 

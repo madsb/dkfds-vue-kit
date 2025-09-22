@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useSlots, useAttrs, inject, isRef, type Ref } from 'vue'
+import { computed, useSlots, useAttrs, inject, isRef, toRefs, type Ref } from 'vue'
 import { formId } from '../../composables'
 
 /**
@@ -63,7 +63,7 @@ import { formId } from '../../composables'
  *     id="email"
  *     v-model="formData.email"
  *     type="email"
- *     width-class="form-input-width-m"
+ *     width-class="input-width-m"
  *   />
  * </FdsFormgroup>
  * ```
@@ -119,20 +119,19 @@ export interface FdsInputProps {
   /**
    * Width class for controlling input field size
    * Uses DKFDS width utility classes
-   * @values 'form-input-width-xs', 'form-input-width-s', 'form-input-width-m', 'form-input-width-l', 'form-input-width-xl'
+   * @values 'input-width-xs', 'input-width-s', 'input-width-m', 'input-width-l', 'input-width-xl'
    * @default ''
    */
   widthClass?: string
 }
 
-const {
-  id,
-  modelValue = '',
-  suffix,
-  prefix,
-  type = 'text',
-  widthClass = '',
-} = defineProps<FdsInputProps>()
+const props = withDefaults(defineProps<FdsInputProps>(), {
+  modelValue: '',
+  type: 'text',
+  widthClass: '',
+})
+
+const { id, modelValue, suffix, prefix, type, widthClass } = toRefs(props)
 
 const emit = defineEmits<{
   /**
@@ -155,7 +154,7 @@ const emit = defineEmits<{
 }>()
 const slots = useSlots()
 
-const { formid } = formId(id, true)
+const { formid } = formId(id.value, true)
 
 // Inject aria-describedby from formgroup if available
 const injectedAriaDescribedby = inject<string | Ref<string> | undefined>(
@@ -180,9 +179,9 @@ const computedAriaDescribedby = computed((): string | undefined => {
 const wrapperClass = computed((): string => {
   const classes: string[] = []
 
-  if (suffix) {
+  if (suffix.value) {
     classes.push('form-input-wrapper', 'form-input-wrapper--suffix')
-  } else if (prefix) {
+  } else if (prefix.value) {
     classes.push('form-input-wrapper', 'form-input-wrapper--prefix')
   } else if (slots.button) {
     classes.push('search')
@@ -197,8 +196,8 @@ const wrapperClass = computed((): string => {
 const inputClass = computed((): string => {
   const classes = ['form-input']
 
-  if (widthClass) {
-    classes.push(widthClass)
+  if (widthClass.value) {
+    classes.push(widthClass.value)
   }
 
   return classes.join(' ')
@@ -206,7 +205,7 @@ const inputClass = computed((): string => {
 
 const inputValue = computed({
   get() {
-    return modelValue
+    return modelValue.value
   },
   set(newValue) {
     emit('update:modelValue', newValue)
