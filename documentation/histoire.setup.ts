@@ -9,13 +9,27 @@ import { resolveThemeUrl } from './src/utils/themeAssets'
 import './src/assets/histoire-theme.css'
 
 const isStoryFrame = typeof window !== 'undefined' && window.self !== window.top
+const DKFDS_BASE_STYLE_ATTR = 'data-dkfds-vue-kit'
+
+async function ensureBaseStyles() {
+  if (document.querySelector(`link[${DKFDS_BASE_STYLE_ATTR}]`)) {
+    return
+  }
+
+  const href = (await import('@madsb/dkfds-vue-kit/dist/dkfds-vue-kit.css?url')).default
+  const link = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.href = href
+  link.setAttribute(DKFDS_BASE_STYLE_ATTR, '')
+  document.head.appendChild(link)
+}
 
 async function ensureStoryStyles() {
   if (!isStoryFrame) {
     return
   }
 
-  await import('@madsb/dkfds-vue-kit/dist/dkfds-vue-kit.css')
+  await ensureBaseStyles()
 
   if (!document.querySelector('link[data-theme="dkfds"]')) {
     const href = await resolveThemeUrl('default')
