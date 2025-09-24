@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { FdsMenu, FdsMenuItem } from '@madsb/dkfds-vue-kit'
-import { useNavigation, type NavigationItem } from '@madsb/dkfds-vue-kit/utils'
+import { useNavigation, type NavigationItem } from '@madsb/dkfds-vue-kit'
 import { sort } from 'fast-sort'
 import { watch } from 'vue'
 

@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { FdsNavigationItem } from '@madsb/dkfds-vue-kit/utils'
+import { FdsNavigationItem } from '@madsb/dkfds-vue-kit'
 import { ref } from 'vue'
 
 const currentItem = ref<FdsNavigationItem | undefined>()

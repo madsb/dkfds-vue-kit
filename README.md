@@ -106,10 +106,11 @@ import { FdsButton, FdsAlert, FdsInput } from '@madsb/dkfds-vue-kit'
 
 ### Composables & Utilities
 
+All composables, utilities, and types are available via the root entry point so you only need one import path.
+
 ```typescript
 // Import composables and utilities
-import { useToast, formId } from '@madsb/dkfds-vue-kit/composables'
-import { generateId, navigation } from '@madsb/dkfds-vue-kit/utils'
+import { useToast, formId, generateId, navigation } from '@madsb/dkfds-vue-kit'
 ```
 
 ## 🎨 Theme Configuration

@@ -51,7 +51,7 @@ const route = useRoute()
 
 const code = `
 import { useRoute } from 'vue-router';
-import { navigation } from '@madsb/dkfds-vue-kit/utils';
+import { navigation } from '@madsb/dkfds-vue-kit';
 
 const route = useRoute();
 

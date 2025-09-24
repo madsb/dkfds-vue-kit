@@ -88,7 +88,7 @@
 </template>
 
 <script setup lang="ts">
-import { FdsFileInputModel } from '@madsb/dkfds-vue-kit/utils'
+import { FdsFileInputModel } from '@madsb/dkfds-vue-kit'
 import { ref } from 'vue'
 
 const fileInput = ref<FdsFileInputModel | null>(null)

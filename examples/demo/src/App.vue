@@ -230,7 +230,7 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import { onMounted } from 'vue'
-import { navigation } from '@madsb/dkfds-vue-kit/utils'
+import { navigation } from '@madsb/dkfds-vue-kit'
 
 const route = useRoute()
 const router = useRouter()

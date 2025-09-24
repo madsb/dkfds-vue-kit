@@ -17,15 +17,18 @@ This library provides Vue 3 wrappers for the Danish Public Design System (DKFDS)
    ```ts
    import '@madsb/dkfds-vue-kit/styles'
    ```
-3. Register and use the components you need:
+3. Register and use the components (and any composables or utilities) you need from the root entry point:
 
    ```vue
    <script setup lang="ts">
-   import { FdsButton } from '@madsb/dkfds-vue-kit'
+   import { FdsButton, useToast } from '@madsb/dkfds-vue-kit'
+
+   const { showToast } = useToast()
+   const handleClick = () => showToast({ message: 'Gemt!' })
    </script>
 
    <template>
-     <FdsButton variant="primary">Gem ændringer</FdsButton>
+     <FdsButton variant="primary" @click="handleClick">Gem ændringer</FdsButton>
    </template>
    ```
 

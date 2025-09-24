@@ -116,8 +116,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { charactersMinLength, hasContent } from '@madsb/dkfds-vue-kit/utils'
-import { FdsOptionItem, FdsCheckboxItem } from '@madsb/dkfds-vue-kit/utils'
+import { charactersMinLength, hasContent } from '@madsb/dkfds-vue-kit'
+import { FdsOptionItem, FdsCheckboxItem } from '@madsb/dkfds-vue-kit'
 
 const txtFornavn = ref('')
 const txtEfternavn = ref('')
