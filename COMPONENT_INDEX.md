@@ -6,13 +6,13 @@ Quick lookup index for all DKFDS Vue 3 components. For detailed API documentatio
 
 ```typescript
 // Import components
-import { FdsButton, FdsInput, FdsAlert } from '@madsb/dkfds-vue3'
+import { FdsButton, FdsInput, FdsAlert } from '@madsb/dkfds-vue-kit'
 
 // Import types
-import type { FdsButtonProps, FdsInputProps } from '@madsb/dkfds-vue3'
+import type { FdsButtonProps, FdsInputProps } from '@madsb/dkfds-vue-kit'
 
 // Import composables
-import { useToast, formId, generateId } from '@madsb/dkfds-vue3'
+import { useToast, formId, generateId } from '@madsb/dkfds-vue-kit'
 ```
 
 ## Component Categories
@@ -202,16 +202,16 @@ All components export their prop interfaces:
 
 ```typescript
 // Component props
-export type { FdsButtonProps } from '@madsb/dkfds-vue3'
-export type { FdsInputProps } from '@madsb/dkfds-vue3'
-export type { FdsAlertProps } from '@madsb/dkfds-vue3'
-export type { FdsModalProps } from '@madsb/dkfds-vue3'
-export type { FdsAccordionProps } from '@madsb/dkfds-vue3'
+export type { FdsButtonProps } from '@madsb/dkfds-vue-kit'
+export type { FdsInputProps } from '@madsb/dkfds-vue-kit'
+export type { FdsAlertProps } from '@madsb/dkfds-vue-kit'
+export type { FdsModalProps } from '@madsb/dkfds-vue-kit'
+export type { FdsAccordionProps } from '@madsb/dkfds-vue-kit'
 // ... and all other components
 
 // Utility types
-export type { BreadcrumbItem } from '@madsb/dkfds-vue3'
-export type { ToastOptions } from '@madsb/dkfds-vue3'
+export type { BreadcrumbItem } from '@madsb/dkfds-vue-kit'
+export type { ToastOptions } from '@madsb/dkfds-vue-kit'
 ```
 
 ## DKFDS Documentation Links

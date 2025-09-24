@@ -7,7 +7,7 @@ import {
   FdsFejlmeddelelse,
   FdsInput,
   FdsButton,
-} from '@madsb/dkfds-vue3'
+} from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const email = ref('')

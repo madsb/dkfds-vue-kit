@@ -10,7 +10,7 @@ The back to top component provides smooth scroll-to-top functionality with intel
 </template>
 
 <script setup>
-import { FdsTilTop } from '@madsb/dkfds-vue3'
+import { FdsTilTop } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

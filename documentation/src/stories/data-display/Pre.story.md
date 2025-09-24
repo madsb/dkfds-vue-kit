@@ -17,7 +17,7 @@ The Pre component displays preformatted text and code blocks following DKFDS v11
 </template>
 
 <script setup>
-import { FdsPre } from '@madsb/dkfds-vue3'
+import { FdsPre } from '@madsb/dkfds-vue-kit'
 
 const userInfo = { id: 1, name: 'Anders' }
 </script>

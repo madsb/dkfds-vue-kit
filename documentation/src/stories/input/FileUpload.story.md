@@ -18,7 +18,7 @@ The file upload component provides comprehensive file upload functionality with 
 </template>
 
 <script setup>
-import { FdsFileUpload } from '@madsb/dkfds-vue3'
+import { FdsFileUpload } from '@madsb/dkfds-vue-kit'
 
 const handleFileUpload = (files) => {
   console.log('Files uploaded:', files)

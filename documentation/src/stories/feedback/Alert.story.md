@@ -10,7 +10,7 @@ The alert component displays important messages to users with different severity
 </template>
 
 <script setup>
-import { FdsAlert } from '@madsb/dkfds-vue3'
+import { FdsAlert } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

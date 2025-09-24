@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { FdsPaginering } from '@madsb/dkfds-vue3'
+import { FdsPaginering } from '@madsb/dkfds-vue-kit'
 
 // Demo data for internal pagination
 const generateItems = (count: number) => {

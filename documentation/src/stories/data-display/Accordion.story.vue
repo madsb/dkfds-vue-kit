@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsAccordion, FdsAccordionGroup } from '@madsb/dkfds-vue3'
+import { FdsAccordion, FdsAccordionGroup } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const demoExpanded = ref(false)

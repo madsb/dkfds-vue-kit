@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsBadge } from '@madsb/dkfds-vue3'
+import { FdsBadge } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const notificationCount = ref(3)

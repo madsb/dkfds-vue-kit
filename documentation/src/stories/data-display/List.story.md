@@ -30,7 +30,7 @@ Flexible list components implementing DKFDS v11 specifications for organizing an
 </template>
 
 <script setup>
-import { FdsList, FdsListItem } from '@madsb/dkfds-vue3'
+import { FdsList, FdsListItem } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

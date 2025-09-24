@@ -1,7 +1,7 @@
 import { defineSetupVue3 } from '@histoire/plugin-vue'
 import { h } from 'vue'
 import type { App } from 'vue'
-import { FdsIconCollection } from '@madsb/dkfds-vue3'
+import { FdsIconCollection } from '@madsb/dkfds-vue-kit'
 import ThemeSwitcher from './src/components/ThemeSwitcher.vue'
 import { resolveThemeUrl } from './src/utils/themeAssets'
 
@@ -15,7 +15,7 @@ async function ensureStoryStyles() {
     return
   }
 
-  await import('@madsb/dkfds-vue3/dist/dkfds-vue3.css')
+  await import('@madsb/dkfds-vue-kit/dist/dkfds-vue-kit.css')
 
   if (!document.querySelector('link[data-theme="dkfds"]')) {
     const href = await resolveThemeUrl('default')

@@ -1,5 +1,5 @@
 {
-  "name": "dkfds-vue3-histoire",
+  "name": "dkfds-vue-kit-histoire",
   "version": "1.0.0",
   "description": "Histoire documentation site for DKFDS Vue 3 component library",
   "type": "module",
@@ -12,7 +12,7 @@
     "preview": "histoire preview"
   },
   "dependencies": {
-    "@madsb/dkfds-vue3": "workspace:*",
+    "@madsb/dkfds-vue-kit": "workspace:*",
     "dkfds": "^11.0.1"
   },
   "devDependencies": {

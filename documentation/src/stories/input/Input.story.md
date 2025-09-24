@@ -11,7 +11,7 @@ The input component is a fundamental form element that provides text input funct
 
 <script setup>
 import { ref } from 'vue'
-import { FdsInput } from '@madsb/dkfds-vue3'
+import { FdsInput } from '@madsb/dkfds-vue-kit'
 
 const inputValue = ref('')
 </script>

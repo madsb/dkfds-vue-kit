@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FdsIkon } from '@madsb/dkfds-vue3'
+import { FdsIkon } from '@madsb/dkfds-vue-kit'
 
 // Common icons used throughout DKFDS components
 const commonIcons = [

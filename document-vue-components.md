@@ -52,7 +52,7 @@ tags: [dkfds, vue3, component, accessibility, additional, tags]
 ## Installation
 
 \```bash
-import { FdsComponentName } from '@madsb/dkfds-vue3'
+import { FdsComponentName } from '@madsb/dkfds-vue-kit'
 \```
 
 ## Quick Start
@@ -70,7 +70,7 @@ import { FdsComponentName } from '@madsb/dkfds-vue3'
 
 <script setup>
 import { ref } from 'vue'
-import { FdsComponentName } from '@madsb/dkfds-vue3'
+import { FdsComponentName } from '@madsb/dkfds-vue-kit'
 
 const value = ref('')
 </script>

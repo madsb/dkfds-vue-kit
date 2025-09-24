@@ -15,7 +15,7 @@ Radio button components implementing DKFDS v11 specifications for single-choice 
 
 <script setup>
 import { ref } from 'vue'
-import { FdsRadioGroup, FdsRadioItem } from '@madsb/dkfds-vue3'
+import { FdsRadioGroup, FdsRadioItem } from '@madsb/dkfds-vue-kit'
 
 const selectedValue = ref('option1')
 </script>

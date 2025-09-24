@@ -11,7 +11,7 @@ The number input component provides a specialized input field for numeric values
 
 <script setup>
 import { ref } from 'vue'
-import { FdsInputNumber } from '@madsb/dkfds-vue3'
+import { FdsInputNumber } from '@madsb/dkfds-vue-kit'
 
 const age = ref(25)
 

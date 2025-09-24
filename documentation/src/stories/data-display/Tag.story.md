@@ -13,7 +13,7 @@ Interactive labels for categorization, filtering, and content organization. Unli
 </template>
 
 <script setup>
-import { FdsTag } from '@madsb/dkfds-vue3'
+import { FdsTag } from '@madsb/dkfds-vue-kit'
 
 const handleTagClick = (formId) => {
   console.log('Tag clicked:', formId)

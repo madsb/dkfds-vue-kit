@@ -33,7 +33,7 @@ Navigation menu components implementing DKFDS v11 specifications for creating ac
 </template>
 
 <script setup>
-import { FdsMenu, FdsMenuItem } from '@madsb/dkfds-vue3'
+import { FdsMenu, FdsMenuItem } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

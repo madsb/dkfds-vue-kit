@@ -27,7 +27,7 @@ The function link component is a versatile link/button element that automaticall
 </template>
 
 <script setup>
-import { FdsFunktionslink } from '@madsb/dkfds-vue3'
+import { FdsFunktionslink } from '@madsb/dkfds-vue-kit'
 
 const downloadFile = () => {
   // Handle download action

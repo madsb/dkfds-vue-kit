@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsDetaljer, FdsFormgroup, FdsLabel, FdsInput, FdsHint } from '@madsb/dkfds-vue3'
+import { FdsDetaljer, FdsFormgroup, FdsLabel, FdsInput, FdsHint } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const expandCount = ref(0)

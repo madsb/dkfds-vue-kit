@@ -16,7 +16,7 @@ The error summary component provides a centralized display of form validation er
 </template>
 
 <script setup>
-import { FdsFejlopsummering } from '@madsb/dkfds-vue3'
+import { FdsFejlopsummering } from '@madsb/dkfds-vue-kit'
 
 const handleErrorClick = (fieldId) => {
   console.log('Navigating to field:', fieldId)

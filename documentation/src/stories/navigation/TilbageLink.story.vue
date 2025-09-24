@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsTilbageLink } from '@madsb/dkfds-vue3'
+import { FdsTilbageLink } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const clickCount = ref(0)

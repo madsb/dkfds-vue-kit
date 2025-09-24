@@ -17,7 +17,7 @@ The spinner component provides visual feedback for loading states with accessibi
 </template>
 
 <script setup>
-import { FdsSpinner } from '@madsb/dkfds-vue3'
+import { FdsSpinner } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

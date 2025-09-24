@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import dkfdsvue3 from '@madsb/dkfds-vue3'
+import dkfdsVueKit from '@madsb/dkfds-vue-kit'
 import App from './App.vue'
 import router from './router'
 
@@ -15,7 +15,7 @@ const app = createApp(App)
 
 app
   .use(router)
-  .use(dkfdsvue3 as any)
+  .use(dkfdsVueKit as any)
   .component('fds-xtnd-nav-item-route', FdsXtndNavItemRoute)
   .component('info-table', InfoTable)
   .component('top-navigation', TopNavigation)

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsToast, FdsToastContainer, useToast } from '@madsb/dkfds-vue3'
+import { FdsToast, FdsToastContainer, useToast } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const showBasicToast = ref(false)

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsMenu, FdsMenuItem } from '@madsb/dkfds-vue3'
+import { FdsMenu, FdsMenuItem } from '@madsb/dkfds-vue-kit'
 
 // Demo state for interactions
 const currentPage = ref('dashboard')

@@ -14,7 +14,7 @@ The tooltip component provides contextual help information through an accessible
 </template>
 
 <script setup>
-import { FdsTooltip } from '@madsb/dkfds-vue3'
+import { FdsTooltip } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

@@ -29,7 +29,7 @@ Collapsible content panels that allow users to show and hide sections of related
 
 <script setup>
 import { ref } from 'vue'
-import { FdsAccordion, FdsAccordionGroup } from '@madsb/dkfds-vue3'
+import { FdsAccordion, FdsAccordionGroup } from '@madsb/dkfds-vue-kit'
 
 const isExpanded = ref(false)
 

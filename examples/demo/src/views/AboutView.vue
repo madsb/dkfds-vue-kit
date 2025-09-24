@@ -27,7 +27,7 @@
               </p>
               <fds-button
                 variant="secondary"
-                href="https://github.com/madsb/dkfds-vue3/issues"
+                href="https://github.com/madsb/dkfds-vue-kit/issues"
                 target="_blank"
                 class="mt-4"
               >
@@ -50,7 +50,7 @@
               </p>
               <fds-button
                 variant="secondary"
-                href="https://github.com/madsb/dkfds-vue3"
+                href="https://github.com/madsb/dkfds-vue-kit"
                 target="_blank"
                 class="mt-4"
               >
@@ -85,5 +85,5 @@
 </template>
 
 <script setup lang="ts">
-import { FdsAlert, FdsButton, FdsCard, FdsList, FdsListItem, FdsIkon } from '@madsb/dkfds-vue3'
+import { FdsAlert, FdsButton, FdsCard, FdsList, FdsListItem, FdsIkon } from '@madsb/dkfds-vue-kit'
 </script>

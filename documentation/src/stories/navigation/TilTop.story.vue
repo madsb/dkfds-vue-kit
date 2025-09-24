@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsTilTop } from '@madsb/dkfds-vue3'
+import { FdsTilTop } from '@madsb/dkfds-vue-kit'
 
 // Demo state for scroll simulation
 const scrollCount = ref(0)

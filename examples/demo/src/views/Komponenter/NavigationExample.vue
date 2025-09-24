@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 const code = `
-import { navigation } from '@madsb/dkfds-vue3/utils';
+import { navigation } from '@madsb/dkfds-vue-kit/utils';
 
 // Sørger for at "burger menu" virker
 new navigation().init();

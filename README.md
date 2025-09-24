@@ -1,4 +1,4 @@
-# @madsb/dkfds-vue3
+# @madsb/dkfds-vue-kit
 
 Vue 3 component library implementing [Det Fælles Designsystem](https://designsystem.dk/) (DKFDS) v11.
 
@@ -11,9 +11,9 @@ Vue 3 component library implementing [Det Fælles Designsystem](https://designsy
 ## 📦 Installation
 
 ```bash
-npm install @madsb/dkfds-vue3 dkfds
+npm install @madsb/dkfds-vue-kit dkfds
 # or
-pnpm add @madsb/dkfds-vue3 dkfds
+pnpm add @madsb/dkfds-vue-kit dkfds
 ```
 
 **Required peer dependencies**: `vue@^3.4.0` and `dkfds@^11.0.0`
@@ -25,11 +25,11 @@ pnpm add @madsb/dkfds-vue3 dkfds
 ```typescript
 // main.ts
 import { createApp } from 'vue'
-import dkfdsvue3 from '@madsb/dkfds-vue3'
+import dkfdsVueKit from '@madsb/dkfds-vue-kit'
 import App from './App.vue'
 
 const app = createApp(App)
-app.use(dkfdsvue3)
+app.use(dkfdsVueKit)
 app.mount('#app')
 ```
 
@@ -41,7 +41,7 @@ Choose **one** of these approaches:
 
 ```typescript
 // main.ts
-import '@madsb/dkfds-vue3/dist/dkfds-vue3.css'
+import '@madsb/dkfds-vue-kit/dist/dkfds-vue-kit.css'
 ```
 
 #### Option B: Theme-based SCSS (Recommended)
@@ -59,7 +59,7 @@ import '@madsb/dkfds-vue3/dist/dkfds-vue3.css'
 );
 
 // 2. Import Vue3 components - one simple import!
-@use '@madsb/dkfds-vue3/styles';
+@use '@madsb/dkfds-vue-kit/styles';
 ```
 
 **Virk Theme (for virk.dk solutions):**
@@ -73,7 +73,7 @@ import '@madsb/dkfds-vue3/dist/dkfds-vue3.css'
 );
 
 // 2. Import Vue3 components - one simple import!
-@use '@madsb/dkfds-vue3/styles';
+@use '@madsb/dkfds-vue-kit/styles';
 ```
 
 **Borger Theme (for borger.dk solutions):**
@@ -87,14 +87,14 @@ import '@madsb/dkfds-vue3/dist/dkfds-vue3.css'
 );
 
 // 2. Import Vue3 components - one simple import!
-@use '@madsb/dkfds-vue3/styles';
+@use '@madsb/dkfds-vue-kit/styles';
 ```
 
 ### 3. Use Components
 
 ```vue
 <script setup lang="ts">
-import { FdsButton, FdsAlert, FdsInput } from '@madsb/dkfds-vue3'
+import { FdsButton, FdsAlert, FdsInput } from '@madsb/dkfds-vue-kit'
 </script>
 
 <template>
@@ -108,8 +108,8 @@ import { FdsButton, FdsAlert, FdsInput } from '@madsb/dkfds-vue3'
 
 ```typescript
 // Import composables and utilities
-import { useToast, formId } from '@madsb/dkfds-vue3/composables'
-import { generateId, navigation } from '@madsb/dkfds-vue3/utils'
+import { useToast, formId } from '@madsb/dkfds-vue-kit/composables'
+import { generateId, navigation } from '@madsb/dkfds-vue-kit/utils'
 ```
 
 ## 🎨 Theme Configuration
@@ -144,7 +144,7 @@ Change themes by updating your DKFDS stylesheet import:
 @use '../../node_modules/dkfds/src/stylesheets/dkfds-borgerdk' with (...);
 
 // Vue3 import stays the same
-@use '@madsb/dkfds-vue3/styles';
+@use '@madsb/dkfds-vue-kit/styles';
 ```
 
 ## 🛠️ Development
@@ -230,7 +230,7 @@ pnpm typecheck
 
 ## 📄 License & Credits
 
-**MIT License** - Fork of [dkfds-vue3](https://github.com/whitewillow/dkfds-vue3) by Kenneth Torsten Rørstrøm  
+**MIT License** - Fork of [dkfds-vue-kit](https://github.com/whitewillow/dkfds-vue-kit) by Kenneth Torsten Rørstrøm  
 Built on [Det Fælles Designsystem](https://designsystem.dk/) by the Danish Agency for Digital Government
 
 ## 🤝 Contributing

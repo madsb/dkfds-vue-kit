@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsPre } from '@madsb/dkfds-vue3'
+import { FdsPre } from '@madsb/dkfds-vue-kit'
 
 // Demo state for playground
 const sampleJson = ref({
@@ -93,7 +93,7 @@ const logOutput = `[2024-01-15 10:30:15] INFO: Application started
 [2024-01-15 10:33:13] INFO: Retrying connection in 5 seconds
 [2024-01-15 10:33:18] INFO: Connection restored`
 
-const terminalCommands = `$ pnpm install @madsb/dkfds-vue3
+const terminalCommands = `$ pnpm install @madsb/dkfds-vue-kit
 $ pnpm dev
 
 > dkfds-demo@1.0.0 dev
@@ -119,7 +119,7 @@ const previewHtmlStructure = `<FdsFormgroup>
 
 const previewVueScript = `<script setup lang=\"ts\">
 import { ref } from 'vue'
-import { FdsFormgroup, FdsLabel, FdsInput } from '@madsb/dkfds-vue3'
+import { FdsFormgroup, FdsLabel, FdsInput } from '@madsb/dkfds-vue-kit'
 
 const email = ref('')
 <\/script>`

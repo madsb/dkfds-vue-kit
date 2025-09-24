@@ -130,15 +130,15 @@ examples/
 
 ```typescript
 // Import from component categories
-import { FdsButton } from '@madsb/dkfds-vue3' // From layout
-import { FdsInput } from '@madsb/dkfds-vue3' // From input
-import { FdsAlert } from '@madsb/dkfds-vue3' // From feedback
+import { FdsButton } from '@madsb/dkfds-vue-kit' // From layout
+import { FdsInput } from '@madsb/dkfds-vue-kit' // From input
+import { FdsAlert } from '@madsb/dkfds-vue-kit' // From feedback
 
 // Import composables
-import { useToast, formId } from '@madsb/dkfds-vue3'
+import { useToast, formId } from '@madsb/dkfds-vue-kit'
 
 // Import types
-import type { FdsLanguageItem } from '@madsb/dkfds-vue3'
+import type { FdsLanguageItem } from '@madsb/dkfds-vue-kit'
 ```
 
 ### Key Technical Details

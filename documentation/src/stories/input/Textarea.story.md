@@ -17,7 +17,7 @@ The textarea component provides a multi-line text input with automatic row sizin
 
 <script setup>
 import { ref } from 'vue'
-import { FdsTextarea } from '@madsb/dkfds-vue3'
+import { FdsTextarea } from '@madsb/dkfds-vue-kit'
 
 const description = ref('')
 

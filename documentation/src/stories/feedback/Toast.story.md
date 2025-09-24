@@ -22,7 +22,7 @@ The toast component provides contextual feedback messages to users with differen
 
 <script setup>
 import { ref } from 'vue'
-import { FdsToast, FdsToastContainer, useToast } from '@madsb/dkfds-vue3'
+import { FdsToast, FdsToastContainer, useToast } from '@madsb/dkfds-vue-kit'
 
 const showToast = ref(false)
 const { showSuccess } = useToast()

@@ -11,17 +11,17 @@ This library provides Vue 3 wrappers for the Danish Public Design System (DKFDS)
 
 1. Install the package:
    ```bash
-   pnpm add @madsb/dkfds-vue3
+   pnpm add @madsb/dkfds-vue-kit
    ```
 2. Import the global styles once, typically in your main entrypoint:
    ```ts
-   import '@madsb/dkfds-vue3/styles'
+   import '@madsb/dkfds-vue-kit/styles'
    ```
 3. Register and use the components you need:
 
    ```vue
    <script setup lang="ts">
-   import { FdsButton } from '@madsb/dkfds-vue3'
+   import { FdsButton } from '@madsb/dkfds-vue-kit'
    </script>
 
    <template>

@@ -29,7 +29,7 @@ Step indicator components implementing DKFDS v11 specifications for multi-step p
 </template>
 
 <script setup>
-import { FdsTrinindikatorGroup, FdsTrinindikatorStep } from '@madsb/dkfds-vue3'
+import { FdsTrinindikatorGroup, FdsTrinindikatorStep } from '@madsb/dkfds-vue-kit'
 
 const currentStep = ref(2)
 const steps = [

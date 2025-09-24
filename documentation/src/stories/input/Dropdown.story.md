@@ -16,7 +16,7 @@ The dropdown component provides a select field that follows DKFDS v11 design spe
 
 <script setup>
 import { ref } from 'vue'
-import { FdsDropdown } from '@madsb/dkfds-vue3'
+import { FdsDropdown } from '@madsb/dkfds-vue-kit'
 
 const selectedValue = ref('')
 const handleChange = (event) => {

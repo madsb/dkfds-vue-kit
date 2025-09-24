@@ -22,7 +22,7 @@ The modal component creates accessible dialog overlays for displaying important 
 
 <script setup>
 import { ref } from 'vue'
-import { FdsModal, FdsButton } from '@madsb/dkfds-vue3'
+import { FdsModal, FdsButton } from '@madsb/dkfds-vue-kit'
 
 const modalRef = ref(null)
 

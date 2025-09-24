@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsAlert } from '@madsb/dkfds-vue3'
+import { FdsAlert } from '@madsb/dkfds-vue-kit'
 
 // Demo state for interactions
 const dismissedAlerts = ref<Set<string>>(new Set())

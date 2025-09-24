@@ -21,7 +21,7 @@ Small labels used to highlight new, important, or status-related content. Design
 </template>
 
 <script setup>
-import { FdsBadge } from '@madsb/dkfds-vue3'
+import { FdsBadge } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

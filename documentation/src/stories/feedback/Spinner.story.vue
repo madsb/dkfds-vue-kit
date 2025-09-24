@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsSpinner } from '@madsb/dkfds-vue3'
+import { FdsSpinner } from '@madsb/dkfds-vue-kit'
 
 // Demo state for status updates
 const loadingText = ref('Loading content...')

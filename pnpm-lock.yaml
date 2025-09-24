@@ -105,7 +105,7 @@ importers:
 
   documentation:
     dependencies:
-      '@madsb/dkfds-vue3':
+      '@madsb/dkfds-vue-kit':
         specifier: workspace:*
         version: link:..
       dkfds:
@@ -139,7 +139,7 @@ importers:
 
   examples/demo:
     dependencies:
-      '@madsb/dkfds-vue3':
+      '@madsb/dkfds-vue-kit':
         specifier: workspace:*
         version: link:../..
       dkfds:

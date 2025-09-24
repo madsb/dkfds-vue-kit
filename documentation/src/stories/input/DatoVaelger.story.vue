@@ -6,7 +6,7 @@ import {
   FdsLabel,
   FdsHint,
   FdsFejlmeddelelse,
-} from '@madsb/dkfds-vue3'
+} from '@madsb/dkfds-vue-kit'
 
 // Demo state for interactive examples
 const selectedDate = ref('2024-03-15')

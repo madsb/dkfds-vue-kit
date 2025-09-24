@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsOverflowMenu } from '@madsb/dkfds-vue3'
+import { FdsOverflowMenu } from '@madsb/dkfds-vue-kit'
 
 // Demo state for interactions
 const actionCount = ref(0)

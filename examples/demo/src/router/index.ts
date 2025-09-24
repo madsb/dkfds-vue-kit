@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
   history: createWebHashHistory(
-    process.env.NODE_ENV === 'production' ? '/dkfds-vue3-example/' : '/',
+    process.env.NODE_ENV === 'production' ? '/dkfds-vue-kit-example/' : '/',
   ),
   routes,
   scrollBehavior(to) {

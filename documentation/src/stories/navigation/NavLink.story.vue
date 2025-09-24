@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsNavLink } from '@madsb/dkfds-vue3'
+import { FdsNavLink } from '@madsb/dkfds-vue-kit'
 
 // Demo state for interactions
 const clickCount = ref(0)

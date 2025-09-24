@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsRadioGroup, FdsRadioItem } from '@madsb/dkfds-vue3'
+import { FdsRadioGroup, FdsRadioItem } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const paymentMethod = ref('card')

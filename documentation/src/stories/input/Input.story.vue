@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsInput, FdsInputLimit } from '@madsb/dkfds-vue3'
+import { FdsInput, FdsInputLimit } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const demoValues = ref({

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsInputNumber } from '@madsb/dkfds-vue3'
+import { FdsInputNumber } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const age = ref(25)

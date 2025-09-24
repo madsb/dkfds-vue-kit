@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, unref } from 'vue'
 import type { Ref } from 'vue'
-import { FdsModal, FdsButton } from '@madsb/dkfds-vue3'
+import { FdsModal, FdsButton } from '@madsb/dkfds-vue-kit'
 
 // Demo state for interactions
 const basicModalRef = ref<InstanceType<typeof FdsModal> | null>(null)

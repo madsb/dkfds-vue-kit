@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsTag } from '@madsb/dkfds-vue3'
+import { FdsTag } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const clickCount = ref(0)

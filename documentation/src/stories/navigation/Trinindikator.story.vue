@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsTrinindikatorGroup, FdsTrinindikatorStep } from '@madsb/dkfds-vue3'
+import { FdsTrinindikatorGroup, FdsTrinindikatorStep } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const currentStep = ref(2)

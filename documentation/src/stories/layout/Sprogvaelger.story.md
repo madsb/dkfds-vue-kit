@@ -11,7 +11,7 @@ The language selector component (sprogvælger) provides language switching funct
 
 <script setup>
 import { ref } from 'vue'
-import { FdsSprogvaelger } from '@madsb/dkfds-vue3'
+import { FdsSprogvaelger } from '@madsb/dkfds-vue-kit'
 
 const languages = ref([
   { title: 'Dansk', active: true, lang: 'da', ariaLabel: 'Valgt sprog: Dansk' },

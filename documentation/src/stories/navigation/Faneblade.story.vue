@@ -6,7 +6,7 @@ import {
   FdsFanebladeNavItem,
   FdsFanebladeTab,
   FdsFanebladePanel,
-} from '@madsb/dkfds-vue3'
+} from '@madsb/dkfds-vue-kit'
 
 // Demo state for tabpanel example
 const activeTab = ref('overview')

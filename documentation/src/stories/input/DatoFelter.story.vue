@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsDatoFelter } from '@madsb/dkfds-vue3'
+import { FdsDatoFelter } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const basicDate = ref('2024-03-15')

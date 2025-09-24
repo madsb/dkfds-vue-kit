@@ -11,7 +11,7 @@ The toggle switch component provides a binary on/off control following DKFDS v11
 
 <script setup>
 import { ref } from 'vue'
-import { FdsToggleSwitch } from '@madsb/dkfds-vue3'
+import { FdsToggleSwitch } from '@madsb/dkfds-vue-kit'
 
 const isEnabled = ref(false)
 </script>

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "buildpages": "vue-tsc && vite build --base=/dkfds-vue3-example/",
+    "buildpages": "vue-tsc && vite build --base=/dkfds-vue-kit-example/",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit",
     "test": "vitest",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "dkfds": "^11.0.1",
-    "@madsb/dkfds-vue3": "workspace:*",
+    "@madsb/dkfds-vue-kit": "workspace:*",
     "fast-sort": "^3.4.1",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"

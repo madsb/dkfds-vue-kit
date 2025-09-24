@@ -8,7 +8,7 @@ import {
   FdsTextarea,
   FdsDropdown,
   FdsButton,
-} from '@madsb/dkfds-vue3'
+} from '@madsb/dkfds-vue-kit'
 
 // Demo state for form validation examples
 const formData = ref({

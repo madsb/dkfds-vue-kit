@@ -20,7 +20,7 @@ The icon component renders SVG icons from the DKFDS Material Design icon set wit
 </template>
 
 <script setup>
-import { FdsIkon } from '@madsb/dkfds-vue3'
+import { FdsIkon } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

@@ -25,7 +25,7 @@
               </li>
               <li>
                 <a
-                  href="https://github.com/madsb/dkfds-vue3"
+                  href="https://github.com/madsb/dkfds-vue-kit"
                   target="github"
                   class="icon-link bold-link"
                   >DKFDS-Vue3 på Github<svg
@@ -78,15 +78,15 @@
             </template>
             <template #content>
               <p>Installer biblioteket med npm eller pnpm:</p>
-              <fds-pre>npm install @madsb/dkfds-vue3</fds-pre>
+              <fds-pre>npm install @madsb/dkfds-vue-kit</fds-pre>
               <p class="mt-4">Importer i din Vue 3 app:</p>
-              <fds-pre>import { FdsButton, FdsInput } from '@madsb/dkfds-vue3'</fds-pre>
+              <fds-pre>import { FdsButton, FdsInput } from '@madsb/dkfds-vue-kit'</fds-pre>
             </template>
           </fds-card>
           <p class="mt-5">
             <fds-button
               variant="secondary"
-              href="https://github.com/madsb/dkfds-vue3"
+              href="https://github.com/madsb/dkfds-vue-kit"
               target="_blank"
             >
               <fds-ikon icon="open-in-new" size="sm" class="mr-2" />
@@ -145,6 +145,6 @@ import {
   FdsListItem,
   FdsPre,
   FdsIkon,
-} from '@madsb/dkfds-vue3'
+} from '@madsb/dkfds-vue-kit'
 </script>
 <style lang="scss" scoped></style>

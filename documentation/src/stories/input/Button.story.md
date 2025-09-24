@@ -10,7 +10,7 @@ The button component is used to trigger actions in forms, dialogs, and more. It 
 </template>
 
 <script setup>
-import { FdsButton } from '@madsb/dkfds-vue3'
+import { FdsButton } from '@madsb/dkfds-vue-kit'
 
 const handleClick = () => {
   console.log('Button clicked!')

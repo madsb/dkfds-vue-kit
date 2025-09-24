@@ -17,7 +17,7 @@ The formgroup component provides the essential structure for form fields in DKFD
 </template>
 
 <script setup>
-import { FdsFormgroup, FdsLabel, FdsHint, FdsInput, FdsFejlmeddelelse } from '@madsb/dkfds-vue3'
+import { FdsFormgroup, FdsLabel, FdsHint, FdsInput, FdsFejlmeddelelse } from '@madsb/dkfds-vue-kit'
 
 const email = ref('')
 const emailValid = ref(true)

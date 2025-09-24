@@ -11,7 +11,7 @@ A native HTML5 date picker component that follows DKFDS v11 design specification
 
 <script setup>
 import { ref } from 'vue'
-import { FdsDatoVaelger } from '@madsb/dkfds-vue3'
+import { FdsDatoVaelger } from '@madsb/dkfds-vue-kit'
 
 const selectedDate = ref('2024-03-15')
 

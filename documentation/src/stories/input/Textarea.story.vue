@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsTextarea } from '@madsb/dkfds-vue3'
+import { FdsTextarea } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const basicValue = ref('')

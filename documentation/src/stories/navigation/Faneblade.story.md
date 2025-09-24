@@ -39,7 +39,7 @@ Tab navigation components implementing DKFDS v11 specifications. The faneblade s
 
 <script setup>
 import { ref } from 'vue'
-import { FdsFaneblade, FdsFanebladeTab, FdsFanebladePanel } from '@madsb/dkfds-vue3'
+import { FdsFaneblade, FdsFanebladeTab, FdsFanebladePanel } from '@madsb/dkfds-vue-kit'
 
 const activeTab = ref('overview')
 const setActiveTab = (tabId) => {
@@ -69,7 +69,7 @@ const setActiveTab = (tabId) => {
 </template>
 
 <script setup>
-import { FdsFanebladeNav, FdsFanebladeNavItem } from '@madsb/dkfds-vue3'
+import { FdsFanebladeNav, FdsFanebladeNavItem } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

@@ -18,7 +18,7 @@ Flexible navigation link component implementing DKFDS v11 navigation specificati
 </template>
 
 <script setup>
-import { FdsNavLink } from '@madsb/dkfds-vue3'
+import { FdsNavLink } from '@madsb/dkfds-vue-kit'
 
 const handleNavigation = (event) => {
   // Handle navigation in SPA

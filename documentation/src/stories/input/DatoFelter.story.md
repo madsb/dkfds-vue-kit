@@ -11,7 +11,7 @@ The DatoFelter (Date Fields) component provides three separate input fields for 
 
 <script setup>
 import { ref } from 'vue'
-import { FdsDatoFelter } from '@madsb/dkfds-vue3'
+import { FdsDatoFelter } from '@madsb/dkfds-vue-kit'
 
 const birthDate = ref('1990-06-15')
 

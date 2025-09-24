@@ -26,7 +26,7 @@ The checkbox component allows users to select one or more options from a set. It
 
 <script setup>
 import { ref } from 'vue'
-import { FdsCheckbox } from '@madsb/dkfds-vue3'
+import { FdsCheckbox } from '@madsb/dkfds-vue-kit'
 
 const acceptTerms = ref(false)
 const interests = ref([])

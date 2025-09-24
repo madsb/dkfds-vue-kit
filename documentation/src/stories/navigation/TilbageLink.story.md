@@ -10,7 +10,7 @@ The tilbage link component provides consistent back navigation for multi-step pr
 </template>
 
 <script setup>
-import { FdsTilbageLink } from '@madsb/dkfds-vue3'
+import { FdsTilbageLink } from '@madsb/dkfds-vue-kit'
 
 const goBack = () => {
   // Custom back navigation logic

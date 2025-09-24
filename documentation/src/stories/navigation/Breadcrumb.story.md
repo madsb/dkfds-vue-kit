@@ -10,8 +10,8 @@ Breadcrumb navigation component that provides hierarchical navigation with suppo
 </template>
 
 <script setup>
-import { FdsBreadcrumb } from '@madsb/dkfds-vue3'
-import type { BreadcrumbItem } from '@madsb/dkfds-vue3'
+import { FdsBreadcrumb } from '@madsb/dkfds-vue-kit'
+import type { BreadcrumbItem } from '@madsb/dkfds-vue-kit'
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { text: 'Forside', href: '/' },

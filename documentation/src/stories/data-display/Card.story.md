@@ -14,7 +14,7 @@ Card and card group components for displaying content in organized, clickable co
 </template>
 
 <script setup>
-import { FdsCard } from '@madsb/dkfds-vue3'
+import { FdsCard } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsToggleSwitch } from '@madsb/dkfds-vue3'
+import { FdsToggleSwitch } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const basicToggle = ref(false)

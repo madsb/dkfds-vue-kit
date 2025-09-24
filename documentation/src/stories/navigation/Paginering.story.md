@@ -25,7 +25,7 @@ Pagination navigation component implementing DKFDS v11 specifications. Provides 
 </template>
 
 <script setup>
-import { FdsPaginering } from '@madsb/dkfds-vue3'
+import { FdsPaginering } from '@madsb/dkfds-vue-kit'
 
 const handlePageData = (items) => {
   // Handle filtered page items (internal mode)

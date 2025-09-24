@@ -190,7 +190,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import type { BreadcrumbItem } from '@madsb/dkfds-vue3'
+import type { BreadcrumbItem } from '@madsb/dkfds-vue-kit'
 
 // Interactive demo state
 const currentPageIndex = ref(2)

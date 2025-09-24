@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsSprogvaelger, type FdsLanguageItem } from '@madsb/dkfds-vue3'
+import { FdsSprogvaelger, type FdsLanguageItem } from '@madsb/dkfds-vue-kit'
 
 // Demo state for interactive examples
 const demoLanguages = ref<FdsLanguageItem[]>([

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsTooltip } from '@madsb/dkfds-vue3'
+import { FdsTooltip } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const showCount = ref(0)

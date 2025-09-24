@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsBreadcrumb } from '@madsb/dkfds-vue3'
-import type { BreadcrumbItem } from '@madsb/dkfds-vue3'
+import { FdsBreadcrumb } from '@madsb/dkfds-vue-kit'
+import type { BreadcrumbItem } from '@madsb/dkfds-vue-kit'
 
 // Demo state for interaction tracking
 const clickCount = ref(0)

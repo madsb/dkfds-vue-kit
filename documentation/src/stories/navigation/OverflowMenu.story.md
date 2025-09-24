@@ -14,7 +14,7 @@ The overflow menu component provides a space-saving way to display additional ac
 </template>
 
 <script setup>
-import { FdsOverflowMenu } from '@madsb/dkfds-vue3'
+import { FdsOverflowMenu } from '@madsb/dkfds-vue-kit'
 
 const handleMenuOpen = () => {
   console.log('Menu opened')

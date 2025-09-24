@@ -12,7 +12,7 @@ A collapsible details component that uses native HTML5 details/summary elements 
 </template>
 
 <script setup>
-import { FdsDetaljer } from '@madsb/dkfds-vue3'
+import { FdsDetaljer } from '@madsb/dkfds-vue-kit'
 </script>
 ```
 

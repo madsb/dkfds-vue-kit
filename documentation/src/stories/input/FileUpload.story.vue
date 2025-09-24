@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsFileUpload } from '@madsb/dkfds-vue3'
+import { FdsFileUpload } from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const uploadedFiles = ref<any[]>([])
