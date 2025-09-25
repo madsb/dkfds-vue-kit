@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FdsDropdown, FdsFormgroup, FdsLabel, FdsHint, FdsFejlmeddelelse } from '@madsb/dkfds-vue-kit'
+import {
+  FdsDropdown,
+  FdsFormgroup,
+  FdsLabel,
+  FdsHint,
+  FdsFejlmeddelelse,
+} from '@madsb/dkfds-vue-kit'
 
 // Demo state
 const singleValue = ref('')
