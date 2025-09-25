@@ -10,14 +10,13 @@
   .normal {
     display: flex;
     flex-flow: row wrap;
+    column-gap: 30px;
+    row-gap: 24px;
 
     > .card {
       position: relative;
       flex: 1 0 0%;
       margin-bottom: 0;
-      margin-right: 15px;
-      margin-bottom: 0;
-      margin-left: 15px;
       min-width: 0;
     }
   }
