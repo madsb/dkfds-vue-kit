@@ -38,7 +38,6 @@ This Histoire instance showcases every component with playgrounds, accessibility
 
 ```bash
 pnpm install
-pnpm dev    # opens the demo sandbox
 pnpm docs:dev  # starts the documentation site with these stories
 ```
 

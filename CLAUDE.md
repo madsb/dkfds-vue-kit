@@ -17,8 +17,8 @@ pnpm install
 # Build the library
 pnpm run build
 
-# Run demo site for development
-pnpm run dev
+# Run documentation site for development
+pnpm run docs:dev
 ```
 
 ### Code Quality
@@ -106,9 +106,6 @@ src/
 ├── types/               # TypeScript type definitions
 ├── assets/              # SCSS styles
 └── index.ts             # Main entry point with exports
-
-examples/
-└── demo/                # Demo application showcasing all components
 ```
 
 ### Component Naming Conventions
@@ -155,13 +152,12 @@ import type { FdsLanguageItem } from '@madsb/dkfds-vue-kit'
 
 1. Make changes to components in `src/components/[category]/`
 2. Update tests in `src/__tests__/`
-3. Update component documentation in `docs-site/docs/components/[category]/`
+3. Update component documentation in `documentation/src/stories/[category]/`
 4. Run `pnpm run format` to format code
 5. Run `pnpm run lint:fix` to fix linting issues
 6. Run `pnpm test:run` to ensure tests pass
 7. Run `pnpm run build` to build the library
-8. Test in demo app with `pnpm run dev`
-9. Preview documentation with `pnpm docs:dev`
+8. Preview documentation with `pnpm run docs:dev`
 
 ### Publishing Preparation
 
@@ -206,8 +202,8 @@ The project uses two documentation systems:
 
 - This is a single-package library (no monorepo complexity)
 - All components are in `src/components/` organized by category
-- The demo app uses the workspace protocol to link to the local package
-- Documentation is in `docs-site/` and uses VitePress for static site generation
+- The documentation site uses the workspace protocol to link to the local package
+- Documentation is in `documentation/` and uses Histoire for interactive component previews
 - Always run format and lint after major edits: `pnpm run format && pnpm run lint:fix`
 - Keep component documentation in sync with component changes
 

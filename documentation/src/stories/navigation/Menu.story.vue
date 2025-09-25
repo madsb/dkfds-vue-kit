@@ -79,43 +79,43 @@ const toggleSettings = () => {
         <h3 class="h5 mb-2">Nested Navigation Structure</h3>
         <FdsMenu variant="sidemenu" aria-label="Application navigation">
           <FdsMenuItem
+            id="dashboard"
             href="/dashboard"
             :current="currentPage === 'dashboard'"
-            id="dashboard"
             @navigate="handleNavigation"
           >
             Dashboard
           </FdsMenuItem>
 
           <FdsMenuItem
+            id="settings"
             href="/settings"
             :expanded="showSettingsSubmenu"
-            id="settings"
             @click="toggleSettings"
           >
             Settings
             <template #submenu>
               <FdsMenu variant="submenu">
                 <FdsMenuItem
+                  id="profile"
                   href="/settings/profile"
                   :current="currentPage === 'profile'"
-                  id="profile"
                   @navigate="handleNavigation"
                 >
                   Profile Settings
                 </FdsMenuItem>
                 <FdsMenuItem
+                  id="security"
                   href="/settings/security"
                   :current="currentPage === 'security'"
-                  id="security"
                   @navigate="handleNavigation"
                 >
                   Security
                 </FdsMenuItem>
                 <FdsMenuItem
+                  id="notifications"
                   href="/settings/notifications"
                   :current="currentPage === 'notifications'"
-                  id="notifications"
                   @navigate="handleNavigation"
                 >
                   Notifications
@@ -125,9 +125,9 @@ const toggleSettings = () => {
           </FdsMenuItem>
 
           <FdsMenuItem
+            id="help"
             href="/help"
             :current="currentPage === 'help'"
-            id="help"
             @navigate="handleNavigation"
           >
             Help & Support

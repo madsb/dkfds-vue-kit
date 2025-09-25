@@ -29,7 +29,6 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "dev": "pnpm -C examples/demo run dev",
     "build": "vite build && pnpm run typings",
     "typings": "vue-tsc --declaration --emitDeclarationOnly",
     "typecheck": "vue-tsc --noEmit",
@@ -37,9 +36,9 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "lint": "eslint src examples",
-    "lint:fix": "eslint src examples --fix",
-    "format": "prettier --write src examples documentation",
+    "lint": "eslint src documentation",
+    "lint:fix": "eslint src documentation --fix",
+    "format": "prettier --write src documentation",
     "docs:dev": "pnpm -C documentation run dev",
     "docs:build": "pnpm -C documentation run build",
     "docs:preview": "pnpm -C documentation run preview",

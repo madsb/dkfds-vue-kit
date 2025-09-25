@@ -117,8 +117,8 @@ const resetForm = () => {
                 <FdsHint>Must contain @ symbol</FdsHint>
                 <FdsInput
                   :id="formid"
-                  :aria-describedby="ariaDescribedby"
                   v-model="email"
+                  :aria-describedby="ariaDescribedby"
                   type="email"
                   placeholder="user@example.com"
                 />
@@ -134,8 +134,8 @@ const resetForm = () => {
                 <FdsHint>Must be at least 6 characters long</FdsHint>
                 <FdsInput
                   :id="formid"
-                  :aria-describedby="ariaDescribedby"
                   v-model="password"
+                  :aria-describedby="ariaDescribedby"
                   type="password"
                   placeholder="Enter password"
                 />

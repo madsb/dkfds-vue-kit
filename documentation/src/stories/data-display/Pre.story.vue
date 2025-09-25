@@ -94,14 +94,14 @@ const logOutput = `[2024-01-15 10:30:15] INFO: Application started
 [2024-01-15 10:33:18] INFO: Connection restored`
 
 const terminalCommands = `$ pnpm install @madsb/dkfds-vue-kit
-$ pnpm dev
+$ pnpm docs:dev
 
-> dkfds-demo@1.0.0 dev
-> vite
+> dkfds-vue-kit@0.0.1 docs:dev
+> pnpm -C documentation run dev
 
   VITE v4.5.0  ready in 250 ms
 
-  ➜  Local:   http://localhost:5173/
+  ➜  Local:   http://localhost:6006/
   ➜  Network: use --host to expose
   ➜  press h to show help`
 
@@ -111,18 +111,6 @@ const csvDataset = `id,name,email,department,active
 3,"Lars Nielsen",lars@example.dk,Finance,false
 4,"Sofie Andersen",sofie@example.dk,Marketing,true
 5,"Mikkel Jensen",mikkel@example.dk,IT,true`
-
-const previewHtmlStructure = `<FdsFormgroup>
-  <FdsLabel for=\"email\">Email Address</FdsLabel>
-  <FdsInput id=\"email\" type=\"email\" />
-</FdsFormgroup>`
-
-const previewVueScript = `<script setup lang=\"ts\">
-import { ref } from 'vue'
-import { FdsFormgroup, FdsLabel, FdsInput } from '@madsb/dkfds-vue-kit'
-
-const email = ref('')
-<\/script>`
 
 const getPrePlaygroundState = () => ({
   contentType: 'code' as const,

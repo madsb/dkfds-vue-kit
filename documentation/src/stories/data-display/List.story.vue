@@ -153,8 +153,8 @@ const handleItemClick = (item: string) => {
               :flex="true"
               :justify-between="true"
               style="cursor: pointer; padding: 1.2rem"
-              @click="handleItemClick('dashboard')"
               :class="{ active: selectedItem === 'dashboard' }"
+              @click="handleItemClick('dashboard')"
             >
               <span>Dashboard</span>
               <span v-if="selectedItem === 'dashboard'">✓</span>
@@ -163,8 +163,8 @@ const handleItemClick = (item: string) => {
               :flex="true"
               :justify-between="true"
               style="cursor: pointer; padding: 1.2rem"
-              @click="handleItemClick('profile')"
               :class="{ active: selectedItem === 'profile' }"
+              @click="handleItemClick('profile')"
             >
               <span>Profile Settings</span>
               <span v-if="selectedItem === 'profile'">✓</span>
@@ -173,8 +173,8 @@ const handleItemClick = (item: string) => {
               :flex="true"
               :justify-between="true"
               style="cursor: pointer; padding: 1.2rem"
-              @click="handleItemClick('notifications')"
               :class="{ active: selectedItem === 'notifications' }"
+              @click="handleItemClick('notifications')"
             >
               <span>Notifications</span>
               <span v-if="selectedItem === 'notifications'">✓</span>

@@ -191,20 +191,20 @@ const handleModalClose = () => {
         <div>
           <button
             class="button button-secondary"
-            @click="interactiveCurrentStep = Math.max(1, interactiveCurrentStep - 1)"
             :disabled="interactiveCurrentStep === 1"
+            @click="interactiveCurrentStep = Math.max(1, interactiveCurrentStep - 1)"
           >
             Forrige
           </button>
           <button
             class="button button-primary"
+            :disabled="interactiveCurrentStep === 5"
             @click="
               () => {
                 interactiveCurrentStep = Math.min(5, interactiveCurrentStep + 1)
                 maxCompletedStep = Math.max(maxCompletedStep, interactiveCurrentStep)
               }
             "
-            :disabled="interactiveCurrentStep === 5"
           >
             Næste
           </button>
@@ -355,19 +355,19 @@ const handleModalClose = () => {
         <HstText v-model="state.ariaLabel" title="ARIA Label" />
 
         <HstText v-model="state.step1Title" title="Step 1 Title" />
-        <HstText v-model="state.step1Info" title="Step 1 Info" v-if="state.showStepInfo" />
+        <HstText v-if="state.showStepInfo" v-model="state.step1Info" title="Step 1 Info" />
         <HstCheckbox v-model="state.step1HasError" title="Step 1 Error" />
 
         <HstText v-model="state.step2Title" title="Step 2 Title" />
-        <HstText v-model="state.step2Info" title="Step 2 Info" v-if="state.showStepInfo" />
+        <HstText v-if="state.showStepInfo" v-model="state.step2Info" title="Step 2 Info" />
         <HstCheckbox v-model="state.step2HasError" title="Step 2 Error" />
 
         <HstText v-model="state.step3Title" title="Step 3 Title" />
-        <HstText v-model="state.step3Info" title="Step 3 Info" v-if="state.showStepInfo" />
+        <HstText v-if="state.showStepInfo" v-model="state.step3Info" title="Step 3 Info" />
         <HstCheckbox v-model="state.step3HasError" title="Step 3 Error" />
 
         <HstText v-model="state.step4Title" title="Step 4 Title" />
-        <HstText v-model="state.step4Info" title="Step 4 Info" v-if="state.showStepInfo" />
+        <HstText v-if="state.showStepInfo" v-model="state.step4Info" title="Step 4 Info" />
         <HstCheckbox v-model="state.step4HasError" title="Step 4 Error" />
       </template>
     </Variant>

@@ -127,8 +127,8 @@ const isAlertVisible = (alertId: string) => {
           <button
             type="button"
             class="button button-secondary"
-            @click="resetAlerts"
             :disabled="dismissedAlerts.size === 0"
+            @click="resetAlerts"
           >
             Reset Alerts
           </button>

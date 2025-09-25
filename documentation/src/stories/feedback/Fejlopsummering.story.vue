@@ -1,14 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import {
-  FdsFejlopsummering,
-  FdsFormgroup,
-  FdsLabel,
-  FdsInput,
-  FdsTextarea,
-  FdsDropdown,
-  FdsButton,
-} from '@madsb/dkfds-vue-kit'
+import { FdsFejlopsummering, FdsFormgroup, FdsLabel, FdsInput } from '@madsb/dkfds-vue-kit'
 
 // Demo state for form validation examples
 const formData = ref({
@@ -43,7 +35,7 @@ const handleErrorClick = (fieldId: string) => {
 // Countries for dropdown demo
 // Helper function for playground error generation
 const getPlaygroundErrors = (type: string, count: number) => {
-  const errorSets = {
+  const errorSets: Record<string, { id: string; message: string }[]> = {
     validation: [
       { id: 'name-field', message: 'Navn er påkrævet' },
       { id: 'email-field', message: 'E-mail skal have et gyldigt format' },
@@ -154,7 +146,7 @@ const getPlaygroundErrors = (type: string, count: number) => {
 
           <FdsFormgroup id="terms-field">
             <label>
-              <input type="checkbox" id="terms-checkbox" aria-describedby="terms-error" />
+              <input id="terms-checkbox" type="checkbox" aria-describedby="terms-error" />
               Jeg accepterer vilkårene og betingelserne *
             </label>
             <div id="terms-error" class="form-error">Du skal acceptere vilkårene</div>

@@ -6,7 +6,7 @@ import { FdsNavLink } from '@madsb/dkfds-vue-kit'
 const clickCount = ref(0)
 const currentRoute = ref('/dashboard')
 
-const handleNavClick = (href: string, event: MouseEvent) => {
+const handleNavClick = (href: string, _event: MouseEvent) => {
   clickCount.value++
   if (href !== '#') {
     currentRoute.value = href

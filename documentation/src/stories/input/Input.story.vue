@@ -14,11 +14,6 @@ const demoValues = ref({
   prefixed: '123',
   suffixed: '25',
 })
-
-const handleInput = (value: string, field: string) => {
-  // @ts-ignore
-  demoValues.value[field] = value
-}
 </script>
 
 <template>

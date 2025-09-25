@@ -136,7 +136,7 @@ const simulateLoading = async () => {
               <span>✓</span>
               {{ loadingText }}
             </div>
-            <button type="button" @click="simulateLoading" :disabled="isLoading">
+            <button type="button" :disabled="isLoading" @click="simulateLoading">
               {{ isLoading ? 'Loading...' : 'Start Loading Simulation' }}
             </button>
           </div>

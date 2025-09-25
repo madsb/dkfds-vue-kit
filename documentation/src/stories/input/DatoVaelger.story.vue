@@ -131,17 +131,17 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
             <div>
               <div>
                 <label>Leap Year February 29:</label>
-                <FdsDatoVaelger v-model="selectedDate" id="leap-date" />
+                <FdsDatoVaelger id="leap-date" v-model="selectedDate" />
                 <span>Try: 2024-02-29</span>
               </div>
               <div>
                 <label>December 31:</label>
-                <FdsDatoVaelger v-model="selectedDate" id="dec-date" />
+                <FdsDatoVaelger id="dec-date" v-model="selectedDate" />
                 <span>Try: 2024-12-31</span>
               </div>
               <div>
                 <label>November 30:</label>
-                <FdsDatoVaelger v-model="selectedDate" id="nov-date" />
+                <FdsDatoVaelger id="nov-date" v-model="selectedDate" />
                 <span>Try: 2024-11-30</span>
               </div>
             </div>
@@ -152,17 +152,17 @@ const handlePlaygroundDirty = (isDirty: boolean) => {
             <div>
               <div>
                 <label>Invalid February 30:</label>
-                <FdsDatoVaelger v-model="selectedDate" id="invalid-feb" />
+                <FdsDatoVaelger id="invalid-feb" v-model="selectedDate" />
                 <span>Try: 2024-02-30</span>
               </div>
               <div>
                 <label>Invalid November 31:</label>
-                <FdsDatoVaelger v-model="selectedDate" id="invalid-nov" />
+                <FdsDatoVaelger id="invalid-nov" v-model="selectedDate" />
                 <span>Try: 2024-11-31</span>
               </div>
               <div>
                 <label>Non-leap Year February 29:</label>
-                <FdsDatoVaelger v-model="selectedDate" id="invalid-leap" />
+                <FdsDatoVaelger id="invalid-leap" v-model="selectedDate" />
                 <span>Try: 2023-02-29</span>
               </div>
             </div>

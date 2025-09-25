@@ -7,10 +7,10 @@
     <button
       type="button"
       class="theme-toggle"
-      @click="toggle"
       aria-label="Change theme"
       :aria-expanded="isOpen.toString()"
       aria-haspopup="true"
+      @click="toggle"
     >
       <span class="theme-toggle__icon" aria-hidden="true">
         <span class="theme-dot theme-dot--default"></span>
@@ -30,12 +30,12 @@
               :class="{ 'is-active': theme === themeOption.value }"
               role="option"
               :aria-selected="(theme === themeOption.value).toString()"
-              @click="changeTheme(themeOption.value)"
               :style="{
                 '--option-swatch': themeOption.palette.swatch,
                 '--option-accent': themeOption.palette.accent,
                 '--option-text': themeOption.palette.text,
               }"
+              @click="changeTheme(themeOption.value)"
             >
               <span class="theme-option__swatch" aria-hidden="true"></span>
               <span class="theme-option__label">{{ themeOption.label }}</span>

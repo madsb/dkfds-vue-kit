@@ -5,7 +5,6 @@ import { FdsToggleSwitch } from '@madsb/dkfds-vue-kit'
 // Demo state
 const basicToggle = ref(false)
 const customToggle = ref(true)
-const disabledToggle = ref(false)
 const notificationsToggle = ref(true)
 const darkModeToggle = ref(false)
 const emailToggle = ref(false)

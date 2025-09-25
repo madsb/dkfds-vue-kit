@@ -13,13 +13,9 @@ const showStackedToasts = ref(false)
 const stackedToastCount = ref(0)
 
 // useToast for programmatic control
-const { showInfo, showSuccess, showWarning, showError, clearAllToasts } = useToast()
+const { showInfo, showSuccess, clearAllToasts } = useToast()
 
 // Event handlers
-const handleShowBasic = () => {
-  showBasicToast.value = true
-}
-
 const handleShowSuccess = () => {
   showSuccessToast.value = true
 }

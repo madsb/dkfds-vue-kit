@@ -159,16 +159,16 @@ pnpm install
 # Build the library
 pnpm run build
 
-# Run demo site
-pnpm run dev
+# Run documentation site
+pnpm run docs:dev
 ```
 
 ### Scripts
 
 ```bash
 # Development
-pnpm run dev              # Run demo site
 pnpm run build            # Build library
+pnpm run docs:dev         # Run documentation site
 pnpm run test             # Run tests
 pnpm run typecheck        # Check TypeScript types
 pnpm run lint             # Lint code
@@ -196,8 +196,6 @@ src/
 ├── types/               # TypeScript type definitions
 └── index.ts             # Main entry point
 
-examples/
-└── demo/                # Demo application showcasing components
 ```
 
 ## 🎯 Available Components
@@ -211,7 +209,6 @@ examples/
 - **Data Display**: `FdsAccordion`, `FdsCard`, `FdsList`, `FdsTable`
 - **Layout**: `FdsButton`, `FdsIkon`, `FdsCookiemeddelelse`
 
-See the [demo site](examples/demo/) for complete component examples.
 
 ## 🧪 Testing
 

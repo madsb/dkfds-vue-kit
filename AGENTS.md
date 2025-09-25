@@ -2,11 +2,11 @@
 
 ## Project Structure & Module Organization
 
-The library lives in `src`, with Vue components under `src/components`, typed utilities in `src/utils`, and shared composables within `src/composables`. Unit tests sit in `src/__tests__/components/*.test.ts`, while reusable fixtures and render helpers live in `test-shared`. `examples/demo` contains the Vite sandbox targeted by `pnpm dev`, and `documentation` powers the docs site. Build artefacts land in `dist/`; don’t edit them manually. CLI helpers in `scripts/` support publishing.
+The library lives in `src`, with Vue components under `src/components`, typed utilities in `src/utils`, and shared composables within `src/composables`. Unit tests sit in `src/__tests__/components/*.test.ts`, while reusable fixtures and render helpers live in `test-shared`. `documentation` powers the docs site. Build artefacts land in `dist/`; don’t edit them manually. CLI helpers in `scripts/` support publishing.
 
 ## Build, Test, and Development Commands
 
-Use pnpm throughout the workspace. `pnpm install` bootstraps dependencies. `pnpm dev` runs the demo sandbox locally for component smoke testing. `pnpm build` executes the library build then emits TypeScript declarations. `pnpm docs:dev` starts the documentation site. Run `pnpm lint` or `pnpm lint:fix` before commits, and `pnpm format` to apply Prettier across `src`, `examples`, and `documentation`.
+Use pnpm throughout the workspace. `pnpm install` bootstraps dependencies. `pnpm build` executes the library build then emits TypeScript declarations. `pnpm docs:dev` starts the documentation site used for component smoke testing. Run `pnpm lint` or `pnpm lint:fix` before commits, and `pnpm format` to apply Prettier across `src` and `documentation`.
 
 ## Coding Style & Naming Conventions
 

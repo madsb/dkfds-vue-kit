@@ -17,7 +17,6 @@ export default defineConfig({
         '**/mockData.ts',
         '**/__tests__/**',
         '**/test-shared/**',
-        'examples/**',
         '**/scripts/**',
         '**/index.ts',
       ],

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { FdsPaginering } from '@madsb/dkfds-vue-kit'
 
 // Demo data for internal pagination

@@ -4,7 +4,6 @@ import { FdsTilTop } from '@madsb/dkfds-vue-kit'
 
 // Demo state for scroll simulation
 const scrollCount = ref(0)
-const customThreshold = ref(800)
 
 // Simulate scroll to demonstrate visibility
 const simulateScroll = () => {

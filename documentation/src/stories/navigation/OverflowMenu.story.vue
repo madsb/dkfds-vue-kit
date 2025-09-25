@@ -8,13 +8,6 @@ const handleAction = (action: string) => {
   actionCount.value++
   console.log(`Action performed: ${action}`)
 }
-
-const menuItems = ref([
-  { id: 'edit', title: 'Rediger', icon: 'edit' },
-  { id: 'copy', title: 'Kopier', icon: 'copy' },
-  { id: 'share', title: 'Del', icon: 'share' },
-  { id: 'delete', title: 'Slet', icon: 'delete' },
-])
 </script>
 
 <template>
@@ -158,8 +151,8 @@ const menuItems = ref([
       <div class="container py-6">
         <div>
           <FdsOverflowMenu
-            header="Tastatur navigering"
             id="keyboard-menu"
+            header="Tastatur navigering"
             @open="handleAction('keyboard-menu-opened')"
             @close="handleAction('keyboard-menu-closed')"
           >
